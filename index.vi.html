@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><!-- i18n:switcher --><style data-i18n-sw>.i18n-pick{display:inline-flex;align-items:center;gap:4px;margin:0 8px;font:inherit;font-size:13px;white-space:nowrap}.i18n-pick select{font:inherit;font-size:13px;padding:3px 6px;border-radius:8px;border:1px solid var(--rule,rgba(128,128,128,.5));background:var(--panel,Canvas);color:var(--text,CanvasText)}.i18n-pick.float{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));right:max(8px,env(safe-area-inset-right,0px));z-index:9998}#i18nBanner{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;font:14px/1.3 var(--font,system-ui,sans-serif)}#i18nBanner>button{border-radius:999px;padding:9px 14px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);color:var(--text,#eceaf3);box-shadow:0 4px 14px rgba(0,0,0,.35);cursor:pointer;font:inherit}#i18nBanner ul{position:absolute;right:0;bottom:calc(100% + 8px);margin:0;padding:6px;list-style:none;min-width:150px;border-radius:12px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);box-shadow:0 8px 24px rgba(0,0,0,.4)}#i18nBanner ul[hidden]{display:none}#i18nBanner a{display:block;padding:7px 10px;border-radius:8px;color:var(--text,#eceaf3);text-decoration:none}#i18nBanner a:hover,#i18nBanner a:focus-visible{background:var(--panel2,#25283a)}#i18nBanner a[aria-current]{color:var(--amber,#f1b646);font-weight:700}@media print{#i18nBanner,.i18n-pick{display:none!important}}</style><script data-i18n-skip>(function(){var C={"langs": [["ko", "한국어"], ["en", "English"], ["zh", "中文"], ["ja", "日本語"], ["uz", "Oʻzbekcha"], ["ru", "Русский"], ["vi", "Tiếng Việt"]], "urls": {"ko": "index.html", "en": "index.en.html", "zh": "index.zh.html", "ja": "index.ja.html", "uz": "index.uz.html", "ru": "index.ru.html", "vi": "index.vi.html"}, "cur": "vi", "auto": true, "key": "nn_atlas_lang", "hosts": [["nav.top .logo", "after"], ["nav.top .wrap", "append"], ["nav", "append"]], "banner": true, "select": true},cur=C.cur,ok={},de=document.documentElement;C.langs.forEach(function(l){ok[l[0]]=1});
+function U(l){return C.urls[l]}
+function save(l){try{localStorage.setItem(C.key,l)}catch(e){}}
+function saved(){try{return localStorage.getItem(C.key)}catch(e){return null}}
+function go(l){location.replace(U(l)+'?lang='+l+location.hash)}
+var shown=function(){de.style.visibility=''};
+function tryGo(l){if(location.protocol==='file:'){go(l);return}
+ de.style.visibility='hidden';var t=setTimeout(shown,2500);
+ try{fetch(U(l),{method:'HEAD',cache:'no-store'}).then(function(r){if(r.ok)go(l);else{clearTimeout(t);shown()}},function(){clearTimeout(t);shown()})}catch(e){clearTimeout(t);shown()}}
+var q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q&&ok[q]){save(q);if(q!==cur){tryGo(q);}}
+else if(cur==='ko'&&C.auto){var s=saved(),to=null;
+ if(s&&ok[s]){if(s!=='ko')to=s;}
+ else if(location.protocol!=='file:'){var same=false;try{same=!!document.referrer&&new URL(document.referrer).origin===location.origin}catch(e){}
+  if(!same){var nav=(navigator.languages||[navigator.language||'']).map(function(x){return String(x).slice(0,2).toLowerCase()});
+   for(var i=0;i<nav.length;i++){if(nav[i]==='ko')break;if(ok[nav[i]]){to=nav[i];break;}}}}
+ if(to)tryGo(to);}
+function pick(l){save(l);location.href=U(l)+'?lang='+l+location.hash;}
+function name(l){for(var i=0;i<C.langs.length;i++)if(C.langs[i][0]===l)return C.langs[i][1];return l}
+function mount(){if(document.getElementById('i18nSel'))return;
+ if(C.select){var w=document.createElement('span');w.className='i18n-pick';w.innerHTML='<span aria-hidden="true">🌐</span>';
+  var s=document.createElement('select');s.id='i18nSel';s.setAttribute('aria-label','Language');
+  C.langs.forEach(function(l){var o=document.createElement('option');o.value=l[0];o.textContent=l[1];if(l[0]===cur)o.selected=true;s.appendChild(o);});
+  s.addEventListener('change',function(){pick(s.value)});w.appendChild(s);var put=false;
+  for(var i=0;i<C.hosts.length&&!put;i++){var h=document.querySelector(C.hosts[i][0]);if(!h)continue;var m=C.hosts[i][1];
+   if(m==='after')h.insertAdjacentElement('afterend',w);else if(m==='before')h.insertAdjacentElement('beforebegin',w);else h.appendChild(w);put=true;}
+  if(!put){w.classList.add('float');document.body.appendChild(w);}}
+ if(C.banner&&!document.getElementById('i18nBanner')){var b=document.createElement('div');b.id='i18nBanner';
+  var bt=document.createElement('button');bt.type='button';bt.setAttribute('aria-haspopup','true');bt.setAttribute('aria-expanded','false');bt.textContent='🌐 '+name(cur);
+  var ul=document.createElement('ul');ul.hidden=true;ul.setAttribute('role','menu');
+  C.langs.forEach(function(l){var li=document.createElement('li'),a=document.createElement('a');a.href=U(l[0])+'?lang='+l[0];a.textContent=l[1];a.lang=l[0];a.setAttribute('role','menuitem');
+   if(l[0]===cur)a.setAttribute('aria-current','true');a.addEventListener('click',function(e){e.preventDefault();pick(l[0])});li.appendChild(a);ul.appendChild(li);});
+  function close(){ul.hidden=true;bt.setAttribute('aria-expanded','false')}
+  bt.addEventListener('click',function(e){e.stopPropagation();ul.hidden=!ul.hidden;bt.setAttribute('aria-expanded',String(!ul.hidden))});
+  document.addEventListener('click',function(e){if(!b.contains(e.target))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();bt.focus&&!ul.hidden&&bt.focus()}});
+  b.appendChild(ul);b.appendChild(bt);document.body.appendChild(b);}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();})();</script><!-- /i18n:switcher -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bách khoa cấu trúc mạng nơ-ron · Đại chiến robot ruồi giấm</title>
+<meta name="description" content="Tổng hợp 42 mạng nơ-ron thành bách khoa cấu trúc, rồi so sánh thông số và hiệu năng khi cấy vào bộ não của một robot cỡ ruồi giấm qua các trận đối đầu kiểu RPG, trong bản giải thích 4 trang.">
+<meta name="dc.title" content="Bách khoa cấu trúc mạng nơ-ron · Đại chiến robot ruồi giấm"><meta name="dc.creator" content="Ahn Sangsun (Giám đốc điều hành M-Robo)"><meta name="dc.language" content="ko">
+<style>
+/* 밤의 연구실 + 형광 현미경 (ai-lab-explainer 8장). 강조색: 로봇 전투용 금빛 하나 */
+:root{
+  --bg:#13141f; --panel:#1c1e2d; --panel2:#25283a; --rule:#363a52;
+  --text:#eceaf3; --muted:#9d9bb8;
+  --stain:#d672d6; --gfp:#5ee39c; --eye:#f0604d; --amber:#f1b646; --info:#82b8ff;
+  --c-doc:#b07cff; --c-asst:#ff86b8; --c-fly:#ef5b5b; --c-robo:#57d0dc;
+  --accent:#f1c84a;
+  --font:"IBM Plex Sans","IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:64px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.7;word-break:keep-all;overflow-x:hidden}
+h1,h2,h3,h4{line-height:1.3;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,5vw,56px);font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(24px,3vw,34px);font-weight:700}
+h3{font-size:19px;font-weight:700}
+p{margin:0}
+a{color:var(--info)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-variant-numeric:tabular-nums}
+
+/* nav */
+#prog{position:fixed;left:0;top:0;height:3px;width:0;background:var(--gfp);z-index:60}
+nav.top{position:sticky;top:0;z-index:50;height:54px;background:rgba(19,20,31,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+nav.top .wrap{display:flex;align-items:center;gap:14px;height:54px}
+nav.top .logo{font-weight:700;white-space:nowrap;font-size:14px;color:var(--text);text-decoration:none}
+@media(max-width:560px){nav.top .logo{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}nav.top .wrap{gap:8px}.i18n-pick{margin:0 2px;flex:none}}nav.top .logo b{color:var(--accent)}
+nav.top .links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+nav.top .links::-webkit-scrollbar{display:none}
+nav.top .links a{flex:none;font-size:13px;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px}
+nav.top .links a:hover{background:var(--panel2);color:var(--text)}
+
+/* cover */
+.cover{position:relative;margin:0;background:linear-gradient(160deg,#1b1533,#13141f 70%);overflow:hidden;border-bottom:1px solid var(--rule)}
+.cover .fallback{position:relative;height:clamp(220px,34vw,48vh);display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,2vw,40px);padding:24px 16px 52px;
+  background-image:radial-gradient(circle at 70% 30%,rgba(214,114,214,.18),transparent 55%),radial-gradient(circle at 30% 80%,rgba(94,227,156,.12),transparent 50%)}
+.cover .fallback img{width:clamp(52px,17vw,168px);min-width:0;height:auto;image-rendering:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5))}
+.cover .fallback .vs{align-self:center;font-weight:700;font-size:clamp(20px,4vw,40px);color:var(--accent);letter-spacing:.06em}
+.cover-chip{position:absolute;left:16px;bottom:12px;padding:4px 12px;border-radius:999px;background:rgba(19,20,31,.78);color:var(--text);font-size:13px;border:1px solid var(--rule)}
+.honey{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(circle,rgba(157,155,184,.14) 1.4px,transparent 1.6px);background-size:18px 16px;
+  -webkit-mask-image:radial-gradient(circle at 85% 20%,#000,transparent 60%);mask-image:radial-gradient(circle at 85% 20%,#000,transparent 60%)}
+
+/* hero */
+header.hero{position:relative;overflow:hidden;padding-block:56px 40px}
+header.hero .pixelart{position:absolute;right:max(0px,calc((100vw - 1180px)/2 - 20px));top:30px;width:420px;height:420px;opacity:.9;pointer-events:none;image-rendering:pixelated}
+.hero-text{position:relative;max-width:720px;display:grid;gap:14px}
+.eyebrow{font-size:13px;letter-spacing:.08em;color:var(--accent);font-weight:700}
+.question{font-size:clamp(18px,2.2vw,22px);color:var(--gfp);font-weight:500}
+.lede{color:var(--muted);max-width:64ch}
+.byline{font-size:13px;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:22px}
+.kpi{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;min-width:0}
+.kpi b{display:block;font-size:22px;font-variant-numeric:tabular-nums;line-height:1.2}
+.kpi span{font-size:12.5px;color:var(--muted)}
+.kpi.g b{color:var(--gfp)}.kpi.m b{color:var(--stain)}.kpi.r b{color:var(--eye)}.kpi.a b{color:var(--amber)}
+.kpi sup{color:var(--amber);font-size:10px}
+.dialog{margin-top:24px;display:grid;gap:10px;max-width:760px}
+
+/* sections */
+section.level{padding-block:56px;border-top:1px solid var(--rule)}
+.sec-sub{color:var(--muted);max-width:70ch;margin-top:8px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.steps>div{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:18px;min-width:0}
+.steps h3{font-size:17px;margin-bottom:6px}
+.steps p{color:var(--muted);font-size:15px}
+.cast{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.cast>div{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center;min-width:0}
+.cast img{width:72px;height:72px;flex:none}
+.cast b{display:block}
+.cast p{font-size:14px;color:var(--muted)}
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:6px 14px;font-size:13.5px;margin-top:16px}
+.legend div{display:flex;align-items:center;gap:8px}
+.callout{background:rgba(241,182,70,.08);border:1px solid rgba(241,182,70,.35);border-radius:12px;padding:18px 20px;margin-top:22px}
+.callout h3{color:var(--amber);margin-bottom:8px}
+.callout p+p{margin-top:8px}
+.statmap{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}
+.statmap>div{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:12px;min-width:0}
+.statmap b{color:var(--accent);font-size:13px;letter-spacing:.06em}
+.statmap p{font-size:14px;margin-top:4px}
+.statmap small{color:var(--muted);font-size:12.5px;display:block;margin-top:4px}
+.enemies{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.enemies>div{background:var(--panel2);border-radius:10px;padding:10px 12px;font-size:14px;display:flex;gap:10px;align-items:center;min-width:0}
+.enemies canvas{width:44px;height:44px;flex:none}
+.enemies small{display:block;color:var(--muted);font-size:12.5px}
+
+.lvhead{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.hexno{width:58px;height:64px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--stain);color:#13141f;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;font-size:22px;line-height:1;flex:none}
+.hexno small{font-size:10px;margin-top:3px}
+.lvhead .sub{display:flex;gap:6px;flex-wrap:wrap;width:100%}
+.lvtag{font-size:12.5px;padding:3px 10px;border-radius:999px;border:1px solid var(--rule);color:var(--muted)}
+.lvtag.g{color:var(--gfp);border-color:rgba(94,227,156,.4)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.pair>div{background:var(--panel);border-radius:12px;padding:16px 18px;border:1px solid var(--rule);min-width:0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;margin-bottom:8px}
+.tag.fly{background:rgba(240,96,77,.15);color:var(--eye)}
+.tag.nn{background:rgba(214,114,214,.15);color:var(--stain)}
+.pair .lim{font-size:13.5px;color:var(--muted);margin-top:8px}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:16px;margin-top:18px}
+.panel h3{font-size:15px;color:var(--info);margin-bottom:10px}
+.ctrl{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.group{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.glabel{font-size:12.5px;color:var(--muted);margin-right:4px}
+.bt{font:inherit;font-size:13.5px;background:var(--panel2);color:var(--text);border:1px solid var(--rule);border-radius:8px;padding:6px 12px;cursor:pointer}
+.bt:hover{border-color:var(--muted)}
+.bt[aria-pressed="true"],.bt.on{background:rgba(94,227,156,.16);border-color:var(--gfp);color:var(--gfp)}
+.bt.primary{background:var(--gfp);color:#13141f;border-color:var(--gfp);font-weight:700}
+.cwrap{overflow-x:auto;border-radius:10px;background:#15172a}
+.cwrap canvas{display:block;width:100%}
+.insight{margin-top:10px;font-size:14.5px}
+.insight p{padding-left:12px;border-left:3px solid var(--gfp)}
+.explain{background:rgba(241,182,70,.07);border:1px solid rgba(241,182,70,.3);border-radius:12px;padding:16px 18px;margin-top:18px}
+.explain h4{color:var(--amber);margin-bottom:6px;font-size:16px}
+.bridge{border-radius:12px;padding:14px 18px;margin-top:14px;font-size:15px}
+.bridge.gen{background:rgba(130,184,255,.08);border:1px solid rgba(130,184,255,.3)}
+.bridge.field{background:rgba(240,96,77,.07);border:1px solid rgba(240,96,77,.3)}
+.bridge b{display:block;margin-bottom:4px}
+.bridge.gen b{color:var(--info)} .bridge.field b{color:var(--eye)}
+.bridge .lim{color:var(--muted);font-size:13.5px;margin-top:6px}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;margin-top:20px}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;min-width:0;position:relative}
+.card.special{grid-column:1/-1;border-color:var(--c-fly);box-shadow:0 0 0 1px rgba(239,91,91,.35),0 0 32px rgba(239,91,91,.12)}
+.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.card h3{font-size:17px}
+.abbr{font-size:12px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:11.5px;font-weight:700;padding:1px 8px;border-radius:999px}
+.badge.new{background:rgba(94,227,156,.15);color:var(--gfp)}
+.badge.orig{background:var(--panel2);color:var(--muted)}
+.badge.sp{background:rgba(239,91,91,.18);color:var(--c-fly)}
+.fig{background:#15172a;border-radius:10px;padding:10px;overflow-x:auto;display:flex;justify-content:center}
+.fig svg{display:block;max-width:100%;height:auto}
+.card p{font-size:14.5px}
+.an{font-size:14px;color:var(--muted)}
+.an b{font-size:11.5px;color:var(--eye);margin-right:6px;font-weight:700}
+.an b.life{color:var(--info)}
+.uses{font-size:14px}
+.uses b{font-size:11.5px;color:var(--muted);margin-right:6px}
+.hidden-diff{font-size:13px;background:rgba(241,182,70,.1);border-radius:8px;padding:6px 10px}
+.hidden-diff b{color:var(--amber)}
+.spec{background:var(--panel2);border-radius:10px;padding:10px 12px;display:grid;gap:4px;margin-top:auto}
+.spec-h{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);margin-bottom:2px}
+.spec-h .grade{font-weight:700;color:var(--accent);font-size:13px}
+.srow{display:grid;grid-template-columns:44px 1fr 22px;align-items:center;gap:8px;font-size:12px}
+.srow label{color:var(--muted);font-weight:700;letter-spacing:.04em}
+.track{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.track i{height:7px;border-radius:2px;background:#363a52}
+.track i.on{background:var(--accent)}
+.srow em{font-style:normal;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.battle{border:1px dashed var(--rule);border-radius:10px;padding:10px 12px;font-size:13.5px;display:grid;gap:4px}
+.battle .mv{font-weight:700;color:var(--accent)}
+.battle .ln{color:var(--text)}
+.battle .ln::before{content:"Nhà nghiên cứu Ruồi giấm · ";color:var(--c-fly);font-size:12px}
+.battle .res{color:var(--muted);font-variant-numeric:tabular-nums}
+.battle .res b.win{color:var(--gfp)} .battle .res b.lose{color:var(--eye)}
+.badge.core{background:rgba(241,200,74,.16);color:var(--accent)}
+.srow{grid-template-columns:58px 1fr 22px}
+.srow label small{display:inline-block;margin-left:4px;font-size:9.5px;font-weight:500;color:var(--muted);letter-spacing:0}
+.track i.on.rule{background:var(--info)}
+.basis{font-size:12.5px;color:var(--muted);margin-top:4px}
+.basis b{color:var(--info);font-size:11.5px;margin-right:4px}
+table.mini{border-collapse:collapse;width:100%;font-size:12px;margin-top:4px;font-variant-numeric:tabular-nums}
+table.mini th,table.mini td{border:1px solid var(--rule);padding:3px 5px;text-align:center;font-weight:500}
+table.mini thead th{color:var(--muted);font-size:11px}
+table.mini tbody th{text-align:left;color:var(--muted);font-size:11px;max-width:120px}
+td.w{color:var(--gfp)!important;font-weight:700} td.x{color:var(--eye)!important}
+tr.ex td{opacity:.7}
+details.dex{margin-top:16px;border:1px dashed var(--rule);border-radius:12px;padding:10px 14px;background:rgba(28,30,45,.5)}
+details.dex summary{cursor:pointer;font-weight:700;color:var(--accent)}
+details.dex[open] summary{margin-bottom:4px}
+.lab{display:grid;grid-template-columns:320px 1fr;gap:16px}
+.lab>*{min-width:0}
+.lab select{font:inherit;background:var(--panel2);color:var(--text);border:1px solid var(--rule);border-radius:8px;padding:6px 10px;width:100%}
+.sl{display:grid;grid-template-columns:70px 1fr 96px;gap:8px;align-items:center;font-size:13.5px;margin-top:8px}
+.sl input{width:100%;accent-color:var(--accent)}
+.sl span{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12.5px}
+#duelLadder{font-size:14px;margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#duelLadder span{padding:3px 10px;border-radius:999px;background:var(--panel2)}
+#duelLadder span.lf{color:var(--c-fly)} #duelLadder span.lr{color:var(--c-robo)}
+.rules{margin-top:14px}
+.rules td:first-child{white-space:nowrap;font-weight:700;color:var(--info)}
+@media (max-width:760px){.lab{grid-template-columns:1fr}}
+.card .bt.fight{align-self:flex-start;background:rgba(241,200,74,.14);border-color:rgba(241,200,74,.6);color:var(--accent);font-weight:700}
+
+/* say */
+.say{display:flex;gap:12px;align-items:flex-start;margin-top:18px;max-width:760px}
+.say img.who{width:64px;height:64px;flex:none;border-radius:12px;background:var(--panel2);border:2px solid var(--rule);object-fit:contain}
+.say>div{background:var(--panel);border:2px solid var(--rule);border-radius:14px;padding:10px 14px;min-width:0}
+.say .name{font-size:13px;display:block}
+.say[data-who=doc] img.who,.say[data-who=doc]>div{border-color:var(--c-doc)} .say[data-who=doc] .name{color:var(--c-doc)}
+.say[data-who=asst] img.who,.say[data-who=asst]>div{border-color:var(--c-asst)} .say[data-who=asst] .name{color:var(--c-asst)}
+.say[data-who=fly] img.who,.say[data-who=fly]>div{border-color:var(--c-fly)} .say[data-who=fly] .name{color:var(--c-fly)}
+.say[data-who=robo] img.who,.say[data-who=robo]>div{border-color:var(--c-robo)} .say[data-who=robo] .name{color:var(--c-robo)}
+.dialog .say{margin-top:0}
+
+/* quiz */
+.quiz{margin-top:20px;display:grid;gap:12px}
+.qi{background:var(--panel);border:1px solid rgba(130,184,255,.3);border-radius:12px;padding:14px 16px}
+.qi .q{font-weight:500;margin-bottom:8px}
+.qi .q::before{content:"Câu đố kiểm tra ";color:var(--info);font-size:12px;font-weight:700}
+.qi .opts{display:flex;flex-wrap:wrap;gap:6px}
+.qi .fb{margin-top:8px;font-size:14px;min-height:1em}
+.qi .fb.ok{color:var(--gfp)} .qi .fb.no{color:var(--amber)}
+.qi .bt.right{border-color:var(--gfp);color:var(--gfp)} .qi .bt.wrong{border-color:var(--eye);color:var(--eye)}
+
+/* duel */
+.duel-head{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:20px}
+.duel-head .side{display:flex;align-items:center;gap:12px;background:var(--panel);border-radius:14px;padding:12px;min-width:0}
+.duel-head .side.r{flex-direction:row-reverse;text-align:right}
+.duel-head img{width:96px;height:96px;flex:none}
+.duel-head .side.r img{transform:scaleX(-1)}
+.duel-head .vs{font-size:34px;font-weight:700;color:var(--accent)}
+.duel-head .side.fly{border:2px solid var(--c-fly)} .duel-head .side.robo{border:2px solid var(--c-robo)}
+.duel-head b{display:block} .duel-head small{color:var(--muted);font-size:13px}
+.bars{display:grid;gap:8px;margin-top:14px}
+.dbar{display:grid;grid-template-columns:110px 1fr 70px;gap:10px;align-items:center;font-size:14px}
+.dbar .t{height:16px;background:var(--panel2);border-radius:4px;overflow:hidden}
+.dbar .t i{display:block;height:100%}
+.dbar em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
+#duel .after{display:none}
+#duel.open .after{display:block}
+.verdict>div{border-color:var(--c-doc)!important}
+.score{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:14px;color:var(--muted)}
+
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:12px;margin-top:16px;background:var(--panel)}
+table.tb{border-collapse:collapse;width:100%;min-width:720px;font-size:14px}
+.tb th,.tb td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+.tb th{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.04em;cursor:default}
+.tb th button{font:inherit;background:none;border:0;color:inherit;cursor:pointer;padding:0}
+.tb tr:last-child td{border-bottom:0}
+.tb td.n{font-variant-numeric:tabular-nums;text-align:right}
+
+/* kg & export */
+.kg-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:16px}
+.kg-tools input{font:inherit;background:var(--panel2);color:var(--text);border:1px solid var(--rule);border-radius:8px;padding:8px 12px;min-width:0;flex:1 1 220px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.kg-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.kg-grid>*{min-width:0}
+.kg-list{max-height:520px;overflow:auto;display:grid;gap:8px;padding-right:4px}
+.kg-item{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:10px 12px;font-size:14px}
+.kg-item.hl{border-color:var(--accent)}
+.kg-item .ty{font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--panel2);color:var(--muted);margin-left:6px}
+.kg-item p{color:var(--muted);font-size:13.5px;margin-top:2px}
+.kg-item a{font-size:13px}
+.flowchips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px;font-size:13px}
+.flowchips span{padding:3px 10px;border-radius:999px;background:var(--panel2)}
+.flowchips span.l{background:rgba(240,96,77,.12);color:var(--eye)}
+.export-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px}
+.cite{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;margin-top:16px}
+.cite pre{white-space:pre-wrap;word-break:break-all;font-size:13px;background:var(--panel2);border-radius:8px;padding:10px;margin:8px 0 0;font-family:ui-monospace,Menlo,Consolas,monospace}
+.reflist{display:grid;gap:8px;margin-top:12px}
+.ref{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:10px 12px;font-size:14px}
+.ref .rb{font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;margin-right:6px}
+.rb.primary{background:rgba(214,114,214,.16);color:var(--stain)} .rb.background{background:var(--panel2);color:var(--muted)} .rb.data{background:rgba(94,227,156,.14);color:var(--gfp)}
+.rb.ok{background:rgba(94,227,156,.14);color:var(--gfp)} .rb.chk{background:rgba(241,182,70,.14);color:var(--amber)}
+.ref details{margin-top:4px;font-size:13px;color:var(--muted)}
+.filebtns{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.todo{font-size:13.5px;color:var(--muted);margin-top:10px}
+.todo li{margin:2px 0}
+
+footer{border-top:1px solid var(--rule);padding-block:40px 80px;font-size:14px;color:var(--muted)}
+footer h3{color:var(--text);margin:20px 0 8px;font-size:16px}
+footer ul{margin:0;padding-left:20px}
+
+/* gloss */
+.jt{border-bottom:1.5px dotted var(--amber);cursor:help}
+#tip{position:fixed;z-index:80;max-width:300px;background:#25283a;border:1px solid var(--amber);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.55;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+#tip b{color:var(--amber);display:block}
+#tip small{color:var(--muted)}
+#study{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:55;background:rgba(28,30,45,.95);border:1px solid var(--rule);border-radius:999px;padding:6px 8px 6px 14px;font-size:12.5px;display:flex;align-items:center;gap:8px;color:var(--muted)}
+#study .bt{padding:3px 10px;font-size:12px}
+
+/* arena */
+#arena{position:fixed;inset:0;z-index:90;background:rgba(8,8,16,.82);display:flex;align-items:center;justify-content:center;padding:max(12px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+#arena .box{background:var(--panel);border:1px solid var(--rule);border-radius:16px;width:min(860px,100%);max-height:100%;overflow:auto;padding:16px}
+#arena .ah{display:flex;justify-content:space-between;align-items:center;gap:10px}
+#arena .ah h3{font-size:18px}
+#arena .cwrap canvas{min-width:640px}
+#arena .alog{display:grid;gap:8px;margin-top:10px}
+#arena .say{margin-top:0}
+
+@media (max-width:980px){header.hero .pixelart{opacity:.2}}
+@media (max-width:860px){.kpis{grid-template-columns:repeat(3,1fr)}.cast,.enemies{grid-template-columns:repeat(2,1fr)}.statmap{grid-template-columns:repeat(2,1fr)}.export-kpis{grid-template-columns:repeat(3,1fr)}.steps{grid-template-columns:1fr}}
+@media (max-width:760px){.pair,.kg-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.duel-head{grid-template-columns:1fr}.duel-head .vs{text-align:center}.duel-head .side.r{flex-direction:row;text-align:left}}
+@media (max-width:520px){#study{left:max(12px,env(safe-area-inset-left,0px));justify-content:space-between}.cast{grid-template-columns:1fr}.dbar{grid-template-columns:84px 1fr 56px}}
+@media (max-width:460px){.kpis,.export-kpis,.enemies{grid-template-columns:repeat(2,1fr)}.statmap{grid-template-columns:1fr 1fr}}
+
+/* 4편 개편: 시리즈 띠, 도감 카드, 격납고, 계산 따라 하기 */
+.series{border-bottom:1px solid var(--rule);background:#171826}
+.series .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-block:8px}
+.series .wrap::-webkit-scrollbar{display:none}
+.series a{flex:none;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:10px;border:1px solid transparent}
+.series a b{display:inline-flex;width:22px;height:22px;border-radius:50%;align-items:center;justify-content:center;background:var(--panel2);font-size:11.5px;color:var(--muted)}
+.series a[aria-current="page"]{color:var(--text);border-color:var(--rule);background:var(--panel)}
+.series a[aria-current="page"] b{background:var(--accent);color:#13141f}
+.series .sep{flex:none;align-self:center;color:var(--rule);font-size:12px}
+.cover.has-img .cover-in{display:flex;justify-content:center;padding:clamp(16px,3vw,32px) max(16px,env(safe-area-inset-right,0px)) 52px max(16px,env(safe-area-inset-left,0px))}
+.cover-img{display:block;width:min(600px,100%,64vh);height:auto;aspect-ratio:1/1;border-radius:16px;border:1px solid var(--rule);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.pages{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px}
+.pcard{display:grid;grid-template-columns:160px 1fr;gap:16px;background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:14px;text-decoration:none;color:var(--text);min-width:0}
+.pcard:hover{border-color:var(--muted)}
+.pcard .thumb{width:160px;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:linear-gradient(160deg,#1b1533,#13141f);display:flex;align-items:center;justify-content:center;position:relative}
+.pcard .thumb img{width:100%;height:100%;object-fit:cover}
+.pcard .thumb .n{position:absolute;left:8px;top:6px;font-weight:700;font-size:22px;color:var(--accent)}
+.pcard .thumb img.sp{width:62%;height:auto;object-fit:contain}
+.pcard h3{font-size:18px}
+.pcard p{font-size:14.5px;color:var(--muted);margin-top:6px}
+.pcard .go{display:inline-block;margin-top:10px;color:var(--accent);font-weight:700;font-size:14px}
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.paths>div{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;min-width:0}
+.paths b{color:var(--accent)}
+@media (max-width:860px){.pages,.paths{grid-template-columns:1fr}}
+@media (max-width:460px){.pcard{grid-template-columns:96px 1fr}.pcard .thumb{width:96px}}
+.part{font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+.hero h1 small{display:block;font-size:.5em;font-weight:500;color:var(--muted);margin-top:6px;letter-spacing:0}
+.toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:18px}
+.toc a{display:block;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--text);font-size:14.5px}
+.toc a small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+.toc a:hover{border-color:var(--muted)}
+.acard{gap:12px}
+.goals{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:12px 16px;max-width:720px;font-size:14.5px}
+.goals b{color:var(--accent);font-size:13px}
+.goals ol{margin:6px 0 6px;padding-left:20px}
+.goals span{font-size:12.5px;color:var(--muted)}
+.finder{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:16px}
+.finder input,.hg-side input{font:inherit;background:var(--panel2);color:var(--text);border:1px solid var(--rule);border-radius:8px;padding:8px 12px;flex:1 1 240px;min-width:0}
+.finder span{font-size:13px;color:var(--muted)}
+.hg-side{display:grid;gap:8px;align-content:start;position:sticky;top:64px}
+.hg-side .hg-list{position:static}
+.hg-b[hidden]{display:none!important}
+details.pro{margin-top:10px;border:1px dashed var(--rule);border-radius:12px;padding:10px 14px}
+details.pro>summary{cursor:pointer;font-weight:700;color:var(--info)}
+details.pro[open]>summary{margin-bottom:10px}
+.chk-b{background:rgba(241,182,70,.14);color:var(--amber);font-size:11.5px;vertical-align:3px;margin-left:6px}
+.checklist{display:grid;gap:6px;padding-left:22px;margin:10px 0 0;font-size:14.5px}
+.checklist b{color:var(--accent);margin-right:6px}
+select.sel{font:inherit;background:var(--panel2);color:var(--text);border:1px solid var(--rule);border-radius:8px;padding:5px 8px}
+.fl{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.fl a{font-size:13.5px;padding:4px 10px;border-radius:999px;background:var(--panel2);color:var(--text);text-decoration:none;border:1px solid var(--rule)}
+.fl a.ok{border-color:rgba(94,227,156,.6);color:var(--gfp)}
+.fig{position:relative}
+.selfdraw{position:absolute;right:6px;top:6px;font-size:10.5px;font-weight:700;color:var(--amber);background:rgba(241,182,70,.12);border:1px solid rgba(241,182,70,.5);border-radius:999px;padding:1px 8px}
+.bridge .flowchips{margin-top:8px}
+.card h3 .en,.hg-detail h3 .en{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-top:2px}
+.tb .en{font-size:12px;color:var(--muted)}
+.acard .what{font-size:15px}
+dl.gb{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0}
+dl.gb div{background:var(--panel2);border-radius:10px;padding:8px 10px;min-width:0}
+dl.gb dt{font-size:11.5px;font-weight:700;color:var(--muted);margin-bottom:2px}
+dl.gb dd{margin:0;font-size:13.5px}
+.mini3{border-top:1px dashed var(--rule);padding-top:10px;margin-top:auto;display:grid;gap:4px}
+.mini3 .srow{grid-template-columns:84px 1fr 18px}
+.mini3 .srow label{font-weight:500;letter-spacing:0}
+.tolink{font-size:13.5px;color:var(--accent);text-decoration:none;font-weight:700}
+.tolink:hover{text-decoration:underline}
+.lim1{margin-top:18px;font-size:15px;color:var(--muted);border-left:3px solid var(--amber);padding:4px 0 4px 12px}
+.lim1 b{color:var(--amber)}
+.pair.slim{margin-top:16px}
+.pair.slim>div{padding:14px 16px}
+.pair.slim p{font-size:14.5px}
+/* 격납고 */
+.hg{display:grid;grid-template-columns:260px 1fr;gap:16px;margin-top:20px;align-items:start}
+.hg>*{min-width:0}
+.hg-list{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:10px;max-height:820px;overflow:auto;position:sticky;top:64px}
+.hg-g+.hg-g{margin-top:10px}
+.hg-g h4{font-size:12px;color:var(--muted);margin:4px 6px 6px;letter-spacing:.04em}
+.hg-b{font:inherit;display:grid;grid-template-columns:auto 1fr auto;gap:2px 8px;align-items:baseline;width:100%;text-align:left;background:none;border:1px solid transparent;border-radius:8px;padding:6px 8px;color:var(--muted);cursor:pointer}
+.hg-b span{font-weight:700;font-size:13.5px;color:var(--text)}
+.hg-b small{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hg-b i{font-style:normal;font-size:11.5px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.hg-b i.w{color:var(--gfp)} .hg-b i.x{color:var(--eye)} .hg-b i.ex{color:var(--c-fly)}
+.hg-b.core span::after{content:" ●";color:var(--accent);font-size:9px;vertical-align:2px}
+.hg-b:hover{background:var(--panel2)}
+.hg-b[aria-pressed="true"]{background:rgba(241,200,74,.12);border-color:rgba(241,200,74,.55)}
+.hg-detail{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;display:grid;gap:14px}
+.hg-detail .badges{align-items:center}
+.hg-detail .badges .tolink{margin-left:auto}
+.hg-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:14px}
+.hg-top>*{min-width:0}
+.hg-spec{background:var(--panel2);border-radius:10px;padding:10px 12px;display:grid;gap:4px}
+.hg-move{display:grid;gap:2px;font-size:14px}
+.hg-move .mv{font-weight:700;color:var(--accent);font-size:16px}
+.hg-move .ln::before{content:"Nhà nghiên cứu Ruồi giấm · ";color:var(--c-fly);font-size:12px}
+.hg-note{font-size:12.5px;color:var(--muted)}
+.steps-ol{list-style:none;margin:0;padding:0;display:grid;gap:6px;counter-reset:st}
+.steps-ol li{display:grid;grid-template-columns:110px 1fr;gap:10px;background:var(--panel2);border-radius:8px;padding:8px 12px;font-size:14.5px;counter-increment:st}
+.steps-ol li b{color:var(--info);font-size:13px}
+.steps-ol li b::before{content:counter(st) ". "}
+.steps-ol li:last-child{background:rgba(94,227,156,.1)}
+.cw{display:grid;grid-template-columns:300px 1fr;gap:16px}
+.cw>*{min-width:0}
+.cw select{font:inherit;background:var(--panel2);color:var(--text);border:1px solid var(--rule);border-radius:8px;padding:6px 10px;width:100%}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.tiers>div{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;min-width:0}
+.tiers b{color:var(--accent)}
+.tiers .big{font-size:22px;font-weight:700;margin:2px 0}
+.tiers small{color:var(--muted);font-size:12.5px;line-height:1.5;display:block}
+@media (max-width:980px){.hg-side{position:static}.hg{grid-template-columns:1fr}.hg-list{position:static;max-height:none;display:flex;gap:8px;overflow-x:auto;padding:8px}.hg-g{flex:none;display:flex;gap:4px;align-items:center}.hg-g+.hg-g{margin-top:0}.hg-g h4{margin:0 4px;white-space:nowrap}.hg-b{width:auto;grid-template-columns:auto auto}.hg-b small{display:none}}
+@media (max-width:760px){.hg-top,.cw{grid-template-columns:1fr}dl.gb{grid-template-columns:1fr}.tiers{grid-template-columns:repeat(2,1fr)}.steps-ol li{grid-template-columns:1fr}}
+</style>
+<link rel="alternate" hreflang="ko" href="index.html"><link rel="alternate" hreflang="en" href="index.en.html"><link rel="alternate" hreflang="zh-CN" href="index.zh.html"><link rel="alternate" hreflang="ja" href="index.ja.html"><link rel="alternate" hreflang="uz" href="index.uz.html"><link rel="alternate" hreflang="ru" href="index.ru.html"><link rel="alternate" hreflang="vi" href="index.vi.html"><link rel="alternate" hreflang="x-default" href="index.html"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap"><style data-i18n-font>body,button,input,select,textarea{font-family:"IBM Plex Sans",system-ui,sans-serif}</style>
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+<nav class="top" aria-label="Chuyển nhanh đến mục"><div class="wrap"><a class="logo" href="#hero">Bách khoa mạng nơ-ron · Đại chiến robot <b>Mục lục</b></a><div class="links"><a href="#pages">Bốn trang</a><a href="#order">Thứ tự đọc</a><a href="#cast">Nhân vật</a><a href="#about">Cần biết</a></div></div></nav>
+<div class="series" aria-label="Chuyển trang"><div class="wrap"><a href="index.html" aria-current="page"><b>≡</b>Mục lục</a><a href="1_neural_network_atlas_chart.html"><b>1</b>Bách khoa ① 27 loại trong biểu đồ</a><a href="2_neural_network_atlas_after.html"><b>2</b>Bách khoa ② 15 loại ra sau</a><span class="sep" aria-hidden="true">|</span><a href="3_fruitfly_robot_rules.html"><b>3</b>Đối đầu ① Quy tắc cấy ghép</a><a href="4_fruitfly_robot_match.html"><b>4</b>Đối đầu ② Trận đấu mạng nơ-ron</a></div></div>
+<!-- lab-cover -->
+<header class="cover sq" id="cover" data-img="cover_00" role="img" aria-label="Phòng thí nghiệm ban đêm: bên trái là giá sách bách khoa mạng nơ-ron, bên phải là nhà chứa máy robot ruồi giấm, bốn nhân vật tụ họp giữa hai không gian trên trang bìa mục lục">
+  <div class="cover-in"><div class="fallback"><div class="honey"></div>
+    <img data-who="fly" data-mood="point" data-img="fly_point" alt="" aria-hidden="true">
+    <img data-who="doc" data-mood="magic" data-img="doc_magic" alt="" aria-hidden="true">
+    
+    <img data-who="asst" data-mood="firm" data-img="asst_firm" alt="" aria-hidden="true">
+    <img data-who="robo" data-mood="coin" data-img="robo_coin" alt="" aria-hidden="true" style="transform:scaleX(-1)">
+  </div></div>
+  <span class="cover-chip">Bách khoa cấu trúc mạng nơ-ron · Đại chiến robot ruồi giấm · Mục lục</span>
+</header>
+<!-- /lab-cover -->
+<header class="hero" id="hero"><div class="wrap">
+  <div class="hero-text">
+    <div class="eyebrow">Mục lục</div>
+    <h1>Bách khoa cấu trúc mạng nơ-ron<small>· Đại chiến robot ruồi giấm</small></h1>
+    <p class="question">Câu hỏi cốt lõi · 42 mạng nơ-ron mỗi loại trông ra sao, và nếu cấy vào robot cỡ ruồi giấm thì ai chiến đấu giỏi nhất?</p>
+    <p class="lede">Chúng ta tổng hợp 42 cấu trúc mạng nơ-ron vẽ bằng vòng tròn và đường nối thành bách khoa, rồi cấy từng loại vào não robot ruồi giấm theo cùng một quy tắc để so tài. Mọi trang đều mở thẳng trên trình duyệt, không cần cài đặt.</p>
+    <p class="byline">Viết bởi Ahn Sangsun (Giám đốc điều hành M-Robo) · 2026-11-01</p>
+  </div>
+  <section class="kpis" aria-label="Tóm tắt bằng số"><div class="kpi m"><b class="num">42</b><span>cấu trúc mạng nơ-ron được vẽ lại</span></div><div class="kpi g"><b class="num">4</b><span>trang (bách khoa 2 + đối đầu 2)</span></div><div class="kpi a"><b class="num">38</b><span>câu đố kiểm tra</span></div><div class="kpi r"><b class="num">0</b><span>thư viện ngoài</span></div></section>
+  <div class="dialog"><div class="say" data-who="doc"><img class="who" data-who="doc" data-mood="front" data-img="doc_front" alt="" aria-hidden="true"><div><b class="name">Tiến sĩ</b><p>Trước hết xem 42 mạng nơ-ron trong bách khoa, sau đó cấy vào robot ruồi giấm để so tài.</p></div></div><div class="say" data-who="asst"><img class="who" data-who="asst" data-mood="smile" data-img="asst_smile" alt="" aria-hidden="true"><div><b class="name">Trợ lý (Haru)</b><p>Hai trang đầu giải thích cấu trúc, hai trang sau là quy tắc và đối đầu. Đọc theo thứ tự sẽ dễ hơn ạ.</p></div></div><div class="say" data-who="fly"><img class="who" data-who="fly" data-mood="point" data-img="fly_point" alt="" aria-hidden="true"><div><b class="name">Nhà nghiên cứu Ruồi giấm</b><p>Nếu chỉ tò mò cấu trúc thì xem trang 1·2, còn muốn so sánh thì xem từ trang 3·4 cũng được hả?</p></div></div><div class="say" data-who="robo"><img class="who" data-who="robo" data-mood="coin" data-img="robo_coin" alt="" aria-hidden="true"><div><b class="name">Money-Robo</b><p>Tất nhiên. Thời gian là tiền bạc, nên đi thẳng tới nhà chứa máy ở trang 4 cũng được đấy.</p></div></div></div>
+</div></header>
+<section class="level" id="pages"><div class="wrap">
+  <h2>Bốn trang</h2>
+  <div class="pages"><a class="pcard" href="1_neural_network_atlas_chart.html"><div class="thumb"><span class="n">1</span><img class="sp" data-who="doc" data-mood="board" data-img="doc_board" alt="" aria-hidden="true"></div><div><span class="part">Trang 1 · Bách khoa cấu trúc mạng nơ-ron</span><h3>Bách khoa cấu trúc mạng nơ-ron ① <small style="font-weight:500;color:var(--muted)">27 loại trong biểu đồ gốc</small></h3><p>Vẽ lại 27 cấu trúc của biểu đồ cấu trúc mạng nơ-ron gốc thành sáu nhóm, và sắp xếp một cách điềm đạm xem chúng làm gì cùng điểm mạnh·điểm yếu.</p><p style="font-size:13px">27 sơ đồ cấu trúc · 12 câu đố</p><span class="go">Đọc →</span></div></a><a class="pcard" href="2_neural_network_atlas_after.html"><div class="thumb"><span class="n">2</span><img class="sp" data-who="fly" data-mood="magnify" data-img="fly_magnify" alt="" aria-hidden="true"></div><div><span class="part">Trang 2 · Bách khoa cấu trúc mạng nơ-ron</span><h3>Bách khoa cấu trúc mạng nơ-ron ② <small style="font-weight:500;color:var(--muted)">15 loại ra sau, kể cả não ruồi giấm</small></h3><p>Giới thiệu 15 cấu trúc ra đời sau biểu đồ như Transformer, mô hình khuếch tán, Mamba, mạng nơ-ron đồ thị cùng mô hình làm từ sơ đồ đi dây não ruồi giấm.</p><p style="font-size:13px">15 sơ đồ cấu trúc · 10 câu đố</p><span class="go">Đọc →</span></div></a><a class="pcard" href="3_fruitfly_robot_rules.html"><div class="thumb"><span class="n">3</span><img class="sp" data-who="asst" data-mood="firm" data-img="asst_firm" alt="" aria-hidden="true"></div><div><span class="part">Trang 3 · Đại chiến robot ruồi giấm</span><h3>Đại chiến robot ruồi giấm ① <small style="font-weight:500;color:var(--muted)">Quy tắc cấy ghép và bảng thông số</small></h3><p>Công bố quy tắc đặt 42 cấu trúc lên cùng một cái cân. Bảng thông số, bảng quy tắc, tính từng bước, hạng nguồn điện, phòng thí nghiệm chỉ số.</p><p style="font-size:13px">Tính từng bước · phòng thí nghiệm · 8 câu đố</p><span class="go">Đọc →</span></div></a><a class="pcard" href="4_fruitfly_robot_match.html"><div class="thumb"><span class="n">4</span><img class="sp" data-who="robo" data-mood="coin" data-img="robo_coin" alt="" aria-hidden="true"></div><div><span class="part">Trang 4 · Đại chiến robot ruồi giấm</span><h3>Đại chiến robot ruồi giấm ② <small style="font-weight:500;color:var(--muted)">Trận đấu mạng nơ-ron kiểu RPG</small></h3><p>Chọn mạng nơ-ron trong nhà chứa máy, lắp vào robot ruồi giấm rồi xem cảnh tuyệt chiêu. Bậc thang hạng nguồn, đối đầu, bảng thành tích 42 mô hình.</p><p style="font-size:13px">Nhà chứa máy · đối đầu · 6 câu đố</p><span class="go">Đọc →</span></div></a></div>
+</div></section>
+<section class="level" id="order"><div class="wrap">
+  <h2>Thứ tự đọc</h2>
+  <div class="paths">
+    <div><b>Nếu muốn học cấu trúc</b><p>Trang 1 → trang 2. Với mỗi mạng nơ-ron, bạn xem sơ đồ cấu trúc, mô tả một dòng, ví dụ so sánh, điểm mạnh và điểm yếu. Không có điểm số hay chiến đấu.</p></div>
+    <div><b>Nếu muốn dùng trong giờ học</b><p>Cả bốn trang dài khoảng 90 phút, vừa đủ cho 2 buổi học. Màn hình đầu mỗi trang có mục tiêu học tập, và docs/TEACHER_GUIDE.md trong kho mã có cấu trúc từng buổi cùng ví dụ bài tập.</p></div>
+    <div><b>Nếu muốn so sánh và chơi thử</b><p>Trang 3 → trang 4. Xem quy tắc trước, rồi chọn mô hình trong nhà chứa máy để xem cảnh chiến đấu. Bấm vào tên trong nhà chứa máy ở trang 4 để quay về phần giải thích ở trang 1·2.</p></div>
+  </div>
+</div></section>
+<section class="level" id="cast"><div class="wrap">
+  <h2>Các nhân vật và cách dùng trang này</h2>
+  <div class="cast">
+    <div><img data-who="doc" data-mood="front" data-img="doc_front" alt="" aria-hidden="true"><div><b style="color:var(--c-doc)">Tiến sĩ</b><p>Giải thích và làm trọng tài. Phán quyết theo đúng con số.</p></div></div>
+    <div><img data-who="asst" data-mood="smile" data-img="asst_smile" alt="" aria-hidden="true"><div><b style="color:var(--c-asst)">Trợ lý (Haru)</b><p>Điều hành thí nghiệm và công bố con số.</p></div></div>
+    <div><img data-who="fly" data-mood="clip" data-img="fly_clip" alt="" aria-hidden="true"><div><b style="color:var(--c-fly)">Nhà nghiên cứu Ruồi giấm</b><p>Phe hoài nghi. Trong đối đầu là phi công robot.</p></div></div>
+    <div><img data-who="robo" data-mood="smile" data-img="robo_smile" alt="" aria-hidden="true"><div><b style="color:var(--c-robo)">Money-Robo</b><p>Phe tin chắc. Dồn hết vào mô hình to và đắt tiền.</p></div></div>
+  </div>
+  <p class="sec-sub" style="margin-top:16px">Mỗi trang là một tệp HTML và các trang nối với nhau bằng liên kết. Bấm vào gạch chân chấm vàng sẽ hiện nghĩa của thuật ngữ, còn ở trợ thủ góc dưới bên phải bạn xem được lượng đã đọc và điểm câu đố.</p>
+</div></section>
+<section class="level" id="about"><div class="wrap">
+  <h2>Cần biết</h2>
+  <div class="callout"><h3>Các con số trong đối đầu là giá trị ví dụ dùng để giải thích</h3>
+    <p>Trong các chỉ số ở trang 3·4, ATK·HIT là giá trị đánh giá với giả định cùng điều kiện, còn SPD·EN·MEM là hạng xếp theo cách tính. Hạng nguồn điện, HP của trùm và công thức tính sát thương cũng là quy tắc dùng để giải thích. Hiệu năng thực tế khác nhau rất nhiều tùy dữ liệu, kích thước mô hình và phần cứng.</p></div>
+  <h3 style="margin-top:22px">Nguồn chính</h3>
+  <div class="tw"><table class="tb" style="min-width:560px"><thead><tr><th>Nội dung</th><th>Nguồn</th></tr></thead><tbody><tr><td>Biểu đồ cấu trúc mạng nơ-ron gốc</td><td>Leijnen, S. & van Veen, F. (2020). The Neural Network Zoo. Proceedings, 47(1), 9. doi:10.3390/proceedings2020047009</td></tr><tr><td>Connectome hệ thần kinh trung ương ruồi giấm đực</td><td>Berg và cộng sự (2026), Cell</td></tr><tr><td>Mô hình não theo connectome</td><td>Shiu và cộng sự (2024), Nature 634:210–219</td></tr><tr><td>Mạng thị giác ràng buộc bởi sơ đồ đi dây</td><td>Lappalainen và cộng sự (2024), Nature 634:1132–1140</td></tr><tr><td>Bài báo đề xuất của từng mô hình</td><td>Tài liệu tham khảo trong "Gói bản thể học · thư mục" ở cuối mỗi trang</td></tr></tbody></table></div>
+  <p class="sec-sub" style="margin-top:16px">Trang này không liên quan đến các nghiên cứu được trích dẫn và tác giả của chúng, HHMI Janelia, Google, Cambridge, Mojang/Microsoft. Phần dàn dựng đại chiến robot chỉ mượn hình thức của thể loại, không dùng máy móc hay tên của trò chơi cụ thể nào.</p>
+</div></section>
+<footer><div class="wrap"><p>Viết bởi Ahn Sangsun (Giám đốc điều hành M-Robo). Trang đầu: <a href="1_neural_network_atlas_chart.html">Bách khoa cấu trúc mạng nơ-ron ① 27 loại trong biểu đồ gốc</a></p></div></footer>
+<script>var SPRITE={"doc_front": "assets/img/chars/doc_front.webp", "asst_smile": "assets/img/chars/asst_smile.webp", "fly_point": "assets/img/chars/fly_point.webp", "robo_coin": "assets/img/chars/robo_coin.webp", "doc_board": "assets/img/chars/doc_board.webp", "fly_magnify": "assets/img/chars/fly_magnify.webp", "asst_firm": "assets/img/chars/asst_firm.webp", "fly_clip": "assets/img/chars/fly_clip.webp", "robo_smile": "assets/img/chars/robo_smile.webp", "doc_magic": "assets/img/chars/doc_magic.webp"};</script>
+<script>(function(){var S=window.SPRITE||{};document.querySelectorAll('img[data-img]').forEach(function(i){if(!i.getAttribute('src')&&S[i.dataset.img])i.src=S[i.dataset.img];});
+var p=document.getElementById('prog');addEventListener('scroll',function(){var h=document.documentElement;p.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight||1)*100)+'%';},{passive:true});})();</script>
+</body>
+</html>

@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><!-- i18n:switcher --><style data-i18n-sw>.i18n-pick{display:inline-flex;align-items:center;gap:4px;margin:0 8px;font:inherit;font-size:13px;white-space:nowrap}.i18n-pick select{font:inherit;font-size:13px;padding:3px 6px;border-radius:8px;border:1px solid var(--rule,rgba(128,128,128,.5));background:var(--panel,Canvas);color:var(--text,CanvasText)}.i18n-pick.float{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));right:max(8px,env(safe-area-inset-right,0px));z-index:9998}#i18nBanner{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;font:14px/1.3 var(--font,system-ui,sans-serif)}#i18nBanner>button{border-radius:999px;padding:9px 14px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);color:var(--text,#eceaf3);box-shadow:0 4px 14px rgba(0,0,0,.35);cursor:pointer;font:inherit}#i18nBanner ul{position:absolute;right:0;bottom:calc(100% + 8px);margin:0;padding:6px;list-style:none;min-width:150px;border-radius:12px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);box-shadow:0 8px 24px rgba(0,0,0,.4)}#i18nBanner ul[hidden]{display:none}#i18nBanner a{display:block;padding:7px 10px;border-radius:8px;color:var(--text,#eceaf3);text-decoration:none}#i18nBanner a:hover,#i18nBanner a:focus-visible{background:var(--panel2,#25283a)}#i18nBanner a[aria-current]{color:var(--amber,#f1b646);font-weight:700}@media print{#i18nBanner,.i18n-pick{display:none!important}}</style><script data-i18n-skip>(function(){var C={"langs": [["ko", "한국어"], ["en", "English"], ["zh", "中文"], ["ja", "日本語"], ["uz", "Oʻzbekcha"], ["ru", "Русский"], ["vi", "Tiếng Việt"]], "urls": {"ko": "3_fruitfly_robot_rules.html", "en": "3_fruitfly_robot_rules.en.html", "zh": "3_fruitfly_robot_rules.zh.html", "ja": "3_fruitfly_robot_rules.ja.html", "uz": "3_fruitfly_robot_rules.uz.html", "ru": "3_fruitfly_robot_rules.ru.html", "vi": "3_fruitfly_robot_rules.vi.html"}, "cur": "zh", "auto": true, "key": "nn_atlas_lang", "hosts": [["nav.top .logo", "after"], ["nav.top .wrap", "append"], ["nav", "append"]], "banner": true, "select": true},cur=C.cur,ok={},de=document.documentElement;C.langs.forEach(function(l){ok[l[0]]=1});
+function U(l){return C.urls[l]}
+function save(l){try{localStorage.setItem(C.key,l)}catch(e){}}
+function saved(){try{return localStorage.getItem(C.key)}catch(e){return null}}
+function go(l){location.replace(U(l)+'?lang='+l+location.hash)}
+var shown=function(){de.style.visibility=''};
+function tryGo(l){if(location.protocol==='file:'){go(l);return}
+ de.style.visibility='hidden';var t=setTimeout(shown,2500);
+ try{fetch(U(l),{method:'HEAD',cache:'no-store'}).then(function(r){if(r.ok)go(l);else{clearTimeout(t);shown()}},function(){clearTimeout(t);shown()})}catch(e){clearTimeout(t);shown()}}
+var q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q&&ok[q]){save(q);if(q!==cur){tryGo(q);}}
+else if(cur==='ko'&&C.auto){var s=saved(),to=null;
+ if(s&&ok[s]){if(s!=='ko')to=s;}
+ else if(location.protocol!=='file:'){var same=false;try{same=!!document.referrer&&new URL(document.referrer).origin===location.origin}catch(e){}
+  if(!same){var nav=(navigator.languages||[navigator.language||'']).map(function(x){return String(x).slice(0,2).toLowerCase()});
+   for(var i=0;i<nav.length;i++){if(nav[i]==='ko')break;if(ok[nav[i]]){to=nav[i];break;}}}}
+ if(to)tryGo(to);}
+function pick(l){save(l);location.href=U(l)+'?lang='+l+location.hash;}
+function name(l){for(var i=0;i<C.langs.length;i++)if(C.langs[i][0]===l)return C.langs[i][1];return l}
+function mount(){if(document.getElementById('i18nSel'))return;
+ if(C.select){var w=document.createElement('span');w.className='i18n-pick';w.innerHTML='<span aria-hidden="true">🌐</span>';
+  var s=document.createElement('select');s.id='i18nSel';s.setAttribute('aria-label','Language');
+  C.langs.forEach(function(l){var o=document.createElement('option');o.value=l[0];o.textContent=l[1];if(l[0]===cur)o.selected=true;s.appendChild(o);});
+  s.addEventListener('change',function(){pick(s.value)});w.appendChild(s);var put=false;
+  for(var i=0;i<C.hosts.length&&!put;i++){var h=document.querySelector(C.hosts[i][0]);if(!h)continue;var m=C.hosts[i][1];
+   if(m==='after')h.insertAdjacentElement('afterend',w);else if(m==='before')h.insertAdjacentElement('beforebegin',w);else h.appendChild(w);put=true;}
+  if(!put){w.classList.add('float');document.body.appendChild(w);}}
+ if(C.banner&&!document.getElementById('i18nBanner')){var b=document.createElement('div');b.id='i18nBanner';
+  var bt=document.createElement('button');bt.type='button';bt.setAttribute('aria-haspopup','true');bt.setAttribute('aria-expanded','false');bt.textContent='🌐 '+name(cur);
+  var ul=document.createElement('ul');ul.hidden=true;ul.setAttribute('role','menu');
+  C.langs.forEach(function(l){var li=document.createElement('li'),a=document.createElement('a');a.href=U(l[0])+'?lang='+l[0];a.textContent=l[1];a.lang=l[0];a.setAttribute('role','menuitem');
+   if(l[0]===cur)a.setAttribute('aria-current','true');a.addEventListener('click',function(e){e.preventDefault();pick(l[0])});li.appendChild(a);ul.appendChild(li);});
+  function close(){ul.hidden=true;bt.setAttribute('aria-expanded','false')}
+  bt.addEventListener('click',function(e){e.stopPropagation();ul.hidden=!ul.hidden;bt.setAttribute('aria-expanded',String(!ul.hidden))});
+  document.addEventListener('click',function(e){if(!b.contains(e.target))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();bt.focus&&!ul.hidden&&bt.focus()}});
+  b.appendChild(ul);b.appendChild(bt);document.body.appendChild(b);}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();})();</script><!-- /i18n:switcher -->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>果蝇机器人对战 ① 植入规则与规格表</title>
+<meta name="description" content="把图鉴中的 42 种神经网络，逐一放进果蝇大小的机器人脑中。在此之前，先公开规则：规格表的五项能力如何评定、战斗如何计算、电源与首领如何设定。改变规则后，结论如何摇摆，也可以亲自试试。">
+<meta name="citation_title" content="果蝇机器人对战 ① 植入规则与规格表">
+<meta name="citation_author" content="Ahn Sangsun">
+<meta name="citation_publication_date" content="2026/11/01">
+<meta name="dc.title" content="果蝇机器人对战 ① 植入规则与规格表"><meta name="dc.creator" content="Ahn Sangsun (M-Robo 公司 CEO)"><meta name="dc.language" content="ko"><meta name="dc.date" content="2026-11-01">
+<style>
+/* 밤의 연구실 + 형광 현미경 (ai-lab-explainer 8장). 강조색: 로봇 전투용 금빛 하나 */
+:root{
+  --bg:#13141f; --panel:#1c1e2d; --panel2:#25283a; --rule:#363a52;
+  --text:#eceaf3; --muted:#9d9bb8;
+  --stain:#d672d6; --gfp:#5ee39c; --eye:#f0604d; --amber:#f1b646; --info:#82b8ff;
+  --c-doc:#b07cff; --c-asst:#ff86b8; --c-fly:#ef5b5b; --c-robo:#57d0dc;
+  --accent:#f1c84a;
+  --font:"Noto Sans SC","IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:64px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);font-size:16px;line-height:1.7;word-break:normal;line-break:strict;overflow-wrap:anywhere;overflow-x:hidden}
+h1,h2,h3,h4{line-height:1.3;text-wrap:balance;margin:0}
+h1{font-size:clamp(32px,5vw,56px);font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(24px,3vw,34px);font-weight:700}
+h3{font-size:19px;font-weight:700}
+p{margin:0}
+a{color:var(--info)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.num{font-variant-numeric:tabular-nums}
+
+/* nav */
+#prog{position:fixed;left:0;top:0;height:3px;width:0;background:var(--gfp);z-index:60}
+nav.top{position:sticky;top:0;z-index:50;height:54px;background:rgba(19,20,31,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+nav.top .wrap{display:flex;align-items:center;gap:14px;height:54px}
+nav.top .logo{font-weight:700;white-space:nowrap;font-size:14px;color:var(--text);text-decoration:none}
+@media(max-width:560px){nav.top .logo{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}nav.top .wrap{gap:8px}.i18n-pick{margin:0 2px;flex:none}}nav.top .logo b{color:var(--accent)}
+nav.top .links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+nav.top .links::-webkit-scrollbar{display:none}
+nav.top .links a{flex:none;font-size:13px;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px}
+nav.top .links a:hover{background:var(--panel2);color:var(--text)}
+
+/* cover */
+.cover{position:relative;margin:0;background:linear-gradient(160deg,#1b1533,#13141f 70%);overflow:hidden;border-bottom:1px solid var(--rule)}
+.cover .fallback{position:relative;height:clamp(220px,34vw,48vh);display:flex;align-items:flex-end;justify-content:center;gap:clamp(4px,2vw,40px);padding:24px 16px 52px;
+  background-image:radial-gradient(circle at 70% 30%,rgba(214,114,214,.18),transparent 55%),radial-gradient(circle at 30% 80%,rgba(94,227,156,.12),transparent 50%)}
+.cover .fallback img{width:clamp(52px,17vw,168px);min-width:0;height:auto;image-rendering:auto;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5))}
+.cover .fallback .vs{align-self:center;font-weight:700;font-size:clamp(20px,4vw,40px);color:var(--accent);letter-spacing:.06em}
+.cover-chip{position:absolute;left:16px;bottom:12px;padding:4px 12px;border-radius:999px;background:rgba(19,20,31,.78);color:var(--text);font-size:13px;border:1px solid var(--rule)}
+.honey{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(circle,rgba(157,155,184,.14) 1.4px,transparent 1.6px);background-size:18px 16px;
+  -webkit-mask-image:radial-gradient(circle at 85% 20%,#000,transparent 60%);mask-image:radial-gradient(circle at 85% 20%,#000,transparent 60%)}
+
+/* hero */
+header.hero{position:relative;overflow:hidden;padding-block:56px 40px}
+header.hero .pixelart{position:absolute;right:max(0px,calc((100vw - 1180px)/2 - 20px));top:30px;width:420px;height:420px;opacity:.9;pointer-events:none;image-rendering:pixelated}
+.hero-text{position:relative;max-width:720px;display:grid;gap:14px}
+.eyebrow{font-size:13px;letter-spacing:.08em;color:var(--accent);font-weight:700}
+.question{font-size:clamp(18px,2.2vw,22px);color:var(--gfp);font-weight:500}
+.lede{color:var(--muted);max-width:64ch}
+.byline{font-size:13px;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:22px}
+.kpi{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:12px 14px;min-width:0}
+.kpi b{display:block;font-size:22px;font-variant-numeric:tabular-nums;line-height:1.2}
+.kpi span{font-size:12.5px;color:var(--muted)}
+.kpi.g b{color:var(--gfp)}.kpi.m b{color:var(--stain)}.kpi.r b{color:var(--eye)}.kpi.a b{color:var(--amber)}
+.kpi sup{color:var(--amber);font-size:10px}
+.dialog{margin-top:24px;display:grid;gap:10px;max-width:760px}
+
+/* sections */
+section.level{padding-block:56px;border-top:1px solid var(--rule)}
+.sec-sub{color:var(--muted);max-width:70ch;margin-top:8px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.steps>div{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:18px;min-width:0}
+.steps h3{font-size:17px;margin-bottom:6px}
+.steps p{color:var(--muted);font-size:15px}
+.cast{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:22px}
+.cast>div{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:14px;display:flex;gap:12px;align-items:center;min-width:0}
+.cast img{width:72px;height:72px;flex:none}
+.cast b{display:block}
+.cast p{font-size:14px;color:var(--muted)}
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:6px 14px;font-size:13.5px;margin-top:16px}
+.legend div{display:flex;align-items:center;gap:8px}
+.callout{background:rgba(241,182,70,.08);border:1px solid rgba(241,182,70,.35);border-radius:12px;padding:18px 20px;margin-top:22px}
+.callout h3{color:var(--amber);margin-bottom:8px}
+.callout p+p{margin-top:8px}
+.statmap{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:18px}
+.statmap>div{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:12px;min-width:0}
+.statmap b{color:var(--accent);font-size:13px;letter-spacing:.06em}
+.statmap p{font-size:14px;margin-top:4px}
+.statmap small{color:var(--muted);font-size:12.5px;display:block;margin-top:4px}
+.enemies{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.enemies>div{background:var(--panel2);border-radius:10px;padding:10px 12px;font-size:14px;display:flex;gap:10px;align-items:center;min-width:0}
+.enemies canvas{width:44px;height:44px;flex:none}
+.enemies small{display:block;color:var(--muted);font-size:12.5px}
+
+.lvhead{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.hexno{width:58px;height:64px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);background:var(--stain);color:#13141f;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:700;font-size:22px;line-height:1;flex:none}
+.hexno small{font-size:10px;margin-top:3px}
+.lvhead .sub{display:flex;gap:6px;flex-wrap:wrap;width:100%}
+.lvtag{font-size:12.5px;padding:3px 10px;border-radius:999px;border:1px solid var(--rule);color:var(--muted)}
+.lvtag.g{color:var(--gfp);border-color:rgba(94,227,156,.4)}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.pair>div{background:var(--panel);border-radius:12px;padding:16px 18px;border:1px solid var(--rule);min-width:0}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:2px 10px;border-radius:999px;margin-bottom:8px}
+.tag.fly{background:rgba(240,96,77,.15);color:var(--eye)}
+.tag.nn{background:rgba(214,114,214,.15);color:var(--stain)}
+.pair .lim{font-size:13.5px;color:var(--muted);margin-top:8px}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:16px;margin-top:18px}
+.panel h3{font-size:15px;color:var(--info);margin-bottom:10px}
+.ctrl{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.group{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.glabel{font-size:12.5px;color:var(--muted);margin-right:4px}
+.bt{font:inherit;font-size:13.5px;background:var(--panel2);color:var(--text);border:1px solid var(--rule);border-radius:8px;padding:6px 12px;cursor:pointer}
+.bt:hover{border-color:var(--muted)}
+.bt[aria-pressed="true"],.bt.on{background:rgba(94,227,156,.16);border-color:var(--gfp);color:var(--gfp)}
+.bt.primary{background:var(--gfp);color:#13141f;border-color:var(--gfp);font-weight:700}
+.cwrap{overflow-x:auto;border-radius:10px;background:#15172a}
+.cwrap canvas{display:block;width:100%}
+.insight{margin-top:10px;font-size:14.5px}
+.insight p{padding-left:12px;border-left:3px solid var(--gfp)}
+.explain{background:rgba(241,182,70,.07);border:1px solid rgba(241,182,70,.3);border-radius:12px;padding:16px 18px;margin-top:18px}
+.explain h4{color:var(--amber);margin-bottom:6px;font-size:16px}
+.bridge{border-radius:12px;padding:14px 18px;margin-top:14px;font-size:15px}
+.bridge.gen{background:rgba(130,184,255,.08);border:1px solid rgba(130,184,255,.3)}
+.bridge.field{background:rgba(240,96,77,.07);border:1px solid rgba(240,96,77,.3)}
+.bridge b{display:block;margin-bottom:4px}
+.bridge.gen b{color:var(--info)} .bridge.field b{color:var(--eye)}
+.bridge .lim{color:var(--muted);font-size:13.5px;margin-top:6px}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:16px;margin-top:20px}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;min-width:0;position:relative}
+.card.special{grid-column:1/-1;border-color:var(--c-fly);box-shadow:0 0 0 1px rgba(239,91,91,.35),0 0 32px rgba(239,91,91,.12)}
+.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.card h3{font-size:17px}
+.abbr{font-size:12px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:11.5px;font-weight:700;padding:1px 8px;border-radius:999px}
+.badge.new{background:rgba(94,227,156,.15);color:var(--gfp)}
+.badge.orig{background:var(--panel2);color:var(--muted)}
+.badge.sp{background:rgba(239,91,91,.18);color:var(--c-fly)}
+.fig{background:#15172a;border-radius:10px;padding:10px;overflow-x:auto;display:flex;justify-content:center}
+.fig svg{display:block;max-width:100%;height:auto}
+.card p{font-size:14.5px}
+.an{font-size:14px;color:var(--muted)}
+.an b{font-size:11.5px;color:var(--eye);margin-right:6px;font-weight:700}
+.an b.life{color:var(--info)}
+.uses{font-size:14px}
+.uses b{font-size:11.5px;color:var(--muted);margin-right:6px}
+.hidden-diff{font-size:13px;background:rgba(241,182,70,.1);border-radius:8px;padding:6px 10px}
+.hidden-diff b{color:var(--amber)}
+.spec{background:var(--panel2);border-radius:10px;padding:10px 12px;display:grid;gap:4px;margin-top:auto}
+.spec-h{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted);margin-bottom:2px}
+.spec-h .grade{font-weight:700;color:var(--accent);font-size:13px}
+.srow{display:grid;grid-template-columns:44px 1fr 22px;align-items:center;gap:8px;font-size:12px}
+.srow label{color:var(--muted);font-weight:700;letter-spacing:.04em}
+.track{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.track i{height:7px;border-radius:2px;background:#363a52}
+.track i.on{background:var(--accent)}
+.srow em{font-style:normal;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.battle{border:1px dashed var(--rule);border-radius:10px;padding:10px 12px;font-size:13.5px;display:grid;gap:4px}
+.battle .mv{font-weight:700;color:var(--accent)}
+.battle .ln{color:var(--text)}
+.battle .ln::before{content:"果蝇研究员 · ";color:var(--c-fly);font-size:12px}
+.battle .res{color:var(--muted);font-variant-numeric:tabular-nums}
+.battle .res b.win{color:var(--gfp)} .battle .res b.lose{color:var(--eye)}
+.badge.core{background:rgba(241,200,74,.16);color:var(--accent)}
+.srow{grid-template-columns:58px 1fr 22px}
+.srow label small{display:inline-block;margin-left:4px;font-size:9.5px;font-weight:500;color:var(--muted);letter-spacing:0}
+.track i.on.rule{background:var(--info)}
+.basis{font-size:12.5px;color:var(--muted);margin-top:4px}
+.basis b{color:var(--info);font-size:11.5px;margin-right:4px}
+table.mini{border-collapse:collapse;width:100%;font-size:12px;margin-top:4px;font-variant-numeric:tabular-nums}
+table.mini th,table.mini td{border:1px solid var(--rule);padding:3px 5px;text-align:center;font-weight:500}
+table.mini thead th{color:var(--muted);font-size:11px}
+table.mini tbody th{text-align:left;color:var(--muted);font-size:11px;max-width:120px}
+td.w{color:var(--gfp)!important;font-weight:700} td.x{color:var(--eye)!important}
+tr.ex td{opacity:.7}
+details.dex{margin-top:16px;border:1px dashed var(--rule);border-radius:12px;padding:10px 14px;background:rgba(28,30,45,.5)}
+details.dex summary{cursor:pointer;font-weight:700;color:var(--accent)}
+details.dex[open] summary{margin-bottom:4px}
+.lab{display:grid;grid-template-columns:320px 1fr;gap:16px}
+.lab>*{min-width:0}
+.lab select{font:inherit;background:var(--panel2);color:var(--text);border:1px solid var(--rule);border-radius:8px;padding:6px 10px;width:100%}
+.sl{display:grid;grid-template-columns:70px 1fr 96px;gap:8px;align-items:center;font-size:13.5px;margin-top:8px}
+.sl input{width:100%;accent-color:var(--accent)}
+.sl span{font-variant-numeric:tabular-nums;color:var(--muted);font-size:12.5px}
+#duelLadder{font-size:14px;margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+#duelLadder span{padding:3px 10px;border-radius:999px;background:var(--panel2)}
+#duelLadder span.lf{color:var(--c-fly)} #duelLadder span.lr{color:var(--c-robo)}
+.rules{margin-top:14px}
+.rules td:first-child{white-space:nowrap;font-weight:700;color:var(--info)}
+@media (max-width:760px){.lab{grid-template-columns:1fr}}
+.card .bt.fight{align-self:flex-start;background:rgba(241,200,74,.14);border-color:rgba(241,200,74,.6);color:var(--accent);font-weight:700}
+
+/* say */
+.say{display:flex;gap:12px;align-items:flex-start;margin-top:18px;max-width:760px}
+.say img.who{width:64px;height:64px;flex:none;border-radius:12px;background:var(--panel2);border:2px solid var(--rule);object-fit:contain}
+.say>div{background:var(--panel);border:2px solid var(--rule);border-radius:14px;padding:10px 14px;min-width:0}
+.say .name{font-size:13px;display:block}
+.say[data-who=doc] img.who,.say[data-who=doc]>div{border-color:var(--c-doc)} .say[data-who=doc] .name{color:var(--c-doc)}
+.say[data-who=asst] img.who,.say[data-who=asst]>div{border-color:var(--c-asst)} .say[data-who=asst] .name{color:var(--c-asst)}
+.say[data-who=fly] img.who,.say[data-who=fly]>div{border-color:var(--c-fly)} .say[data-who=fly] .name{color:var(--c-fly)}
+.say[data-who=robo] img.who,.say[data-who=robo]>div{border-color:var(--c-robo)} .say[data-who=robo] .name{color:var(--c-robo)}
+.dialog .say{margin-top:0}
+
+/* quiz */
+.quiz{margin-top:20px;display:grid;gap:12px}
+.qi{background:var(--panel);border:1px solid rgba(130,184,255,.3);border-radius:12px;padding:14px 16px}
+.qi .q{font-weight:500;margin-bottom:8px}
+.qi .q::before{content:"确认测验 ";color:var(--info);font-size:12px;font-weight:700}
+.qi .opts{display:flex;flex-wrap:wrap;gap:6px}
+.qi .fb{margin-top:8px;font-size:14px;min-height:1em}
+.qi .fb.ok{color:var(--gfp)} .qi .fb.no{color:var(--amber)}
+.qi .bt.right{border-color:var(--gfp);color:var(--gfp)} .qi .bt.wrong{border-color:var(--eye);color:var(--eye)}
+
+/* duel */
+.duel-head{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:center;margin-top:20px}
+.duel-head .side{display:flex;align-items:center;gap:12px;background:var(--panel);border-radius:14px;padding:12px;min-width:0}
+.duel-head .side.r{flex-direction:row-reverse;text-align:right}
+.duel-head img{width:96px;height:96px;flex:none}
+.duel-head .side.r img{transform:scaleX(-1)}
+.duel-head .vs{font-size:34px;font-weight:700;color:var(--accent)}
+.duel-head .side.fly{border:2px solid var(--c-fly)} .duel-head .side.robo{border:2px solid var(--c-robo)}
+.duel-head b{display:block} .duel-head small{color:var(--muted);font-size:13px}
+.bars{display:grid;gap:8px;margin-top:14px}
+.dbar{display:grid;grid-template-columns:110px 1fr 70px;gap:10px;align-items:center;font-size:14px}
+.dbar .t{height:16px;background:var(--panel2);border-radius:4px;overflow:hidden}
+.dbar .t i{display:block;height:100%}
+.dbar em{font-style:normal;text-align:right;font-variant-numeric:tabular-nums}
+#duel .after{display:none}
+#duel.open .after{display:block}
+.verdict>div{border-color:var(--c-doc)!important}
+.score{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;font-size:14px;color:var(--muted)}
+
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--rule);border-radius:12px;margin-top:16px;background:var(--panel)}
+table.tb{border-collapse:collapse;width:100%;min-width:720px;font-size:14px}
+.tb th,.tb td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--rule);vertical-align:top}
+.tb th{font-size:12px;color:var(--muted);font-weight:700;letter-spacing:.04em;cursor:default}
+.tb th button{font:inherit;background:none;border:0;color:inherit;cursor:pointer;padding:0}
+.tb tr:last-child td{border-bottom:0}
+.tb td.n{font-variant-numeric:tabular-nums;text-align:right}
+
+/* kg & export */
+.kg-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:16px}
+.kg-tools input{font:inherit;background:var(--panel2);color:var(--text);border:1px solid var(--rule);border-radius:8px;padding:8px 12px;min-width:0;flex:1 1 220px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.kg-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.kg-grid>*{min-width:0}
+.kg-list{max-height:520px;overflow:auto;display:grid;gap:8px;padding-right:4px}
+.kg-item{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:10px 12px;font-size:14px}
+.kg-item.hl{border-color:var(--accent)}
+.kg-item .ty{font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;background:var(--panel2);color:var(--muted);margin-left:6px}
+.kg-item p{color:var(--muted);font-size:13.5px;margin-top:2px}
+.kg-item a{font-size:13px}
+.flowchips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:12px;font-size:13px}
+.flowchips span{padding:3px 10px;border-radius:999px;background:var(--panel2)}
+.flowchips span.l{background:rgba(240,96,77,.12);color:var(--eye)}
+.export-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:16px}
+.cite{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;margin-top:16px}
+.cite pre{white-space:pre-wrap;word-break:break-all;font-size:13px;background:var(--panel2);border-radius:8px;padding:10px;margin:8px 0 0;font-family:ui-monospace,Menlo,Consolas,monospace}
+.reflist{display:grid;gap:8px;margin-top:12px}
+.ref{background:var(--panel);border:1px solid var(--rule);border-radius:10px;padding:10px 12px;font-size:14px}
+.ref .rb{font-size:11px;font-weight:700;padding:1px 8px;border-radius:999px;margin-right:6px}
+.rb.primary{background:rgba(214,114,214,.16);color:var(--stain)} .rb.background{background:var(--panel2);color:var(--muted)} .rb.data{background:rgba(94,227,156,.14);color:var(--gfp)}
+.rb.ok{background:rgba(94,227,156,.14);color:var(--gfp)} .rb.chk{background:rgba(241,182,70,.14);color:var(--amber)}
+.ref details{margin-top:4px;font-size:13px;color:var(--muted)}
+.filebtns{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.todo{font-size:13.5px;color:var(--muted);margin-top:10px}
+.todo li{margin:2px 0}
+
+footer{border-top:1px solid var(--rule);padding-block:40px 80px;font-size:14px;color:var(--muted)}
+footer h3{color:var(--text);margin:20px 0 8px;font-size:16px}
+footer ul{margin:0;padding-left:20px}
+
+/* gloss */
+.jt{border-bottom:1.5px dotted var(--amber);cursor:help}
+#tip{position:fixed;z-index:80;max-width:300px;background:#25283a;border:1px solid var(--amber);border-radius:10px;padding:10px 12px;font-size:13.5px;line-height:1.55;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+#tip b{color:var(--amber);display:block}
+#tip small{color:var(--muted)}
+#study{position:fixed;right:max(12px,env(safe-area-inset-right,0px));bottom:max(12px,env(safe-area-inset-bottom,0px));z-index:55;background:rgba(28,30,45,.95);border:1px solid var(--rule);border-radius:999px;padding:6px 8px 6px 14px;font-size:12.5px;display:flex;align-items:center;gap:8px;color:var(--muted)}
+#study .bt{padding:3px 10px;font-size:12px}
+
+/* arena */
+#arena{position:fixed;inset:0;z-index:90;background:rgba(8,8,16,.82);display:flex;align-items:center;justify-content:center;padding:max(12px,env(safe-area-inset-top,0px)) max(12px,env(safe-area-inset-right,0px)) max(12px,env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px))}
+#arena .box{background:var(--panel);border:1px solid var(--rule);border-radius:16px;width:min(860px,100%);max-height:100%;overflow:auto;padding:16px}
+#arena .ah{display:flex;justify-content:space-between;align-items:center;gap:10px}
+#arena .ah h3{font-size:18px}
+#arena .cwrap canvas{min-width:640px}
+#arena .alog{display:grid;gap:8px;margin-top:10px}
+#arena .say{margin-top:0}
+
+@media (max-width:980px){header.hero .pixelart{opacity:.2}}
+@media (max-width:860px){.kpis{grid-template-columns:repeat(3,1fr)}.cast,.enemies{grid-template-columns:repeat(2,1fr)}.statmap{grid-template-columns:repeat(2,1fr)}.export-kpis{grid-template-columns:repeat(3,1fr)}.steps{grid-template-columns:1fr}}
+@media (max-width:760px){.pair,.kg-grid{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.duel-head{grid-template-columns:1fr}.duel-head .vs{text-align:center}.duel-head .side.r{flex-direction:row;text-align:left}}
+@media (max-width:520px){#study{left:max(12px,env(safe-area-inset-left,0px));justify-content:space-between}.cast{grid-template-columns:1fr}.dbar{grid-template-columns:84px 1fr 56px}}
+@media (max-width:460px){.kpis,.export-kpis,.enemies{grid-template-columns:repeat(2,1fr)}.statmap{grid-template-columns:1fr 1fr}}
+
+/* 4편 개편: 시리즈 띠, 도감 카드, 격납고, 계산 따라 하기 */
+.series{border-bottom:1px solid var(--rule);background:#171826}
+.series .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-block:8px}
+.series .wrap::-webkit-scrollbar{display:none}
+.series a{flex:none;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:10px;border:1px solid transparent}
+.series a b{display:inline-flex;width:22px;height:22px;border-radius:50%;align-items:center;justify-content:center;background:var(--panel2);font-size:11.5px;color:var(--muted)}
+.series a[aria-current="page"]{color:var(--text);border-color:var(--rule);background:var(--panel)}
+.series a[aria-current="page"] b{background:var(--accent);color:#13141f}
+.series .sep{flex:none;align-self:center;color:var(--rule);font-size:12px}
+.cover.has-img .cover-in{display:flex;justify-content:center;padding:clamp(16px,3vw,32px) max(16px,env(safe-area-inset-right,0px)) 52px max(16px,env(safe-area-inset-left,0px))}
+.cover-img{display:block;width:min(600px,100%,64vh);height:auto;aspect-ratio:1/1;border-radius:16px;border:1px solid var(--rule);box-shadow:0 18px 50px rgba(0,0,0,.45)}
+.pages{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:20px}
+.pcard{display:grid;grid-template-columns:160px 1fr;gap:16px;background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:14px;text-decoration:none;color:var(--text);min-width:0}
+.pcard:hover{border-color:var(--muted)}
+.pcard .thumb{width:160px;aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:linear-gradient(160deg,#1b1533,#13141f);display:flex;align-items:center;justify-content:center;position:relative}
+.pcard .thumb img{width:100%;height:100%;object-fit:cover}
+.pcard .thumb .n{position:absolute;left:8px;top:6px;font-weight:700;font-size:22px;color:var(--accent)}
+.pcard .thumb img.sp{width:62%;height:auto;object-fit:contain}
+.pcard h3{font-size:18px}
+.pcard p{font-size:14.5px;color:var(--muted);margin-top:6px}
+.pcard .go{display:inline-block;margin-top:10px;color:var(--accent);font-weight:700;font-size:14px}
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.paths>div{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:14px 16px;min-width:0}
+.paths b{color:var(--accent)}
+@media (max-width:860px){.pages,.paths{grid-template-columns:1fr}}
+@media (max-width:460px){.pcard{grid-template-columns:96px 1fr}.pcard .thumb{width:96px}}
+.part{font-size:12.5px;color:var(--muted);letter-spacing:.04em}
+.hero h1 small{display:block;font-size:.5em;font-weight:500;color:var(--muted);margin-top:6px;letter-spacing:0}
+.toc{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-top:18px}
+.toc a{display:block;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;text-decoration:none;color:var(--text);font-size:14.5px}
+.toc a small{display:block;color:var(--muted);font-size:12.5px;margin-top:2px}
+.toc a:hover{border-color:var(--muted)}
+.acard{gap:12px}
+.goals{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:12px 16px;max-width:720px;font-size:14.5px}
+.goals b{color:var(--accent);font-size:13px}
+.goals ol{margin:6px 0 6px;padding-left:20px}
+.goals span{font-size:12.5px;color:var(--muted)}
+.finder{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:16px}
+.finder input,.hg-side input{font:inherit;background:var(--panel2);color:var(--text);border:1px solid var(--rule);border-radius:8px;padding:8px 12px;flex:1 1 240px;min-width:0}
+.finder span{font-size:13px;color:var(--muted)}
+.hg-side{display:grid;gap:8px;align-content:start;position:sticky;top:64px}
+.hg-side .hg-list{position:static}
+.hg-b[hidden]{display:none!important}
+details.pro{margin-top:10px;border:1px dashed var(--rule);border-radius:12px;padding:10px 14px}
+details.pro>summary{cursor:pointer;font-weight:700;color:var(--info)}
+details.pro[open]>summary{margin-bottom:10px}
+.chk-b{background:rgba(241,182,70,.14);color:var(--amber);font-size:11.5px;vertical-align:3px;margin-left:6px}
+.checklist{display:grid;gap:6px;padding-left:22px;margin:10px 0 0;font-size:14.5px}
+.checklist b{color:var(--accent);margin-right:6px}
+select.sel{font:inherit;background:var(--panel2);color:var(--text);border:1px solid var(--rule);border-radius:8px;padding:5px 8px}
+.fl{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.fl a{font-size:13.5px;padding:4px 10px;border-radius:999px;background:var(--panel2);color:var(--text);text-decoration:none;border:1px solid var(--rule)}
+.fl a.ok{border-color:rgba(94,227,156,.6);color:var(--gfp)}
+.fig{position:relative}
+.selfdraw{position:absolute;right:6px;top:6px;font-size:10.5px;font-weight:700;color:var(--amber);background:rgba(241,182,70,.12);border:1px solid rgba(241,182,70,.5);border-radius:999px;padding:1px 8px}
+.bridge .flowchips{margin-top:8px}
+.card h3 .en,.hg-detail h3 .en{display:block;font-size:13px;font-weight:500;color:var(--muted);margin-top:2px}
+.tb .en{font-size:12px;color:var(--muted)}
+.acard .what{font-size:15px}
+dl.gb{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0}
+dl.gb div{background:var(--panel2);border-radius:10px;padding:8px 10px;min-width:0}
+dl.gb dt{font-size:11.5px;font-weight:700;color:var(--muted);margin-bottom:2px}
+dl.gb dd{margin:0;font-size:13.5px}
+.mini3{border-top:1px dashed var(--rule);padding-top:10px;margin-top:auto;display:grid;gap:4px}
+.mini3 .srow{grid-template-columns:84px 1fr 18px}
+.mini3 .srow label{font-weight:500;letter-spacing:0}
+.tolink{font-size:13.5px;color:var(--accent);text-decoration:none;font-weight:700}
+.tolink:hover{text-decoration:underline}
+.lim1{margin-top:18px;font-size:15px;color:var(--muted);border-left:3px solid var(--amber);padding:4px 0 4px 12px}
+.lim1 b{color:var(--amber)}
+.pair.slim{margin-top:16px}
+.pair.slim>div{padding:14px 16px}
+.pair.slim p{font-size:14.5px}
+/* 격납고 */
+.hg{display:grid;grid-template-columns:260px 1fr;gap:16px;margin-top:20px;align-items:start}
+.hg>*{min-width:0}
+.hg-list{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:10px;max-height:820px;overflow:auto;position:sticky;top:64px}
+.hg-g+.hg-g{margin-top:10px}
+.hg-g h4{font-size:12px;color:var(--muted);margin:4px 6px 6px;letter-spacing:.04em}
+.hg-b{font:inherit;display:grid;grid-template-columns:auto 1fr auto;gap:2px 8px;align-items:baseline;width:100%;text-align:left;background:none;border:1px solid transparent;border-radius:8px;padding:6px 8px;color:var(--muted);cursor:pointer}
+.hg-b span{font-weight:700;font-size:13.5px;color:var(--text)}
+.hg-b small{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hg-b i{font-style:normal;font-size:11.5px;font-variant-numeric:tabular-nums;color:var(--muted)}
+.hg-b i.w{color:var(--gfp)} .hg-b i.x{color:var(--eye)} .hg-b i.ex{color:var(--c-fly)}
+.hg-b.core span::after{content:" ●";color:var(--accent);font-size:9px;vertical-align:2px}
+.hg-b:hover{background:var(--panel2)}
+.hg-b[aria-pressed="true"]{background:rgba(241,200,74,.12);border-color:rgba(241,200,74,.55)}
+.hg-detail{background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:16px 18px;display:grid;gap:14px}
+.hg-detail .badges{align-items:center}
+.hg-detail .badges .tolink{margin-left:auto}
+.hg-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:14px}
+.hg-top>*{min-width:0}
+.hg-spec{background:var(--panel2);border-radius:10px;padding:10px 12px;display:grid;gap:4px}
+.hg-move{display:grid;gap:2px;font-size:14px}
+.hg-move .mv{font-weight:700;color:var(--accent);font-size:16px}
+.hg-move .ln::before{content:"果蝇研究员 · ";color:var(--c-fly);font-size:12px}
+.hg-note{font-size:12.5px;color:var(--muted)}
+.steps-ol{list-style:none;margin:0;padding:0;display:grid;gap:6px;counter-reset:st}
+.steps-ol li{display:grid;grid-template-columns:110px 1fr;gap:10px;background:var(--panel2);border-radius:8px;padding:8px 12px;font-size:14.5px;counter-increment:st}
+.steps-ol li b{color:var(--info);font-size:13px}
+.steps-ol li b::before{content:counter(st) ". "}
+.steps-ol li:last-child{background:rgba(94,227,156,.1)}
+.cw{display:grid;grid-template-columns:300px 1fr;gap:16px}
+.cw>*{min-width:0}
+.cw select{font:inherit;background:var(--panel2);color:var(--text);border:1px solid var(--rule);border-radius:8px;padding:6px 10px;width:100%}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.tiers>div{background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:12px 14px;min-width:0}
+.tiers b{color:var(--accent)}
+.tiers .big{font-size:22px;font-weight:700;margin:2px 0}
+.tiers small{color:var(--muted);font-size:12.5px;line-height:1.5;display:block}
+@media (max-width:980px){.hg-side{position:static}.hg{grid-template-columns:1fr}.hg-list{position:static;max-height:none;display:flex;gap:8px;overflow-x:auto;padding:8px}.hg-g{flex:none;display:flex;gap:4px;align-items:center}.hg-g+.hg-g{margin-top:0}.hg-g h4{margin:0 4px;white-space:nowrap}.hg-b{width:auto;grid-template-columns:auto auto}.hg-b small{display:none}}
+@media (max-width:760px){.hg-top,.cw{grid-template-columns:1fr}dl.gb{grid-template-columns:1fr}.tiers{grid-template-columns:repeat(2,1fr)}.steps-ol li{grid-template-columns:1fr}}
+</style>
+<link rel="alternate" hreflang="ko" href="3_fruitfly_robot_rules.html"><link rel="alternate" hreflang="en" href="3_fruitfly_robot_rules.en.html"><link rel="alternate" hreflang="zh-CN" href="3_fruitfly_robot_rules.zh.html"><link rel="alternate" hreflang="ja" href="3_fruitfly_robot_rules.ja.html"><link rel="alternate" hreflang="uz" href="3_fruitfly_robot_rules.uz.html"><link rel="alternate" hreflang="ru" href="3_fruitfly_robot_rules.ru.html"><link rel="alternate" hreflang="vi" href="3_fruitfly_robot_rules.vi.html"><link rel="alternate" hreflang="x-default" href="3_fruitfly_robot_rules.html"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap"><style data-i18n-font>body,button,input,select,textarea{font-family:"Noto Sans SC",system-ui,sans-serif}</style><style data-i18n-cjk>*{word-break:normal!important;line-break:strict}</style>
+</head>
+<body>
+<div id="prog" aria-hidden="true"></div>
+<nav class="top" aria-label="章节快速导航"><div class="wrap"><a class="logo" href="#hero">神经网络图鉴 · 机器人对战 <b>3</b></a><div class="links"><a href="#r1">规格表</a><a href="#r2">规则表</a><a href="#r3">计算式</a><a href="#r4">电源级别·首领</a><a href="#r5">实验室</a><a href="#kg">知识索引</a><a href="#export">文件包</a></div></div></nav>
+<div class="series" aria-label="页面导航"><div class="wrap"><a href="index.html"><b>≡</b>目录</a><a href="1_neural_network_atlas_chart.html"><b>1</b>图鉴 ① 原始图表的 27 种</a><a href="2_neural_network_atlas_after.html"><b>2</b>图鉴 ② 其后的 15 种</a><span class="sep" aria-hidden="true">|</span><a href="3_fruitfly_robot_rules.html" aria-current="page"><b>3</b>对战 ① 植入规则</a><a href="4_fruitfly_robot_match.html"><b>4</b>对战 ② 神经网络对决</a></div></div>
+<!-- lab-cover -->
+<header class="cover sq" id="cover" data-img="cover_03" role="img" aria-label="在维修工作台上，四位角色用黄铜天平、刻度盘和大小不一的四块电池，确定果蝇机器人植入规则的封面">
+  <div class="cover-in"><div class="fallback"><div class="honey"></div>
+    <img data-who="fly" data-mood="point" data-img="fly_point" alt="" aria-hidden="true">
+    <img data-who="doc" data-mood="magic" data-img="doc_magic" alt="" aria-hidden="true">
+    <span class="vs">VS</span>
+    <img data-who="asst" data-mood="firm" data-img="asst_firm" alt="" aria-hidden="true">
+    <img data-who="robo" data-mood="coin" data-img="robo_coin" alt="" aria-hidden="true" style="transform:scaleX(-1)">
+  </div></div>
+  <span class="cover-chip">神经网络结构图鉴 · 果蝇机器人对战 · 第 3 页</span>
+</header>
+<!-- /lab-cover -->
+<header class="hero" id="hero"><canvas class="pixelart" id="heroArt" width="420" height="420" aria-label="果蝇机器人像素画" data-img="bg_01"></canvas><div class="wrap">
+  <div class="hero-text">
+    <div class="eyebrow">第 3 页 · 果蝇机器人对战</div>
+    <h1>果蝇机器人对战 ①<small>植入规则与规格表</small></h1>
+    <p class="question">核心问题 · 要把不同的神经网络放在同一天平上，需要什么样的规则？</p>
+    <p class="lede">把图鉴中的 42 种神经网络，逐一放进果蝇大小的机器人脑中。在此之前，先公开规则：规格表的五项能力如何评定、战斗如何计算、电源与首领如何设定。改变规则后，结论如何摇摆，也可以亲自试试。</p>
+    <p class="byline">文 · Ahn Sangsun（M-Robo 公司 CEO） · 2026-11-01 · 上一页: <a href="2_neural_network_atlas_after.html">神经网络结构图鉴 ② 其后出现的 15 种</a></p>
+  </div>
+  <div class="goals"><b>本页目标</b><ol><li>区分判断值（ATK·HIT）与规则值（SPD·EN·MEM）。</li><li>用计算式直接求出总伤害。</li><li>在实验室中确认改变一项能力会使排名如何摇摆。</li></ol><span>约 20 分钟 · 前置知识: 浏览第 1·2 页</span></div>
+  <section class="kpis" aria-label="数字摘要"><div class="kpi m"><b class="num">5</b><span>能力（判断 2 · 规则 3）</span></div><div class="kpi g"><b class="num">4</b><span>电源级别</span></div><div class="kpi r"><b class="num">9</b><span>任务首领（专长 8 + 通用 1）</span></div><div class="kpi a"><b class="num">1</b><span>所有战斗使用的计算式</span></div></section>
+  <div class="dialog"><div class="say" data-who="doc"><img class="who" data-who="doc" data-mood="think" data-img="doc_think" alt="" aria-hidden="true"><div><b class="name">博士</b><p>在让它们交战之前，先公开天平。因为规则决定结论。</p></div></div><div class="say" data-who="asst"><img class="who" data-who="asst" data-mood="smile" data-img="asst_smile" alt="" aria-hidden="true"><div><b class="name">助手（Haru）</b><p>五项能力中三项用规则表，两项用判断评定。每一项都标明了类别。</p></div></div><div class="say" data-who="fly"><img class="who" data-who="fly" data-mood="point" data-img="fly_point" alt="" aria-hidden="true"><div><b class="name">果蝇研究员</b><p>判断值是人定的吧？这怎么能相信？</p></div></div><div class="say" data-who="robo"><img class="who" data-who="robo" data-mood="coin" data-img="robo_coin" alt="" aria-hidden="true"><div><b class="name">Money-Robo</b><p>那我来定的话，Transformer 就满分了。</p></div></div></div>
+</div></header>
+<section class="level" id="cast"><div class="wrap">
+  <h2>登场人物与本页用法</h2>
+  <div class="cast">
+    <div><img data-who="doc" data-mood="front" data-img="doc_front" alt="" aria-hidden="true"><div><b style="color:var(--c-doc)">博士</b><p>解说与裁判。判定按数字进行。</p></div></div>
+    <div><img data-who="asst" data-mood="smile" data-img="asst_smile" alt="" aria-hidden="true"><div><b style="color:var(--c-asst)">助手（Haru）</b><p>实验进行与数字公布。</p></div></div>
+    <div><img data-who="fly" data-mood="clip" data-img="fly_clip" alt="" aria-hidden="true"><div><b style="color:var(--c-fly)">果蝇研究员</b><p>持怀疑态度的一方。对战中则是机器人驾驶员。</p></div></div>
+    <div><img data-who="robo" data-mood="smile" data-img="robo_smile" alt="" aria-hidden="true"><div><b style="color:var(--c-robo)">Money-Robo</b><p>确信的一方。押注大型昂贵的模型。</p></div></div>
+  </div>
+  <p class="sec-sub" style="margin-top:16px">这一页是公开规则。跟着计算和实验室可以自己选择并修改。</p>
+</div></section>
+
+<section class="level" id="r1"><div class="wrap">
+  <div class="lvhead"><div class="hexno">1<small>规格表</small></div><h2>如何阅读规格表</h2></div>
+  <p class="sec-sub">机器人规格表的五项能力分两类。<b style="color:var(--accent)">ATK·HIT 为判断值</b>，是假设相同条件下由人评定的 1–5 相对评价。ATK 与图鉴的“表达力”条相同，HIT 则单独评定模型训练完成后面对未见输入时的正确率（实战准确率）。训练困难的 GAN，训练完成后结果稳定，因此与图鉴的“训练稳定性”是不同的值。<b style="color:var(--info)">SPD·EN·MEM 为规则值</b>，即“一个新输入进来需要计算多少步”，按下一节规则表对照评定。</p>
+  <div class="statmap">
+    <div><b>ATK 攻击力</b><p>表达力</p><small>承载复杂模式的能力。准确率的上限。</small></div>
+    <div><b>HIT 命中率</b><p>实战准确率</p><small>训练完成的模型面对未见输入时的正确程度。命中概率 = 0.5 + 0.1 × HIT</small></div>
+    <div><b>SPD 机动力</b><p>反应速度</p><small>回答一个新输入所需的计算步数。2 以下则在反射任务中慢一回合。</small></div>
+    <div><b>EN 效率</b><p>节能</p><small>每次攻击消耗 EN：5→2，4→5，3→10，2→30，1→100</small></div>
+    <div><b>MEM 记忆</b><p>时间记忆</p><small>在顺序、记忆、算法任务中伤害 × (1 + 0.1 × (MEM − 3))</small></div>
+  </div>
+  
+  <div class="say" data-who="fly"><img class="who" data-who="fly" data-mood="magnify" data-img="fly_magnify" alt="" aria-hidden="true"><div><b class="name">果蝇研究员</b><p>判断值是黄色，规则值是蓝色。是说不要混着看吗？</p></div></div>
+  <div class="quiz" data-quiz="r1"></div>
+</div></section>
+<section class="level" id="r2"><div class="wrap">
+  <div class="lvhead"><div class="hexno">2<small>规则表</small></div><h2>规则值是这样评定的</h2></div>
+  <p class="sec-sub">三个规则值不是按模型大小，而是按<b>计算方式</b>评定的。例如扩散模型"要把去噪重复数百至1,000步"，所以是 SPD 1；Transformer "每次新输入都要重新参照全部过往上下文"，所以是 EN 1。全部42种的依据句子都可以在第4页机库中按模型查看。</p>
+  <div class="tw rules"><table class="tb" style="min-width:680px"><thead><tr><th>规则值</th><th>5</th><th>4</th><th>3</th><th>2</th><th>1</th></tr></thead><tbody>
+    <tr><td>SPD</td><td>浅层一次通过，尖峰即时响应</td><td>小网络一次，更新一格状态</td><td>深层网络一次通过</td><td>重新查看全部之前的输入或重复数十次</td><td>重复数百步以上</td></tr>
+    <tr><td>EN</td><td>连接数百以下，仅计算发生尖峰的连接（假设神经形态芯片）</td><td>小网络，小状态更新</td><td>深层网络一次，门控循环</td><td>重复计算数十次</td><td>全部之前上下文的注意力（大型），重复数百步</td></tr>
+    <tr><td>MEM</td><td>直接重新查看全部上下文，外部记忆</td><td>用门控·选择保持长状态</td><td>简单循环、余响、膜电位、联想恢复</td><td>仅压缩的潜在表示</td><td>无时间记忆</td></tr>
+  </tbody></table></div>
+  
+  <p class="lim1"><b>本规则的局限</b> · 同一结构也会因规模、量化与硬件而使实际速度和功耗相差数倍。规则值只是反映“计算方式差异”的等级。</p>
+  <h3 style="margin-top:22px">将等级转换为现场感觉 <span class="badge chk-b">示例数据 · 非实测</span></h3>
+  <p class="sec-sub">这是为了让人对等级的规模有概念而制作的示例表。数字只显示数量级，是假设的值，并非特定产品或测量结果。</p>
+  <div class="tw"><table class="tb" style="min-width:680px"><thead><tr><th>等级</th><th>EN · 单次推理运算量（示例数量级）</th><th>适用设备（示例）</th><th>SPD · 响应时间（示例）</th><th>本图鉴示例</th></tr></thead><tbody>
+    <tr><td class="n">5</td><td>1 万次以下</td><td>纽扣电池微控制器、神经形态芯片</td><td>不到 1 ms</td><td>感知机、SNN</td></tr>
+    <tr><td class="n">4</td><td>约 100 万次</td><td>小型传感器节点</td><td>1~10 ms</td><td>小型 MLP、GRU</td></tr>
+    <tr><td class="n">3</td><td>约1,000,000,000次</td><td>边缘 AI 板、检测相机</td><td>10~100 ms</td><td>DCN, LSTM, Mamba</td></tr>
+    <tr><td class="n">2</td><td>约100,000,000,000次</td><td>笔记本 GPU</td><td>0.1~1 s</td><td>MoE, Neural ODE</td></tr>
+    <tr><td class="n">1</td><td>1,000,000,000,000次以上</td><td>服务器 GPU</td><td>1 s 以上</td><td>大型 Transformer、扩散1,000步</td></tr>
+  </tbody></table></div>
+  <div class="quiz" data-quiz="r2"></div>
+</div></section>
+<section class="level" id="r3"><div class="wrap">
+  <div class="lvhead"><div class="hexno">3<small>计算式</small></div><h2>跟着计算战斗</h2></div>
+  <div class="panel"><h3>计算式（所有战斗使用同一公式）</h3>
+    <div class="eq" style="font-size:15px;line-height:1.9">单次伤害 = <b>10 × ATK × 1.2</b>（专长首领奖励） × 记忆修正 · 攻击次数 = <em>min(10, ⌊电池 ÷ 每次消耗 EN⌋)</em> − 反应慢 1 · 总伤害 = 攻击次数 × 单次伤害 × <i>命中概率</i> · 首领 HP 200</div></div>
+  <section class="panel" aria-label="跟着计算">
+    <h3>选择模型和电源后，会逐行显示计算过程</h3>
+    <div class="cw">
+      <div><label class="glabel" for="cwModel">模型</label><select id="cwModel"></select>
+        <div class="ctrl"><div class="group" id="cwTier"></div></div>
+        <div class="ctrl"><div class="group" id="cwBoss"><span class="glabel">首领</span><button class="bt" data-b="mix" aria-pressed="true">通用首领</button><button class="bt" data-b="own" aria-pressed="false">专长首领</button></div></div></div>
+      <div id="cwOut" aria-live="polite"></div>
+    </div>
+  </section>
+  <div class="say" data-who="asst"><img class="who" data-who="asst" data-mood="ledger" data-img="asst_ledger" alt="" aria-hidden="true"><div><b class="name">助手（Haru）</b><p>计算只有这七行。第 4 页的所有数字都从这里得出。</p></div></div>
+  <div class="quiz" data-quiz="r3"></div>
+</div></section>
+<section class="level" id="r4"><div class="wrap">
+  <div class="lvhead"><div class="hexno">4<small>电源级别·首领</small></div><h2>电源四级与首领九个</h2></div>
+  <p class="sec-sub">同一模型也会因电源不同，可攻击的次数不同。每个模型与自己的<b>专长首领</b>战斗，为了公平比较模型之间的表现，也与<b>通用首领“综合考试奇美拉”</b>交战。通用首领没有奖励、记忆修正与反应惩罚，排名只按通用首领的结果评定。</p>
+  <div class="tiers" id="tierCards"></div>
+  <h3 style="margin-top:22px">任务首领九个（专长 8 + 通用 1）</h3>
+  <div class="enemies" id="enemyList"></div>
+  <div class="quiz" data-quiz="r4"></div>
+</div></section>
+<section class="level" id="r5"><div class="wrap">
+  <div class="lvhead"><div class="hexno">5<small>实验室</small></div><h2>试着改变规则</h2></div>
+  <p class="sec-sub">如果判断值评定不同，排名会摇摆多少？选一个模型并改变能力值，四个电源级别的排名会立即重新计算。</p>
+  <section class="panel" id="labPanel" aria-label="属性实验室">
+    <h3>属性实验室 · 改变数字，结论会改变吗</h3>
+    <div class="lab">
+      <div>
+        <label class="glabel" for="labModel">选择模型</label>
+        <select id="labModel"></select>
+        <div id="labSliders">
+          <div class="sl"><label for="labS0">ATK 判断</label><input type="range" id="labS0" data-i="0" min="1" max="5" step="1"><span id="labV0"></span></div>
+          <div class="sl"><label for="labS1">HIT 判断</label><input type="range" id="labS1" data-i="1" min="1" max="5" step="1"><span id="labV1"></span></div>
+          <div class="sl"><label for="labS2">SPD 规则</label><input type="range" id="labS2" data-i="2" min="1" max="5" step="1"><span id="labV2"></span></div>
+          <div class="sl"><label for="labS3">EN 规则</label><input type="range" id="labS3" data-i="3" min="1" max="5" step="1"><span id="labV3"></span></div>
+          <div class="sl"><label for="labS4">MEM 规则</label><input type="range" id="labS4" data-i="4" min="1" max="5" step="1"><span id="labV4"></span></div>
+        </div>
+        <div class="ctrl"><button class="bt" id="labReset">恢复原值</button><button class="bt" id="labQuant">压缩装入示例（EN +1 · HIT −1）</button></div>
+        <p class="todo">压缩装入是模拟量化、剪枝的示例规则。假设计算变轻，但准确率会略有下降。</p>
+      </div>
+      <div><div class="tw" style="margin-top:0" id="labOut"></div><div class="insight" id="labIns" aria-live="polite"></div></div>
+    </div>
+  </section>
+  
+  <div class="say" data-who="robo"><img class="who" data-who="robo" data-mood="coin" data-img="robo_coin" alt="" aria-hidden="true"><div><b class="name">Money-Robo</b><p>把 Transformer 的 EN 提到 3 试试……看，连果蝇身体里都排第 4 名呢。</p></div></div>
+  <div class="quiz" data-quiz="r5"></div>
+</div></section>
+<section class="level" id="outro"><div class="wrap"><h2>辛苦了</h2><div class="dialog" id="outroDialog"></div><div class="toc" style="margin-top:22px"><a href="4_fruitfly_robot_match.html">下一页 →<small>果蝇机器人对战 ② 用 RPG 看神经网络对决</small></a></div></div></section>
+<section class="level" id="kg"><div class="wrap">
+  <h2>知识索引 — 在本页查找</h2>
+  <p class="sec-sub">面向研究者与教育者。可以搜索本页的概念与关系，并以图谱查看。</p>
+  <details class="pro" id="kgFold"><summary>展开知识索引</summary>
+  <p class="sec-sub" id="kgStats"></p>
+  <div class="kg-tools">
+    <label for="kgQ" class="glabel">搜索</label><input id="kgQ" type="search" placeholder="例：注意力、连接组、LSTM">
+  </div>
+  <div class="chips" id="kgChips" style="margin-top:10px"></div>
+  <div class="flowchips" id="kgPath" aria-label="阶梯路径"></div>
+  <div class="kg-grid">
+    <div class="kg-list" id="kgList" aria-live="polite"></div>
+    <div>
+      <div class="cwrap"><canvas id="kgGraph" aria-label="知识图谱迷你地图：点为概念，线为关系"></canvas></div>
+      <p class="todo" id="kgLegend"></p>
+      <h3 style="margin-top:14px;font-size:16px">开放问题</h3>
+      <ul class="todo" id="kgQuestions"></ul>
+      <div class="filebtns"><button class="bt" id="kgJson">下载JSON</button><button class="bt" id="kgMermaid">下载 Mermaid</button></div>
+      <p class="todo">完整格式（JSON-LD、Turtle、CSV、参考文献）可在下方文献包中下载。</p>
+    </div>
+  </div>
+  </details>
+</div></section>
+
+<section class="level" id="export"><div class="wrap">
+  <h2>本体·文献包 — 带走本页的知识</h2>
+  <p class="sec-sub">面向研究者与教育者。可将参考文献与知识图谱下载为文献管理工具及图谱工具可用的文件。</p>
+  <details class="pro" id="exFold"><summary>展开参考文献与文献包</summary>
+  <div class="export-kpis kpis" id="exKpis"></div>
+  <div class="say" data-who="asst"><img class="who" data-who="asst" data-mood="smile" data-img="asst_smile" alt="" aria-hidden="true"><div><b class="name">助手（Haru）</b><p id="exSay"></p></div></div>
+  <div class="cite">
+    <b>引用本页</b>
+    <div class="group" style="margin-top:8px"><button class="bt on" data-cf="text" aria-pressed="true">普通文本</button><button class="bt" data-cf="bib" aria-pressed="false">BibTeX</button><button class="bt" data-cf="ris" aria-pressed="false">RIS</button><button class="bt" id="citeCopy">复制</button></div>
+    <pre id="citeOut"></pre>
+  </div>
+  <h3 style="margin-top:20px">参考文献</h3>
+  <div class="reflist" id="refList"></div>
+  <div class="cite">
+    <b>选择范围与格式</b>
+    <div class="group" style="margin-top:8px"><span class="glabel">范围</span>
+      <button class="bt on" data-sc="all" aria-pressed="true">全部</button><button class="bt" data-sc="concepts" aria-pressed="false">仅概念·方法</button><button class="bt" data-sc="claims" aria-pressed="false">仅主张 + 出处</button><button class="bt" data-sc="prereq" aria-pressed="false">仅先修关系</button></div>
+    <div class="filebtns"><button class="bt primary" id="zipBtn">下载文献包ZIP</button></div>
+    <div class="filebtns" id="fileBtns"></div>
+  </div>
+  <h3 style="margin-top:20px">待确认清单</h3>
+  <ul class="todo" id="todoList"></ul>
+  <p class="todo" id="verInfo"></p>
+  </details>
+</div></section>
+
+<footer><div class="wrap">
+  <h3>出处</h3>
+  <div class="tw"><table class="tb" style="min-width:640px"><thead><tr><th>编号</th><th>内容</th><th>出处</th></tr></thead><tbody><tr><td>[5]</td><td>原始图表「The Neural Network Zoo」的结构与分组。本图鉴的27种以最初公开的图表（2016）为准，论文版图中还收录了注意力、胶囊等几种。</td><td>Leijnen & van Veen (2020)，Proceedings 47(1):9，doi:10.3390/proceedings2020047009 · 最初公开的图表为互联网档案馆保存版</td></tr><tr><td>—</td><td>各模型的原始论文与年份</td><td>下方文献包中的参考文献列表</td></tr><tr><td>[1]</td><td>果蝇连接组模型的设定值：模拟神经元176,422个，连接6,287,749条（突触5个以上），突触约90,300,000个，学习权重0个，整体增益0.65</td><td>依据 fly-brain-minecraft 仓库 README（neuPrint male-cns v1.0 数据）。整理：Ahn Sangsun (2026) 解说页</td></tr><tr><td>[6]</td><td>扩散模型的1,000步去噪（DDPM）</td><td>Ho, Jain & Abbeel (2020), NeurIPS 33</td></tr></tbody></table></div>
+  <h3>示例值·说明用模型</h3><ul>
+    <li>ATK（=表达力）与 HIT（=实战准确率）、使用度都是假设相同条件下的判断值。对战的 HIT 与图鉴的“训练稳定性”条是不同的值。</li>
+    <li>SPD·EN·MEM 是用计算步数规则表评定的等级，并非实测值。模型各自注明了包括神经形态芯片假设在内的依据。</li>
+    <li>电源级别（60·200·600·服务器）、每次攻击消耗 EN、首领 HP 200、伤害计算式都是说明用规则。</li>
+    <li>战斗场景和任务首领是说明用演出，并非实际实验。</li></ul>
+  <h3>作者与许可</h3>
+  <p>文：Ahn Sangsun (M-Robo 公司 CEO)。原始图表：Stefan Leijnen & Fjodor van Veen，"The Neural Network Zoo"，Proceedings 47(1):9 (2020)，doi:10.3390/proceedings2020047009，CC BY许可。本图鉴的结构图参考原始图表简化后重新绘制。本页与所引用研究及其作者、HHMI Janelia、Google、Cambridge、Mojang/Microsoft无关。机器人对战的演出只借用了该类型的形式，未使用特定游戏的机体或名称。</p>
+  <p style="margin-top:12px">上一页: <a href="2_neural_network_atlas_after.html">神经网络结构图鉴 ② 其后出现的 15 种</a> · 下一页: <a href="4_fruitfly_robot_match.html">果蝇机器人对战 ② 用 RPG 看神经网络对决</a></p>
+</div></footer>
+<div id="tip" hidden role="tooltip"></div>
+<div id="study" aria-live="polite"><span id="stRead">已读 0%</span><span id="stQuiz">测验 0/0</span><button class="bt" id="stGloss">下划线：核心</button></div>
+
+<script type="application/json" id="kg-raw">{"version": "1.0", "page": "3_fruitfly_robot_rules", "nodes": [{"id": "lab:concept/neural-network-architecture", "type": "Concept", "label": {"ko": "신경망 구조", "en": "neural network architecture", "zh": "神经网络结构"}, "page": "3_fruitfly_robot_rules", "anchor": "#hero", "status": "known", "confidence": "high", "definition": {"ko": "세포(노드)의 종류와 연결선으로 본 신경망의 배선 형태. 활성함수·학습법이 같다고 가정하고 비교한다.", "zh": "以细胞（节点）种类和连接线看神经网络的布线形态。假设激活函数与学习方法相同来进行比较。"}, "level": 1, "family": "basics"}, {"id": "lab:question/core-4-3", "type": "Question", "label": {"ko": "서로 다른 신경망을 같은 저울에 올리려면 어떤 규칙이 필요할까?", "en": "core question 4-3", "zh": "要把不同的神经网络放在同一天平上，需要什么样的规则？"}, "page": "3_fruitfly_robot_rules", "anchor": "#hero", "status": "known", "confidence": "high"}, {"id": "lab:concept/robot-spec-sheet", "type": "Concept", "label": {"ko": "초파리 로봇 사양표", "en": "robot spec sheet", "zh": "果蝇机器人规格表"}, "page": "3_fruitfly_robot_rules", "anchor": "#r1", "status": "known", "confidence": "high", "definition": {"ko": "ATK·HIT(판단값)와 SPD·EN·MEM(규칙값) 다섯 능력치로 신경망을 비교하는 설명용 표.", "zh": "用 ATK·HIT（判断值）与 SPD·EN·MEM（规则值）五项能力比较神经网络的说明用表。"}}, {"id": "lab:concept/stat-atk", "type": "Concept", "label": {"ko": "ATK 공격력", "en": "attack", "zh": "ATK 攻击力"}, "page": "3_fruitfly_robot_rules", "anchor": "#r1", "status": "known", "confidence": "high", "definition": {"ko": "표현력. 판단값.", "zh": "表达力。判断值。"}}, {"id": "lab:concept/stat-hit", "type": "Concept", "label": {"ko": "HIT 명중률", "en": "hit", "zh": "HIT 命中率"}, "page": "3_fruitfly_robot_rules", "anchor": "#r1", "status": "known", "confidence": "high", "definition": {"ko": "실전 정확도(학습을 마친 모델이 처음 보는 입력을 맞히는 정도). 판단값. 명중 확률 = 0.5 + 0.1 × HIT.", "zh": "实战准确率（训练完成的模型面对未见输入时的正确程度）。判断值。命中概率 = 0.5 + 0.1 × HIT。"}}, {"id": "lab:concept/stat-spd", "type": "Concept", "label": {"ko": "SPD 기동력", "en": "speed", "zh": "SPD 机动力"}, "page": "3_fruitfly_robot_rules", "anchor": "#r2", "status": "known", "confidence": "high", "definition": {"ko": "새 입력 하나에 답하기까지의 계산 단계. 규칙값.", "zh": "回答一个新输入所需的计算步数。规则值。"}}, {"id": "lab:concept/stat-en", "type": "Concept", "label": {"ko": "EN 효율", "en": "energy", "zh": "EN 效率"}, "page": "3_fruitfly_robot_rules", "anchor": "#r2", "status": "known", "confidence": "high", "definition": {"ko": "공격 1회 소모 EN을 정하는 계산 규모. 규칙값.", "zh": "决定每次攻击消耗 EN 的计算规模。规则值。"}}, {"id": "lab:concept/stat-mem", "type": "Concept", "label": {"ko": "MEM 기억", "en": "memory", "zh": "MEM 记忆"}, "page": "3_fruitfly_robot_rules", "anchor": "#r2", "status": "known", "confidence": "high", "definition": {"ko": "시간 기억 방식. 규칙값.", "zh": "时间记忆方式。规则值。"}}, {"id": "lab:concept/power-tiers", "type": "Concept", "label": {"ko": "전원 체급", "en": "power tiers", "zh": "电源级别"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high", "definition": {"ko": "초파리 몸 60, 드론 200, 노트북 600, 서버(제한 없음) 네 단계의 설명용 전원 조건.", "zh": "果蝇身体 60、无人机 200、笔记本 600、服务器（无限制）四级的说明用电源条件。"}}, {"id": "lab:concept/tier-fly", "type": "Concept", "label": {"ko": "초파리 몸 60 EN", "en": "tier fly", "zh": "果蝇身体 60 EN"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high"}, {"id": "lab:concept/tier-drone", "type": "Concept", "label": {"ko": "드론 200 EN", "en": "tier drone", "zh": "无人机 200 EN"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high"}, {"id": "lab:concept/tier-laptop", "type": "Concept", "label": {"ko": "노트북 600 EN", "en": "tier laptop", "zh": "笔记本 600 EN"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high"}, {"id": "lab:concept/tier-server", "type": "Concept", "label": {"ko": "서버 (제한 없음)", "en": "tier server", "zh": "服务器（无限制）"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high"}, {"id": "lab:task/boss-tab", "type": "Task", "label": {"ko": "표 데이터 골렘", "en": "boss tab", "zh": "表格数据魔像"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high", "definition": {"ko": "숫자 칸이 뭉친 바위 거인", "zh": "数字格子凝成的岩石巨人"}}, {"id": "lab:task/boss-img", "type": "Task", "label": {"ko": "흐린 사진 슬라임", "en": "boss img", "zh": "模糊照片史莱姆"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high", "definition": {"ko": "모양을 감추는 말랑한 덩어리", "zh": "隐藏形状的柔软团块"}}, {"id": "lab:task/boss-seq", "type": "Task", "label": {"ko": "긴 시간 뱀", "en": "boss seq", "zh": "长时序之蛇"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high", "definition": {"ko": "꼬리가 아주 먼 과거까지 이어진 뱀", "zh": "尾巴延伸到极远过去的蛇"}}, {"id": "lab:task/boss-gen", "type": "Task", "label": {"ko": "빈 캔버스 유령", "en": "boss gen", "zh": "空白画布幽灵"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high", "definition": {"ko": "아무것도 그려지지 않은 하얀 유령", "zh": "什么都没画的白色幽灵"}}, {"id": "lab:task/boss-mem", "type": "Task", "label": {"ko": "흩어진 기억 퍼즐", "en": "boss mem", "zh": "散落的记忆拼图"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high", "definition": {"ko": "조각이 빠진 그림 퍼즐 정령", "zh": "缺少碎片的拼图精灵"}}, {"id": "lab:task/boss-graph", "type": "Task", "label": {"ko": "얽힌 실타래", "en": "boss graph", "zh": "缠绕的线团"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high", "definition": {"ko": "매듭이 서로 얽힌 실뭉치", "zh": "结扣相互缠绕的线球"}}, {"id": "lab:task/boss-reflex", "type": "Task", "label": {"ko": "날아오는 그림자", "en": "boss reflex", "zh": "飞来的影子"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high", "definition": {"ko": "갑자기 커지며 다가오는 그림자", "zh": "突然变大逼近的影子"}}, {"id": "lab:task/boss-algo", "type": "Task", "label": {"ko": "정렬 미로", "en": "boss algo", "zh": "排序迷宫"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high", "definition": {"ko": "벽이 뒤섞인 상자 미로", "zh": "墙壁错乱的箱子迷宫"}}, {"id": "lab:task/boss-mix", "type": "Task", "label": {"ko": "종합 시험 키메라", "en": "boss mix", "zh": "综合考试奇美拉"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high", "definition": {"ko": "모든 과제가 섞인 공통 보스. 보너스 없이 같은 조건", "zh": "混合了所有任务的通用首领。无奖励，同一条件"}}, {"id": "lab:metric/fit-score", "type": "Metric", "label": {"ko": "체급별 공통 보스 적합도 (총 피해 ÷ 보스 HP)", "en": "tiered common-boss fit score", "zh": "各电源级别的通用首领适配度（总伤害 ÷ 首领 HP）"}, "page": "3_fruitfly_robot_rules", "anchor": "#r3", "status": "known", "confidence": "high", "definition": {"ko": "공통 보스에게 준 총 피해를 HP 200으로 나눈 설명용 지표.", "zh": "用通用首领受到的总伤害除以 HP 200 得出的说明用指标。"}}, {"id": "lab:simulation/calc-walk", "type": "Simulation", "label": {"ko": "계산 따라 하기", "en": "calculation walk-through", "zh": "跟着计算"}, "page": "3_fruitfly_robot_rules", "anchor": "#r3", "status": "known", "confidence": "high"}, {"id": "lab:simulation/stat-lab", "type": "Simulation", "label": {"ko": "능력치 실험실", "en": "stat sensitivity lab", "zh": "属性实验室"}, "page": "3_fruitfly_robot_rules", "anchor": "#r5", "status": "known", "confidence": "high"}, {"id": "lab:question/stat-subjectivity", "type": "Question", "label": {"ko": "판단으로 매긴 능력치(ATK·HIT)를 측정값으로 바꾸면 순위가 얼마나 달라질까?", "en": "How robust is the ranking to judged stats?", "zh": "如果把判断评定的能力（ATK·HIT）换成实测值，排名会变化多少？"}, "page": "3_fruitfly_robot_rules", "anchor": "#r5", "status": "known", "confidence": "mid"}, {"id": "lab:limitation/rule-grades", "type": "Limitation", "label": {"ko": "규칙값은 등급일 뿐 실측값이 아니다", "en": "rule grades are not measurements", "zh": "规则值只是等级，并非实测值"}, "page": "3_fruitfly_robot_rules", "anchor": "#r2", "status": "known", "confidence": "high"}, {"id": "lab:claim/ddpm-1000-steps", "type": "Claim", "label": {"ko": "DDPM은 잡음 제거를 1,000단계로 둔다", "en": "DDPM uses T=1000", "zh": "DDPM 将去噪设为1,000步"}, "page": "3_fruitfly_robot_rules", "anchor": "#r2", "status": "known", "confidence": "high"}, {"id": "lab:claim/fly-connections", "type": "Claim", "label": {"ko": "초파리 커넥톰 모형의 연결 6,287,749개(시냅스 5개 이상)", "en": "6,287,749 connections", "zh": "果蝇连接组模型的连接6,287,749条（突触5个以上）"}, "page": "3_fruitfly_robot_rules", "anchor": "#r2", "status": "known", "confidence": "mid"}, {"id": "lab:claim/zoo-chart-27", "type": "Claim", "label": {"ko": "원본 신경망 구조 차트는 27개 구조를 실었다", "en": "the original chart lists 27 architectures", "zh": "原始神经网络结构图表收录了27种结构"}, "page": "3_fruitfly_robot_rules", "anchor": "#hero", "status": "known", "confidence": "high"}, {"id": "lab:term/attention", "type": "Term", "label": {"ko": "어텐션", "en": "attention", "zh": "注意力"}, "page": "3_fruitfly_robot_rules", "anchor": "#r2", "status": "known", "confidence": "high", "definition": {"ko": "모든 위치끼리 관련 점수를 매기고 그 점수만큼 정보를 섞는 계산. 이름만 사람의 주의에서 빌렸다.", "zh": "对所有位置之间打出相关分数，并按分数混合信息的计算。名字只是借用了人类的注意。"}}, {"id": "lab:term/connectome", "type": "Term", "label": {"ko": "커넥톰", "en": "connectome", "zh": "连接组"}, "page": "3_fruitfly_robot_rules", "anchor": "#kg", "status": "known", "confidence": "high", "definition": {"ko": "뇌의 뉴런과 시냅스 연결을 모두 적은 배선도. 구조일 뿐, 시냅스 세기와 뉴런 성질은 따로 필요하다.", "zh": "记录大脑中所有神经元与突触连接的布线图。只是结构，突触强度和神经元性质还需另外提供。"}}, {"id": "lab:term/spike", "type": "Term", "label": {"ko": "스파이크", "en": "spike", "zh": "脉冲"}, "page": "3_fruitfly_robot_rules", "anchor": "#r2", "status": "known", "confidence": "high", "definition": {"ko": "뉴런의 막 전압이 문턱을 넘을 때 나오는 짧은 전기 신호.", "zh": "神经元膜电位超过阈值时发出的短暂电信号。"}}, {"id": "lab:term/gate", "type": "Term", "label": {"ko": "게이트", "en": "gate", "zh": "门（门控）"}, "page": "3_fruitfly_robot_rules", "anchor": "#r2", "status": "known", "confidence": "high", "definition": {"ko": "정보를 얼마나 통과시킬지 0~1 사이로 정하는 문. LSTM·GRU가 기억을 고를 때 쓴다.", "zh": "以0到1之间的数值决定让多少信息通过的门。LSTM、GRU用于选择记忆。"}}, {"id": "lab:term/neuromorphic-chip", "type": "Term", "label": {"ko": "뉴로모픽", "en": "neuromorphic chip", "zh": "神经形态"}, "page": "3_fruitfly_robot_rules", "anchor": "#r2", "status": "known", "confidence": "high", "definition": {"ko": "스파이크가 날 때만 계산하도록 만든 뇌 모방 반도체. 같은 일을 적은 전력으로 한다.", "zh": "仅在发出脉冲时进行计算的模仿大脑的半导体。能以较少电力完成同样的工作。"}}, {"id": "lab:quiz/4-3-r1-1", "type": "QuizItem", "label": {"ko": "능력치 중 사람이 판단해 매긴 값은?", "en": "quiz r1-1", "zh": "能力中哪些是人评定的值？"}, "page": "3_fruitfly_robot_rules", "anchor": "#r1", "status": "known", "confidence": "high"}, {"id": "lab:quiz/4-3-r2-1", "type": "QuizItem", "label": {"ko": "확산 모델의 SPD가 1인 근거는?", "en": "quiz r2-1", "zh": "扩散模型 SPD 为 1 的依据是？"}, "page": "3_fruitfly_robot_rules", "anchor": "#r2", "status": "known", "confidence": "high"}, {"id": "lab:quiz/4-3-r2-2", "type": "QuizItem", "label": {"ko": "초파리 커넥톰 모형의 EN 5는 어떤 가정에서 나온 값인가?", "en": "quiz r2-2", "zh": "果蝇连接组模型的 EN 5 来自什么假设？"}, "page": "3_fruitfly_robot_rules", "anchor": "#r2", "status": "known", "confidence": "high"}, {"id": "lab:quiz/4-3-r3-1", "type": "QuizItem", "label": {"ko": "EN 효율 2인 모델은 공격 1회에 30 EN을 쓴다. 드론 배터리 20", "en": "quiz r3-1", "zh": "EN 效率为2的模型每1次攻击消耗30 EN。无人机电池20"}, "page": "3_fruitfly_robot_rules", "anchor": "#r3", "status": "known", "confidence": "high"}, {"id": "lab:quiz/4-3-r3-2", "type": "QuizItem", "label": {"ko": "ATK 4, HIT 4인 모델이 공통 보스를 5회 공격하면 총 피해는?", "en": "quiz r3-2", "zh": "ATK 4、HIT 4 的模型攻击通用首领 5 次，总伤害是？"}, "page": "3_fruitfly_robot_rules", "anchor": "#r3", "status": "known", "confidence": "high"}, {"id": "lab:quiz/4-3-r4-1", "type": "QuizItem", "label": {"ko": "공통 보스를 따로 둔 이유는?", "en": "quiz r4-1", "zh": "为什么要单独设置通用首领？"}, "page": "3_fruitfly_robot_rules", "anchor": "#r4", "status": "known", "confidence": "high"}, {"id": "lab:quiz/4-3-r5-1", "type": "QuizItem", "label": {"ko": "능력치 실험실에서 트랜스포머의 EN을 1에서 3으로 올리면 초파리 몸 순", "en": "quiz r5-1", "zh": "在属性实验室中把 Transformer 的 EN 从 1 提到 3，果蝇身体的排名会如何？"}, "page": "3_fruitfly_robot_rules", "anchor": "#r5", "status": "known", "confidence": "high"}, {"id": "lab:quiz/4-3-r5-2", "type": "QuizItem", "label": {"ko": "이 규칙의 한계로 맞는 것은?", "en": "quiz r5-2", "zh": "以下哪个是本规则的正确局限？"}, "page": "3_fruitfly_robot_rules", "anchor": "#r5", "status": "known", "confidence": "high"}, {"id": "lab:work/ho2020denoising", "type": "Work", "label": {"ko": "Denoising diffusion probabilistic models", "en": "Denoising diffusion probabilistic models"}, "page": "3_fruitfly_robot_rules", "anchor": "#export", "status": "known", "confidence": "high"}, {"id": "lab:work/ahn2026fruitfly3", "type": "Work", "label": {"ko": "초파리 특별편 3 마인크래프트 속 초파리 뇌 — 배선도만으로 움직이는 신경계", "en": "초파리 특별편 3 마인크래프트 속 초파리 뇌 — 배선도만으로 움직이는 신경계", "zh": "果蝇特别篇 3 Minecraft 中的果蝇脑 — 仅凭布线图运动的神经系统"}, "page": "3_fruitfly_robot_rules", "anchor": "#export", "status": "known", "confidence": "high"}, {"id": "lab:work/vanveen2016neural", "type": "Work", "label": {"ko": "The Neural Network Zoo (처음 공개된 차트, 보관본)", "en": "The Neural Network Zoo (처음 공개된 차트, 보관본)", "zh": "The Neural Network Zoo（最初公开的图表，存档版）"}, "page": "3_fruitfly_robot_rules", "anchor": "#export", "status": "known", "confidence": "high"}], "edges": [{"s": "lab:concept/neural-network-architecture", "p": "lab:raises", "o": "lab:question/core-4-3", "anchor": "#hero", "confidence": "high"}, {"s": "lab:concept/robot-spec-sheet", "p": "lab:broader", "o": "lab:concept/neural-network-architecture", "anchor": "#r1", "confidence": "high"}, {"s": "lab:concept/stat-atk", "p": "lab:partOf", "o": "lab:concept/robot-spec-sheet", "anchor": "#r1", "confidence": "high"}, {"s": "lab:concept/stat-hit", "p": "lab:partOf", "o": "lab:concept/robot-spec-sheet", "anchor": "#r1", "confidence": "high"}, {"s": "lab:concept/stat-spd", "p": "lab:partOf", "o": "lab:concept/robot-spec-sheet", "anchor": "#r2", "confidence": "high"}, {"s": "lab:concept/stat-en", "p": "lab:partOf", "o": "lab:concept/robot-spec-sheet", "anchor": "#r2", "confidence": "high"}, {"s": "lab:concept/stat-mem", "p": "lab:partOf", "o": "lab:concept/robot-spec-sheet", "anchor": "#r2", "confidence": "high"}, {"s": "lab:concept/power-tiers", "p": "lab:broader", "o": "lab:concept/neural-network-architecture", "anchor": "#r4", "confidence": "high"}, {"s": "lab:concept/tier-fly", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:concept/tier-drone", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:concept/tier-laptop", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:concept/tier-server", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:task/boss-tab", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:task/boss-img", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:task/boss-seq", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:task/boss-gen", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:task/boss-mem", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:task/boss-graph", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:task/boss-reflex", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:task/boss-algo", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:task/boss-mix", "p": "lab:partOf", "o": "lab:concept/power-tiers", "anchor": "#r4", "confidence": "high"}, {"s": "lab:concept/robot-spec-sheet", "p": "lab:evaluatedBy", "o": "lab:metric/fit-score", "anchor": "#r3", "confidence": "high"}, {"s": "lab:metric/fit-score", "p": "lab:demonstratedBy", "o": "lab:simulation/calc-walk", "anchor": "#r3", "confidence": "high"}, {"s": "lab:metric/fit-score", "p": "lab:demonstratedBy", "o": "lab:simulation/stat-lab", "anchor": "#r5", "confidence": "high"}, {"s": "lab:metric/fit-score", "p": "lab:raises", "o": "lab:question/stat-subjectivity", "anchor": "#r5", "confidence": "mid"}, {"s": "lab:concept/robot-spec-sheet", "p": "lab:hasLimitation", "o": "lab:limitation/rule-grades", "anchor": "#r2", "confidence": "high"}, {"s": "lab:claim/ddpm-1000-steps", "p": "lab:supports", "o": "lab:concept/stat-spd", "anchor": "#r2", "confidence": "high"}, {"s": "lab:claim/ddpm-1000-steps", "p": "lab:assertedIn", "o": "lab:work/ho2020denoising", "anchor": "#r2", "confidence": "high"}, {"s": "lab:claim/fly-connections", "p": "lab:supports", "o": "lab:concept/stat-en", "anchor": "#r2", "confidence": "high"}, {"s": "lab:claim/fly-connections", "p": "lab:assertedIn", "o": "lab:work/ahn2026fruitfly3", "anchor": "#r2", "confidence": "high"}, {"s": "lab:claim/zoo-chart-27", "p": "lab:supports", "o": "lab:concept/neural-network-architecture", "anchor": "#hero", "confidence": "high"}, {"s": "lab:claim/zoo-chart-27", "p": "lab:assertedIn", "o": "lab:work/vanveen2016neural", "anchor": "#hero", "confidence": "high"}, {"s": "lab:term/attention", "p": "lab:relatedTo", "o": "lab:concept/neural-network-architecture", "anchor": "#r2", "confidence": "high"}, {"s": "lab:term/connectome", "p": "lab:relatedTo", "o": "lab:concept/neural-network-architecture", "anchor": "#kg", "confidence": "high"}, {"s": "lab:term/spike", "p": "lab:relatedTo", "o": "lab:concept/neural-network-architecture", "anchor": "#r2", "confidence": "high"}, {"s": "lab:term/gate", "p": "lab:relatedTo", "o": "lab:concept/neural-network-architecture", "anchor": "#r2", "confidence": "high"}, {"s": "lab:term/neuromorphic-chip", "p": "lab:relatedTo", "o": "lab:concept/neural-network-architecture", "anchor": "#r2", "confidence": "high"}, {"s": "lab:quiz/4-3-r1-1", "p": "lab:assesses", "o": "lab:concept/neural-network-architecture", "anchor": "#r1", "confidence": "high"}, {"s": "lab:quiz/4-3-r2-1", "p": "lab:assesses", "o": "lab:concept/neural-network-architecture", "anchor": "#r2", "confidence": "high"}, {"s": "lab:quiz/4-3-r2-2", "p": "lab:assesses", "o": "lab:concept/neural-network-architecture", "anchor": "#r2", "confidence": "high"}, {"s": "lab:quiz/4-3-r3-1", "p": "lab:assesses", "o": "lab:concept/neural-network-architecture", "anchor": "#r3", "confidence": "high"}, {"s": "lab:quiz/4-3-r3-2", "p": "lab:assesses", "o": "lab:concept/neural-network-architecture", "anchor": "#r3", "confidence": "high"}, {"s": "lab:quiz/4-3-r4-1", "p": "lab:assesses", "o": "lab:concept/neural-network-architecture", "anchor": "#r4", "confidence": "high"}, {"s": "lab:quiz/4-3-r5-1", "p": "lab:assesses", "o": "lab:concept/neural-network-architecture", "anchor": "#r5", "confidence": "high"}, {"s": "lab:quiz/4-3-r5-2", "p": "lab:assesses", "o": "lab:concept/neural-network-architecture", "anchor": "#r5", "confidence": "high"}]}</script>
+<script type="application/ld+json" id="kg-ld">{"@context": {"@vocab": "urn:lab:", "lab": "urn:lab:", "skos": "http://www.w3.org/2004/02/skos/core#", "schema": "https://schema.org/", "dct": "http://purl.org/dc/terms/", "prov": "http://www.w3.org/ns/prov#"}, "@graph": [{"@id": "lab:concept/neural-network-architecture", "@type": ["lab:Concept", "skos:Concept"], "skos:prefLabel": [{"@value": "신경망 구조", "@language": "ko"}, {"@value": "neural network architecture", "@language": "en"}], "skos:definition": {"@value": "세포(노드)의 종류와 연결선으로 본 신경망의 배선 형태. 활성함수·학습법이 같다고 가정하고 비교한다.", "@language": "ko"}, "lab:raises": [{"@id": "lab:question/core-4-3"}]}, {"@id": "lab:question/core-4-3", "@type": ["lab:Question", "skos:Concept"], "skos:prefLabel": [{"@value": "서로 다른 신경망을 같은 저울에 올리려면 어떤 규칙이 필요할까?", "@language": "ko"}, {"@value": "core question 4-3", "@language": "en"}]}, {"@id": "lab:concept/robot-spec-sheet", "@type": ["lab:Concept", "skos:Concept"], "skos:prefLabel": [{"@value": "초파리 로봇 사양표", "@language": "ko"}, {"@value": "robot spec sheet", "@language": "en"}], "skos:definition": {"@value": "ATK·HIT(판단값)와 SPD·EN·MEM(규칙값) 다섯 능력치로 신경망을 비교하는 설명용 표.", "@language": "ko"}, "skos:broader": [{"@id": "lab:concept/neural-network-architecture"}], "lab:broader": [{"@id": "lab:concept/neural-network-architecture"}], "lab:evaluatedBy": [{"@id": "lab:metric/fit-score"}], "lab:hasLimitation": [{"@id": "lab:limitation/rule-grades"}]}, {"@id": "lab:concept/stat-atk", "@type": ["lab:Concept", "skos:Concept"], "skos:prefLabel": [{"@value": "ATK 공격력", "@language": "ko"}, {"@value": "attack", "@language": "en"}], "skos:definition": {"@value": "표현력. 판단값.", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/robot-spec-sheet"}], "lab:partOf": [{"@id": "lab:concept/robot-spec-sheet"}]}, {"@id": "lab:concept/stat-hit", "@type": ["lab:Concept", "skos:Concept"], "skos:prefLabel": [{"@value": "HIT 명중률", "@language": "ko"}, {"@value": "hit", "@language": "en"}], "skos:definition": {"@value": "실전 정확도(학습을 마친 모델이 처음 보는 입력을 맞히는 정도). 판단값. 명중 확률 = 0.5 + 0.1 × HIT.", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/robot-spec-sheet"}], "lab:partOf": [{"@id": "lab:concept/robot-spec-sheet"}]}, {"@id": "lab:concept/stat-spd", "@type": ["lab:Concept", "skos:Concept"], "skos:prefLabel": [{"@value": "SPD 기동력", "@language": "ko"}, {"@value": "speed", "@language": "en"}], "skos:definition": {"@value": "새 입력 하나에 답하기까지의 계산 단계. 규칙값.", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/robot-spec-sheet"}], "lab:partOf": [{"@id": "lab:concept/robot-spec-sheet"}]}, {"@id": "lab:concept/stat-en", "@type": ["lab:Concept", "skos:Concept"], "skos:prefLabel": [{"@value": "EN 효율", "@language": "ko"}, {"@value": "energy", "@language": "en"}], "skos:definition": {"@value": "공격 1회 소모 EN을 정하는 계산 규모. 규칙값.", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/robot-spec-sheet"}], "lab:partOf": [{"@id": "lab:concept/robot-spec-sheet"}]}, {"@id": "lab:concept/stat-mem", "@type": ["lab:Concept", "skos:Concept"], "skos:prefLabel": [{"@value": "MEM 기억", "@language": "ko"}, {"@value": "memory", "@language": "en"}], "skos:definition": {"@value": "시간 기억 방식. 규칙값.", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/robot-spec-sheet"}], "lab:partOf": [{"@id": "lab:concept/robot-spec-sheet"}]}, {"@id": "lab:concept/power-tiers", "@type": ["lab:Concept", "skos:Concept"], "skos:prefLabel": [{"@value": "전원 체급", "@language": "ko"}, {"@value": "power tiers", "@language": "en"}], "skos:definition": {"@value": "초파리 몸 60, 드론 200, 노트북 600, 서버(제한 없음) 네 단계의 설명용 전원 조건.", "@language": "ko"}, "skos:broader": [{"@id": "lab:concept/neural-network-architecture"}], "lab:broader": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:concept/tier-fly", "@type": ["lab:Concept", "skos:Concept"], "skos:prefLabel": [{"@value": "초파리 몸 60 EN", "@language": "ko"}, {"@value": "tier fly", "@language": "en"}], "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:concept/tier-drone", "@type": ["lab:Concept", "skos:Concept"], "skos:prefLabel": [{"@value": "드론 200 EN", "@language": "ko"}, {"@value": "tier drone", "@language": "en"}], "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:concept/tier-laptop", "@type": ["lab:Concept", "skos:Concept"], "skos:prefLabel": [{"@value": "노트북 600 EN", "@language": "ko"}, {"@value": "tier laptop", "@language": "en"}], "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:concept/tier-server", "@type": ["lab:Concept", "skos:Concept"], "skos:prefLabel": [{"@value": "서버 (제한 없음)", "@language": "ko"}, {"@value": "tier server", "@language": "en"}], "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:task/boss-tab", "@type": ["lab:Task", "skos:Concept"], "skos:prefLabel": [{"@value": "표 데이터 골렘", "@language": "ko"}, {"@value": "boss tab", "@language": "en"}], "skos:definition": {"@value": "숫자 칸이 뭉친 바위 거인", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:task/boss-img", "@type": ["lab:Task", "skos:Concept"], "skos:prefLabel": [{"@value": "흐린 사진 슬라임", "@language": "ko"}, {"@value": "boss img", "@language": "en"}], "skos:definition": {"@value": "모양을 감추는 말랑한 덩어리", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:task/boss-seq", "@type": ["lab:Task", "skos:Concept"], "skos:prefLabel": [{"@value": "긴 시간 뱀", "@language": "ko"}, {"@value": "boss seq", "@language": "en"}], "skos:definition": {"@value": "꼬리가 아주 먼 과거까지 이어진 뱀", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:task/boss-gen", "@type": ["lab:Task", "skos:Concept"], "skos:prefLabel": [{"@value": "빈 캔버스 유령", "@language": "ko"}, {"@value": "boss gen", "@language": "en"}], "skos:definition": {"@value": "아무것도 그려지지 않은 하얀 유령", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:task/boss-mem", "@type": ["lab:Task", "skos:Concept"], "skos:prefLabel": [{"@value": "흩어진 기억 퍼즐", "@language": "ko"}, {"@value": "boss mem", "@language": "en"}], "skos:definition": {"@value": "조각이 빠진 그림 퍼즐 정령", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:task/boss-graph", "@type": ["lab:Task", "skos:Concept"], "skos:prefLabel": [{"@value": "얽힌 실타래", "@language": "ko"}, {"@value": "boss graph", "@language": "en"}], "skos:definition": {"@value": "매듭이 서로 얽힌 실뭉치", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:task/boss-reflex", "@type": ["lab:Task", "skos:Concept"], "skos:prefLabel": [{"@value": "날아오는 그림자", "@language": "ko"}, {"@value": "boss reflex", "@language": "en"}], "skos:definition": {"@value": "갑자기 커지며 다가오는 그림자", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:task/boss-algo", "@type": ["lab:Task", "skos:Concept"], "skos:prefLabel": [{"@value": "정렬 미로", "@language": "ko"}, {"@value": "boss algo", "@language": "en"}], "skos:definition": {"@value": "벽이 뒤섞인 상자 미로", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:task/boss-mix", "@type": ["lab:Task", "skos:Concept"], "skos:prefLabel": [{"@value": "종합 시험 키메라", "@language": "ko"}, {"@value": "boss mix", "@language": "en"}], "skos:definition": {"@value": "모든 과제가 섞인 공통 보스. 보너스 없이 같은 조건", "@language": "ko"}, "schema:isPartOf": [{"@id": "lab:concept/power-tiers"}], "lab:partOf": [{"@id": "lab:concept/power-tiers"}]}, {"@id": "lab:metric/fit-score", "@type": ["lab:Metric", "skos:Concept"], "skos:prefLabel": [{"@value": "체급별 공통 보스 적합도 (총 피해 ÷ 보스 HP)", "@language": "ko"}, {"@value": "tiered common-boss fit score", "@language": "en"}], "skos:definition": {"@value": "공통 보스에게 준 총 피해를 HP 200으로 나눈 설명용 지표.", "@language": "ko"}, "lab:demonstratedBy": [{"@id": "lab:simulation/calc-walk"}, {"@id": "lab:simulation/stat-lab"}], "lab:raises": [{"@id": "lab:question/stat-subjectivity"}]}, {"@id": "lab:simulation/calc-walk", "@type": ["lab:Simulation", "skos:Concept"], "skos:prefLabel": [{"@value": "계산 따라 하기", "@language": "ko"}, {"@value": "calculation walk-through", "@language": "en"}]}, {"@id": "lab:simulation/stat-lab", "@type": ["lab:Simulation", "skos:Concept"], "skos:prefLabel": [{"@value": "능력치 실험실", "@language": "ko"}, {"@value": "stat sensitivity lab", "@language": "en"}]}, {"@id": "lab:question/stat-subjectivity", "@type": ["lab:Question", "skos:Concept"], "skos:prefLabel": [{"@value": "판단으로 매긴 능력치(ATK·HIT)를 측정값으로 바꾸면 순위가 얼마나 달라질까?", "@language": "ko"}, {"@value": "How robust is the ranking to judged stats?", "@language": "en"}]}, {"@id": "lab:limitation/rule-grades", "@type": ["lab:Limitation", "skos:Concept"], "skos:prefLabel": [{"@value": "규칙값은 등급일 뿐 실측값이 아니다", "@language": "ko"}, {"@value": "rule grades are not measurements", "@language": "en"}]}, {"@id": "lab:claim/ddpm-1000-steps", "@type": ["lab:Claim", "schema:Claim"], "skos:prefLabel": [{"@value": "DDPM은 잡음 제거를 1,000단계로 둔다", "@language": "ko"}, {"@value": "DDPM uses T=1000", "@language": "en"}], "lab:supports": [{"@id": "lab:concept/stat-spd"}], "schema:citation": [{"@id": "lab:work/ho2020denoising"}], "lab:assertedIn": [{"@id": "lab:work/ho2020denoising"}]}, {"@id": "lab:claim/fly-connections", "@type": ["lab:Claim", "schema:Claim"], "skos:prefLabel": [{"@value": "초파리 커넥톰 모형의 연결 6,287,749개(시냅스 5개 이상)", "@language": "ko"}, {"@value": "6,287,749 connections", "@language": "en"}], "lab:supports": [{"@id": "lab:concept/stat-en"}], "schema:citation": [{"@id": "lab:work/ahn2026fruitfly3"}], "lab:assertedIn": [{"@id": "lab:work/ahn2026fruitfly3"}]}, {"@id": "lab:claim/zoo-chart-27", "@type": ["lab:Claim", "schema:Claim"], "skos:prefLabel": [{"@value": "원본 신경망 구조 차트는 27개 구조를 실었다", "@language": "ko"}, {"@value": "the original chart lists 27 architectures", "@language": "en"}], "lab:supports": [{"@id": "lab:concept/neural-network-architecture"}], "schema:citation": [{"@id": "lab:work/vanveen2016neural"}], "lab:assertedIn": [{"@id": "lab:work/vanveen2016neural"}]}, {"@id": "lab:term/attention", "@type": ["lab:Term", "skos:Concept"], "skos:prefLabel": [{"@value": "어텐션", "@language": "ko"}, {"@value": "attention", "@language": "en"}], "skos:definition": {"@value": "모든 위치끼리 관련 점수를 매기고 그 점수만큼 정보를 섞는 계산. 이름만 사람의 주의에서 빌렸다.", "@language": "ko"}, "skos:related": [{"@id": "lab:concept/neural-network-architecture"}], "lab:relatedTo": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:term/connectome", "@type": ["lab:Term", "skos:Concept"], "skos:prefLabel": [{"@value": "커넥톰", "@language": "ko"}, {"@value": "connectome", "@language": "en"}], "skos:definition": {"@value": "뇌의 뉴런과 시냅스 연결을 모두 적은 배선도. 구조일 뿐, 시냅스 세기와 뉴런 성질은 따로 필요하다.", "@language": "ko"}, "skos:related": [{"@id": "lab:concept/neural-network-architecture"}], "lab:relatedTo": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:term/spike", "@type": ["lab:Term", "skos:Concept"], "skos:prefLabel": [{"@value": "스파이크", "@language": "ko"}, {"@value": "spike", "@language": "en"}], "skos:definition": {"@value": "뉴런의 막 전압이 문턱을 넘을 때 나오는 짧은 전기 신호.", "@language": "ko"}, "skos:related": [{"@id": "lab:concept/neural-network-architecture"}], "lab:relatedTo": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:term/gate", "@type": ["lab:Term", "skos:Concept"], "skos:prefLabel": [{"@value": "게이트", "@language": "ko"}, {"@value": "gate", "@language": "en"}], "skos:definition": {"@value": "정보를 얼마나 통과시킬지 0~1 사이로 정하는 문. LSTM·GRU가 기억을 고를 때 쓴다.", "@language": "ko"}, "skos:related": [{"@id": "lab:concept/neural-network-architecture"}], "lab:relatedTo": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:term/neuromorphic-chip", "@type": ["lab:Term", "skos:Concept"], "skos:prefLabel": [{"@value": "뉴로모픽", "@language": "ko"}, {"@value": "neuromorphic chip", "@language": "en"}], "skos:definition": {"@value": "스파이크가 날 때만 계산하도록 만든 뇌 모방 반도체. 같은 일을 적은 전력으로 한다.", "@language": "ko"}, "skos:related": [{"@id": "lab:concept/neural-network-architecture"}], "lab:relatedTo": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:quiz/4-3-r1-1", "@type": ["lab:QuizItem", "skos:Concept"], "skos:prefLabel": [{"@value": "능력치 중 사람이 판단해 매긴 값은?", "@language": "ko"}, {"@value": "quiz r1-1", "@language": "en"}], "lab:assesses": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:quiz/4-3-r2-1", "@type": ["lab:QuizItem", "skos:Concept"], "skos:prefLabel": [{"@value": "확산 모델의 SPD가 1인 근거는?", "@language": "ko"}, {"@value": "quiz r2-1", "@language": "en"}], "lab:assesses": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:quiz/4-3-r2-2", "@type": ["lab:QuizItem", "skos:Concept"], "skos:prefLabel": [{"@value": "초파리 커넥톰 모형의 EN 5는 어떤 가정에서 나온 값인가?", "@language": "ko"}, {"@value": "quiz r2-2", "@language": "en"}], "lab:assesses": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:quiz/4-3-r3-1", "@type": ["lab:QuizItem", "skos:Concept"], "skos:prefLabel": [{"@value": "EN 효율 2인 모델은 공격 1회에 30 EN을 쓴다. 드론 배터리 20", "@language": "ko"}, {"@value": "quiz r3-1", "@language": "en"}], "lab:assesses": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:quiz/4-3-r3-2", "@type": ["lab:QuizItem", "skos:Concept"], "skos:prefLabel": [{"@value": "ATK 4, HIT 4인 모델이 공통 보스를 5회 공격하면 총 피해는?", "@language": "ko"}, {"@value": "quiz r3-2", "@language": "en"}], "lab:assesses": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:quiz/4-3-r4-1", "@type": ["lab:QuizItem", "skos:Concept"], "skos:prefLabel": [{"@value": "공통 보스를 따로 둔 이유는?", "@language": "ko"}, {"@value": "quiz r4-1", "@language": "en"}], "lab:assesses": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:quiz/4-3-r5-1", "@type": ["lab:QuizItem", "skos:Concept"], "skos:prefLabel": [{"@value": "능력치 실험실에서 트랜스포머의 EN을 1에서 3으로 올리면 초파리 몸 순", "@language": "ko"}, {"@value": "quiz r5-1", "@language": "en"}], "lab:assesses": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:quiz/4-3-r5-2", "@type": ["lab:QuizItem", "skos:Concept"], "skos:prefLabel": [{"@value": "이 규칙의 한계로 맞는 것은?", "@language": "ko"}, {"@value": "quiz r5-2", "@language": "en"}], "lab:assesses": [{"@id": "lab:concept/neural-network-architecture"}]}, {"@id": "lab:work/ho2020denoising", "@type": ["lab:Work", "schema:ScholarlyArticle"], "skos:prefLabel": [{"@value": "Denoising diffusion probabilistic models", "@language": "ko"}, {"@value": "Denoising diffusion probabilistic models", "@language": "en"}]}, {"@id": "lab:work/ahn2026fruitfly3", "@type": ["lab:Work", "schema:ScholarlyArticle"], "skos:prefLabel": [{"@value": "초파리 특별편 3 마인크래프트 속 초파리 뇌 — 배선도만으로 움직이는 신경계", "@language": "ko"}, {"@value": "초파리 특별편 3 마인크래프트 속 초파리 뇌 — 배선도만으로 움직이는 신경계", "@language": "en"}]}, {"@id": "lab:work/vanveen2016neural", "@type": ["lab:Work", "schema:ScholarlyArticle"], "skos:prefLabel": [{"@value": "The Neural Network Zoo (처음 공개된 차트, 보관본)", "@language": "ko"}, {"@value": "The Neural Network Zoo (처음 공개된 차트, 보관본)", "@language": "en"}]}]}</script>
+<script type="application/json" id="refs-csl">[{"id": "vanveen2016neural", "type": "webpage", "title": "The Neural Network Zoo (처음 공개된 차트, 보관본)", "author": [{"family": "van Veen", "given": "Fjodor"}, {"family": "Leijnen", "given": "Stefan"}], "issued": {"date-parts": [[2016]]}, "URL": "https://web.archive.org/web/2016/https://www.asimovinstitute.org/neural-network-zoo/", "accessed": {"date-parts": [[2026, 10, 31]]}, "lab": {"work": "lab:work/vanveen2016neural", "role": "background", "supports": ["lab:claim/zoo-chart-27"], "verified": {"title": true, "authors": true, "year": true, "venue": true, "doi": false, "pages": false}, "checkedBy": "학습 지식 + 웹 검색 2026-10-31", "note": "원래 블로그 글은 더 이상 운영되지 않아 인터넷 아카이브 보관본으로 연결"}}, {"id": "ahn2026fruitfly3", "type": "webpage", "title": "초파리 특별편 3 마인크래프트 속 초파리 뇌 — 배선도만으로 움직이는 신경계", "author": [{"family": "안", "given": "상선"}], "issued": {"date-parts": [[2026]]}, "container-title": "해설 페이지", "URL": "https://adminmrobo.github.io/AI_Model_Review_Fruit_fly_special/3_fruitfly_minecraft_connectome.html", "accessed": {"date-parts": [[2026, 10, 31]]}, "lab": {"work": "lab:work/ahn2026fruitfly3", "role": "data", "supports": ["lab:claim/fly-connections"], "verified": {"title": true, "authors": true, "year": true, "venue": true, "doi": false, "pages": false}, "checkedBy": "학습 지식 + 웹 검색 2026-10-31", "note": "시뮬레이션 뉴런 수·연결 수·시냅스 수·학습 가중치 0·이득 0.65의 출처"}}, {"id": "ho2020denoising", "type": "paper-conference", "title": "Denoising diffusion probabilistic models", "author": [{"family": "Ho", "given": "Jonathan"}, {"family": "Jain", "given": "Ajay"}, {"family": "Abbeel", "given": "Pieter"}], "issued": {"date-parts": [[2020]]}, "container-title": "Advances in Neural Information Processing Systems", "volume": "33", "accessed": {"date-parts": [[2026, 10, 31]]}, "lab": {"work": "lab:work/ho2020denoising", "role": "background", "supports": ["lab:claim/ddpm-1000-steps"], "verified": {"title": true, "authors": true, "year": true, "venue": true, "doi": false, "pages": false}, "checkedBy": "학습 지식 + 웹 검색 2026-10-31", "note": ""}}]</script>
+<script type="application/json" id="page-meta">{"title": "果蝇机器人对战 ① 植入规则与规格表", "series": "神经网络结构图鉴 · 果蝇机器人对战", "number": "3", "creator": [{"name": "안상선 ((주)M-Robo 대표)", "role": "author"}], "contributor": [{"name": "AI 보조 제작 (Claude)", "role": "assistant"}], "date": "2026-11-01", "version": "2.0", "language": ["zh"], "license": "", "url": "", "about": ["lab:concept/neural-network-architecture", "lab:concept/robot-spec-sheet", "lab:concept/stat-atk", "lab:concept/stat-hit", "lab:concept/stat-spd", "lab:concept/stat-en"], "educationalLevel": "입문~중급", "learningResourceType": "interactive explainer", "basedOn": ["vanveen2016neural", "ahn2026fruitfly3", "ho2020denoising"], "suggestedCitation": "Ahn Sangsun (2026). 果蝇机器人对战 ① 植入规则与规格表. 神经网络结构图鉴 · 果蝇机器人对战 第 3 页, v2.0.", "title_ko": "초파리 로봇 대전 ① 이식 규칙과 사양표", "series_ko": "신경망 구조 도감 · 초파리 로봇 대전", "suggestedCitation_ko": "안상선 (2026). 초파리 로봇 대전 ① 이식 규칙과 사양표. 신경망 구조 도감 · 초파리 로봇 대전 3쪽, v2.0.", "translationOf": "3_fruitfly_robot_rules.html"}</script>
+<script>
+var PAGE={"kind": "rules", "key": "4-3", "groups": [], "path": [["读规格表", "不混用判断值与规则值"], ["规则表", "只是等级，并非实测值"], ["计算式", "说明用规则"], ["电源级别·首领", "排名只按通用首领"], ["实验室", ""]], "outro": [["doc", "magic", "博士", "核心三句。① SPD·EN·MEM 用计算步数规则表评定。② ATK·HIT 是判断值，可在实验室中改变。③ 模型间比较只用通用首领。"], ["fly", "arms", "果蝇研究员", "规则已公开，怀疑的话就在实验室里做吧。"], ["robo", "sigh", "Money-Robo", "一格 EN 就让排名这样摇摆啊。得重新记账了。"], ["asst", "spark", "助手（Haru）", "下一页将把 42 种实际装上试试。"]], "match": "4_fruitfly_robot_match.html", "atlas1": "1_neural_network_atlas_chart.html", "atlas2": "2_neural_network_atlas_after.html"};
+var SEC=[{"id": "lv1", "no": 1, "key": "feedforward", "title": "单向流动的网络", "short": "前馈", "limit": "不知道顺序与位置。照片中相邻的像素，或句子前后的词，都只被当作一串数字。"}, {"id": "lv2", "no": 2, "key": "convolution", "title": "观察空间的网络", "short": "卷积", "limit": "擅长看空间，但不懂时间。无法把视频的前一幕带到下一幕。"}, {"id": "lv3", "no": 3, "key": "recurrent", "title": "记住时间的网络", "short": "循环", "limit": "需要逐格依次读取，因此很慢，非常久远的过去依然模糊。"}, {"id": "lv4", "no": 4, "key": "attention", "title": "直接查看需要之处的网络", "short": "注意力", "limit": "代价是一次看完全部，需要大量计算与能量。难以放进小身体里。"}, {"id": "lv5", "no": 5, "key": "generative", "title": "压缩并生成的网络", "short": "生成", "limit": "因为没有标准答案地学习分布，所以取出“什么才是正确的记忆”的联想能力需要另外具备。"}, {"id": "lv6", "no": 6, "key": "energy", "title": "用能量寻找记忆的网络", "short": "能量", "limit": "学习慢，难以扩大规模。也不像真实大脑那样随时间发放脉冲。"}, {"id": "lv7", "no": 7, "key": "brain", "title": "借用大脑布线的网络", "short": "果蝇特别篇", "limit": "布线图只是结构。神经元的性质与突触强度需另行掌握，学习新任务的能力也较弱。"}];
+var ENEMY={"tab": {"name": "表格数据魔像", "hp": 200, "col": "#c9a46a", "desc": "数字格子凝成的岩石巨人"}, "img": {"name": "模糊照片史莱姆", "hp": 200, "col": "#7fb0ff", "desc": "隐藏形状的柔软团块"}, "seq": {"name": "长时序之蛇", "hp": 200, "col": "#9ab8ff", "desc": "尾巴延伸到极远过去的蛇"}, "gen": {"name": "空白画布幽灵", "hp": 200, "col": "#e48cff", "desc": "什么都没画的白色幽灵"}, "mem": {"name": "散落的记忆拼图", "hp": 200, "col": "#7fd1a8", "desc": "缺少碎片的拼图精灵"}, "graph": {"name": "缠绕的线团", "hp": 200, "col": "#f1c84a", "desc": "结扣相互缠绕的线球"}, "reflex": {"name": "飞来的影子", "hp": 200, "col": "#9d9bb8", "desc": "突然变大逼近的影子"}, "algo": {"name": "排序迷宫", "hp": 200, "col": "#c48a5a", "desc": "墙壁错乱的箱子迷宫"}, "mix": {"name": "综合考试奇美拉", "hp": 200, "col": "#b9a6e8", "desc": "混合了所有任务的通用首领。无奖励，同一条件"}};
+var MODELS=[{"id": "perceptron", "name": "感知机", "en": "Perceptron", "abbr": "P", "year": 1958, "sec": "lv1", "orig": true, "acc": 2, "d": {"spec": "I2|O1"}, "what": "将输入乘以权重相加后，超过标准输出1，否则输出0的最小神经网络。", "an_t": "fly", "an": "与把气味信号相加、超过阈值即放电的一个感觉神经元相似。", "good": "以一条直线分开的简单分类", "bad": "像XOR那样无法用直线分开的问题，原理上解决不了", "r": [1, 5, 1], "s": [5, 5, 1], "fx": "line", "enemy": "tab", "move": "一直线裁决光束", "line": "画一条线就结束！简单的东西最快嘛。", "doc": "又快又便宜，但切不开曲线。", "basis": "经过几条连接一次 · 无时间记忆", "core": true, "nonNN": false}, {"id": "feed-forward", "name": "前馈神经网络", "en": "Feed Forward", "abbr": "FF", "year": 1986, "sec": "lv1", "orig": true, "acc": 3, "d": {"spec": "I2|H2|O1"}, "what": "在输入与输出之间加入一层隐藏层。借助隐藏层，也能画出曲线边界。", "an_t": "life", "an": "多名评审各自提出意见，由评审长综合。", "good": "小规模非线性分类·回归", "bad": "层数浅，对复杂模式有局限", "r": [2, 5, 2], "s": [5, 5, 1], "fx": "layers", "enemy": "tab", "move": "两段折射光束", "line": "弯一次就能画曲线，弯两次更好。", "doc": "一层隐藏层越过了直线的墙。", "basis": "经过一层隐藏层一次 · 无时间记忆", "core": false, "nonNN": false}, {"id": "rbf-network", "name": "径向基函数网络", "en": "Radial Basis Network", "abbr": "RBF", "year": 1988, "sec": "lv1", "orig": true, "acc": 3, "d": {"spec": "I2|H2|O1"}, "what": "与FF布线相同。隐藏细胞以钟形（高斯）计算“离基准点有多近”。", "an_t": "life", "an": "每个隐藏细胞站着一位代表客人，衡量新客人与谁相似。", "good": "低维函数逼近、插值、快速学习", "bad": "输入维度变大，基准点激增", "r": [2, 4, 1], "s": [5, 5, 1], "fx": "layers", "enemy": "tab", "move": "距离感知环", "line": "近则强，远则弱。只要量距离就行。", "doc": "在狭窄之地很强，维度增加就会迷路。", "basis": "计算到基准点的几个距离 · 无时间记忆", "core": false, "nonNN": false, "hidden": "只有激活函数（高斯）不同。原始图表中唯一没有固定激活函数的例外。"}, {"id": "deep-feed-forward", "name": "深度前馈神经网络", "en": "Deep Feed Forward", "abbr": "DFF", "year": 1986, "sec": "lv1", "orig": true, "acc": 4, "d": {"spec": "I3|H4|H4|O2"}, "what": "叠加多层隐藏层的FF。通常称为MLP，是深度学习的起点。", "an_t": "life", "an": "转包的转包。后面的层再次组合前面层形成的特征。", "good": "表格数据预测，作为其他模型内部部件（Transformer的FFN）", "bad": "无法自行利用图像·顺序的结构", "r": [4, 4, 4], "s": [4, 4, 1], "fx": "layers", "enemy": "tab", "move": "多层连环炮击", "line": "层层堆叠，一次性推进！", "doc": "如果是表格数据，这个就够了。", "basis": "经过几层多层网络一次 · 无时间记忆", "core": true, "nonNN": false}, {"id": "svm", "name": "支持向量机", "en": "Support Vector Machine", "abbr": "SVM", "year": 1995, "sec": "lv1", "orig": true, "acc": 4, "d": {"spec": "I3|H3|H3|O1"}, "what": "在两组之间画出边界，使其形成“最宽的路”。与其说是神经网络，不如说是经典机器学习。", "an_t": "life", "an": "在两个村庄之间修一条尽可能宽的道路。", "good": "数据较少的分类、表格数据、基线模型", "bad": "数据非常多，或对原始图像效率低下", "r": [3, 5, 3], "s": [4, 4, 1], "fx": "line", "enemy": "tab", "move": "最大间隔屏障", "line": "边界越宽越安全。留出余地再画吧。", "doc": "数据少时可靠的基线。", "basis": "支持向量与核计算一次 · 无时间记忆", "core": false, "nonNN": true, "hidden": "由最大间隔优化这一学习方法定义。", "note": "严格来说不是神经网络，而是经典机器学习。因原始图表收录，故一并比较。"}, {"id": "elm", "name": "极限学习机", "en": "Extreme Learning Machine", "abbr": "ELM", "year": 2006, "sec": "lv1", "orig": true, "acc": 3, "d": {"spec": "I3|H5|H5|O2", "edges": "sparse"}, "what": "随机确定并固定隐藏层权重，只一次性计算输出层即完成。", "an_t": "fly", "an": "与果蝇蘑菇体的输入连接几乎随机相似。随机展开后只学习输出。", "good": "学习非常快，适合小规模实时问题", "bad": "准确率上限较低", "r": [2, 5, 1], "s": [5, 4, 1], "fx": "layers", "enemy": "tab", "move": "随机散弹展开", "line": "随便展开也没关系，只要最后答对就行！", "doc": "便宜又快，但一击较弱。", "basis": "经过一层宽的隐藏层一次 · 无时间记忆", "core": false, "nonNN": false, "hidden": "区别全在于不使用反向传播的学习方法。"}, {"id": "kan", "name": "柯尔莫哥洛夫-阿诺德网络", "en": "Kolmogorov-Arnold Network", "abbr": "KAN", "year": 2024, "sec": "lv1", "orig": false, "acc": 3, "d": {"spec": "I2|H5|O1", "wavy": true}, "what": "不用权重数字，而是在每条连接线上设置“可学习的曲线函数”。学习结果容易用公式读出。", "an_t": "life", "an": "不是每座桥固定收费，而是按车型设置不同的收费表。", "good": "小型科学数据的公式寻找、需要解释的回归", "bad": "在大数据·图像上验证尚少，学习较慢", "r": [3, 3, 2], "s": [4, 3, 1], "fx": "layers", "enemy": "tab", "move": "曲线鞭", "line": "每条线形状都不同。用曲线缠绕！", "doc": "具备读出公式的能力，但仍在验证中。", "basis": "每条连接计算曲线函数（比同等规模MLP更重）", "core": false, "nonNN": false, "hidden": "区别在于连接线上的函数（样条）。只看布线则与FF相同。"}, {"id": "dcn", "name": "深度卷积神经网络", "en": "Deep Convolutional Network", "abbr": "DCN", "year": 1998, "sec": "lv2", "orig": true, "acc": 5, "d": {"spec": "I5|K5|V4|V3|V2|H4|H4|O3", "edges": ["local", "local", "local", "local", "full", "full", "full"]}, "what": "用小窗口（卷积核）扫描图像，按线条、形状、物体的顺序堆叠特征后分类。", "an_t": "fly", "an": "与复眼下重复的回路柱在画面各处进行相同处理相似。", "good": "图像分类、缺陷检测、医学影像", "bad": "远距离像素之间的关系要较晚才能看出", "r": [5, 4, 4], "s": [3, 3, 1], "fx": "grid", "enemy": "img", "move": "滑动窗口连续扫描", "line": "用小窗口扫遍每个角落。无处可藏！", "doc": "面对照片依然是可靠的主力。", "basis": "经过深度卷积层一次 · 无时间记忆", "core": true, "nonNN": false}, {"id": "deconv-net", "name": "反卷积神经网络", "en": "Deconvolutional Network", "abbr": "DN", "year": 2010, "sec": "lv2", "orig": true, "acc": 4, "d": {"spec": "I3|V3|V4|K5|O5", "edges": ["local", "local", "local", "local"]}, "what": "把DCN反过来转。从小信息展开出大图像。", "an_t": "life", "an": "看着设计摘要书重新绘制图纸。", "good": "图像生成·超分辨率、视频分割的复原部分", "bad": "单独难以使用，需与其他模型配对", "r": [4, 3, 3], "s": [3, 3, 1], "fx": "grid", "enemy": "img", "move": "逆向放大炮", "line": "从小点展开成大画！", "doc": "有搭档时比独自时更出彩。", "basis": "通过深度反卷积一次展开大图像", "core": false, "nonNN": false}, {"id": "dcign", "name": "卷积逆图形学网络", "en": "Deep Convolutional Inverse Graphics Network", "abbr": "DCIGN", "year": 2015, "sec": "lv2", "orig": true, "acc": 3, "d": {"spec": "I5|K5|V4|V3|P3|V3|V4|K5|O5", "edges": ["local", "local", "local", "full", "full", "local", "local", "local"]}, "what": "卷积编码器 + 概率潜在层 + 反卷积解码器。实际上是图像用的VAE。", "an_t": "life", "an": "把照片分解为“角度·光照·形状”旋钮，再转动旋钮重新绘制。", "good": "改变光照·姿态的图像生成", "bad": "训练困难，目前其他生成模型占优势", "r": [4, 2, 1], "s": [3, 2, 2], "fx": "grid", "enemy": "img", "move": "旋钮分解光线", "line": "转动角度旋钮……转动光照旋钮……咦，跑哪去了？", "doc": "构想很好，但笨重又难搞。", "basis": "经过编码器 + 采样 + 解码器全部 · 仅潜在表示", "core": false, "nonNN": false}, {"id": "capsule-net", "name": "胶囊网络", "en": "Capsule Network", "abbr": "CapsNet", "year": 2017, "sec": "lv2", "orig": false, "acc": 4, "d": {"spec": "I4|K4|U3|U2|O2"}, "what": "不是单个神经元，而是“胶囊”输出具有方向和大小的向量。试图保留部分与整体的排列。", "an_t": "life", "an": "不只数有没有眼睛、鼻子、嘴，还确认它们是否在正确位置的拼贴画专家。", "good": "重叠数字分辨、姿态改变的物体识别研究", "bad": "计算量大，未能在大数据中广泛应用", "r": [4, 2, 1], "s": [2, 2, 1], "fx": "grid", "enemy": "img", "move": "部件排列确认激光", "line": "眼睛在上，嘴在下。顺序错了就是假的！", "doc": "创意犀利，但实际采用的很少。", "basis": "胶囊之间反复汇集意见（路由）", "core": false, "nonNN": false, "hidden": "胶囊之间汇集意见的反复路由（学习流程）是核心。"}, {"id": "u-net", "name": "U-Net", "en": "U-Net", "abbr": "U-Net", "year": 2015, "sec": "lv2", "orig": false, "acc": 5, "d": {"spec": "I4|V3|V2|V3|M4", "edges": ["local", "local", "local", "local"], "arcs": [[0, 4], [1, 3]]}, "what": "用U形连接缩小之路与放大之路，并在同一高度之间设置捷径以保留细节。", "an_t": "life", "an": "把地图大幅折叠再展开，并把折叠前的照片贴在旁边，重新绘制细节。", "good": "医学影像分割、扩散模型的噪声预测器", "bad": "相比分类，更擅长逐像素输出", "r": [4, 4, 5], "s": [3, 3, 1], "fx": "grid", "enemy": "img", "move": "U形反射一击", "line": "下去又上来，同时沿侧路照顾细节！", "doc": "是精准描绘像素的工匠。", "basis": "经过一次先缩小再放大的深度卷积", "core": false, "nonNN": false}, {"id": "deep-residual-network", "name": "深度残差神经网络", "en": "Deep Residual Network", "abbr": "DRN", "year": 2016, "sec": "lv2", "orig": true, "acc": 5, "d": {"spec": "I2|H2|H2|H2|H2|H2|H2|O2", "arcs": [[1, 3], [3, 5]]}, "what": "每隔几层加一条跳过输入并相加的捷径。因此数百层也能学习。", "an_t": "life", "an": "在原本只有楼梯的建筑中装上电梯，信息能顺利传到高层。", "good": "极深模型普遍（ResNet，Transformer内部也有此结构）", "bad": "仅靠捷径不能提供结构性先验知识，因此需与其他结构结合使用", "r": [5, 5, 5], "s": [3, 3, 1], "fx": "skip", "enemy": "img", "move": "捷径跳跃连击", "line": "不走楼梯，坐电梯！一次直达高层。", "doc": "打破深度之墙的捷径。", "basis": "经过数十至数百层一次（捷径只是相加）", "core": true, "nonNN": false}, {"id": "rnn", "name": "循环神经网络", "en": "Recurrent Neural Network", "abbr": "RNN", "year": 1990, "sec": "lv3", "orig": true, "acc": 3, "d": {"spec": "I3|R3|R3|O3", "loop": true}, "what": "把前一时刻的状态再次输入下一时刻。用于处理句子等有顺序的数据。", "an_t": "life", "an": "边记住前面的句子边读下一句的人。不过记忆力较短。", "good": "短时间序列、简单的顺序预测", "bad": "变长后会忘记前面的信息（梯度消失）", "r": [3, 2, 2], "s": [4, 4, 3], "fx": "loop", "enemy": "seq", "move": "回环弹", "line": "每转一圈都把记忆载送出去……可是尾巴在哪来着？", "doc": "短序列还能用，但长尾巴会漏掉。", "basis": "每个新输入更新一格状态 · 简单循环记忆", "core": false, "nonNN": false}, {"id": "lstm", "name": "长短期记忆", "en": "Long / Short Term Memory", "abbr": "LSTM", "year": 1997, "sec": "lv3", "orig": true, "acc": 4, "d": {"spec": "I3|C3|C3|O3", "loop": true}, "what": "在记忆细胞上装三扇门（门控）“输入、遗忘、输出”，选择哪些要长久记住、哪些要丢弃。", "an_t": "life", "an": "拿着记事本，只记重要的，不需要的就擦掉的人。", "good": "长时间序列、传感器·工艺数据、语音", "bad": "计算量大，难以并行化", "r": [4, 4, 3], "s": [4, 3, 4], "fx": "loop", "enemy": "seq", "move": "三门记忆炮", "line": "该记的记下，该擦的擦掉。连尾巴都记住！", "doc": "是能抓住长序列的、经过验证的好帮手。", "basis": "计算四个门来更新状态 · 借门实现长记忆", "core": true, "nonNN": false}, {"id": "gru", "name": "门控循环单元", "en": "Gated Recurrent Unit", "abbr": "GRU", "year": 2014, "sec": "lv3", "orig": true, "acc": 4, "d": {"spec": "I3|D3|D3|O3", "loop": true}, "what": "把LSTM的门减为两扇的简化版。性能相近，更轻。", "an_t": "life", "an": "不用记事本，改用便利贴。简便，大多数情况下已足够。", "good": "数据较少或需要快速学习的时间序列", "bad": "非常长的依赖关系有时LSTM稍占优势", "r": [4, 4, 3], "s": [4, 4, 4], "fx": "loop", "enemy": "seq", "move": "双门速射", "line": "两扇门就够了。轻装上阵！", "doc": "以轻盈的身体记住与LSTM相当的内容。", "basis": "用两扇门更新状态（比LSTM轻）· 长记忆", "core": false, "nonNN": false}, {"id": "esn", "name": "回声状态网络", "en": "Echo State Network", "abbr": "ESN", "year": 2001, "sec": "lv3", "orig": true, "acc": 3, "d": {"spec": "I3|R5|R5|R5|O3", "edges": "sparse"}, "what": "将随机连接的循环细胞团（蓄水池）固定，只训练输出层的RNN。", "an_t": "life", "an": "向回声洞穴中送入声音，只读取回声的模式。", "good": "混沌时间序列预测、快速时间序列学习", "bad": "对蓄水池的设定值敏感", "r": [3, 4, 2], "s": [4, 4, 3], "fx": "loop", "enemy": "seq", "move": "回声共鸣波", "line": "向洞穴发出一声！回声自己替你战斗。", "doc": "是学习成本低的循环网络。", "basis": "更新一格固定蓄水池，只计算输出层 · 余响记忆", "core": false, "nonNN": false, "hidden": "不学习循环部分，这是与RNN的区别。"}, {"id": "ltc", "name": "液体时间常数网络", "en": "Liquid Time-Constant Network", "abbr": "LTC", "year": 2021, "sec": "lv3", "orig": false, "acc": 4, "d": {"spec": "I3|R4|R4|O2", "loop": true, "edges": "sparse"}, "what": "每个神经元的反应速度（时间常数）随输入而变化。即使是非常小的网络也能处理连续信号。", "an_t": "fly", "an": "与真实神经元的膜电位随输入快慢变化相似。灵感来自线虫神经系统。", "good": "机器人控制、无人机飞行、小型设备的连续信号", "bad": "在大型语言·图像任务中用途较少", "r": [3, 4, 2], "s": [3, 4, 4], "fx": "loop", "enemy": "reflex", "move": "流动时间常数回避", "line": "快时快，慢时慢。身体会自行调节！", "doc": "是很适合小身体的敏捷大脑。", "basis": "虽是小网络，但每个输入需要几步微分方程运算 · 长记忆", "core": false, "nonNN": false, "hidden": "区别在于神经元公式（微分方程激活）。布线与普通RNN相似。"}, {"id": "neural-ode", "name": "神经常微分方程", "en": "Neural Ordinary Differential Equation", "abbr": "Neural ODE", "year": 2018, "sec": "lv3", "orig": false, "acc": 3, "d": {"spec": "I2|H3|H3|O2", "cycle": true}, "what": "不逐层堆叠，而是把状态看作随时间连续流动的方程。", "an_t": "life", "an": "不是爬台阶，而是沿斜坡滑上去。可以在想要的高度停下。", "good": "不规则间隔的时间序列、物理模拟", "bad": "方程求解步骤多，可能较慢", "r": [3, 3, 2], "s": [2, 2, 3], "fx": "loop", "enemy": "seq", "move": "连续流轨道弹", "line": "不间断地流动。节拍不规则也没关系！", "doc": "优雅，但计算步骤多。", "basis": "反复数十步求解方程 · 连续状态", "core": false, "nonNN": false, "hidden": "方程求解器（学习·推理流程）是其本质。"}, {"id": "mamba", "name": "Mamba", "en": "Mamba, Selective State Space Model", "abbr": "Mamba", "year": 2023, "sec": "lv3", "orig": false, "acc": 4, "d": {"spec": "I4|D3|D3|O4", "loop": true}, "what": "是携带压缩状态的循环式模型，根据输入选择保留什么，因此能快速处理长序列。", "an_t": "life", "an": "边听长篇会议记录，边只把重要决定记进笔记本的秘书。不会从头重读。", "good": "长文档·基因组·语音、快速生成", "bad": "有报告称，重新精确查找位置的能力弱于注意力", "r": [5, 4, 4], "s": [4, 3, 4], "fx": "loop", "enemy": "seq", "move": "选择性记忆冲刺", "line": "只挑重要的带着跑。即使很长也不会变慢！", "doc": "瞄准循环的速度与注意力的威力之间的平衡。", "basis": "选择性状态更新一格（与长度无关）· 挑选的记忆", "core": true, "nonNN": false}, {"id": "transformer", "name": "Transformer", "en": "Transformer", "abbr": "Transformer", "year": 2017, "sec": "lv4", "orig": false, "acc": 5, "d": {"spec": "I4|A4|H4|A4|H4|O4", "arcs": [[0, 2], [2, 4]]}, "what": "不用循环，只靠注意力一次比较句子中的所有位置。是当今大型语言模型的骨架。", "an_t": "life", "an": "会议上出现问题时，直接去问知道答案的人。不用排队等候。", "good": "语言模型、翻译、代码、多模态等全面应用", "bad": "计算量随句子长度的平方增长，耗能很多", "r": [5, 4, 5], "s": [2, 1, 5], "fx": "spot", "enemy": "seq", "move": "全方位荧光瞄准", "line": "一次看遍所有格子！……电量警告灯就当没看见吧。", "doc": "力量最强，但小身体的燃料不够。", "basis": "每个新输入都重新参照全部过去的上下文（以大型模型为准）· 直接参照上下文", "core": true, "nonNN": false}, {"id": "vit", "name": "视觉Transformer", "en": "Vision Transformer", "abbr": "ViT", "year": 2021, "sec": "lv4", "orig": false, "acc": 5, "d": {"spec": "K4|A4|H4|A4|O2"}, "what": "把照片切成小块（patch），像单词一样排列，再用Transformer阅读。", "an_t": "life", "an": "把照片切成拼图碎片，在桌上排成一列，分析碎片之间的关系。", "good": "大规模图像识别、图文多模态", "bad": "数据少时比CNN弱", "r": [5, 3, 4], "s": [3, 1, 1], "fx": "spot", "enemy": "img", "move": "拼图碎片一齐照明", "line": "把照片切碎后全部同时照亮！", "doc": "数据越多越强。", "basis": "所有patch之间做注意力（与碎片数的平方成正比）· 无时间记忆", "core": false, "nonNN": false}, {"id": "moe", "name": "专家混合（MoE）", "en": "Mixture of Experts", "abbr": "MoE", "year": 2017, "sec": "lv4", "orig": false, "acc": 5, "d": {"spec": "I3|A2|H6|O3", "edges": ["full", "sparse", "full"]}, "what": "设置多个专家网络，由引导者（路由器）为每个输入只挑选几位来分配工作。", "an_t": "life", "an": "如同大医院的挂号处听完症状后，只转给两三个对口科室。", "good": "以少量计算运行超大语言模型", "bad": "专家负载倾斜，内存需要全部规模的容量", "r": [5, 3, 5], "s": [2, 2, 5], "fx": "spot", "enemy": "seq", "move": "专家调用合击", "line": "只叫需要的专家！其余的可以休息。", "doc": "相对于体型，是节省燃料的妙招。", "basis": "注意力 + 仅计算部分专家 · 直接参照上下文", "core": false, "nonNN": false, "hidden": "路由规则与负载均衡损失是核心。"}, {"id": "ntm", "name": "神经图灵机", "en": "Neural Turing Machine", "abbr": "NTM", "year": 2014, "sec": "lv4", "orig": true, "acc": 2, "d": {"spec": "I3|H2|H2|H3|O1", "ntm": true}, "what": "给神经网络接上外部存储器（下方蓝色细胞），用注意力读写。是尝试学习算法的研究。", "an_t": "life", "an": "给大脑（神经网络）配上笔记本（存储器）的学生。", "good": "复制、排序等算法学习研究", "bad": "学习非常不稳定，很少实际应用", "r": [4, 1, 1], "s": [2, 2, 5], "fx": "tape", "enemy": "algo", "move": "记忆磁带倒带", "line": "写在笔记本上，再读一遍……咦？是第几页来着？", "doc": "梦想很大，但手常常打滑。", "basis": "反复读写外部存储 · 外部存储", "core": false, "nonNN": false}, {"id": "gnn", "name": "图神经网络", "en": "Graph Neural Network", "abbr": "GNN", "year": 2017, "sec": "lv4", "orig": false, "acc": 4, "d": {"graph": true}, "what": "在由点与线构成的图中，邻居之间交换消息，修正每个点的表示。", "an_t": "fly", "an": "果蝇连接组本身就是由神经元（点）和突触（线）构成的图。是图数据的好例子。", "good": "分子性质预测、推荐、交通·电网、布线图分析", "bad": "层数堆得多，所有点会变得相似（过平滑）", "r": [4, 4, 4], "s": [3, 3, 1], "fx": "graph", "enemy": "graph", "move": "邻里传闻扩散", "line": "从旁边的点听来，再传给旁边的点。缠绕的线团也不怕！", "doc": "是解开纠缠关系的专家。", "basis": "邻居之间消息传递几轮 · 无时间记忆", "core": true, "nonNN": false, "note": "年份以GCN（Kipf & Welling）为准。在图上运行神经网络的想法比这更早出现。"}, {"id": "autoencoder", "name": "自编码器", "en": "Auto Encoder", "abbr": "AE", "year": 2006, "sec": "lv5", "orig": true, "acc": 4, "d": {"spec": "I4|H2|M4"}, "what": "收窄中间层，只保留数据的核心，并学习使输出与输入相同。", "an_t": "life", "an": "把长文压缩成一行摘要，再练习复原回原文。", "good": "降维、异常检测、特征提取", "bad": "无法生成逼真的新数据", "r": [3, 4, 3], "s": [4, 4, 2], "fx": "squeeze", "enemy": "gen", "move": "瓶颈压缩弹", "line": "用力压缩，砰！只留下核心。", "doc": "复原很好，但无法重新绘制。", "basis": "经过一次小型编码器·解码器 · 仅潜在表示", "core": false, "nonNN": false}, {"id": "vae", "name": "变分自编码器", "en": "Variational Auto Encoder", "abbr": "VAE", "year": 2013, "sec": "lv5", "orig": true, "acc": 3, "d": {"spec": "I4|P3|M4"}, "what": "把压缩结果做成概率分布而非一个点。从该分布中抽样即可生成新数据。", "an_t": "life", "an": "先学会“这种感觉的脸”的范围，再在该范围内画出新脸。", "good": "生成模型、潜在空间探索（图像生成模型的压缩器）", "bad": "结果容易略显模糊", "r": [4, 3, 4], "s": [4, 4, 2], "fx": "squeeze", "enemy": "gen", "move": "召唤概率云", "line": "不是一个点，而是云！从云中重新抽取。", "doc": "绘制稳定，但线条略显模糊。", "basis": "编码器·解码器 + 采样一次 · 仅潜在表示", "core": true, "nonNN": false, "hidden": "损失函数（复原 + 分布正则化）是核心区别。"}, {"id": "denoising-ae", "name": "去噪自编码器", "en": "Denoising Auto Encoder", "abbr": "DAE", "year": 2008, "sec": "lv5", "orig": true, "acc": 4, "d": {"spec": "N4|H5|M4"}, "what": "故意在输入中掺入噪声，学习复原干净的原始内容。", "an_t": "life", "an": "看着沾污的乐谱，猜出原本乐谱的练习。", "good": "去噪、稳健特征学习", "bad": "若噪声种类选错，效果较小", "r": [3, 4, 3], "s": [4, 4, 2], "fx": "squeeze", "enemy": "gen", "move": "污渍橡皮波", "line": "脏了也没关系。原本的样子我知道！", "doc": "具有在噪声中找回原本的韧性。", "basis": "经过一次小型编码器·解码器 · 仅潜在表示", "core": false, "nonNN": false}, {"id": "sparse-ae", "name": "稀疏自编码器", "en": "Sparse Auto Encoder", "abbr": "SAE", "year": 2011, "sec": "lv5", "orig": true, "acc": 3, "d": {"spec": "I2|H4|M2"}, "what": "反而扩大中间层，但强制每次只让少数几个细胞亮起。", "an_t": "fly", "an": "与果蝇蘑菇体中一种气味只点亮部分Kenyon细胞的稀疏表示相似。", "good": "寻找可解释特征（用于大型语言模型的可解释性研究）", "bad": "稀疏强度的调节很困难", "r": [3, 3, 4], "s": [4, 4, 2], "fx": "squeeze", "enemy": "gen", "move": "单点集中点亮", "line": "别全亮。只点亮真正需要的几个！", "doc": "少量点亮，使其易于读取。", "basis": "宽但仅部分点亮的隐藏层一次 · 仅潜在表示", "core": false, "nonNN": false, "hidden": "稀疏正则化（损失项）是核心，因此单从图上很难与AE区分。"}, {"id": "gan", "name": "生成对抗网络", "en": "Generative Adversarial Network", "abbr": "GAN", "year": 2014, "sec": "lv5", "orig": true, "acc": 4, "d": {"spec": "B3|H3|H3|M3|H3|H3|M2"}, "what": "生成器制造假货，判别器辨别真假。两者竞争，一起变强。", "an_t": "life", "an": "伪造者与鉴定师无休止的对决。", "good": "清晰图像生成、数据增强", "bad": "训练不稳定，多样性容易崩溃（模式崩溃）", "r": [5, 1, 3], "s": [3, 3, 1], "fx": "twin", "enemy": "gen", "move": "双胞胎竞争爆走", "line": "我心中的鉴定师不断否决！所以我会变得更强！", "doc": "命中则威力强，但经常偏离。", "basis": "经过一次深层生成器（仅训练时用判别器）· 无记忆", "core": false, "nonNN": false, "hidden": "两个网络交替训练的学习方式是核心。"}, {"id": "normalizing-flow", "name": "归一化流", "en": "Normalizing Flow", "abbr": "Flow", "year": 2016, "sec": "lv5", "orig": false, "acc": 3, "d": {"spec": "I4|H4|H4|H4|O4", "edges": ["pair", "full", "pair", "full"]}, "what": "叠加多次可逆变换，把简单分布精确地变换为复杂分布。", "an_t": "life", "an": "拉伸、扭转黏土球来塑形，但随时都能倒着还原。", "good": "精确的概率计算、物理·科学数据生成", "bad": "必须可逆，因此结构限制很大", "r": [4, 3, 2], "s": [3, 2, 1], "fx": "squeeze", "enemy": "gen", "move": "可逆变换链", "line": "拉伸扭转也能还原。稳扎稳打！", "doc": "准确，但身体很僵硬。", "basis": "多层可逆层，每层计算行列式", "core": false, "nonNN": false, "hidden": "每一层都必须具有逆函数，这一设计条件是核心。"}, {"id": "diffusion-model", "name": "扩散模型", "en": "Diffusion Model", "abbr": "Diffusion", "year": 2020, "sec": "lv5", "orig": false, "acc": 5, "d": {"spec": "N4|H3|H2|H3|O4", "cycle": true}, "what": "先学习逐步向图像添加噪声的过程，然后反过来一步步去除噪声，生成新图像。", "an_t": "life", "an": "慢慢多次擦拭蒙雾的玻璃窗，露出外面的风景。", "good": "高质量图像·视频·语音生成", "bad": "步数多，生成一张图需要很久", "r": [5, 4, 5], "s": [1, 1, 1], "fx": "denoise", "enemy": "gen", "move": "千次擦拭净化", "line": "一次，两次，……还在擦。等等！", "doc": "画质最佳，但耗时很长。", "basis": "重复数百至1,000步去噪（DDPM为1,000步）", "core": true, "nonNN": false, "hidden": "反复去噪这一生成流程是核心。网络本身通常是U-Net或Transformer。"}, {"id": "markov-chain", "name": "马尔可夫链", "en": "Markov Chain", "abbr": "MC", "year": 1906, "sec": "lv6", "orig": true, "acc": 2, "d": {"circle": "PPPPPPPP"}, "what": "只看当前状态，就决定转移到下一状态的概率。严格来说它不是神经网络，而是概率模型。", "an_t": "life", "an": "只看今天的天气来预测明天天气的方式。", "good": "状态转移建模、简单文本生成", "bad": "不记得过去，学习能力较弱", "r": [1, 5, 2], "s": [5, 5, 1], "fx": "settle", "enemy": "mem", "move": "骰子转移步骤", "line": "只看现在，走向下一格！不知道昨天的事。", "doc": "轻巧，但没有记忆。", "basis": "查询一格转移表 · 只知道当前状态", "core": false, "nonNN": true, "note": "严格来说不是神经网络，而是概率模型。因原始图表收录，故一并比较。"}, {"id": "hopfield-network", "name": "霍普菲尔德网络", "en": "Hopfield Network", "abbr": "HN", "year": 1982, "sec": "lv6", "orig": true, "acc": 2, "d": {"circle": "BBBBBBBB"}, "what": "所有细胞相互连接，会自行滚向所存模式的方向。是联想记忆装置。", "an_t": "life", "an": "只听到歌曲第一小节，其余部分便浮现出来。", "good": "残缺模式复原、联想记忆", "bad": "存储容量小，也可能陷入错误模式", "r": [2, 3, 1], "s": [2, 3, 3], "fx": "settle", "enemy": "mem", "move": "山谷滚动复原", "line": "只给一块碎片。其余的滚动着补齐！", "doc": "小型拼图很好，但很快就满。", "basis": "直到稳定为止多次更新所有细胞 · 联想复原", "core": true, "nonNN": false}, {"id": "boltzmann-machine", "name": "玻尔兹曼机", "en": "Boltzmann Machine", "abbr": "BM", "year": 1985, "sec": "lv6", "orig": true, "acc": 2, "d": {"circle": "BBBBPPPP"}, "what": "在霍普菲尔德上加入概率隐藏细胞。尝试学习数据本身的概率分布。", "an_t": "life", "an": "边掷骰子边寻找最合理解释的侦探。", "good": "理论上强大的生成模型", "bad": "全部相连，学习非常慢", "r": [3, 1, 1], "s": [1, 1, 3], "fx": "settle", "enemy": "mem", "move": "热平衡等待攻击", "line": "达到平衡就发射……还没……还没啊……", "doc": "理论很美，但实战太慢。", "basis": "直到平衡前进行数百次以上概率采样 · 联想复原", "core": false, "nonNN": false}, {"id": "rbm", "name": "受限玻尔兹曼机", "en": "Restricted Boltzmann Machine", "abbr": "RBM", "year": 1986, "sec": "lv6", "orig": true, "acc": 3, "d": {"spec": "B4|P5"}, "what": "切断玻尔兹曼机同层之间的连接。因此学习达到了实用速度。", "an_t": "life", "an": "把原本人人都与人人对话的会议，整理成只有“输入组 ↔ 隐藏组”之间对话。", "good": "推荐系统、预训练", "bad": "现在已被更好的方法取代", "r": [3, 2, 1], "s": [2, 3, 2], "fx": "settle", "enemy": "mem", "move": "两队往返通信", "line": "输入组提问，隐藏组回答。转来转去就能理顺！", "doc": "是让玻尔兹曼变得实用的整理术。", "basis": "两层之间往返采样数次 · 潜在表示", "core": false, "nonNN": false}, {"id": "dbn", "name": "深度信念网络", "en": "Deep Belief Network", "abbr": "DBN", "year": 2006, "sec": "lv6", "orig": true, "acc": 3, "d": {"spec": "B4|P3|H4|P3|M4"}, "what": "把多层RBM叠起来，逐层预先训练，然后整体微调。", "an_t": "life", "an": "逐块固化砖块后叠起来的工法。", "good": "2006年深度学习复兴的契机", "bad": "现在几乎不再使用", "r": [4, 2, 1], "s": [2, 2, 2], "fx": "settle", "enemy": "mem", "move": "逐层固化", "line": "固化一块，又一块……这要什么时候才叠完？", "doc": "改变了历史，但现在已经退役。", "basis": "逐层往返多层 · 潜在表示", "core": false, "nonNN": false, "hidden": "逐层预训练这一学习流程就是其本质。"}, {"id": "kohonen-network", "name": "Kohonen网络", "en": "Kohonen Network", "abbr": "KN", "year": 1982, "sec": "lv6", "orig": true, "acc": 2, "d": {"spec": "I2|H3|H3|H3", "kohonen": true}, "what": "无需标准答案，把相似的输入整理到地图上相近的格子中（自组织映射）。", "an_t": "life", "an": "图书馆管理员把相似的书放在同一书架上。", "good": "聚类、高维数据可视化", "bad": "预测·分类的准确率本身不强", "r": [2, 4, 2], "s": [4, 4, 1], "fx": "graph", "enemy": "mem", "move": "书架整理阵型", "line": "相似的放旁边！在地图上排好队。", "doc": "整理得好，但判定较弱。", "basis": "寻找最近格子一次 · 无时间记忆", "core": false, "nonNN": false, "hidden": "竞争学习（只更新获胜细胞及其邻居）是核心。"}, {"id": "lsm", "name": "液体状态机", "en": "Liquid State Machine", "abbr": "LSM", "year": 2002, "sec": "lv7", "orig": true, "acc": 2, "d": {"spec": "I4|S4|S4|S4|O2", "edges": "sparse"}, "what": "将发放脉冲的细胞随机、稀疏地连接好，只训练输出层。", "an_t": "fly", "an": "神经元积累电压后以脉冲爆发的方式，与真实神经元直接对应。", "good": "神经形态芯片、实时信号处理", "bad": "一般任务的准确率较低", "r": [3, 2, 1], "s": [5, 5, 3], "fx": "spike", "enemy": "reflex", "move": "涟漪脉冲", "line": "池塘里扔一块石头！让涟漪替你战斗。", "doc": "又快又便宜，但不够精密。", "basis": "只计算发出脉冲的连接（假设神经形态芯片）· 涟漪余响", "core": false, "nonNN": false, "hidden": "脉冲激活 + 只学习输出层。两者都是图外的差异。"}, {"id": "snn", "name": "脉冲神经网络", "en": "Spiking Neural Network", "abbr": "SNN", "year": 1997, "sec": "lv7", "orig": false, "acc": 3, "d": {"spec": "I3|S4|S4|O2"}, "what": "神经元积累膜电位，超过阈值便发出短脉冲。仅在有信号时计算，从而节省能量。", "an_t": "fly", "an": "果蝇神经元也是膜电位超过阈值即放电，信号随时间往来。", "good": "神经形态芯片、事件相机、低功耗传感器", "bad": "脉冲不可微分，学习较困难", "r": [3, 2, 2], "s": [5, 5, 3], "fx": "spike", "enemy": "reflex", "move": "闪电放电连射", "line": "只在需要时闪一下！省电池。", "doc": "最节省小身体的燃料。", "basis": "只计算发出脉冲的连接（假设神经形态芯片）· 膜电位记忆", "core": true, "nonNN": false, "hidden": "区别在于激活函数是“时间中的脉冲”。"}, {"id": "connectome-constrained", "name": "布线约束视觉网络", "en": "Connectome-Constrained Network", "abbr": "CC-Net", "year": 2024, "sec": "lv7", "orig": false, "acc": 4, "d": {"spec": "I4|S5|S5|O3", "edges": "sparse"}, "what": "以果蝇视觉系统布线图固定连接，只学习未知值（如突触强度），从而使运动检测对齐。", "an_t": "fly", "an": "直接使用了真实果蝇视觉系统的布线图。对应关系很直接。", "good": "神经元反应预测、实验设计指南", "bad": "仅限于视觉系统的一部分，并非用于学习新任务的网络", "r": [3, 4, 2], "s": [4, 3, 3], "fx": "spike", "enemy": "reflex", "move": "固定布线瞄准", "line": "布线是真正果蝇的！只需调好强度。", "doc": "是布线图与学习各半混合的桥梁。", "basis": "按时间步计算视觉系统布线网络 · 膜电位记忆", "core": false, "nonNN": false, "hidden": "固定布线、只学习未知值，这一学习设定是核心。"}, {"id": "fly-connectome-lif", "name": "果蝇连接组脑模型", "en": "Fruit Fly Connectome Brain Model", "abbr": "Fly-CNS", "year": 2026, "sec": "lv7", "orig": false, "acc": 3, "d": {"spec": "I4|S6|S6|S6|O3", "edges": "sparse"}, "what": "以雄性果蝇中枢神经系统布线图作为连接矩阵，用漏积分发放公式运行神经元。学习得到的权重为0个。", "an_t": "fly", "an": "就是果蝇大脑本身的布线图。不是比喻，而是直接使用相同的连接。", "good": "仅凭布线测试会得出何种行为路径，类似Minecraft的虚拟世界实验", "bad": "无法学习新任务，突触强度与增益为估计值", "r": [2, 5, 1], "s": [5, 5, 3], "fx": "spike", "enemy": "reflex", "move": "布线反射路径检查", "line": "没学过哦。只看布线能不能找到躲避的路！", "doc": "虽然不能学习，但符合小身体的电源。是否真能完成躲避，需另外确认。", "basis": "只计算发出脉冲的连接（假设神经形态芯片）。若用普通GPU运行，每一步要处理627万个连接，负担沉重，相当于EN 2的水平", "core": true, "nonNN": false, "hidden": "无学习。增益（0.65）与神经元常数均由人工设定。", "special": true, "note": "它不是为解决任务而做的模型，而是观察仅凭布线会出现哪些行为通路的工具。因此战斗结果只读到\"是否出现反射通路\"为止，并从与其他模型的排名中剔除。HIT 3 并非测得的回避成功率，而是表示\"待核实\"的中间值。"}];
+var GL={"权重": ["权重", "基础", "与输入信号相乘的数字。越大越重视该输入。用果蝇来比喻，相当于突触的传递强度。", 1], "激活函数": ["激活函数", "基础", "将相加后的信号弯折后传给下一层的函数（ReLU、Sigmoid等）。有了它才能画出曲线边界。", 1], "隐藏层": ["隐藏层", "基础", "位于输入与输出之间的层。从外部看不到，但会生成特征。", 1], "反向传播": ["反向传播", "学习", "将输出误差逆向传递，计算每个权重应修正多少的方法。据信果蝇大脑并不使用它。", 1], "损失函数": ["损失函数", "学习", "用一个数字衡量模型错误程度的函数。学习就是减小这个值的过程。", 1], "卷积": ["卷积", "图像", "将小窗口（卷积核）在图像上滑动，用同一组权重对相邻像素进行计算的运算。", 1], "注意力": ["注意力", "序列", "对所有位置之间打出相关分数，并按分数混合信息的计算。名字只是借用了人类的注意。", 1], "潜在空间": ["潜在空间", "生成", "将数据压缩后形成的坐标空间。移动这个坐标，生成的结果就会改变。", 1], "连接组": ["连接组", "神经科学", "记录大脑中所有神经元与突触连接的布线图。只是结构，突触强度和神经元性质还需另外提供。", 1], "脉冲": ["脉冲", "神经科学", "神经元膜电位超过阈值时发出的短暂电信号。", 1], "突触": ["突触", "神经科学", "神经元之间交换信号的接点。", 1], "漏积分发放": ["漏积分发放（LIF）", "神经科学", "将输入积累为电压，但使其缓慢漏出，超过阈值即发放的神经元模型。", 1], "过拟合": ["过拟合", "评估", "对训练数据预测很准，但对初次见到的数据预测出错的状态。", 0], "稀疏表示": ["稀疏表示", "表示", "在众多细胞中只点亮少数来表达信息的方式。", 0], "梯度消失": ["梯度消失", "学习", "越往回追溯层或时间，学习信号越小，导致前面的部分无法学习的现象。", 0], "高斯": ["高斯（正态分布形状）", "数学", "中间最高、两侧逐渐降低的钟形曲线。RBF越接近基准点，输出值越大。", 0], "路由器": ["路由器", "结构", "在MoE中为每个输入选择交给哪个专家网络处理的小型网络。", 0], "样条": ["样条", "数学", "将几个点平滑连接的分段曲线。KAN在每条连接线上学习这种曲线。", 0], "补丁（patch）": ["补丁（patch）", "图像", "把照片像棋盘一样切成的小块。ViT将补丁当作单词处理。", 0], "采样": ["采样", "概率", "从概率分布中抽取一个值。VAE、玻尔兹曼机、扩散模型生成新数据时使用。", 0], "门（门控）": ["门（门控）", "循环", "以0到1之间的数值决定让多少信息通过的门。LSTM、GRU用于选择记忆。", 1], "神经形态": ["神经形态芯片", "硬件", "仅在发出脉冲时进行计算的模仿大脑的半导体。能以较少电力完成同样的工作。", 0], "词元": ["词元", "语言", "语言模型切分文本的单位。一个词或词片会被转换为一个数字。", 1], "上下文窗口": ["上下文窗口", "语言", "语言模型一次能看到的词元长度。越长越能记住长对话，但计算量也随之增加。", 0], "嵌入": ["嵌入", "表示", "将词元或补丁转换为多个数字构成的坐标。意思相近的会变成相近的坐标。", 0]};
+var QUIZ={"r1": [{"q": "能力中哪些是人评定的值？", "o": ["ATK 与 HIT", "SPD 与 EN", "EN 与 MEM"], "a": 0, "why": "SPD·EN·MEM 用计算步数规则表，ATK·HIT 用判断评定。", "hint": "规格表中的小字：判断/规则。"}], "r2": [{"q": "扩散模型 SPD 为 1 的依据是？", "o": ["将去噪重复数百至1,000步", "因为只有一层", "因为没有记忆"], "a": 0, "why": "规则表中“重复数百步以上”对应 SPD 1。", "hint": "规则值依据。"}, {"q": "果蝇连接组模型的 EN 5 来自什么假设？", "o": ["只计算发生尖峰的连接的神经形态芯片", "普通 GPU", "服务器电源"], "a": 0, "why": "若用普通 GPU，每一步要处理 627 万个连接，相当于 EN 2 水平。", "hint": "卡片上的依据句。"}], "r3": [{"q": "EN 效率 2 的模型每次攻击耗 30 EN。无人机电池 200 能攻击几次？", "o": ["5 次", "6 次", "7 次"], "a": 1, "why": "⌊200 ÷ 30⌋ = 6 次。", "hint": "除法后舍去小数。"}, {"q": "ATK 4、HIT 4 的模型攻击通用首领 5 次，总伤害是？", "o": ["160 分", "180 分", "200 分"], "a": 1, "why": "单次伤害 10 × 4 = 40，命中 0.5 + 0.4 = 0.9，5 × 40 × 0.9 = 180。", "hint": "通用首领没有奖励。"}], "r4": [{"q": "为什么要单独设置通用首领？", "o": ["因为各模型专长首领不同，直接比较不公平", "增加首领会更有趣", "专长首领太弱"], "a": 0, "why": "必须在相同条件下战斗，排名才公平。", "hint": "同一天平。"}], "r5": [{"q": "在属性实验室中，把 Transformer 的 EN 从 1 提到 3，果蝇身体的排名会如何？", "o": ["基本不变", "大幅上升", "下降"], "a": 1, "why": "单次攻击 EN 从 100 降到 10，攻击次数从 0 次变为 6 次。", "hint": "亲自试试看。"}, {"q": "以下哪个是本规则的正确局限？", "o": ["能力值是等级而非实测值，因此可能与实际性能不同", "计算式每页都不同", "各模型的首领 HP 不同"], "a": 0, "why": "规则值也是简化的等级，ATK·HIT 是判断值。", "hint": "示例值印章。"}]};
+var DUEL={"fly":"fly-connectome-lif","robo":"transformer"};
+var SPRITE={"doc_front": "assets/img/chars/doc_front.webp", "doc_think": "assets/img/chars/doc_think.webp", "doc_judge": "assets/img/chars/doc_judge.webp", "doc_scale": "assets/img/chars/doc_scale.webp", "doc_magic": "assets/img/chars/doc_magic.webp", "doc_board": "assets/img/chars/doc_board.webp", "asst_smile": "assets/img/chars/asst_smile.webp", "asst_firm": "assets/img/chars/asst_firm.webp", "asst_ledger": "assets/img/chars/asst_ledger.webp", "asst_spark": "assets/img/chars/asst_spark.webp", "asst_shock": "assets/img/chars/asst_shock.webp", "fly_clip": "assets/img/chars/fly_clip.webp", "fly_point": "assets/img/chars/fly_point.webp", "fly_arms": "assets/img/chars/fly_arms.webp", "fly_coffee": "assets/img/chars/fly_coffee.webp", "fly_cry": "assets/img/chars/fly_cry.webp", "fly_magnify": "assets/img/chars/fly_magnify.webp", "robo_smile": "assets/img/chars/robo_smile.webp", "robo_coin": "assets/img/chars/robo_coin.webp", "robo_happy": "assets/img/chars/robo_happy.webp", "robo_sigh": "assets/img/chars/robo_sigh.webp", "robo_meh": "assets/img/chars/robo_meh.webp", "robo_wow": "assets/img/chars/robo_wow.webp", "robo_blush": "assets/img/chars/robo_blush.webp", "fly_cutin": "assets/img/chars/fly_cutin.webp"};
+</script>
+<script>
+(function(){
+'use strict';
+var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function fit(c,h){var d=window.devicePixelRatio||1,w=c.clientWidth||c.parentElement.clientWidth||600;
+  if(c.width!==Math.round(w*d)||c.height!==Math.round(h*d)){c.width=Math.round(w*d);c.height=Math.round(h*d);c.style.height=h+'px';}
+  var x=c.getContext('2d');x.setTransform(d,0,0,d,0,0);return w;}
+function stamp(ctx,W,txt){ctx.save();ctx.font='700 11px "IBM Plex Sans KR",system-ui,sans-serif';
+  var tw=ctx.measureText(txt).width+16,x=W-tw-8,y=8;ctx.fillStyle='rgba(241,182,70,.14)';ctx.strokeStyle='rgba(241,182,70,.7)';
+  ctx.beginPath();if(ctx.roundRect)ctx.roundRect(x,y,tw,20,10);else ctx.rect(x,y,tw,20);ctx.fill();ctx.stroke();
+  ctx.fillStyle='#f1b646';ctx.textAlign='left';ctx.textBaseline='alphabetic';ctx.fillText(txt,x+8,y+14);ctx.restore();}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+var MB={}; MODELS.forEach(function(m,i){m.no=i+1;MB[m.id]=m;});
+var SB={}; SEC.forEach(function(s){SB[s.id]=s;});
+
+/* ---------- 픽셀 지도 (그림 파일이 없을 때) ---------- */
+var PAL={K:'#1d1a22',W:'#eceaf3',R:'#e04a3a',r:'#a8281c',U:'#3a6fd8',Y:'#f1c84a',L:'#5a4636',S:'rgba(0,0,0,.35)',B:'#4aa3ff',F:'#f2c9a0',G:'#9fb4d0',P:'#ff86b8',N:'#2b3a7a',V:'#b9a6e8',O:'#d4a54a'};
+var MAPS={
+fly:['....K......K....','.....K....K.....','....UUUUUUUU....','...UUYUUUUYUU...','..RRRUUUUUURRR..','.RRrRRKKKKRRrRR.','.RRRRKKKKKKRRRR.','..RRKKKKKKKKRR..','WW..WKKKKKKW..WW','WWW.WWKKKKWW.WWW','.WWWWWKKKKWWWWW.','..L.WWKKKKWW.L..','.L...WKKKKW...L.','L.....KKKK.....L','.......KK.......','................'],
+robo:['.......Y........','.......S........','....WWWWWWWW....','...WWWWWWWWWW...','..WWKKKKKKKKWW..','..WWKYKKKKYKWW..','..WWKYKKKKYKWW..','..WWKKKYYKKKWW..','..WWKKKKKKKKWW..','...WWWWWWWWWW...','....WWWBBWWW....','...WWWWBBWWWW...','..W.WWWWWWWW.W..','....WWWWWWWW....','.....WWWWWW.....','....SSSSSSSS....'],
+doc:['....KKKKKKK.....','...KKKWKKKKK....','..KKKWWKKKKKK...','..KFFFFFFFFFK...','..FGGFFFFGGFF...','..FGKFFFFGKFF...','..FFFFFFFFFFF...','...FFFRRRFFF....','....FFFFFFF.....','...WWWKKKWWW....','..WWWWKRKWWWW...','..WWWWKRKWWWW...','..WFWWKKKWWFW...','..WWWWKKKWWWW...','...LL.....LL....','...KK.....KK....'],
+asst:['.PP..........PP.','.PP..PPPPPP..PP.','PPPPPPPPPPNPPPPP','.PPPPFFFFFFPPPP.','..PPFFFFFFFFPP..','..PFFBFFFFBFFP..','..PFFBFFFFBFFP..','..PFFFFFFFFFFP..','...FFFFRRFFFF...','....FFFFFFFF....','...WWVVVVVVWW...','..WWWVVVVVVWWW..','..WWWVVVVVVWWW..','..WFWVVVVVVWFW..','...NN......NN...','...NN......NN...']
+};
+var MECH=['.....K........K.....','......K......K......','.....UUUUUUUUUU.....','....UUYYYYYYYYUU....','...RRRUUUUUUUURRR...','..RRrRRUUKKUURRrRR..','..RRRRRUKKKKURRRRR..','...RRRUUKBBKUURRR...','GG....UUUKKUUU....GG','GGG..WUUUUUUUUW..GGG','.GGGWWUUYYYYUUWWGGG.','..GGWWUUUBBUUUWWGG..','....WWUUUBBUUUWW....','....K.UUUUUUUU.K....','...K..UUYYYYUU..K...','..K...UUUUUUUU...K..','.K....YY....YY....K.','......UU....UU......','.....UUU....UUU.....','....................'];
+function spriteFromMap(rows){var h=rows.length,w=rows[0].length,cv=document.createElement('canvas');cv.width=w;cv.height=h;var c=cv.getContext('2d');
+  rows.forEach(function(r,y){r.split('').forEach(function(ch,x){if(ch==='.'||!PAL[ch])return;c.fillStyle=PAL[ch];c.fillRect(x,y,1,1);});});return cv;}
+var mechCv=spriteFromMap(MECH);
+
+/* ---------- 캐릭터 ---------- */
+var Cast=(function(){
+  var DEF={doc:'doc_front',asst:'asst_smile',fly:'fly_clip',robo:'robo_smile'},cache={},imgCache={};
+  function src(who,mood){var k=who+'_'+mood;if(SPRITE[k])return SPRITE[k];if(SPRITE[DEF[who]])return SPRITE[DEF[who]];
+    if(!cache[who]){var cv=spriteFromMap(MAPS[who]),b=document.createElement('canvas');b.width=64;b.height=64;var x=b.getContext('2d');x.imageSmoothingEnabled=false;x.drawImage(cv,0,0,64,64);cache[who]=b.toDataURL();}
+    return cache[who];}
+  function set(img,who,mood){img.dataset.mood=mood;img.dataset.img=who+'_'+mood;if(reduce){img.src=src(who,mood);return;}
+    img.style.transition='opacity .2s';img.style.opacity=0;setTimeout(function(){img.src=src(who,mood);img.style.opacity=1;},200);}
+  function fill(root){$$('img[data-who]',root).forEach(function(i){if(!i.getAttribute('src'))i.src=src(i.dataset.who,i.dataset.mood||'');});}
+  function image(key){if(imgCache[key])return imgCache[key];var im=new Image();im.src=SPRITE[key]||src(key.split('_')[0],key.split('_')[1]);imgCache[key]=im;return im;}
+  return {set:set,fill:fill,src:src,image:image};
+})();
+
+/* ---------- 구조도 SVG ---------- */
+var COL={I:"#F5C518",B:"#F5C518",N:"#F5C518",H:"#5DC21E",P:"#5DC21E",S:"#5DC21E",O:"#F26A12",M:"#F26A12",R:"#1AA3F0",C:"#1AA3F0",D:"#1AA3F0",K:"#F59CF0",V:"#F59CF0",A:"#a07cff",U:"#5DC21E"};
+var MARK={B:"o",P:"o",M:"o",C:"o",V:"o",N:"t",S:"t",D:"t",A:"a",U:"q"};
+var CELLS={B:"反向输入细胞",I:"输入细胞",N:"噪声输入细胞",H:"隐藏细胞",P:"概率性隐藏细胞",S:"脉冲隐藏细胞",O:"输出细胞",M:"输入输出匹配细胞",R:"循环细胞",C:"记忆细胞",D:"另一种记忆细胞",K:"卷积核",V:"卷积/池化",A:"注意力细胞（新增）",U:"胶囊细胞（新增）"};
+var R0=9,NS='http://www.w3.org/2000/svg';
+function nodeSVG(t,x,y){var s='<circle cx="'+x+'" cy="'+y+'" r="'+R0+'" fill="'+COL[t]+'"/>',m=MARK[t];
+  if(m==='o')s+='<circle cx="'+x+'" cy="'+y+'" r="'+(R0-4)+'" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>';
+  if(m==='t')s+='<path d="M'+x+' '+(y-4.5)+'L'+(+x+4.5)+' '+(+y+3.5)+'L'+(x-4.5)+' '+(+y+3.5)+'Z" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>';
+  if(m==='a')s+='<path d="M'+(x-5)+' '+y+'Q'+x+' '+(y-6)+' '+(+x+5)+' '+y+'Q'+x+' '+(+y+6)+' '+(x-5)+' '+y+'Z" fill="none" stroke="#1a1a1a" stroke-width="1.2"/><circle cx="'+x+'" cy="'+y+'" r="1.6" fill="#1a1a1a"/>';
+  if(m==='q')s+='<rect x="'+(x-4)+'" y="'+(y-4)+'" width="8" height="8" fill="none" stroke="#1a1a1a" stroke-width="1.2"/>';
+  return s;}
+function parse(spec){return spec.split('|').map(function(l){var out=[];l.replace(/([A-Z])(\d+)/g,function(_,t,n){for(var i=0;i<+n;i++)out.push(t);});return out;})}
+function hash(a,b,c){return((a*73856093)^(b*19349663)^(c*83492791))>>>0}
+function drawCircle(types){var k=types.length,r=58,c=78,S=c*2,p=types.map(function(t,i){var a=-Math.PI/2+i*2*Math.PI/k;return{t:t,x:(c+r*Math.cos(a)).toFixed(1),y:(c+r*Math.sin(a)).toFixed(1)}}),e='';
+  for(var i=0;i<k;i++)for(var j=i+1;j<k;j++)e+='<line x1="'+p[i].x+'" y1="'+p[i].y+'" x2="'+p[j].x+'" y2="'+p[j].y+'"/>';
+  return '<svg viewBox="0 0 '+S+' '+S+'" width="'+(S*1.1)+'" xmlns="'+NS+'" role="img" aria-label="结构图"><g stroke="#6b7590" stroke-width="1">'+e+'</g>'+p.map(function(q){return nodeSVG(q.t,q.x,q.y)}).join('')+'</svg>';}
+function drawGraph(){var P=[[30,40],[80,22],[130,46],[60,90],[115,100],[170,80],[25,120]],E=[[0,1],[1,2],[0,3],[1,3],[2,4],[3,4],[2,5],[4,5],[3,6],[0,6]],e='',n='';
+  E.forEach(function(q){e+='<line x1="'+P[q[0]][0]+'" y1="'+P[q[0]][1]+'" x2="'+P[q[1]][0]+'" y2="'+P[q[1]][1]+'"/>';});
+  P.forEach(function(p,i){n+=nodeSVG(i===5?'O':(i===0||i===6?'I':'H'),p[0],p[1]);});
+  n+='<path d="M160 60 Q150 40 130 46" fill="none" stroke="#5ee39c" stroke-width="1.6" stroke-dasharray="3 3"/>';
+  return '<svg viewBox="0 0 200 140" width="240" xmlns="'+NS+'" role="img" aria-label="结构图"><g stroke="#6b7590" stroke-width="1.1">'+e+'</g>'+n+'</svg>';}
+function draw(d){
+  if(d.circle)return drawCircle(d.circle.split(''));
+  if(d.graph)return drawGraph();
+  var L=parse(d.spec),gx=38,gy=26,pad=16,maxN=Math.max.apply(null,L.map(function(l){return l.length}));
+  var top=(d.loop||d.arcs)?20:0,extraB=d.ntm?40:(d.cycle?26:0);
+  var W=pad*2+(L.length-1)*gx,H=pad*2+(maxN-1)*gy+top+extraB;
+  var pos=L.map(function(l,i){return l.map(function(t,j){return{t:t,x:pad+i*gx,y:top+pad+((maxN-l.length)/2+j)*gy}})});
+  var e='',nd='',mode=function(i){return Array.isArray(d.edges)?d.edges[i]:(d.edges||'full')};
+  for(var i=0;i<L.length-1;i++){
+    if(d.kohonen&&i>0)continue;
+    var targets=d.kohonen?[].concat.apply([],pos.slice(1)):pos[i+1];
+    pos[i].forEach(function(a,ai){targets.forEach(function(b,bi){var m=mode(i);
+      if(m==='local'&&Math.abs(a.y-b.y)>gy*1.05)return;
+      if(m==='sparse'&&hash(i,ai,bi)%3!==0&&bi!==ai%targets.length)return;
+      if(m==='pair'&&ai!==bi)return;
+      if(d.wavy){var mx=(a.x+b.x)/2,my=(a.y+b.y)/2;e+='<path d="M'+a.x+' '+a.y+'Q'+(mx-6)+' '+(my-8)+' '+mx+' '+my+'T'+b.x+' '+b.y+'" fill="none"/>';}
+      else e+='<line x1="'+a.x+'" y1="'+a.y+'" x2="'+b.x+'" y2="'+b.y+'"/>';});});}
+  (d.arcs||[]).forEach(function(q){var a=pos[q[0]][0],b=pos[q[1]][0];e+='<path d="M'+a.x+' '+(a.y-R0)+'Q'+((a.x+b.x)/2)+' '+(a.y-R0-30)+' '+b.x+' '+(b.y-R0)+'" fill="none" stroke="#5ee39c" stroke-width="1.4"/>';});
+  if(d.cycle){var f=pos[0][pos[0].length-1],l=pos[L.length-1][pos[L.length-1].length-1],yb=H-10;
+    e+='<path d="M'+l.x+' '+(l.y+R0)+'L'+l.x+' '+yb+'L'+f.x+' '+yb+'L'+f.x+' '+(f.y+R0+3)+'" fill="none" stroke="#f1b646" stroke-width="1.4" stroke-dasharray="4 3"/><path d="M'+(f.x-4)+' '+(f.y+R0+8)+'L'+f.x+' '+(f.y+R0+2)+'L'+(f.x+4)+' '+(f.y+R0+8)+'" fill="none" stroke="#f1b646" stroke-width="1.4"/>';}
+  if(d.ntm){var src=pos[L.length-2],my=H-pad;for(var j=0;j<3;j++){var mm={t:'C',x:src[0].x+(j-1)*gx*.9,y:my};src.forEach(function(s){e+='<line x1="'+s.x+'" y1="'+s.y+'" x2="'+mm.x+'" y2="'+mm.y+'"/>';});nd+=nodeSVG('C',mm.x,mm.y);}}
+  [].concat.apply([],pos).forEach(function(p){
+    if(d.loop&&'RCD'.indexOf(p.t)>=0&&p.t.length===1)e+='<path d="M'+(p.x-5)+' '+(p.y-R0+1)+'C'+(p.x-9)+' '+(p.y-R0-14)+' '+(p.x+9)+' '+(p.y-R0-14)+' '+(p.x+5)+' '+(p.y-R0+1)+'" fill="none"/>';
+    nd+=nodeSVG(p.t,p.x,p.y);});
+  return '<svg viewBox="0 0 '+W+' '+H+'" width="'+Math.round(W*1.25)+'" xmlns="'+NS+'" role="img" aria-label="结构图"><g stroke="#6b7590" stroke-width="1.1">'+e+'</g>'+nd+'</svg>';}
+
+/* ---------- 전투 계산 (모든 카드·대결·실험실 공용) ---------- */
+var COST={5:2,4:5,3:10,2:30,1:100}, HP=200, MEMT=['seq','mem','algo'];
+var TIERS=[{k:'fly',name:'果蝇身体',bat:60},{k:'drone',name:'无人机',bat:200},{k:'laptop',name:'笔记本电脑',bat:600},{k:'server',name:'服务器',bat:null}];
+var TB={};TIERS.forEach(function(t,i){t.i=i;TB[t.k]=t;});
+function battle(m,tier,enemyKey,st){
+  tier=tier||'fly';var T=TB[tier],ek=enemyKey||m.enemy,S=st||statsOf(m),atk=S[0],hit=S[1],spd=S[2],en=S[3],mem=S[4],common=ek==='mix';
+  var cost=COST[en],raw=T.bat==null?10:Math.min(10,Math.floor(T.bat/cost)),late=(!common&&ek==='reflex'&&spd<=2&&raw>0)?1:0,turns=Math.max(0,raw-late);
+  var memB=(!common&&MEMT.indexOf(ek)>=0)?(1+0.1*(mem-3)):1,bonus=common?1:1.2;
+  var dmg=Math.round(10*atk*bonus*memB*10)/10,hp=0.5+0.1*hit,total=Math.round(turns*dmg*hp*10)/10;
+  return {enemy:ek,tier:tier,cost:cost,turns:turns,late:late,dmg:dmg,hitp:hp,total:total,frac:total/HP,win:total>=HP,memB:memB,noFit:raw===0};}
+function pct(f){return Math.min(100,Math.round(f*100))}
+function pc(f){return Math.round(f*100)}
+function grade(u){return ['','C','B','A','S','SS'][u]}
+
+/* ---------- 카드 ---------- */
+var STL=['ATK','HIT','SPD','EN','MEM'],STK=['判断','判断','规则','规则','规则'];
+function statsOf(m){return [m.r[0],m.acc,m.s[0],m.s[1],m.s[2]]}
+function cell(b){return '<td class="'+(b.win?'w':b.noFit?'x':'')+'">'+(b.noFit?'无法搭载':pc(b.frac)+'%')+'</td>';}
+function cardHTML(m){
+  var E=ENEMY[m.enemy],st=statsOf(m),b=battle(m,'fly');
+  var anT=m.an_t==='fly'?'<b>在果蝇中</b>':'<b class="life">用日常来比喻</b>';
+  return '<article class="card'+(m.special?' special':'')+'" id="m-'+m.id+'">'+
+   '<div class="card-top"><h3>'+esc(m.name)+'</h3><span class="abbr">'+esc(m.abbr)+' · '+m.year+'</span></div>'+
+   '<div class="badges">'+(m.orig?'<span class="badge orig">原始图表</span>':'<span class="badge new">新增</span>')+(m.core?'<span class="badge core">核心精选</span>':'')+(m.nonNN?'<span class="badge orig">非神经网络</span>':'')+(m.special?'<span class="badge sp">果蝇参考出场 · 不计排名</span>':'')+'</div>'+
+   '<div class="fig">'+draw(m.d)+'</div>'+
+   '<p>'+esc(m.what)+'</p><p class="an">'+anT+esc(m.an)+'</p>'+
+   '<p class="uses"><b>优点</b>'+esc(m.good)+'</p><p class="uses"><b>缺点</b>'+esc(m.bad)+'</p>'+
+   (m.hidden?'<div class="hidden-diff"><b>图中看不出的差异</b> · '+esc(m.hidden)+'</div>':'')+
+   (m.note?'<div class="hidden-diff"><b>阅读注意</b> · '+esc(m.note)+'</div>':'')+
+   '<div class="spec" aria-label="로봇 사양표"><div class="spec-h"><span>果蝇机器人植入规格</span><span class="grade">利用度 '+grade(m.r[2])+'</span></div>'+
+   st.map(function(v,i){return '<div class="srow"><label>'+STL[i]+'<small>'+STK[i]+'</small></label><div class="track">'+[1,2,3,4,5].map(function(k){return '<i class="'+(k<=v?'on':'')+(i>1&&k<=v?' rule':'')+'"></i>'}).join('')+'</div><em>'+v+'</em></div>'}).join('')+
+   '<p class="basis"><b>规则值依据</b> '+esc(m.basis)+'</p></div>'+
+   '<div class="battle"><span class="mv">必杀技「'+esc(m.move)+'」</span><span class="ln">'+esc(m.line)+'</span>'+
+   '<table class="mini"><thead><tr><th>Boss HP 减少比例</th>'+TIERS.map(function(t){return '<th>'+t.name+'</th>'}).join('')+'</tr></thead><tbody>'+
+   '<tr><th>专长 · '+esc(E.name)+'</th>'+TIERS.map(function(t){return cell(battle(m,t.k))}).join('')+'</tr>'+
+   '<tr><th>通用 · 综合考试奇美拉</th>'+TIERS.map(function(t){return cell(battle(m,t.k,'mix'))}).join('')+'</tr></tbody></table>'+
+   '<span class="res">果蝇身体：攻击1次 EN '+b.cost+' · '+(b.noFit?'电池60，一次也没能发射':'攻击 '+b.turns+'次'+(b.late?' （反应迟缓 −1）':''))+'</span></div>'+
+   '<button class="bt fight" data-fight="'+m.id+'">⚔ 查看战斗场面</button></article>';}
+
+/* ---------- 전투 장면 ---------- */
+var AR={m:null,t:0,play:false,tier:'fly',boss:'own',cv:null,dur:4.6};
+function enemyDraw(x,type,cx,cy,s,t,flash){var E=ENEMY[type];x.save();x.translate(cx,cy);var col=flash?'#ffffff':E.col;x.fillStyle=col;x.strokeStyle='#1d1a22';x.lineWidth=3;
+  var wob=Math.sin(t*3)*3;
+  if(type==='tab'){for(var i=0;i<3;i++)for(var j=0;j<3;j++){x.fillRect(-s*.6+i*s*.4,-s*.6+j*s*.4+wob*(i%2?1:-1)*.3,s*.36,s*.36);x.strokeRect(-s*.6+i*s*.4,-s*.6+j*s*.4+wob*(i%2?1:-1)*.3,s*.36,s*.36);}}
+  else if(type==='img'){x.beginPath();x.ellipse(0,s*.1,s*.7+wob,s*.55-wob,0,0,Math.PI*2);x.fill();x.stroke();}
+  else if(type==='seq'){for(var k=7;k>=0;k--){x.beginPath();x.arc(-k*s*.18+s*.3,Math.sin(t*3+k)*s*.15,s*(.26-k*.015),0,Math.PI*2);x.fill();x.stroke();}}
+  else if(type==='gen'){x.beginPath();x.moveTo(-s*.5,s*.5);x.lineTo(-s*.5,-s*.1);x.arc(0,-s*.1,s*.5,Math.PI,0);x.lineTo(s*.5,s*.5);for(var q=0;q<4;q++)x.lineTo(s*.5-(q+.5)*s*.25,s*(q%2?.5:.35)+wob*.5);x.closePath();x.fill();x.stroke();}
+  else if(type==='mem'){for(var a=0;a<3;a++)for(var b2=0;b2<3;b2++){if((a+b2)%4===1)continue;x.fillRect(-s*.6+a*s*.42,-s*.6+b2*s*.42,s*.38,s*.38);x.strokeRect(-s*.6+a*s*.42,-s*.6+b2*s*.42,s*.38,s*.38);}}
+  else if(type==='graph'){x.beginPath();x.arc(0,0,s*.6,0,Math.PI*2);x.fill();x.stroke();x.strokeStyle='rgba(29,26,34,.6)';x.lineWidth=2;for(var g=0;g<5;g++){x.beginPath();x.arc(Math.cos(g)*s*.2,Math.sin(g*2)*s*.2,s*.35,g,g+2.4);x.stroke();}}
+  else if(type==='reflex'){var sc=1+0.08*Math.sin(t*4);x.fillStyle=flash?'#fff':'rgba(60,58,84,.95)';x.beginPath();x.ellipse(0,0,s*.75*sc,s*.6*sc,0,0,Math.PI*2);x.fill();x.strokeStyle='#9d9bb8';x.stroke();}
+  else if(type==='mix'){x.beginPath();x.arc(0,0,s*.55,0,Math.PI*2);x.fill();x.stroke();x.fillStyle=flash?'#fff':'#f1c84a';x.fillRect(-s*.75,-s*.2,s*.3,s*.3);x.strokeRect(-s*.75,-s*.2,s*.3,s*.3);x.fillStyle=flash?'#fff':'#7fb0ff';x.beginPath();x.ellipse(s*.6,s*.25,s*.25,s*.18,0,0,Math.PI*2);x.fill();x.stroke();x.fillStyle=flash?'#fff':'#e48cff';x.beginPath();x.moveTo(-s*.2,-s*.5);x.lineTo(0,-s*.85);x.lineTo(s*.2,-s*.5);x.fill();x.stroke();}
+  else if(type==='algo'){x.fillRect(-s*.6,-s*.6,s*1.2,s*1.2);x.strokeRect(-s*.6,-s*.6,s*1.2,s*1.2);x.strokeStyle='#1d1a22';x.lineWidth=2;x.beginPath();x.moveTo(-s*.3,-s*.6);x.lineTo(-s*.3,s*.2);x.moveTo(0,s*.6);x.lineTo(0,-s*.2);x.moveTo(s*.3,-s*.6);x.lineTo(s*.3,s*.3);x.stroke();}
+  x.fillStyle='#1d1a22';var ey=type==='seq'?0:-s*.12,ex=type==='seq'?s*.3:0;x.beginPath();x.arc(ex-s*.16,ey,s*.07,0,Math.PI*2);x.arc(ex+s*.16,ey,s*.07,0,Math.PI*2);x.fill();
+  if(type==='reflex'){x.fillStyle='#f1b646';x.beginPath();x.arc(-s*.16,ey,s*.05,0,Math.PI*2);x.arc(s*.16,ey,s*.05,0,Math.PI*2);x.fill();}
+  x.restore();}
+function bolt(x,a,b,r){x.beginPath();x.moveTo(a[0],a[1]);for(var i=1;i<8;i++){var f=i/8;x.lineTo(a[0]+(b[0]-a[0])*f+(r()-.5)*24,a[1]+(b[1]-a[1])*f+(r()-.5)*24);}x.lineTo(b[0],b[1]);x.stroke();}
+var FX={
+ line:function(x,p,A,E){x.strokeStyle='rgba(241,200,74,'+(0.4+0.6*p)+')';x.lineWidth=2+10*p;x.beginPath();x.moveTo(A[0],A[1]);x.lineTo(A[0]+(E[0]-A[0])*Math.min(1,p*1.4),A[1]+(E[1]-A[1])*Math.min(1,p*1.4));x.stroke();
+   if(p>.7){x.strokeStyle='#fff';x.lineWidth=3;x.beginPath();x.moveTo(E[0]-60,E[1]+60);x.lineTo(E[0]+60,E[1]-60);x.stroke();}},
+ layers:function(x,p,A,E){for(var c=0;c<3;c++){var cx=A[0]+(E[0]-A[0])*(c+1)/4;for(var j=0;j<4;j++){var cy=E[1]-45+j*30,on=p*4>c+.3;x.fillStyle=on?'#5ee39c':'#363a52';x.beginPath();x.arc(cx,cy,7,0,Math.PI*2);x.fill();}}
+   var q=(p*4)%1,seg=Math.floor(p*4);x.fillStyle='#f1c84a';for(var k=0;k<4;k++){var x0=A[0]+(E[0]-A[0])*seg/4,x1=A[0]+(E[0]-A[0])*(seg+1)/4;x.beginPath();x.arc(x0+(x1-x0)*q,E[1]-45+k*30,5,0,Math.PI*2);x.fill();}},
+ grid:function(x,p,A,E){var n=4,sz=26,k=Math.floor(p*n*n),i=k%n,j=Math.floor(k/n)%n;x.strokeStyle='rgba(245,156,240,.35)';x.lineWidth=1;for(var a=0;a<=n;a++){x.beginPath();x.moveTo(E[0]-52+a*sz,E[1]-52);x.lineTo(E[0]-52+a*sz,E[1]+52);x.stroke();x.beginPath();x.moveTo(E[0]-52,E[1]-52+a*sz);x.lineTo(E[0]+52,E[1]-52+a*sz);x.stroke();}
+   x.strokeStyle='#F59CF0';x.lineWidth=3;x.strokeRect(E[0]-52+i*sz,E[1]-52+j*sz,sz*1.5,sz*1.5);x.strokeStyle='rgba(245,156,240,.6)';x.lineWidth=2;x.beginPath();x.moveTo(A[0],A[1]);x.lineTo(E[0]-52+i*sz+sz*.75,E[1]-52+j*sz+sz*.75);x.stroke();},
+ loop:function(x,p,A,E){var n=5;for(var k=0;k<n;k++){var ang=p*12+k*Math.PI*2/n,rr=40*(1-Math.max(0,p-.6)*2.5),fire=p>.6,
+   px=fire?A[0]+(E[0]-A[0])*((p-.6)/.4)+Math.cos(ang)*rr:A[0]+Math.cos(ang)*40,py=fire?A[1]+(E[1]-A[1])*((p-.6)/.4)+Math.sin(ang)*rr:A[1]+Math.sin(ang)*40;
+   x.fillStyle='#1AA3F0';x.beginPath();x.arc(px,py,7,0,Math.PI*2);x.fill();x.strokeStyle='rgba(26,163,240,.4)';x.lineWidth=2;x.beginPath();x.arc(A[0],A[1],40,0,Math.PI*2);x.stroke();}},
+ spot:function(x,p,A,E,r){for(var k=0;k<6;k++){var sx=A[0]-30+k*14,sy=A[1]-70,tx=E[0]-40+((k*37)%80),ty=E[1]-40+((k*53)%80),f=Math.min(1,p*1.6);
+   x.strokeStyle='rgba(160,124,255,'+(0.3+0.5*f)+')';x.lineWidth=2+3*f;x.beginPath();x.moveTo(sx,sy);x.lineTo(sx+(tx-sx)*f,sy+(ty-sy)*f);x.stroke();
+   if(f>=1){x.fillStyle='rgba(241,200,74,.5)';x.beginPath();x.arc(tx,ty,10+6*Math.sin(p*20+k),0,Math.PI*2);x.fill();}}
+   x.fillStyle='#a07cff';for(var h=0;h<6;h++){x.beginPath();x.arc(A[0]-30+h*14,A[1]-70,5,0,Math.PI*2);x.fill();}},
+ squeeze:function(x,p,A,E,r){var mid=[(A[0]+E[0])/2,(A[1]+E[1])/2];for(var k=0;k<24;k++){var a=k/24*Math.PI*2,d0=70,t2;
+   if(p<.55){t2=p/.55;x.fillStyle='#d672d6';x.beginPath();x.arc(mid[0]+Math.cos(a)*d0*(1-t2),mid[1]+Math.sin(a)*d0*(1-t2),4,0,Math.PI*2);x.fill();}
+   else{t2=(p-.55)/.45;x.fillStyle='#F26A12';x.beginPath();x.arc(mid[0]+(E[0]-mid[0])*t2+Math.cos(a)*50*t2,mid[1]+(E[1]-mid[1])*t2+Math.sin(a)*50*t2,5,0,Math.PI*2);x.fill();}}
+   if(p>.45&&p<.65){x.fillStyle='#fff';x.beginPath();x.arc(mid[0],mid[1],8,0,Math.PI*2);x.fill();}},
+ settle:function(x,p,A,E){var mid=[(A[0]+E[0])/2,(A[1]+E[1])/2],pts=[];for(var k=0;k<8;k++){var a=k/8*Math.PI*2+p*2,rr=60*(1-Math.max(0,p-.7)*3);pts.push([mid[0]+Math.cos(a)*rr,mid[1]+Math.sin(a)*rr]);}
+   x.strokeStyle='rgba(94,227,156,.35)';x.lineWidth=1;for(var i=0;i<8;i++)for(var j=i+1;j<8;j++){x.beginPath();x.moveTo(pts[i][0],pts[i][1]);x.lineTo(pts[j][0],pts[j][1]);x.stroke();}
+   pts.forEach(function(q,i){x.fillStyle=(Math.floor(p*16)+i)%3?'#5DC21E':'#f1c84a';x.beginPath();x.arc(q[0],q[1],7,0,Math.PI*2);x.fill();});
+   if(p>.8){x.strokeStyle='#5ee39c';x.lineWidth=8*(p-.8)*5;x.beginPath();x.moveTo(mid[0],mid[1]);x.lineTo(E[0],E[1]);x.stroke();}},
+ twin:function(x,p,A,E){for(var s=0;s<2;s++){var f=p,a=p*14+s*Math.PI,px=A[0]+(E[0]-A[0])*f+Math.cos(a)*30*(1-f),py=A[1]+(E[1]-A[1])*f+Math.sin(a)*30*(1-f);
+   x.fillStyle=s?'#F26A12':'#5DC21E';x.beginPath();x.arc(px,py,11,0,Math.PI*2);x.fill();x.strokeStyle='#1d1a22';x.lineWidth=2;x.stroke();}},
+ spike:function(x,p,A,E,r){x.lineWidth=3;var n=Math.floor(p*8);for(var k=0;k<=n&&k<8;k++){if((p*8-k)>1.2)continue;x.strokeStyle=k%2?'#5ee39c':'#f1c84a';bolt(x,[A[0]+10,A[1]-20+k*6],[E[0]-10+(k%3)*10,E[1]-30+(k%4)*18],r);}
+   x.fillStyle='#5DC21E';for(var q=0;q<6;q++){x.globalAlpha=(Math.floor(p*20)+q)%2?1:.3;x.beginPath();x.arc(A[0]+40+q*14,A[1]-50,5,0,Math.PI*2);x.fill();}x.globalAlpha=1;},
+ skip:function(x,p,A,E){var hops=3;for(var h=0;h<hops;h++){var a=A[0]+(E[0]-A[0])*h/hops,b=A[0]+(E[0]-A[0])*(h+1)/hops,f=Math.max(0,Math.min(1,p*hops-h));
+   x.strokeStyle='#5ee39c';x.lineWidth=4;x.beginPath();for(var i=0;i<=20*f;i++){var u=i/20;x.lineTo(a+(b-a)*u,A[1]-Math.sin(u*Math.PI)*90);}x.stroke();
+   x.fillStyle='#5DC21E';x.beginPath();x.arc(a,A[1],8,0,Math.PI*2);x.fill();}},
+ graph:function(x,p,A,E){var P=[[.25,-50],[.4,30],[.55,-30],[.7,40],[.82,-10]].map(function(q){return[A[0]+(E[0]-A[0])*q[0],A[1]+q[1]]}),L=[[0,1],[0,2],[1,2],[1,3],[2,3],[2,4],[3,4]];
+   x.strokeStyle='rgba(241,200,74,.4)';x.lineWidth=2;L.forEach(function(l){x.beginPath();x.moveTo(P[l[0]][0],P[l[0]][1]);x.lineTo(P[l[1]][0],P[l[1]][1]);x.stroke();});
+   L.forEach(function(l,i){var f=(p*3+i*.17)%1;x.fillStyle='#f1c84a';x.beginPath();x.arc(P[l[0]][0]+(P[l[1]][0]-P[l[0]][0])*f,P[l[0]][1]+(P[l[1]][1]-P[l[0]][1])*f,4,0,Math.PI*2);x.fill();});
+   P.forEach(function(q){x.fillStyle='#5DC21E';x.beginPath();x.arc(q[0],q[1],8,0,Math.PI*2);x.fill();});
+   if(p>.75){x.strokeStyle='#f1c84a';x.lineWidth=6;x.beginPath();x.moveTo(P[4][0],P[4][1]);x.lineTo(E[0],E[1]);x.stroke();}},
+ denoise:function(x,p,A,E,r){var n=140;for(var k=0;k<n;k++){var a=r()*Math.PI*2,d0=r()*70,fx=E[0]+Math.cos(a)*d0,fy=E[1]+Math.sin(a)*d0,keep=r()>p;if(!keep)continue;x.fillStyle='rgba(236,234,243,'+(0.2+0.5*r())+')';x.fillRect(fx,fy,3,3);}
+   x.strokeStyle='rgba(228,140,255,'+p+')';x.lineWidth=3;x.beginPath();x.arc(E[0],E[1],62,0,Math.PI*2*p);x.stroke();
+   x.fillStyle='#f1b646';x.font='700 14px system-ui';x.textAlign='center';x.fillText('step '+Math.round(1000*(1-p)),E[0],E[1]-80);},
+ tape:function(x,p,A,E){var y=A[1]+60;for(var k=0;k<10;k++){var bx=A[0]-20+k*((E[0]-A[0])/9)-(p*120)%((E[0]-A[0])/9),on=k===Math.floor(p*10);x.fillStyle=on?'#1AA3F0':'#25283a';x.fillRect(bx,y,26,20);x.strokeStyle='#363a52';x.strokeRect(bx,y,26,20);}
+   x.strokeStyle='#1AA3F0';x.lineWidth=3;x.beginPath();x.moveTo(A[0],A[1]);x.lineTo(A[0]+(E[0]-A[0])*p,y);x.stroke();
+   if(p>.7){x.strokeStyle='#82b8ff';x.lineWidth=5;x.beginPath();x.moveTo(A[0],A[1]);x.lineTo(E[0],E[1]);x.stroke();}}
+};
+function arenaB(){return battle(AR.m,AR.tier,AR.boss==='mix'?'mix':null)}
+function arenaFrame(){var c=AR.cv,H=320,W=fit(c,H),x=c.getContext('2d'),m=AR.m;if(!m)return;var b=arenaB(),t=AR.t,D=AR.dur,r=rng(7+Math.floor(t*12)),bat=TB[AR.tier].bat;
+  var g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#1b1533');g.addColorStop(1,'#13141f');x.fillStyle=g;x.fillRect(0,0,W,H);
+  x.strokeStyle='rgba(157,155,184,.06)';for(var gx=0;gx<W;gx+=24){x.beginPath();x.moveTo(gx,0);x.lineTo(gx,H);x.stroke();}for(var gy=0;gy<H;gy+=24){x.beginPath();x.moveTo(0,gy);x.lineTo(W,gy);x.stroke();}
+  var A=[W*.18,H*.62],E=[W*.8,H*.56];
+  var turnP=Math.max(0,Math.min(1,(t-2.7)/1.0)),shown=b.turns?Math.min(b.turns,Math.floor(turnP*b.turns+(turnP>=1?0:1))):0,dealt=b.turns?b.total*Math.min(1,turnP):0;
+  var hpLeft=Math.max(0,HP-dealt),enMax=bat==null?1:bat,enUsed=bat==null?0:Math.min(bat,b.cost*(b.turns+b.late)*Math.min(1,turnP));
+  var bob=reduce?0:Math.sin(t*4)*3;x.save();x.imageSmoothingEnabled=false;x.drawImage(mechCv,A[0]-60,A[1]-60+bob,120,120);x.restore();
+  var flash=t>2.7&&t<3.7&&Math.floor(t*14)%2===0&&dealt>0;enemyDraw(x,b.enemy,E[0]+(flash?(r()-.5)*8:0),E[1],70,t,flash);
+  if(t>0.9&&t<2.75){if(b.noFit){var f=(t-0.9)/1.85;x.fillStyle='rgba(240,96,77,'+(0.5+0.5*Math.sin(f*20))+')';x.font='700 22px "IBM Plex Sans KR",system-ui';x.textAlign='center';x.fillText('EN不足 · 机动失败',A[0]+60,A[1]-90);
+      x.strokeStyle='rgba(130,184,255,.5)';x.lineWidth=3;x.beginPath();x.moveTo(A[0]+40,A[1]-10);x.lineTo(A[0]+40+60*Math.min(1,f*3),A[1]-10);x.stroke();}
+    else (FX[m.fx]||FX.line)(x,(t-0.9)/1.85,[A[0]+40,A[1]-10],E,r);}
+  if(t>=2.7&&t<3.9&&dealt>0){x.fillStyle='#fff';x.font='700 22px system-ui';x.textAlign='center';x.fillText('-'+Math.round(b.dmg*b.hitp),E[0]+20,E[1]-90-(t-2.7)*30);}
+  function gauge(px,py,w,lbl,v,max,col){x.fillStyle='#9d9bb8';x.font='700 11px system-ui';x.textAlign='left';x.fillText(lbl,px,py-4);x.fillStyle='#25283a';x.fillRect(px,py,w,10);x.fillStyle=col;x.fillRect(px,py,w*Math.max(0,v)/max,10);x.strokeStyle='#363a52';x.strokeRect(px,py,w,10);}
+  gauge(16,26,Math.min(220,W*.3),'果蝇机器人 EN · '+TB[AR.tier].name+(bat==null?'（无限制）':' '+bat),bat==null?1:bat-enUsed,enMax,'#82b8ff');
+  gauge(W-16-Math.min(220,W*.3),26,Math.min(220,W*.3),ENEMY[b.enemy].name+' HP',hpLeft,HP,hpLeft>0?'#f0604d':'#5ee39c');
+  x.fillStyle='#eceaf3';x.font='12px system-ui';x.textAlign='left';x.fillText('攻击 '+shown+' / '+b.turns+'次 · 每次攻击EN '+b.cost+(b.late?' （反应迟缓 −1）':''),16,58);
+  if(t<1.0){var ci=Math.min(1,t/0.25),out=t>0.8?(t-0.8)/0.2:0;x.save();x.globalAlpha=1-out;x.fillStyle='rgba(241,200,74,.92)';x.beginPath();x.moveTo(-40+W*(1-ci),H*.28);x.lineTo(W+40,H*.2);x.lineTo(W+40,H*.62);x.lineTo(-40+W*(1-ci),H*.7);x.closePath();x.fill();
+    x.fillStyle='#13141f';x.beginPath();x.moveTo(-40+W*(1-ci),H*.31);x.lineTo(W+40,H*.23);x.lineTo(W+40,H*.59);x.lineTo(-40+W*(1-ci),H*.67);x.closePath();x.fill();
+    var pi=Cast.image('fly_cutin');if(pi.complete&&pi.naturalWidth)x.drawImage(pi,W*(1-ci)+20,H*.24,130,130);
+    x.fillStyle='#f1c84a';x.font='700 '+Math.min(30,W/22)+'px "IBM Plex Sans KR",system-ui';x.textAlign='left';x.fillText('「'+m.move+'」',W*(1-ci)+160,H*.44);
+    x.fillStyle='#eceaf3';x.font=Math.min(15,W/45)+'px "IBM Plex Sans KR",system-ui';x.fillText(m.line,W*(1-ci)+160,H*.55);x.restore();}
+  if(t>=D-0.7){x.fillStyle='rgba(19,20,31,.75)';x.fillRect(0,H-54,W,54);x.font='700 20px "IBM Plex Sans KR",system-ui';x.textAlign='center';
+    x.fillStyle=b.win?'#5ee39c':b.noFit?'#f0604d':'#f1c84a';x.fillText(b.noFit?'无法搭载 · 电池不足，一次也没能发射':b.win?'击破！总伤害 '+b.total:'HP '+pct(b.frac)+'% 减少 · 总伤害 '+b.total,W/2,H-22);}
+  x.fillStyle='rgba(157,155,184,.8)';x.font='11px system-ui';x.textAlign='left';x.fillText(m.abbr+'植入',A[0]-30,A[1]+78);
+  stamp(x,W,'说明用演出 · 示例值');}
+function arenaText(){var m=AR.m,b=arenaB(),E=ENEMY[b.enemy],T=TB[AR.tier];
+  var head=T.name+(T.bat==null?' 电源（无限制）':' 电池 '+T.bat+' EN')+'下，每次攻击消耗EN '+b.cost+'。 ';
+  if(b.noFit)$('#arAsst').textContent=head+'电池不足，一次也没能发射。总伤害为0分。';
+  else $('#arAsst').textContent=head+'攻击 '+b.turns+'次'+(b.late?'（因反应迟缓，少了1次）':'')+'，每次伤害 '+b.dmg+'分 × 命中 '+b.hitp.toFixed(1)+'，总伤害为 '+b.total+'分。 '+E.name+'（HP 200中）'+pc(b.frac)+'%'+(b.win?'，判定击破。':'减少了。');
+  $('#arDoc').textContent=m.special?m.doc+'不过，此模型并非为解决任务而设计，而是参考出场。':m.doc;}
+function arenaSync(){$$('#arTiers .bt').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.t===AR.tier)});$$('#arBoss .bt').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.b===AR.boss)});}
+function arenaReplay(){arenaSync();arenaText();AR.t=reduce?AR.dur:0;AR.play=!reduce;arenaFrame();}
+function openArena(id){AR.opener=document.activeElement;AR.m=MB[id];$('#arTitle').textContent=AR.m.name+'植入 · 必杀技「'+AR.m.move+'」';$('#arena').hidden=false;document.body.style.overflow='hidden';
+  Cast.fill($('#arena'));arenaReplay();$('#arClose').focus();}
+function closeArena(){$('#arena').hidden=true;AR.play=false;document.body.style.overflow='';var f=AR.m&&$('[data-fight="'+AR.m.id+'"]');if(f)f.focus();}
+function setPress(s,v){var e=$(s);if(e)e.setAttribute('aria-pressed',v?'true':'false');}
+
+/* ---------- 용어 ---------- */
+var tip,glossMode='core';
+function Gloss(){tip=$('#tip');var keys=Object.keys(GL).sort(function(a,b){return b.length-a.length});
+  $$('section.level, header.hero').forEach(function(scope){if(scope.id==='kg'||scope.id==='export')return;var used={};
+    var walker=document.createTreeWalker(scope,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentElement;if(!p||p.closest('button,h1,h2,nav,canvas,svg,.kpis,.jt,script,.spec,.battle,table,.qi,.flowchips,.selfdraw'))return NodeFilter.FILTER_REJECT;return n.nodeValue.trim()?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT;}});
+    var nodes=[];while(walker.nextNode())nodes.push(walker.currentNode);
+    nodes.forEach(function(n){var txt=n.nodeValue;for(var i=0;i<keys.length;i++){var k=keys[i];if(used[k])continue;var at=txt.toLowerCase().indexOf(k.toLowerCase());if(at<0)continue;used[k]=1;
+      var sp=document.createElement('span');sp.className='jt';sp.tabIndex=0;sp.dataset.k=k;sp.dataset.core=GL[k][3]?'1':'0';sp.dataset.gl='1';sp.textContent=txt.substr(at,k.length);
+      var after=n.splitText(at);after.nodeValue=after.nodeValue.slice(k.length);n.parentNode.insertBefore(sp,after);return;}});});
+  function show(e){var t=e.target.closest('.jt');if(!t||t.dataset.off==='1')return;var g=GL[t.dataset.k];tip.innerHTML='<b>'+esc(g[0])+'</b><small>'+esc(g[1])+'</small><br>'+esc(g[2]);tip.hidden=false;
+    var r=t.getBoundingClientRect(),tw=Math.min(300,innerWidth-24);tip.style.left=Math.max(12,Math.min(innerWidth-tw-12,r.left))+'px';tip.style.top=(r.bottom+8+tip.offsetHeight>innerHeight?r.top-tip.offsetHeight-8:r.bottom+8)+'px';}
+  document.addEventListener('pointerover',function(e){if(e.pointerType==='mouse')show(e);});
+  document.addEventListener('pointerout',function(e){if(e.target.closest&&e.target.closest('.jt'))tip.hidden=true;});
+  document.addEventListener('click',function(e){if(e.target.closest('.jt')){if(!tip.hidden&&tip.dataset.k===e.target.dataset.k){tip.hidden=true;return;}show(e);tip.dataset.k=e.target.dataset.k;}else tip.hidden=true;});
+  document.addEventListener('focusin',function(e){if(e.target.classList&&e.target.classList.contains('jt'))show(e);});
+  addEventListener('scroll',function(){tip.hidden=true;},{passive:true});
+  applyGloss();}
+function applyGloss(){$$('.jt').forEach(function(s){var on=glossMode==='all'||(glossMode==='core'&&s.dataset.core==='1');s.classList.toggle('jt',true);s.style.borderBottom=on?'':'0';s.style.cursor=on?'':'auto';s.dataset.off=on?'0':'1';s.tabIndex=on?0:-1;});
+  $('#stGloss').textContent='下划线： '+{core:'核心',all:'全部',off:'关闭'}[glossMode];}
+
+/* ---------- 퀴즈 ---------- */
+var qDone={},qTotal=0;
+function quizzes(){$$('.quiz[data-quiz]').forEach(function(box){var arr=QUIZ[box.dataset.quiz]||[];arr.forEach(function(q,qi){qTotal++;var id=box.dataset.quiz+'-'+qi,d=document.createElement('div');d.className='qi';
+  d.innerHTML='<p class="q">'+esc(q.q)+'</p><div class="opts">'+q.o.map(function(o,i){return '<button class="bt" data-i="'+i+'">'+esc(o)+'</button>'}).join('')+'</div><p class="fb" aria-live="polite"></p>';
+  d.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var i=+b.dataset.i,fb=$('.fb',d);$$('button',d).forEach(function(x){x.classList.remove('right','wrong')});
+    if(i===q.a){b.classList.add('right');fb.className='fb ok';fb.textContent='正确。 '+q.why;qDone[id]=1;}else{b.classList.add('wrong');fb.className='fb no';fb.textContent='提示： '+q.hint;}study();});
+  box.appendChild(d);});});}
+function study(){var h=document.documentElement,sc=h.scrollTop/(h.scrollHeight-h.clientHeight||1);$('#prog').style.width=(sc*100)+'%';
+  $('#stRead').textContent='已读之处 '+Math.round(sc*100)+'%';$('#stQuiz').textContent='测验 '+Object.keys(qDone).length+'/'+qTotal;}
+
+/* ---------- 대결 ---------- */
+var DU={tier:'fly',shown:false,guess:null};
+function duelRun(tier){tier=tier||DU.tier;var f=MB[DUEL.fly],r=MB[DUEL.robo],bf=battle(f,tier,'reflex'),br=battle(r,tier,'reflex');return {f:bf,r:br,fv:bf.total/HP,rv:br.total/HP};}
+var LESSON={F:'在小电源下，省电的大脑能坚持到最后',R:'电源充足时，大脑的一击会获胜',D:'在这个电源下，两者力量相近'};
+function duelRes(o){return Math.abs(o.fv-o.rv)<=0.01?'D':(o.fv>o.rv?'F':'R')}
+function duelReveal(){var root=$('#duel'),o=duelRun(),fv=o.fv,rv=o.rv,res=duelRes(o),big=Math.abs(fv-rv)>=0.10;
+  var M={F:['arms','sigh'],R:[big?'cry':'coffee','happy'],D:['coffee','meh']}[res];
+  Cast.set($('#duelBox .side.fly img'),'fly',M[0]);Cast.set($('#duelBox .side.robo img'),'robo',M[1]);
+  var mx=Math.max(fv,rv,1);function bar(n,v,c,t){return '<div class="dbar"><span>'+n+'</span><div class="t"><i style="width:'+(v/mx*100)+'%;background:'+c+'"></i></div><em>'+t+'</em></div>'}
+  $('#dBars').innerHTML=bar('果蝇 (Fly-CNS)',fv,'var(--c-fly)',o.f.total)+bar('Money-Robo (Transformer)',rv,'var(--c-robo)',o.r.noFit?'无法搭载':o.r.total)+'<p class="todo">两根条为相同刻度。Boss HP为200。</p>';
+  var T=TB[DU.tier];
+  $('#dAsst').textContent=T.name+(T.bat==null?' 电源':' 电池 '+T.bat+' EN')+'中，总伤害果蝇一方为 '+o.f.total+'分，Money-Robo一方为 '+o.r.total+'分。 '+(o.r.noFit?'Transformer每次攻击耗EN 100，因此一次也没能发射。':'攻击次数为 '+o.f.turns+'次 对 '+o.r.turns+'次'+(o.r.late?'（机器人因反应迟缓，少了1次）':'')+'。');
+  var who={F:'果蝇胜。',R:'Money-Robo 胜。',D:'这一局平分。'}[res];$('#dVerdict').textContent=LESSON[res]+'. '+who;
+  root.classList.add('open');DU.shown=true;$('#dReveal').textContent='重新关闭';
+  if(DU.guess)$('#guessNote').textContent='我的预测： '+(DU.guess==='F'?'果蝇':'机器人')+' → '+(DU.guess===res?'猜中了。':'猜错了。');}
+function duelReset(){$('#duel').classList.remove('open');DU.shown=false;Cast.set($('#duelBox .side.fly img'),'fly','point');Cast.set($('#duelBox .side.robo img'),'robo','coin');$('#dReveal').textContent='看结果';$('#guessNote').textContent='';}
+function duelLadder(){$('#duelLadder').innerHTML='<b>按电源级别的单行结果</b> '+TIERS.map(function(t){var o=duelRun(t.k),r=duelRes(o);return '<span class="'+(r==='F'?'lf':'lr')+'">'+t.name+' · '+(r==='F'?'果蝇':r==='R'?'机器人':'平局')+' ('+o.f.total+' 对 '+(o.r.noFit?'0':o.r.total)+')</span>'}).join(' → ');}
+function outro(){var o=duelRun('fly'),res=duelRes(o);
+  var L={doc:['doc','magic','博士','今天的核心三句话。① 原始图表只画了布线，是在激活函数与学习方法相同的假设下比较的。② 同一模型的电源级别一变，排名就会翻转。③ ATK·HIT为判断值，请用实验室的滑块改动后，亲自确认结论会有多大动摇。'],
+    fly:['fly','arms','果蝇研究员','在果蝇身体上是我赢了。从笔记本开始……我承认。'],
+    robo:['robo','sigh','Money-Robo','果蝇身体这一局认输。从笔记本这个级别开始，我找回了本钱。'],
+    asst:['asst','spark','助手（Haru）','计算公式已固定为一种。把电源级别提高后，在笔记本上胜负首次翻转。']};
+  var order=res==='F'?['doc','fly','robo','asst']:['doc','robo','fly','asst'];
+  $('#outroDialog').innerHTML=order.map(function(k){var v=L[k];return '<div class="say" data-who="'+v[0]+'"><img class="who" data-who="'+v[0]+'" data-mood="'+v[1]+'" data-img="'+v[0]+'_'+v[1]+'" alt="" aria-hidden="true"><div><b class="name">'+v[2]+'</b><p>'+esc(v[3])+'</p></div></div>'}).join('');}
+
+/* ---------- 정리 표 · 체급 사다리 · 실험실 ---------- */
+var sortK='no',sortD=1;
+function sumTable(){var rows=MODELS.map(function(m){var r={m:m,no:m.no,name:m.name,sec:SB[m.sec].no,year:m.year,atk:m.r[0],hit:m.r[1],spd:m.s[0],en:m.s[1],mem:m.s[2],use:m.r[2]};
+    TIERS.forEach(function(t){r['c_'+t.k]=battle(m,t.k,'mix');});r.own=battle(m,'fly');return r;});
+  rows.forEach(function(r){r.cf=r.c_fly.total;r.cd=r.c_drone.total;r.cl=r.c_laptop.total;r.cs=r.c_server.total;r.ow=r.own.total;});
+  rows.sort(function(a,b){var x=a[sortK],y=b[sortK];return (x>y?1:x<y?-1:0)*sortD;});
+  function td(b){return '<td class="n'+(b.win?' w':b.noFit?' x':'')+'">'+(b.noFit?'不可':pc(b.frac)+'%')+'</td>'}
+  $('#sumTable tbody').innerHTML=rows.map(function(r){return '<tr'+(r.m.special?' class="ex"':'')+'><td class="n">'+r.no+'</td><td><a href="#m-'+r.m.id+'">'+esc(r.name)+'</a> <span class="en">('+esc(r.m.en)+')</span> <span class="abbr">'+esc(r.m.abbr)+(r.m.orig?'':' ✦')+(r.m.special?' · 不计排名':'')+'</span></td><td>'+SEC[r.sec-1].short+'</td><td class="n">'+r.year+'</td><td class="n">'+r.atk+'</td><td class="n">'+r.hit+'</td><td class="n">'+r.spd+'</td><td class="n">'+r.en+'</td><td class="n">'+r.mem+'</td><td>'+grade(r.use)+'</td>'+td(r.c_fly)+td(r.c_drone)+td(r.c_laptop)+td(r.c_server)+td(r.own)+'</tr>'}).join('');}
+var LADB='mix';
+function ladderPool(){return MODELS.filter(function(m){return !m.special&&(LADB==='mix'||m.enemy===LADB)})}
+function ladderDraw(){var c=$('#ladder'),pool=ladderPool(),n=Math.min(8,pool.length),H=Math.max(160,42+n*34),W=fit(c,H),x=c.getContext('2d');x.clearRect(0,0,W,H);var colW=W/4,bk=LADB==='mix'?'mix':LADB;
+  x.textBaseline='middle';
+  TIERS.forEach(function(t,ci){var x0=ci*colW+10,w=colW-20,list=pool.map(function(m){return{m:m,b:battle(m,t.k,bk)}}).sort(function(a,b){return b.b.total-a.b.total}).slice(0,8);
+    x.fillStyle='#f1c84a';x.font='700 14px "IBM Plex Sans KR",system-ui';x.textAlign='left';x.fillText(t.name+(t.bat==null?'（无限制）':' · '+t.bat+' EN'),x0,18);
+    x.font='12px "IBM Plex Sans KR",system-ui';var mx=LADB==='mix'?500:600;
+    list.forEach(function(it,i){var y=42+i*34,bw=Math.max(2,(w-8)*Math.min(1,it.b.total/mx));
+      x.fillStyle='#25283a';x.fillRect(x0,y+12,w-8,10);x.fillStyle=it.b.win?'#5ee39c':'#f1c84a';x.fillRect(x0,y+12,bw,10);
+      x.fillStyle=it.m.core?'#eceaf3':'#9d9bb8';x.textAlign='left';x.fillText((i+1)+'. '+it.m.abbr,x0,y+3);x.textAlign='right';x.fillText(it.b.noFit?'不可':pc(it.b.frac)+'%',x0+w-8,y+3);});
+    if(ci<3){x.strokeStyle='#363a52';x.beginPath();x.moveTo((ci+1)*colW,8);x.lineTo((ci+1)*colW,H-8);x.stroke();}});
+  stamp(x,W,(LADB==='mix'?'通用首领':ENEMY[LADB].name)+' · 示例值');
+  var tops=TIERS.map(function(t){return pool.slice().sort(function(a,b){return battle(b,t.k,bk).total-battle(a,t.k,bk).total})[0]});
+  var noFly=pool.filter(function(m){return battle(m,'fly',bk).noFit}).length;
+  $('#ladderIns').innerHTML='<p>'+(LADB==='mix'?'以通用首领为准':'专长首领的'+esc(ENEMY[LADB].name)+'个'+pool.length+'种之间')+' 按电源级别第1名为 '+TIERS.map(function(t,i){var tt=battle(tops[i],t.k,bk).total,ties=pool.filter(function(m){return battle(m,t.k,bk).total===tt}).length;return t.name+' <b>'+esc(tops[i].abbr)+'</b>'+(ties>1?' 等 '+ties+'种并列':'')}).join(', ')+'。在果蝇身体上，'+noFly+'种因电池不足，一次也没能发射。电源级别越高，EN一栏的影响越小，由ATK·HIT一栏决定排名。'+(LADB==='mix'?'通用首领让做不同事情的模型排在同一行，因此不能把它读作“什么都擅长的排名”。请使用上方的首领按钮，在做相同事情的模型之间比较。':'')+'</p>';}
+function ladderInit(){var box=$('#ladBoss');if(!box)return;var keys=['mix'].concat(Object.keys(ENEMY).filter(function(k){return k!=='mix'&&MODELS.some(function(m){return m.enemy===k&&!m.special})}));
+  box.innerHTML='<span class="glabel">首领</span>'+keys.map(function(k){var n=k==='mix'?41:MODELS.filter(function(m){return m.enemy===k&&!m.special}).length;return '<button class="bt" data-lb="'+k+'" aria-pressed="'+(k===LADB)+'">'+(k==='mix'?'通用首领（41种）':esc(ENEMY[k].name)+' ('+n+')')+'</button>'}).join('');
+  box.addEventListener('click',function(e){var b=e.target.closest('[data-lb]');if(!b)return;LADB=b.dataset.lb;$$('#ladBoss [data-lb]').forEach(function(x){x.setAttribute('aria-pressed',x===b)});ladderDraw();});}
+var LAB={id:'transformer',st:null};
+function labInit(){var sel=$('#labModel');sel.innerHTML=MODELS.map(function(m){return '<option value="'+m.id+'"'+(m.id===LAB.id?' selected':'')+'>'+esc(m.name+' ('+m.en+')')+'</option>'}).join('');
+  sel.addEventListener('change',function(){LAB.id=sel.value;labReset();});
+  $$('#labSliders input').forEach(function(inp){inp.addEventListener('input',function(){LAB.st[+inp.dataset.i]=+inp.value;labRender();});});
+  $('#labReset').addEventListener('click',labReset);
+  var q=$('#labQuant');if(q)q.addEventListener('click',function(){LAB.st[3]=Math.min(5,LAB.st[3]+1);LAB.st[1]=Math.max(1,LAB.st[1]-1);$$('#labSliders input').forEach(function(inp){inp.value=LAB.st[+inp.dataset.i];});labRender();});
+  labReset();}
+function labReset(){LAB.st=statsOf(MB[LAB.id]).slice();$$('#labSliders input').forEach(function(inp){inp.value=LAB.st[+inp.dataset.i];});labRender();}
+function labRender(){var m=MB[LAB.id],base=statsOf(m),pool=MODELS.filter(function(x){return !x.special});
+  $$('#labSliders input').forEach(function(inp){var i=+inp.dataset.i;$('#labV'+i).textContent=LAB.st[i]+(LAB.st[i]!==base[i]?' （原为 '+base[i]+')':'');});
+  $('#labOut').innerHTML='<table class="tb" style="min-width:0"><thead><tr><th>电源级别</th><th>通用首领总伤害</th><th>排名（41种中，连接组除外）</th><th>原值时排名 · 伤害</th></tr></thead><tbody>'+TIERS.map(function(t){
+    var b=battle(m,t.k,'mix',LAB.st),b0=battle(m,t.k,'mix'),rank=function(tot){return 1+pool.filter(function(x){return x.id!==m.id&&battle(x,t.k,'mix').total>tot}).length};
+    return '<tr><td>'+t.name+'</td><td class="n">'+(b.noFit?'无法搭载':b.total+' ('+pc(b.frac)+'%)')+'</td><td class="n">'+(m.special?'不计排名':rank(b.total)+'位')+'</td><td class="n">'+(m.special?'—':rank(b0.total)+'位 · '+b0.total)+'</td></tr>'}).join('')+'</tbody></table>';
+  var changed=LAB.st.some(function(v,i){return v!==base[i]});
+  $('#labIns').innerHTML='<p>'+(changed?'改变数值后，排名变成了如上所示。这意味着由谁、如何给能力值打分，决定了结论。':'移动滑块，即可立即计算该模型的排名随电源级别如何变化。特别是EN的一格会大幅撼动果蝇身体的排名。')+'</p>';}
+
+/* ---------- 지식 색인 ---------- */
+var KG=JSON.parse($('#kg-raw').textContent),REF=JSON.parse($('#refs-csl').textContent),META=JSON.parse($('#page-meta').textContent);
+var TYK={Concept:'概念',Method:'方法',Task:'问题',Metric:'指标',Claim:'主张',Term:'术语',Question:'问题',Analogy:'比喻',Limitation:'局限',Work:'文献',Simulation:'模拟',QuizItem:'测验',Section:'章节',BioAnalogue:'生物对应'};
+var TYC={Concept:'#d672d6',Method:'#5ee39c',Limitation:'#f0604d',Question:'#82b8ff',Claim:'#f1b646',Term:'#9d9bb8',Analogy:'#ff86b8',Metric:'#57d0dc',Task:'#c48a5a'};
+var kgOn={},kgHL=null,NB={};KG.nodes.forEach(function(n){NB[n.id]=n;});
+['Concept','Method','Limitation','Claim','Term','Question','Analogy','Metric'].forEach(function(t){kgOn[t]=true;});
+function kgList(){var q=$('#kgQ').value.trim().toLowerCase();var items=KG.nodes.filter(function(n){if(!kgOn[n.type])return false;if(!q)return true;
+  var s=[n.label.ko,n.label.en,(n.altLabel&&n.altLabel.ko||[]).join(' '),n.definition&&n.definition.ko||''].join(' ').toLowerCase();return s.indexOf(q)>=0;});
+  $('#kgList').innerHTML=items.slice(0,160).map(function(n){var ev=KG.edges.filter(function(e){return e.s===n.id||e.o===n.id}).length;
+    return '<div class="kg-item'+(kgHL===n.id?' hl':'')+'" id="kgi-'+n.id.replace(/[^a-z0-9]/gi,'_')+'"><b>'+esc(n.label.ko)+'</b><span class="ty">'+(TYK[n.type]||n.type)+'</span>'+(n.definition?'<p>'+esc(n.definition.ko)+'</p>':'')+'<a href="'+n.anchor+'">查看解释 →</a> <span class="abbr">关系 '+ev+'个</span></div>'}).join('')+(items.length>160?'<p class="todo">… '+(items.length-160)+'个</p>':'')+(items.length?'':'<p class="todo">没有找到相关项目。请尝试其他关键词。</p>');}
+var G={nodes:[],edges:[],done:false};
+function kgLayout(){var keep=['Method','Concept','Limitation','Question'],ids={};G.nodes=KG.nodes.filter(function(n){return keep.indexOf(n.type)>=0}).slice(0,80).map(function(n,i){ids[n.id]=i;return{n:n,x:0,y:0,vx:0,vy:0}});
+  G.edges=KG.edges.filter(function(e){return ids[e.s]!==undefined&&ids[e.o]!==undefined}).map(function(e){return{a:ids[e.s],b:ids[e.o],p:e.p}});
+  var r=rng(42);G.nodes.forEach(function(p){p.x=r()*2-1;p.y=r()*2-1;});
+  for(var it=0;it<200;it++){for(var i=0;i<G.nodes.length;i++)for(var j=i+1;j<G.nodes.length;j++){var a=G.nodes[i],b=G.nodes[j],dx=a.x-b.x,dy=a.y-b.y,d2=dx*dx+dy*dy+.001,f=.0016/d2;a.vx+=dx*f;a.vy+=dy*f;b.vx-=dx*f;b.vy-=dy*f;}
+    G.edges.forEach(function(e){var a=G.nodes[e.a],b=G.nodes[e.b],dx=b.x-a.x,dy=b.y-a.y,f=.02;a.vx+=dx*f;a.vy+=dy*f;b.vx-=dx*f;b.vy-=dy*f;});
+    G.nodes.forEach(function(p){p.vx-=p.x*.01;p.vy-=p.y*.01;p.x+=p.vx;p.y+=p.vy;p.vx*=.6;p.vy*=.6;});}
+  var mx=1e-6;G.nodes.forEach(function(p){mx=Math.max(mx,Math.abs(p.x),Math.abs(p.y))});G.nodes.forEach(function(p){p.x/=mx;p.y/=mx;});}
+function kgDraw(){var c=$('#kgGraph'),H=420,W=fit(c,H),x=c.getContext('2d');x.clearRect(0,0,W,H);var P=function(p){return[W/2+p.x*(W/2-24),H/2+p.y*(H/2-24)]};
+  G.edges.forEach(function(e){var a=P(G.nodes[e.a]),b=P(G.nodes[e.b]);x.strokeStyle=e.p==='lab:hasLimitation'||e.p==='lab:addressedBy'?'rgba(240,96,77,.5)':e.p==='lab:prerequisiteOf'?'rgba(94,227,156,.6)':'rgba(157,155,184,.22)';x.lineWidth=1;x.beginPath();x.moveTo(a[0],a[1]);x.lineTo(b[0],b[1]);x.stroke();});
+  G.nodes.forEach(function(p){var q=P(p),hl=kgHL===p.n.id;x.fillStyle=TYC[p.n.type]||'#9d9bb8';x.beginPath();x.arc(q[0],q[1],hl?8:(p.n.type==='Concept'?7:4.5),0,Math.PI*2);x.fill();if(hl){x.strokeStyle='#fff';x.lineWidth=2;x.stroke();}
+    if(p.n.type==='Concept'||hl){x.fillStyle='#eceaf3';x.font='12px system-ui';x.textAlign='center';x.fillText(p.n.label.ko,q[0],q[1]-11);}});
+  G.P=P;}
+function kgInit(){var cnt={};KG.nodes.forEach(function(n){cnt[n.type]=(cnt[n.type]||0)+1});
+  $('#kgStats').textContent='节点 '+KG.nodes.length+'个，关系 '+KG.edges.length+'个。 '+Object.keys(cnt).map(function(k){return (TYK[k]||k)+' '+cnt[k]}).join(' · ')+'。外部本体映射未确认，故留空。';
+  $('#kgChips').innerHTML=Object.keys(kgOn).map(function(t){return '<button class="bt on" data-ty="'+t+'" aria-pressed="true">'+TYK[t]+'</button>'}).join('');
+  $('#kgChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;kgOn[b.dataset.ty]=!kgOn[b.dataset.ty];b.classList.toggle('on',kgOn[b.dataset.ty]);b.setAttribute('aria-pressed',kgOn[b.dataset.ty]);kgList();});
+  $('#kgQ').addEventListener('input',kgList);
+  var P=PAGE.path||[],chain=P.map(function(s,i){return '<span>'+esc(s[0])+'</span>'+(i<P.length-1&&s[1]?'<span class="l">局限: '+esc(s[1])+'</span>':'')}).join(' → ');$('#kgPath').innerHTML=P.length?'本页脉络 · '+chain:'';
+  $('#kgQuestions').innerHTML=KG.nodes.filter(function(n){return n.type==='Question'}).map(function(n){return '<li>'+esc(n.label.ko)+'</li>'}).join('');
+  $('#kgLegend').textContent='绿点 = 方法（模型），粉色 = 概念（格），红色 = 局限，蓝色 = 问题。绿线 = 前置关系，红线 = 局限与解决。主张、术语、文献节点在图中隐藏，仅在列表中显示。';
+  kgLayout();kgList();
+  $('#kgGraph').addEventListener('click',function(e){if(!G.P)return;var r=e.currentTarget.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top,best=null,bd=144;
+    G.nodes.forEach(function(p){var q=G.P(p),d=(q[0]-mx)*(q[0]-mx)+(q[1]-my)*(q[1]-my);if(d<bd){bd=d;best=p;}});if(!best)return;kgHL=best.n.id;kgOn[best.n.type]=true;$('#kgQ').value='';kgList();kgDraw();
+    var el=document.getElementById('kgi-'+best.n.id.replace(/[^a-z0-9]/gi,'_'));if(el)el.scrollIntoView({block:'nearest'});});
+  $('#kgJson').addEventListener('click',function(){download(new Blob([JSON.stringify(KG,null,2)],{type:'application/json'}),'kg_'+META.number+'.json');});
+  $('#kgMermaid').addEventListener('click',function(){download(new Blob([toMermaid(KG)],{type:'text/plain'}),'kg_'+META.number+'.mmd');});}
+
+/* ---------- 꾸러미 ---------- */
+var CRC=(function(){var t=[],c;for(var n=0;n<256;n++){c=n;for(var k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return function(u8){var x=0xFFFFFFFF;for(var i=0;i<u8.length;i++)x=t[(x^u8[i])&255]^(x>>>8);return(x^0xFFFFFFFF)>>>0;};})();
+function makeZip(files){var enc=new TextEncoder(),parts=[],central=[],off=0;function u16(v){return[v&255,(v>>8)&255]}function u32(v){return[v&255,(v>>8)&255,(v>>16)&255,(v>>>24)&255]}
+  files.forEach(function(f){var name=enc.encode(f.name),data=enc.encode(f.text),crc=CRC(data);var head=[].concat(u32(0x04034b50),u16(20),u16(0x0800),u16(0),u16(0),u16(0),u32(crc),u32(data.length),u32(data.length),u16(name.length),u16(0));
+    parts.push(new Uint8Array(head),name,data);central.push([].concat(u32(0x02014b50),u16(20),u16(20),u16(0x0800),u16(0),u16(0),u16(0),u32(crc),u32(data.length),u32(data.length),u16(name.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(off)),name);off+=head.length+name.length+data.length;});
+  var cdStart=off,cdLen=0;central.forEach(function(c){if(Array.isArray(c)){parts.push(new Uint8Array(c));cdLen+=c.length;}else{parts.push(c);cdLen+=c.length;}});
+  parts.push(new Uint8Array([].concat(u32(0x06054b50),u16(0),u16(0),u16(files.length),u16(files.length),u32(cdLen),u32(cdStart),u16(0))));return new Blob(parts,{type:'application/zip'});}
+function download(blob,name){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);}
+var BIBT={'article-journal':'article','paper-conference':'inproceedings','book':'book','chapter':'incollection','webpage':'misc','dataset':'misc','report':'techreport','thesis':'phdthesis','software':'misc'};
+var RIST={'article-journal':'JOUR','paper-conference':'CPAPER','book':'BOOK','chapter':'CHAP','webpage':'ELEC','dataset':'DATA','report':'RPRT','thesis':'THES','software':'COMP'};
+function names(a){return(a||[]).map(function(p){return p.literal||(p.family+(p.given?', '+p.given:''));});}
+function toBib(r){var f=[],add=function(k,v){if(v!==undefined&&v!==null&&v!=='')f.push('  '+k+' = {'+v+'}');};add('title',r.title);add('author',names(r.author).map(function(n){return n==='et al.'?'others':n;}).join(' and '));add('year',r.issued&&r.issued['date-parts'][0][0]);
+  add(r.type==='article-journal'?'journal':'booktitle',r['container-title']);add('volume',r.volume);add('number',r.issue);add('pages',r.page);add('doi',r.DOI);add('url',r.URL);if(r.lab&&r.lab.note)add('note',r.lab.note);return '@'+(BIBT[r.type]||'misc')+'{'+r.id+',\n'+f.join(',\n')+'\n}';}
+function toRis(r){var L=['TY  - '+(RIST[r.type]||'GEN')],add=function(t,v){if(v)L.push(t+'  - '+v);};add('TI',r.title);names(r.author).forEach(function(n){add('AU',n);});add('PY',r.issued&&r.issued['date-parts'][0][0]);add('T2',r['container-title']);add('VL',r.volume);add('IS',r.issue);
+  if(r.page){var pp=r.page.split('-');add('SP',pp[0]);add('EP',pp[1]);}add('DO',r.DOI);add('UR',r.URL);if(r.lab&&r.lab.note)add('N1',r.lab.note);L.push('ER  - ');return L.join('\r\n');}
+function citeText(r){return names(r.author).join(', ')+' ('+r.issued['date-parts'][0][0]+'). '+r.title+'. '+(r['container-title']||'')+(r.volume?', '+r.volume:'')+(r.issue?'('+r.issue+')':'')+(r.page?', '+r.page:'')+'.'+(r.DOI?' doi:'+r.DOI:'');}
+function filterScope(g,sc){if(sc==='all')return g;var keep;
+  if(sc==='concepts')keep=function(n){return['Concept','Method','Term','Limitation'].indexOf(n.type)>=0};
+  else if(sc==='claims')keep=function(n){return['Claim','Work','Method','Concept'].indexOf(n.type)>=0};
+  else keep=function(n){return['Concept','Method','Limitation'].indexOf(n.type)>=0};
+  var nodes=g.nodes.filter(keep),ids={};nodes.forEach(function(n){ids[n.id]=1});var edges=g.edges.filter(function(e){if(!ids[e.s]||!ids[e.o])return false;if(sc==='prereq')return['lab:prerequisiteOf','lab:hasLimitation','lab:addressedBy','lab:broader'].indexOf(e.p)>=0;if(sc==='claims')return['lab:supports','lab:assertedIn'].indexOf(e.p)>=0;return true;});
+  return {version:g.version,page:g.page,scope:sc,nodes:nodes,edges:edges};}
+var CTX={"@vocab":"urn:lab:","lab":"urn:lab:","skos":"http://www.w3.org/2004/02/skos/core#","schema":"https://schema.org/","dct":"http://purl.org/dc/terms/","prov":"http://www.w3.org/ns/prov#"};
+var MAPP={'lab:broader':'skos:broader','lab:partOf':'schema:isPartOf','lab:assertedIn':'schema:citation','lab:relatedTo':'skos:related'};
+function toJsonLd(g){return {"@context":CTX,"@graph":g.nodes.map(function(n){var o={"@id":n.id,"@type":['lab:'+n.type,n.type==='Work'?'schema:ScholarlyArticle':n.type==='Claim'?'schema:Claim':'skos:Concept'],"skos:prefLabel":[{"@value":n.label.ko,"@language":"ko"},{"@value":n.label.en,"@language":"en"}]};
+  if(n.definition)o["skos:definition"]={"@value":n.definition.ko,"@language":"ko"};g.edges.filter(function(e){return e.s===n.id}).forEach(function(e){var k=MAPP[e.p]||e.p;(o[k]=o[k]||[]).push({"@id":e.o});if(MAPP[e.p])(o[e.p]=o[e.p]||[]).push({"@id":e.o});});return o;})};}
+function ttlStr(s){return '"'+String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"').replace(/\n/g,' ')+'"';}
+function iri(id){return '<urn:'+id.replace(/^lab:/,'lab:')+'>';}
+function toTurtle(g){var L=['@prefix lab: <urn:lab:> .','@prefix skos: <http://www.w3.org/2004/02/skos/core#> .','@prefix schema: <https://schema.org/> .',''];
+  g.nodes.forEach(function(n){var t=[iri(n.id)+' a lab:'+n.type+' ;','  skos:prefLabel '+ttlStr(n.label.ko)+'@ko , '+ttlStr(n.label.en)+'@en'];if(n.definition)t[t.length-1]+=' ;\n  skos:definition '+ttlStr(n.definition.ko)+'@ko';
+    g.edges.filter(function(e){return e.s===n.id}).forEach(function(e){t[t.length-1]+=' ;\n  '+(MAPP[e.p]||e.p)+' '+iri(e.o);});L.push(t.join('\n')+' .');});return L.join('\n');}
+function csv(v){v=v==null?'':String(v);return /[",\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v;}
+function toNodesCsv(g){return 'id,type,label_ko,label_en,status,level,family,page,anchor\r\n'+g.nodes.map(function(n){return[n.id,n.type,n.label.ko,n.label.en,n.status,n.level||'',n.family||'',n.page,n.anchor].map(csv).join(',')}).join('\r\n');}
+function toEdgesCsv(g){return 'source,predicate,target,anchor,confidence\r\n'+g.edges.map(function(e){return[e.s,e.p,e.o,e.anchor,e.confidence].map(csv).join(',')}).join('\r\n');}
+function toProvCsv(g){var rows=['item,kind,work,loc,factCard,confidence,verified,pageAnchor'];g.edges.filter(function(e){return e.p==='lab:assertedIn'}).forEach(function(e){var n=NB[e.s],w=e.o.replace('lab:work/','');var r=REF.filter(function(x){return x.id===w})[0];
+  rows.push([e.s,'node',w,(n&&n.source&&n.source[0]&&n.source[0].loc)||'',(n&&n.evidence||[]).join(' '),e.confidence,r&&r.lab.verified.pages?'true':'false',e.anchor].map(csv).join(','));});return rows.join('\r\n');}
+function toMermaid(g){var ns=g.nodes.filter(function(n){return n.type==='Concept'||n.type==='Limitation'}).slice(0,40),ids={};ns.forEach(function(n,i){ids[n.id]='n'+i});
+  return 'graph LR\n'+ns.map(function(n){return '  '+ids[n.id]+'["'+n.label.ko.replace(/"/g,"'")+'"]'}).join('\n')+'\n'+g.edges.filter(function(e){return ids[e.s]&&ids[e.o]}).map(function(e){return '  '+ids[e.s]+' -->|'+e.p.replace('lab:','')+'| '+ids[e.o]}).join('\n');}
+function readme(g){var todo=REF.filter(function(r){return(r.DOI&&!r.lab.verified.doi)||(r.page&&!r.lab.verified.pages)||!r.DOI});
+  return [META.title,'系列: '+META.series+' '+META.number+' · v'+META.version+' · '+META.date,'作者：'+META.creator.map(function(c){return c.name}).join(', '),'许可协议: '+(META.license||'（待填写）'),'公开地址: '+(META.url||'（待填写）'),'','推荐引用: '+META.suggestedCitation,'',
+    '文件: manifest.json, page_meta.json, kg.json, kg.jsonld, kg.ttl, nodes.csv, edges.csv, references.csl.json, references.bib, references.ris, provenance.csv, README.txt','节点 '+g.nodes.length+' · 关系 '+g.edges.length+' · 文献 '+REF.length,'',
+    '注意：能力值与战斗数值为说明用示例值，并非文献事实。Claim 节点仅包含模型的提出年份、作者和果蝇数值。','JSON-LD 中的 lab: 前缀设为 urn:lab:。公开域名确定后请更改。','','待核实（'+todo.length+'项）: 无 DOI 或需对照原文','  '+todo.map(function(r){return r.id}).join(', ')].join('\r\n');}
+function buildPackage(sc){var g=filterScope(KG,sc),files=[
+  {name:'page_meta.json',text:JSON.stringify(META,null,2)},{name:'kg.json',text:JSON.stringify(g,null,2)},{name:'kg.jsonld',text:JSON.stringify(toJsonLd(g),null,2)},{name:'kg.ttl',text:toTurtle(g)},
+  {name:'nodes.csv',text:'﻿'+toNodesCsv(g)},{name:'edges.csv',text:'﻿'+toEdgesCsv(g)},{name:'references.csl.json',text:JSON.stringify(REF,null,2)},
+  {name:'references.bib',text:REF.map(toBib).join('\n\n')},{name:'references.ris',text:REF.map(toRis).join('\r\n')},{name:'provenance.csv',text:'﻿'+toProvCsv(g)},{name:'README.txt',text:readme(g)}];
+  files.unshift({name:'manifest.json',text:JSON.stringify({package:'lab-kg',version:META.version,page:META.number,created:new Date().toISOString().slice(0,10),scope:sc,counts:{nodes:g.nodes.length,edges:g.edges.length,refs:REF.length},files:files.map(function(f){return f.name})},null,2)});return files;}
+window.__LAB__={buildPackage:buildPackage,makeZip:makeZip,battle:function(id,t,e){return battle(MB[id],t,e)},duelRun:duelRun};
+var exScope='all',citeFmt='text';
+function exportInit(){var claims=KG.nodes.filter(function(n){return n.type==='Claim'}),withSrc=claims.filter(function(c){return KG.edges.some(function(e){return e.s===c.id&&e.p==='lab:assertedIn'})});
+  var verified=REF.filter(function(r){return !r.DOI||r.lab.verified.doi}).length;
+  $('#exKpis').innerHTML=[['节点',KG.nodes.length,'g'],['关系',KG.edges.length,'m'],['文献',REF.length,'a'],['已确认文献',Math.round(verified/REF.length*100)+'%','g'],['有出处的主张',Math.round(withSrc.length/claims.length*100)+'%','r']].map(function(k){return '<div class="kpi '+k[2]+'"><b>'+k[1]+'</b><span>'+k[0]+'</span></div>'}).join('');
+  var todo=[];REF.forEach(function(r){if(r.DOI&&!r.lab.verified.doi)todo.push(r.id+' · 需对照 DOI 原文');else if(!r.DOI)todo.push(r.id+' · 未标注 DOI');if(r.lab.note)todo.push(r.id+' · '+r.lab.note);});
+  todo.push('page_meta · 请填写公开地址（url）');todo.push('page_meta · 请填写许可协议');
+  $('#exSay').textContent='没有出处的主张未放入文件包。待核实项目 '+todo.length+'项见下方。';
+  $('#todoList').innerHTML=todo.map(function(t){return '<li>'+esc(t)+'</li>'}).join('');
+  $('#verInfo').textContent='文件包 v'+META.version+' · 制作日期 '+META.date+' · 登记表 KG_00_registry v0.1';
+  var self={id:'ahn2026fruitfly4',type:'webpage',title:META.title,author:[{family:'Ahn',given:'Sangsun'}],issued:{'date-parts':[[2026,10,31]]},'container-title':META.series,URL:META.url||''};
+  function cite(){$('#citeOut').textContent=citeFmt==='text'?META.suggestedCitation:citeFmt==='bib'?toBib(self):toRis(self);}
+  $$('[data-cf]').forEach(function(b){b.addEventListener('click',function(){citeFmt=b.dataset.cf;$$('[data-cf]').forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});cite();});});cite();
+  $('#citeCopy').addEventListener('click',function(){var t=$('#citeOut').textContent,btn=this;var done=function(){btn.textContent='已复制';setTimeout(function(){btn.textContent='复制'},1500)};
+    try{navigator.clipboard.writeText(t).then(done,function(){sel()});}catch(e){sel();}
+    function sel(){var r=document.createRange();r.selectNodeContents($('#citeOut'));var s=getSelection();s.removeAllRanges();s.addRange(r);btn.textContent='已选中 · Ctrl+C';}});
+  var RL={primary:'主要资料',background:'背景',data:'数值'};
+  $('#refList').innerHTML=REF.map(function(r){var ok=!r.DOI?false:r.lab.verified.doi;var sup=r.lab.supports.map(function(s){return NB[s]?'<a href="'+NB[s].anchor+'">'+esc(NB[s].label.ko)+'</a>':''}).join(', ');
+    return '<div class="ref"><span class="rb '+r.lab.role+'">'+(RL[r.lab.role]||r.lab.role)+'</span><span class="rb '+(ok?'ok':'chk')+'">'+(ok?'DOI 已确认':'待核实')+'</span>'+esc(citeText(r))+'<details><summary>支撑概念 '+r.lab.supports.length+'个</summary>'+sup+'</details></div>'}).join('');
+  $$('[data-sc]').forEach(function(b){b.addEventListener('click',function(){exScope=b.dataset.sc;$$('[data-sc]').forEach(function(x){x.classList.toggle('on',x===b);x.setAttribute('aria-pressed',x===b)});});});
+  $('#zipBtn').addEventListener('click',function(){download(makeZip(buildPackage(exScope)),'kg_'+META.number+'_'+exScope+'.zip');});
+  var fn=buildPackage('all').map(function(f){return f.name});$('#fileBtns').innerHTML=fn.map(function(n){return '<button class="bt" data-file="'+n+'">'+n+'</button>'}).join('');
+  $('#fileBtns').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var f=buildPackage(exScope).filter(function(x){return x.name===b.dataset.file})[0];download(new Blob([f.text],{type:'text/plain;charset=utf-8'}),f.name);});}
+
+/* ---------- 히어로·범례·보스 ---------- */
+function heroArt(){var c=$('#heroArt'),x=c.getContext('2d');x.clearRect(0,0,420,420);x.imageSmoothingEnabled=false;
+  x.fillStyle='rgba(214,114,214,.10)';x.beginPath();x.arc(210,210,190,0,Math.PI*2);x.fill();
+  x.strokeStyle='rgba(94,227,156,.25)';x.lineWidth=2;for(var k=0;k<6;k++){x.beginPath();x.arc(210,210,80+k*20,-.4+k*.3,.6+k*.3);x.stroke();}
+  if(PAGE.kind==='atlas'){var fc=spriteFromMap(MAPS.fly);x.drawImage(fc,82,70,256,256);}else x.drawImage(mechCv,90,80,240,240);}
+function legend(){$('#legend').innerHTML=Object.keys(CELLS).map(function(t){return '<div><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true">'+nodeSVG(t,11,11)+'</svg>'+CELLS[t]+'</div>'}).join('');}
+function enemyList(){$('#enemyList').innerHTML=Object.keys(ENEMY).map(function(k){return '<div><canvas data-en="'+k+'" width="88" height="88" aria-label="'+ENEMY[k].name+'"></canvas><div><b>'+ENEMY[k].name+'</b><small>'+ENEMY[k].desc+'</small></div></div>'}).join('');
+  $$('#enemyList canvas').forEach(function(c){var x=c.getContext('2d');enemyDraw(x,c.dataset.en,44,46,52,0,false);});}
+
+/* ---------- 도감 카드 ---------- */
+var BL=['表达力','训练稳定性','当前使用度'];
+function atlasCard(m){
+  var anT=m.an_t==='fly'?'<b>在果蝇中</b>':'<b class="life">用日常来比喻</b>';
+  var badges=(m.nonNN?'<span class="badge orig">非神经网络</span>':'')+(m.special?'<span class="badge sp">果蝇特别出场</span>':'');
+  return '<article class="card acard'+(m.special?' special':'')+'" id="m-'+m.id+'" data-q="'+esc((m.name+' '+m.en+' '+m.abbr).toLowerCase())+'">'+
+   '<div class="card-top"><h3>'+esc(m.name)+' <span class="en">('+esc(m.en)+')</span></h3><span class="abbr">'+esc(m.abbr)+' · '+m.year+'</span></div>'+
+   (badges?'<div class="badges">'+badges+'</div>':'')+
+   '<div class="fig">'+draw(m.d)+(m.orig?'':'<span class="selfdraw">自绘示意图 · 原始图表中没有</span>')+'</div>'+
+   '<p class="what">'+esc(m.what)+'</p><p class="an">'+anT+esc(m.an)+'</p>'+
+   '<dl class="gb"><div><dt>优点</dt><dd>'+esc(m.good)+'</dd></div><div><dt>缺点</dt><dd>'+esc(m.bad)+'</dd></div></dl>'+
+   (m.hidden?'<div class="hidden-diff"><b>图中看不出的差异</b> · '+esc(m.hidden)+'</div>':'')+
+   (m.note?'<div class="hidden-diff"><b>阅读注意</b> · '+esc(m.note)+'</div>':'')+
+   '<div class="mini3" aria-label="相对评价">'+m.r.map(function(v,i){return '<div class="srow"><label>'+BL[i]+'</label><div class="track">'+[1,2,3,4,5].map(function(k){return '<i class="'+(k<=v?'on':'')+'"></i>'}).join('')+'</div><em>'+v+'</em></div>'}).join('')+
+   '<p class="basis">假设相同条件下的判断值 · 满分 5 分</p></div>'+
+   '<a class="tolink" href="'+PAGE.match+'#m-'+m.id+'">把此模型植入果蝇机器人 →</a></article>';}
+
+/* ---------- 격납고 (4-4) ---------- */
+var HG={id:null};
+function hgList(){var box=$('#hgList');box.innerHTML=SEC.map(function(s){var ms=MODELS.filter(function(m){return m.sec===s.id});
+  return '<div class="hg-g"><h4>'+s.no+' '+esc(s.short)+'</h4>'+ms.map(function(m){var b=battle(m,'fly','mix');
+    return '<button class="hg-b'+(m.core?' core':'')+'" data-hg="'+m.id+'" aria-pressed="false"><span>'+esc(m.abbr)+'</span><small>'+esc(m.name)+'</small><i class="'+(m.special?'ex':b.win?'w':b.noFit?'x':'')+'">'+(m.special?'参考':b.noFit?'不可':pc(b.frac)+'%')+'</i></button>'}).join('')+'</div>'}).join('');
+  box.addEventListener('click',function(e){var b=e.target.closest('[data-hg]');if(b)hgSelect(b.dataset.hg,true);});}
+function hgSelect(id,push){var m=MB[id];if(!m)return;HG.id=id;AR.m=m;
+  $$('#hgList [data-hg]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.hg===id)});
+  var E=ENEMY[m.enemy],st=statsOf(m),atlas=m.orig?PAGE.atlas1:PAGE.atlas2;
+  $('#hgHead').innerHTML='<div class="card-top"><h3>'+esc(m.name)+' <span class="en">('+esc(m.en)+')</span></h3><span class="abbr">'+esc(m.abbr)+' · '+m.year+'</span></div>'+
+    '<div class="badges">'+(m.core?'<span class="badge core">核心精选</span>':'')+(m.nonNN?'<span class="badge orig">非神经网络</span>':'')+(m.special?'<span class="badge sp">参考出场 · 不计排名</span>':'')+'<a class="tolink" href="'+atlas+'#m-'+m.id+'">查看结构解说 →</a></div>';
+  $('#hgFig').innerHTML=draw(m.d);
+  $('#hgSpec').innerHTML=st.map(function(v,i){return '<div class="srow"><label>'+STL[i]+'<small>'+STK[i]+'</small></label><div class="track">'+[1,2,3,4,5].map(function(k){return '<i class="'+(k<=v?'on':'')+(i>1&&k<=v?' rule':'')+'"></i>'}).join('')+'</div><em>'+v+'</em></div>'}).join('')+
+    '<p class="basis"><b>规则值依据</b> '+esc(m.basis)+'</p>'+(m.note?'<p class="basis"><b style="color:var(--amber)">注意</b> '+esc(m.note)+'</p>':'');
+  $('#hgMove').innerHTML='<span class="mv">必杀技「'+esc(m.move)+'」</span><span class="ln">'+esc(m.line)+'</span>';
+  $('#hgTable').innerHTML='<table class="mini"><thead><tr><th>Boss HP 减少比例</th>'+TIERS.map(function(t){return '<th>'+t.name+'</th>'}).join('')+'</tr></thead><tbody>'+
+   '<tr><th>专长 · '+esc(E.name)+'</th>'+TIERS.map(function(t){return cell(battle(m,t.k))}).join('')+'</tr>'+
+   '<tr><th>通用 · 综合考试奇美拉</th>'+TIERS.map(function(t){return cell(battle(m,t.k,'mix'))}).join('')+'</tr></tbody></table>';
+  $('#arTitle').textContent=m.name+' 植入 · 战斗场景';
+  if(push){try{history.replaceState(null,'','#m-'+id)}catch(e){}}
+  arenaReplay();}
+
+/* ---------- 계산 따라 하기 (4-3) ---------- */
+var CW={id:'transformer',tier:'laptop',boss:'mix'};
+function calcInit(){var sel=$('#cwModel');sel.innerHTML=MODELS.map(function(m){return '<option value="'+m.id+'"'+(m.id===CW.id?' selected':'')+'>'+esc(m.name+' ('+m.en+')')+'</option>'}).join('');
+  sel.addEventListener('change',function(){CW.id=sel.value;calcRender();});
+  $('#cwTier').innerHTML='<span class="glabel">电源</span>'+TIERS.map(function(t){return '<button class="bt" data-t="'+t.k+'" aria-pressed="'+(t.k===CW.tier)+'">'+t.name+'</button>'}).join('');
+  $('#cwTier').addEventListener('click',function(e){var b=e.target.closest('[data-t]');if(!b)return;CW.tier=b.dataset.t;$$('#cwTier [data-t]').forEach(function(x){x.setAttribute('aria-pressed',x===b)});calcRender();});
+  $('#cwBoss').addEventListener('click',function(e){var b=e.target.closest('[data-b]');if(!b)return;CW.boss=b.dataset.b;$$('#cwBoss [data-b]').forEach(function(x){x.setAttribute('aria-pressed',x===b)});calcRender();});
+  calcRender();}
+function calcRender(){var m=MB[CW.id],b=battle(m,CW.tier,CW.boss==='mix'?'mix':null),T=TB[CW.tier],S=statsOf(m),E=ENEMY[b.enemy],common=b.enemy==='mix';
+  var raw=T.bat==null?10:Math.min(10,Math.floor(T.bat/b.cost));
+  var steps=[
+   ['首领',E.name+(common?' （通用首领：无奖励·记忆修正·反应惩罚）':' （专长首领）')],
+   ['单次攻击 EN','EN '+S[3]+' → '+b.cost+' EN'],
+   ['攻击次数',(T.bat==null?'服务器固定为 10 次':'min(10, ⌊'+T.bat+' ÷ '+b.cost+'⌋) = '+raw+'次')+(b.late?' − 反应慢 1 = '+b.turns+'次':'')],
+   ['单次伤害','10 × ATK '+S[0]+(common?'':' × 1.2')+(b.memB!==1?' × 记忆修正 '+b.memB.toFixed(1):'')+' = '+b.dmg+'分'],
+   ['命中率','0.5 + 0.1 × HIT '+S[1]+' = '+b.hitp.toFixed(1)],
+   ['总伤害',b.turns+' × '+b.dmg+' × '+b.hitp.toFixed(1)+' = '+b.total+'分'],
+   ['结果',b.noFit?'电池不足，一次也无法发射（无法搭载）':b.win?'HP 200 以上 → 击破（'+pc(b.frac)+'%)':'HP 200 中 '+pc(b.frac)+'%被削减']];
+  $('#cwOut').innerHTML='<ol class="steps-ol">'+steps.map(function(s){return '<li><b>'+s[0]+'</b><span>'+esc(s[1])+'</span></li>'}).join('')+'</ol>';}
+function tierCards(){$('#tierCards').innerHTML=TIERS.map(function(t){var pool=MODELS.filter(function(m){return !m.special}),fit0=pool.filter(function(m){return battle(m,t.k,'mix').noFit}).length,win=pool.filter(function(m){return battle(m,t.k,'mix').win}).length;
+  return '<div><b>'+t.name+'</b><p class="big num">'+(t.bat==null?'无限制':t.bat+' EN')+'</p><small>'+(t.bat==null?'全部 10 次攻击':'EN 1 模型 '+Math.min(10,Math.floor(t.bat/100))+' 次 · EN 5 模型 10 次')+'<br>击破通用首领 '+win+'/41 · 无法搭载 '+fit0+'</small></div>'}).join('');}
+
+/* ---------- 찾기 · 현장 거르기 ---------- */
+function atlasFindInit(){var inp=$('#atlasQ'),n=$('#atlasN');inp.addEventListener('input',function(){var q=inp.value.trim().toLowerCase(),cnt=0;
+  $$('.acard').forEach(function(c){var ok=!q||c.dataset.q.indexOf(q)>=0;c.hidden=!ok;if(ok)cnt++;});
+  (PAGE.groups||[]).forEach(function(g){var s=document.getElementById(g.id);if(s)s.hidden=!!q&&!$$('.acard',s).some(function(c){return !c.hidden});});
+  n.textContent=q?(cnt?cnt+'个结果。':'没有找到该模型。也可以试试英文名或缩写。'):'';
+  if(q&&cnt===1){var hit=$$('.acard').filter(function(c){return !c.hidden})[0];hit.scrollIntoView({block:'center'});}});}
+function hgFindInit(){var inp=$('#hgQ');inp.addEventListener('input',function(){var q=inp.value.trim().toLowerCase();
+  $$('#hgList [data-hg]').forEach(function(b){var m=MB[b.dataset.hg];b.hidden=!!q&&(m.name+' '+m.en+' '+m.abbr).toLowerCase().indexOf(q)<0;});
+  $$('#hgList .hg-g').forEach(function(g){g.hidden=!$$('[data-hg]',g).some(function(b){return !b.hidden});});});}
+var FD={task:'img',spd:3,en:3,hit:4};
+function fieldInit(){var opt=function(sel,arr,cur){sel.innerHTML=arr.map(function(v){return '<option value="'+v[0]+'"'+(String(v[0])===String(cur)?' selected':'')+'>'+esc(v[1])+'</option>'}).join('');};
+  opt($('#fTask'),Object.keys(ENEMY).filter(function(k){return k!=='mix'}).map(function(k){return [k,ENEMY[k].name]}),FD.task);
+  var g=[1,2,3,4,5].map(function(v){return [v,v+' 以上']});opt($('#fSpd'),g,FD.spd);opt($('#fEn'),g,FD.en);opt($('#fHit'),g,FD.hit);
+  ['fTask','fSpd','fEn','fHit'].forEach(function(id){$('#'+id).addEventListener('change',function(e){var k={fTask:'task',fSpd:'spd',fEn:'en',fHit:'hit'}[id];FD[k]=k==='task'?e.target.value:+e.target.value;fieldRender();});});
+  fieldRender();}
+function fieldRender(){var ms=MODELS.filter(function(m){return m.enemy===FD.task&&!m.special}),ok=[],near=[];
+  ms.forEach(function(m){var miss=[];if(m.s[0]<FD.spd)miss.push('SPD');if(m.s[1]<FD.en)miss.push('EN');if(m.acc<FD.hit)miss.push('HIT');(miss.length?near:ok).push({m:m,miss:miss});});
+  var chip=function(x,c){return '<a class="'+c+'" href="#m-'+x.m.id+'">'+esc(x.m.abbr)+(x.miss.length?' · '+x.miss.join('·')+' 未满':'')+'</a>'};
+  $('#fOut').innerHTML='<p><b style="color:var(--gfp)">通过 '+ok.length+'个</b> · 专长首领为 "'+esc(ENEMY[FD.task].name)+'"的 '+ms.length+'个中</p><div class="fl">'+(ok.length?ok.map(function(x){return chip(x,'ok')}).join(''):'<span class="todo">没有模型通过全部条件。请把条件降低一档再试。</span>')+'</div>'+
+    (near.length?'<p class="todo" style="margin-top:10px">遗憾落选的候选（点击后在机库中打开）</p><div class="fl">'+near.map(function(x){return chip(x,'')}).join('')+'</div>':'');}
+
+/* ---------- 시작 ---------- */
+function init(){
+  var K=PAGE.kind;
+  if($('#legend'))legend();
+  if($('#enemyList'))enemyList();
+  if($('#heroArt'))heroArt();
+  (PAGE.groups||[]).forEach(function(g){var box=$('#cards-'+g.id);if(box)box.innerHTML=g.ids.map(function(id){return atlasCard(MB[id])}).join('');});
+  if(K==='match'){AR.cv=$('#arCanvas');hgList();
+    $('#arTiers').innerHTML='<span class="glabel">电源</span>'+TIERS.map(function(t){return '<button class="bt" data-t="'+t.k+'">'+t.name+(t.bat==null?'':' '+t.bat)+'</button>'}).join('');
+    $('#arTiers').addEventListener('click',function(e){var b=e.target.closest('button[data-t]');if(!b)return;AR.tier=b.dataset.t;arenaReplay();});
+    $('#arBoss').addEventListener('click',function(e){var b=e.target.closest('button[data-b]');if(!b)return;AR.boss=b.dataset.b;arenaReplay();});
+    $('#arPlay').addEventListener('click',arenaReplay);
+    var h=(location.hash||'').replace('#m-','');hgSelect(MB[h]?h:'transformer',false);
+    if(MB[h])setTimeout(function(){var el=$('#hangar');if(el)el.scrollIntoView();},50);
+    addEventListener('hashchange',function(){var h=(location.hash||'').replace('#m-','');if(MB[h]&&h!==HG.id){hgSelect(h,false);$('#hangar').scrollIntoView();}});
+    $('#dTiers').innerHTML='<span class="glabel">电源级别</span>'+TIERS.map(function(t){return '<button class="bt" data-t="'+t.k+'" aria-pressed="'+(t.k===DU.tier)+'">'+t.name+(t.bat==null?'（无限制）':' '+t.bat+' EN')+'</button>'}).join('');
+    $('#dTiers').addEventListener('click',function(e){var b=e.target.closest('button[data-t]');if(!b)return;DU.tier=b.dataset.t;$$('#dTiers [data-t]').forEach(function(x){x.setAttribute('aria-pressed',x===b)});if(DU.shown)duelReveal();});
+    duelLadder();
+    $$('#duel .guess').forEach(function(b){b.addEventListener('click',function(){DU.guess=b.dataset.g;$$('#duel .guess').forEach(function(x){x.setAttribute('aria-pressed',x===b)});$('#guessNote').textContent='已记录预测。点击“查看结果”确认。';});});
+    $('#dReveal').addEventListener('click',function(){if(DU.shown)duelReset();else duelReveal();});
+    sumTable();$$('#sumTable th button').forEach(function(b){b.addEventListener('click',function(){var k=b.dataset.k;if(sortK===k)sortD=-sortD;else{sortK=k;sortD=(k==='name'||k==='no'||k==='sec'||k==='year')?1:-1;}sumTable();});});
+    outro();}
+  if(K==='rules'){calcInit();tierCards();labInit();}
+  if($('#atlasQ'))atlasFindInit();if($('#hgQ'))hgFindInit();if($('#fTask'))fieldInit();
+  var kf=$('#kgFold');if(kf)kf.addEventListener('toggle',function(){if(kf.open)kgDraw();});
+  if($('#outroDialog')&&K!=='match')$('#outroDialog').innerHTML=PAGE.outro.map(function(v){return '<div class="say" data-who="'+v[0]+'"><img class="who" data-who="'+v[0]+'" data-mood="'+v[1]+'" data-img="'+v[0]+'_'+v[1]+'" alt="" aria-hidden="true"><div><b class="name">'+v[2]+'</b><p>'+esc(v[3])+'</p></div></div>'}).join('');
+  Cast.fill();quizzes();Gloss();kgInit();exportInit();
+  $('#stGloss').addEventListener('click',function(){glossMode={core:'all',all:'off',off:'core'}[glossMode];applyGloss();});
+  addEventListener('scroll',study,{passive:true});study();
+  kgDraw();if($('#ladder')){ladderInit();ladderDraw();}
+  var last=0;function loop(ts){var dt=last?Math.min(0.05,(ts-last)/1000):0.016;last=ts;
+    if(AR.m&&AR.play&&AR.cv){AR.t+=dt;if(AR.t>=AR.dur){AR.t=AR.dur;AR.play=false;}arenaFrame();}
+    requestAnimationFrame(loop);}requestAnimationFrame(loop);
+  var rz;addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){kgDraw();if($('#ladder'))ladderDraw();if(AR.m&&AR.cv)arenaFrame();},120);});
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
+})();
+
+</script>
+</body>
+</html>

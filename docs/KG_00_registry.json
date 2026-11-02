@@ -1,0 +1,769 @@
+{
+ "registry": "KG_00_registry",
+ "version": "0.2",
+ "series": "신경망 구조 도감 · 초파리 로봇 대전",
+ "updated": "2026-11-01",
+ "pages": [
+  "1_neural_network_atlas_chart.html",
+  "2_neural_network_atlas_after.html",
+  "3_fruitfly_robot_rules.html",
+  "4_fruitfly_robot_match.html"
+ ],
+ "ids": [
+  {
+   "id": "lab:concept/atlas-a1",
+   "type": "Concept",
+   "ko": "기본 순방향 신경망",
+   "en": "기본 순방향 신경망"
+  },
+  {
+   "id": "lab:concept/atlas-a2",
+   "type": "Concept",
+   "ko": "순환 신경망과 기억",
+   "en": "순환 신경망과 기억"
+  },
+  {
+   "id": "lab:concept/atlas-a3",
+   "type": "Concept",
+   "ko": "오토인코더 계열",
+   "en": "오토인코더 계열"
+  },
+  {
+   "id": "lab:concept/atlas-a4",
+   "type": "Concept",
+   "ko": "에너지·확률 기반 모델",
+   "en": "에너지·확률 기반 모델"
+  },
+  {
+   "id": "lab:concept/atlas-a5",
+   "type": "Concept",
+   "ko": "합성곱 신경망",
+   "en": "합성곱 신경망"
+  },
+  {
+   "id": "lab:concept/atlas-a6",
+   "type": "Concept",
+   "ko": "생성·특수 구조",
+   "en": "생성·특수 구조"
+  },
+  {
+   "id": "lab:concept/atlas-b1",
+   "type": "Concept",
+   "ko": "어텐션 계열",
+   "en": "어텐션 계열"
+  },
+  {
+   "id": "lab:concept/atlas-b2",
+   "type": "Concept",
+   "ko": "순환의 새 갈래",
+   "en": "순환의 새 갈래"
+  },
+  {
+   "id": "lab:concept/atlas-b3",
+   "type": "Concept",
+   "ko": "이미지와 생성의 새 도구",
+   "en": "이미지와 생성의 새 도구"
+  },
+  {
+   "id": "lab:concept/atlas-b4",
+   "type": "Concept",
+   "ko": "구조를 다루는 망",
+   "en": "구조를 다루는 망"
+  },
+  {
+   "id": "lab:concept/atlas-b5",
+   "type": "Concept",
+   "ko": "뇌에서 배선을 빌린 망",
+   "en": "뇌에서 배선을 빌린 망"
+  },
+  {
+   "id": "lab:concept/attention-networks",
+   "type": "Concept",
+   "ko": "필요한 곳을 직접 보는 망",
+   "en": "attention networks"
+  },
+  {
+   "id": "lab:concept/brain-networks",
+   "type": "Concept",
+   "ko": "뇌에서 배선을 빌린 망",
+   "en": "brain networks"
+  },
+  {
+   "id": "lab:concept/convolution-networks",
+   "type": "Concept",
+   "ko": "공간을 보는 망",
+   "en": "convolution networks"
+  },
+  {
+   "id": "lab:concept/energy-networks",
+   "type": "Concept",
+   "ko": "에너지로 기억을 찾는 망",
+   "en": "energy networks"
+  },
+  {
+   "id": "lab:concept/feedforward-networks",
+   "type": "Concept",
+   "ko": "한 방향으로 흐르는 망",
+   "en": "feedforward networks"
+  },
+  {
+   "id": "lab:concept/generative-networks",
+   "type": "Concept",
+   "ko": "압축하고 만들어 내는 망",
+   "en": "generative networks"
+  },
+  {
+   "id": "lab:concept/neural-network-architecture",
+   "type": "Concept",
+   "ko": "신경망 구조",
+   "en": "neural network architecture"
+  },
+  {
+   "id": "lab:concept/power-tiers",
+   "type": "Concept",
+   "ko": "전원 체급",
+   "en": "power tiers"
+  },
+  {
+   "id": "lab:concept/recurrent-networks",
+   "type": "Concept",
+   "ko": "시간을 기억하는 망",
+   "en": "recurrent networks"
+  },
+  {
+   "id": "lab:concept/robot-spec-sheet",
+   "type": "Concept",
+   "ko": "초파리 로봇 사양표",
+   "en": "robot spec sheet"
+  },
+  {
+   "id": "lab:concept/stat-atk",
+   "type": "Concept",
+   "ko": "ATK 공격력",
+   "en": "attack"
+  },
+  {
+   "id": "lab:concept/stat-en",
+   "type": "Concept",
+   "ko": "EN 효율",
+   "en": "energy"
+  },
+  {
+   "id": "lab:concept/stat-hit",
+   "type": "Concept",
+   "ko": "HIT 명중률",
+   "en": "hit"
+  },
+  {
+   "id": "lab:concept/stat-mem",
+   "type": "Concept",
+   "ko": "MEM 기억",
+   "en": "memory"
+  },
+  {
+   "id": "lab:concept/stat-spd",
+   "type": "Concept",
+   "ko": "SPD 기동력",
+   "en": "speed"
+  },
+  {
+   "id": "lab:concept/tier-drone",
+   "type": "Concept",
+   "ko": "드론 200 EN",
+   "en": "tier drone"
+  },
+  {
+   "id": "lab:concept/tier-fly",
+   "type": "Concept",
+   "ko": "초파리 몸 60 EN",
+   "en": "tier fly"
+  },
+  {
+   "id": "lab:concept/tier-laptop",
+   "type": "Concept",
+   "ko": "노트북 600 EN",
+   "en": "tier laptop"
+  },
+  {
+   "id": "lab:concept/tier-server",
+   "type": "Concept",
+   "ko": "서버 (제한 없음)",
+   "en": "tier server"
+  },
+  {
+   "id": "lab:limitation/atlas-a1",
+   "type": "Limitation",
+   "ko": "기본 순방향 신경망의 한계",
+   "en": "limitation a1"
+  },
+  {
+   "id": "lab:limitation/atlas-a2",
+   "type": "Limitation",
+   "ko": "순환 신경망과 기억의 한계",
+   "en": "limitation a2"
+  },
+  {
+   "id": "lab:limitation/atlas-a3",
+   "type": "Limitation",
+   "ko": "오토인코더 계열의 한계",
+   "en": "limitation a3"
+  },
+  {
+   "id": "lab:limitation/atlas-a4",
+   "type": "Limitation",
+   "ko": "에너지·확률 기반 모델의 한계",
+   "en": "limitation a4"
+  },
+  {
+   "id": "lab:limitation/atlas-a5",
+   "type": "Limitation",
+   "ko": "합성곱 신경망의 한계",
+   "en": "limitation a5"
+  },
+  {
+   "id": "lab:limitation/atlas-a6",
+   "type": "Limitation",
+   "ko": "생성·특수 구조의 한계",
+   "en": "limitation a6"
+  },
+  {
+   "id": "lab:limitation/atlas-b1",
+   "type": "Limitation",
+   "ko": "어텐션 계열의 한계",
+   "en": "limitation b1"
+  },
+  {
+   "id": "lab:limitation/atlas-b2",
+   "type": "Limitation",
+   "ko": "순환의 새 갈래의 한계",
+   "en": "limitation b2"
+  },
+  {
+   "id": "lab:limitation/atlas-b3",
+   "type": "Limitation",
+   "ko": "이미지와 생성의 새 도구의 한계",
+   "en": "limitation b3"
+  },
+  {
+   "id": "lab:limitation/atlas-b4",
+   "type": "Limitation",
+   "ko": "구조를 다루는 망의 한계",
+   "en": "limitation b4"
+  },
+  {
+   "id": "lab:limitation/atlas-b5",
+   "type": "Limitation",
+   "ko": "뇌에서 배선을 빌린 망의 한계",
+   "en": "limitation b5"
+  },
+  {
+   "id": "lab:limitation/attention-limit",
+   "type": "Limitation",
+   "ko": "필요한 곳을 직접 보는 망의 한계",
+   "en": "attention limitation"
+  },
+  {
+   "id": "lab:limitation/brain-limit",
+   "type": "Limitation",
+   "ko": "뇌에서 배선을 빌린 망의 한계",
+   "en": "brain limitation"
+  },
+  {
+   "id": "lab:limitation/convolution-limit",
+   "type": "Limitation",
+   "ko": "공간을 보는 망의 한계",
+   "en": "convolution limitation"
+  },
+  {
+   "id": "lab:limitation/energy-limit",
+   "type": "Limitation",
+   "ko": "에너지로 기억을 찾는 망의 한계",
+   "en": "energy limitation"
+  },
+  {
+   "id": "lab:limitation/feedforward-limit",
+   "type": "Limitation",
+   "ko": "한 방향으로 흐르는 망의 한계",
+   "en": "feedforward limitation"
+  },
+  {
+   "id": "lab:limitation/generative-limit",
+   "type": "Limitation",
+   "ko": "압축하고 만들어 내는 망의 한계",
+   "en": "generative limitation"
+  },
+  {
+   "id": "lab:limitation/recurrent-limit",
+   "type": "Limitation",
+   "ko": "시간을 기억하는 망의 한계",
+   "en": "recurrent limitation"
+  },
+  {
+   "id": "lab:limitation/rule-grades",
+   "type": "Limitation",
+   "ko": "규칙값은 등급일 뿐 실측값이 아니다",
+   "en": "rule grades are not measurements"
+  },
+  {
+   "id": "lab:method/autoencoder",
+   "type": "Method",
+   "ko": "오토인코더",
+   "en": "Auto Encoder"
+  },
+  {
+   "id": "lab:method/boltzmann-machine",
+   "type": "Method",
+   "ko": "볼츠만 머신",
+   "en": "Boltzmann Machine"
+  },
+  {
+   "id": "lab:method/capsule-net",
+   "type": "Method",
+   "ko": "캡슐 네트워크",
+   "en": "Capsule Network"
+  },
+  {
+   "id": "lab:method/connectome-constrained",
+   "type": "Method",
+   "ko": "배선 제약 시각망",
+   "en": "Connectome-Constrained Network"
+  },
+  {
+   "id": "lab:method/dbn",
+   "type": "Method",
+   "ko": "깊은 신념망",
+   "en": "Deep Belief Network"
+  },
+  {
+   "id": "lab:method/dcign",
+   "type": "Method",
+   "ko": "합성곱 역그래픽스망",
+   "en": "Deep Convolutional Inverse Graphics Network"
+  },
+  {
+   "id": "lab:method/dcn",
+   "type": "Method",
+   "ko": "깊은 합성곱 신경망",
+   "en": "Deep Convolutional Network"
+  },
+  {
+   "id": "lab:method/deconv-net",
+   "type": "Method",
+   "ko": "역합성곱 신경망",
+   "en": "Deconvolutional Network"
+  },
+  {
+   "id": "lab:method/deep-feed-forward",
+   "type": "Method",
+   "ko": "깊은 순방향 신경망",
+   "en": "Deep Feed Forward"
+  },
+  {
+   "id": "lab:method/deep-residual-network",
+   "type": "Method",
+   "ko": "깊은 잔차 신경망",
+   "en": "Deep Residual Network"
+  },
+  {
+   "id": "lab:method/denoising-ae",
+   "type": "Method",
+   "ko": "잡음 제거 오토인코더",
+   "en": "Denoising Auto Encoder"
+  },
+  {
+   "id": "lab:method/diffusion-model",
+   "type": "Method",
+   "ko": "확산 모델",
+   "en": "Diffusion Model"
+  },
+  {
+   "id": "lab:method/elm",
+   "type": "Method",
+   "ko": "극단 학습 기계",
+   "en": "Extreme Learning Machine"
+  },
+  {
+   "id": "lab:method/esn",
+   "type": "Method",
+   "ko": "에코 상태 네트워크",
+   "en": "Echo State Network"
+  },
+  {
+   "id": "lab:method/feed-forward",
+   "type": "Method",
+   "ko": "순방향 신경망",
+   "en": "Feed Forward"
+  },
+  {
+   "id": "lab:method/fly-connectome-lif",
+   "type": "Method",
+   "ko": "초파리 커넥톰 뇌 모형",
+   "en": "Fruit Fly Connectome Brain Model"
+  },
+  {
+   "id": "lab:method/gan",
+   "type": "Method",
+   "ko": "생성적 적대 신경망",
+   "en": "Generative Adversarial Network"
+  },
+  {
+   "id": "lab:method/gnn",
+   "type": "Method",
+   "ko": "그래프 신경망",
+   "en": "Graph Neural Network"
+  },
+  {
+   "id": "lab:method/gru",
+   "type": "Method",
+   "ko": "게이트 순환 유닛",
+   "en": "Gated Recurrent Unit"
+  },
+  {
+   "id": "lab:method/hopfield-network",
+   "type": "Method",
+   "ko": "홉필드 네트워크",
+   "en": "Hopfield Network"
+  },
+  {
+   "id": "lab:method/kan",
+   "type": "Method",
+   "ko": "콜모고로프-아르놀트 망",
+   "en": "Kolmogorov-Arnold Network"
+  },
+  {
+   "id": "lab:method/kohonen-network",
+   "type": "Method",
+   "ko": "코호넨 네트워크",
+   "en": "Kohonen Network"
+  },
+  {
+   "id": "lab:method/lsm",
+   "type": "Method",
+   "ko": "액체 상태 기계",
+   "en": "Liquid State Machine"
+  },
+  {
+   "id": "lab:method/lstm",
+   "type": "Method",
+   "ko": "장단기 메모리",
+   "en": "Long / Short Term Memory"
+  },
+  {
+   "id": "lab:method/ltc",
+   "type": "Method",
+   "ko": "액체 시상수 망",
+   "en": "Liquid Time-Constant Network"
+  },
+  {
+   "id": "lab:method/mamba",
+   "type": "Method",
+   "ko": "맘바",
+   "en": "Mamba, Selective State Space Model"
+  },
+  {
+   "id": "lab:method/markov-chain",
+   "type": "Method",
+   "ko": "마르코프 체인",
+   "en": "Markov Chain"
+  },
+  {
+   "id": "lab:method/moe",
+   "type": "Method",
+   "ko": "전문가 혼합",
+   "en": "Mixture of Experts"
+  },
+  {
+   "id": "lab:method/neural-ode",
+   "type": "Method",
+   "ko": "신경 상미분방정식",
+   "en": "Neural Ordinary Differential Equation"
+  },
+  {
+   "id": "lab:method/normalizing-flow",
+   "type": "Method",
+   "ko": "정규화 흐름",
+   "en": "Normalizing Flow"
+  },
+  {
+   "id": "lab:method/ntm",
+   "type": "Method",
+   "ko": "신경 튜링 머신",
+   "en": "Neural Turing Machine"
+  },
+  {
+   "id": "lab:method/perceptron",
+   "type": "Method",
+   "ko": "퍼셉트론",
+   "en": "Perceptron"
+  },
+  {
+   "id": "lab:method/rbf-network",
+   "type": "Method",
+   "ko": "방사 기저 함수망",
+   "en": "Radial Basis Network"
+  },
+  {
+   "id": "lab:method/rbm",
+   "type": "Method",
+   "ko": "제한 볼츠만 머신",
+   "en": "Restricted Boltzmann Machine"
+  },
+  {
+   "id": "lab:method/rnn",
+   "type": "Method",
+   "ko": "순환 신경망",
+   "en": "Recurrent Neural Network"
+  },
+  {
+   "id": "lab:method/snn",
+   "type": "Method",
+   "ko": "스파이킹 신경망",
+   "en": "Spiking Neural Network"
+  },
+  {
+   "id": "lab:method/sparse-ae",
+   "type": "Method",
+   "ko": "희소 오토인코더",
+   "en": "Sparse Auto Encoder"
+  },
+  {
+   "id": "lab:method/svm",
+   "type": "Method",
+   "ko": "서포트 벡터 머신",
+   "en": "Support Vector Machine"
+  },
+  {
+   "id": "lab:method/transformer",
+   "type": "Method",
+   "ko": "트랜스포머",
+   "en": "Transformer"
+  },
+  {
+   "id": "lab:method/u-net",
+   "type": "Method",
+   "ko": "유넷",
+   "en": "U-Net"
+  },
+  {
+   "id": "lab:method/vae",
+   "type": "Method",
+   "ko": "변분 오토인코더",
+   "en": "Variational Auto Encoder"
+  },
+  {
+   "id": "lab:method/vit",
+   "type": "Method",
+   "ko": "비전 트랜스포머",
+   "en": "Vision Transformer"
+  },
+  {
+   "id": "lab:metric/fit-score",
+   "type": "Metric",
+   "ko": "체급별 공통 보스 적합도 (총 피해 ÷ 보스 HP)",
+   "en": "tiered common-boss fit score"
+  },
+  {
+   "id": "lab:task/boss-algo",
+   "type": "Task",
+   "ko": "정렬 미로",
+   "en": "boss algo"
+  },
+  {
+   "id": "lab:task/boss-gen",
+   "type": "Task",
+   "ko": "빈 캔버스 유령",
+   "en": "boss gen"
+  },
+  {
+   "id": "lab:task/boss-graph",
+   "type": "Task",
+   "ko": "얽힌 실타래",
+   "en": "boss graph"
+  },
+  {
+   "id": "lab:task/boss-img",
+   "type": "Task",
+   "ko": "흐린 사진 슬라임",
+   "en": "boss img"
+  },
+  {
+   "id": "lab:task/boss-mem",
+   "type": "Task",
+   "ko": "흩어진 기억 퍼즐",
+   "en": "boss mem"
+  },
+  {
+   "id": "lab:task/boss-mix",
+   "type": "Task",
+   "ko": "종합 시험 키메라",
+   "en": "boss mix"
+  },
+  {
+   "id": "lab:task/boss-reflex",
+   "type": "Task",
+   "ko": "날아오는 그림자",
+   "en": "boss reflex"
+  },
+  {
+   "id": "lab:task/boss-seq",
+   "type": "Task",
+   "ko": "긴 시간 뱀",
+   "en": "boss seq"
+  },
+  {
+   "id": "lab:task/boss-tab",
+   "type": "Task",
+   "ko": "표 데이터 골렘",
+   "en": "boss tab"
+  },
+  {
+   "id": "lab:task/looming-escape",
+   "type": "Task",
+   "ko": "다가오는 물체 피하기 (반사 과제)",
+   "en": "looming escape"
+  },
+  {
+   "id": "lab:term/activation-function",
+   "type": "Term",
+   "ko": "활성함수",
+   "en": "activation function"
+  },
+  {
+   "id": "lab:term/attention",
+   "type": "Term",
+   "ko": "어텐션",
+   "en": "attention"
+  },
+  {
+   "id": "lab:term/backpropagation",
+   "type": "Term",
+   "ko": "역전파",
+   "en": "backpropagation"
+  },
+  {
+   "id": "lab:term/connectome",
+   "type": "Term",
+   "ko": "커넥톰",
+   "en": "connectome"
+  },
+  {
+   "id": "lab:term/context-window",
+   "type": "Term",
+   "ko": "문맥 창",
+   "en": "context window"
+  },
+  {
+   "id": "lab:term/convolution",
+   "type": "Term",
+   "ko": "합성곱",
+   "en": "convolution"
+  },
+  {
+   "id": "lab:term/embedding",
+   "type": "Term",
+   "ko": "임베딩",
+   "en": "embedding"
+  },
+  {
+   "id": "lab:term/gate",
+   "type": "Term",
+   "ko": "게이트",
+   "en": "gate"
+  },
+  {
+   "id": "lab:term/latent-space",
+   "type": "Term",
+   "ko": "잠재공간",
+   "en": "latent space"
+  },
+  {
+   "id": "lab:term/leaky-integrate-and-fire",
+   "type": "Term",
+   "ko": "누설 적분 발화",
+   "en": "leaky integrate-and-fire"
+  },
+  {
+   "id": "lab:term/loss-function",
+   "type": "Term",
+   "ko": "손실함수",
+   "en": "loss function"
+  },
+  {
+   "id": "lab:term/neuromorphic-chip",
+   "type": "Term",
+   "ko": "뉴로모픽",
+   "en": "neuromorphic chip"
+  },
+  {
+   "id": "lab:term/spike",
+   "type": "Term",
+   "ko": "스파이크",
+   "en": "spike"
+  },
+  {
+   "id": "lab:term/synapse",
+   "type": "Term",
+   "ko": "시냅스",
+   "en": "synapse"
+  },
+  {
+   "id": "lab:term/token",
+   "type": "Term",
+   "ko": "토큰",
+   "en": "token"
+  },
+  {
+   "id": "lab:term/weight",
+   "type": "Term",
+   "ko": "가중치",
+   "en": "weight"
+  }
+ ],
+ "works": [
+  "leijnen2020neural",
+  "vanveen2016neural",
+  "ahn2026fruitfly3",
+  "berg2026sexual",
+  "shiu2024drosophila",
+  "lappalainen2024connectome",
+  "rosenblatt1958perceptron",
+  "rumelhart1986learning",
+  "broomhead1988radial",
+  "cortes1995support",
+  "huang2006extreme",
+  "liu2024kan",
+  "lecun1998gradient",
+  "zeiler2010deconvolutional",
+  "kulkarni2015deep",
+  "sabour2017dynamic",
+  "ronneberger2015unet",
+  "he2016deep",
+  "elman1990finding",
+  "hochreiter1997long",
+  "cho2014learning",
+  "jaeger2001echo",
+  "hasani2021liquid",
+  "chen2018neural",
+  "gu2023mamba",
+  "vaswani2017attention",
+  "dosovitskiy2021image",
+  "shazeer2017outrageously",
+  "graves2014neural",
+  "kipf2017semi",
+  "hinton2006reducing",
+  "kingma2013auto",
+  "vincent2008extracting",
+  "ng2011sparse",
+  "goodfellow2014generative",
+  "dinh2017density",
+  "ho2020denoising",
+  "markov1906extension",
+  "hopfield1982neural",
+  "ackley1985learning",
+  "smolensky1986information",
+  "hinton2006fast",
+  "kohonen1982self",
+  "maass2002real",
+  "maass1997networks"
+ ]
+}
