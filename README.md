@@ -247,7 +247,7 @@ This repository is not affiliated with the cited studies or their authors, HHMI 
 # 神经网络结构图鉴 · 果蝇机器人对战
 
 这是一份四页的解说，将 42 种神经网络整理为图鉴，并把它们逐一放进果蝇大小的机器人脑中，用 RPG 对战比较规格与性能。
-由博士、助手、果蝇研究员、算盘宝 四个角色主持。
+由博士、助手、果蝇研究员、算盘宝四个角色主持。
 
 - 作者: Ahn Sangsun（M-Robo 公司 CEO）
 - 在线查看: `https://adminmrobo.github.io/neural-network-atlas/` （请按仓库名修改）
@@ -367,7 +367,7 @@ docs/KG_00_registry.json           지식 그래프 ID 등록부
 # ニューラルネットワーク構造図鑑 · ショウジョウバエロボット対戦
 
 ニューラルネットワーク構造42種を図鑑にまとめ、ショウジョウバエほどの大きさのロボットの脳に一つずつ入れたときの仕様と性能を、RPG形式の対戦で比べる4ページの解説です。
-博士・助手・ショウジョウバエ研究員・アバボット の四人のキャラクターが進行します。
+博士・助手・ショウジョウバエ研究員・アバボットの四人のキャラクターが進行します。
 
 - 文: Ahn Sangsun (株式会社M-Robo 代表)
 - オンラインで見る: `https://adminmrobo.github.io/neural-network-atlas/`（リポジトリ名に合わせて変更してください）

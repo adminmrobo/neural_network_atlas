@@ -911,8 +911,8 @@ function duelReveal(){var root=$('#duel'),o=duelRun(),fv=o.fv,rv=o.rv,res=duelRe
   var mx=Math.max(fv,rv,1);function bar(n,v,c,t){return '<div class="dbar"><span>'+n+'</span><div class="t"><i style="width:'+(v/mx*100)+'%;background:'+c+'"></i></div><em>'+t+'</em></div>'}
   $('#dBars').innerHTML=bar('ショウジョウバエ（Fly-CNS）',fv,'var(--c-fly)',o.f.total)+bar('アバボット (Transformer)',rv,'var(--c-robo)',o.r.noFit?'搭載不可':o.r.total)+'<p class="todo">二本の棒は同じ目盛りです。ボスHPは200です。</p>';
   var T=TB[DU.tier];
-  $('#dAsst').textContent=T.name+(T.bat==null?' 電源':' バッテリー '+T.bat+' EN')+'では総ダメージはショウジョウバエ側 '+o.f.total+'点、アバボット 側 '+o.r.total+'点です。 '+(o.r.noFit?'Transformerは攻撃1回にEN100かかるので、一度も撃てませんでした。':'攻撃回数は '+o.f.turns+'回 対 '+o.r.turns+'回'+(o.r.late?'（ロボットは反応が遅く1回減りました）':'')+'です。');
-  var who={F:'ショウジョウバエの勝ち。',R:'アバボット の勝ち。',D:'今回は引き分け。'}[res];$('#dVerdict').textContent=LESSON[res]+'. '+who;
+  $('#dAsst').textContent=T.name+(T.bat==null?' 電源':' バッテリー '+T.bat+' EN')+'では総ダメージはショウジョウバエ側 '+o.f.total+'点、アバボット側 '+o.r.total+'点です。 '+(o.r.noFit?'Transformerは攻撃1回にEN100かかるので、一度も撃てませんでした。':'攻撃回数は '+o.f.turns+'回 対 '+o.r.turns+'回'+(o.r.late?'（ロボットは反応が遅く1回減りました）':'')+'です。');
+  var who={F:'ショウジョウバエの勝ち。',R:'アバボットの勝ち。',D:'今回は引き分け。'}[res];$('#dVerdict').textContent=LESSON[res]+'. '+who;
   root.classList.add('open');DU.shown=true;$('#dReveal').textContent='閉じる';
   if(DU.guess)$('#guessNote').textContent='自分の予想： '+(DU.guess==='F'?'ショウジョウバエ':'ロボット')+' → '+(DU.guess===res?'当たりました。':'外れました。');}
 function duelReset(){$('#duel').classList.remove('open');DU.shown=false;Cast.set($('#duelBox .side.fly img'),'fly','point');Cast.set($('#duelBox .side.robo img'),'robo','coin');$('#dReveal').textContent='結果を見る';$('#guessNote').textContent='';}

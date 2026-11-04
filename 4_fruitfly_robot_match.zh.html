@@ -958,7 +958,7 @@ function duelReveal(){var root=$('#duel'),o=duelRun(),fv=o.fv,rv=o.rv,res=duelRe
   $('#dBars').innerHTML=bar('果蝇 (Fly-CNS)',fv,'var(--c-fly)',o.f.total)+bar('算盘宝 (Transformer)',rv,'var(--c-robo)',o.r.noFit?'无法搭载':o.r.total)+'<p class="todo">两根条为相同刻度。Boss HP为200。</p>';
   var T=TB[DU.tier];
   $('#dAsst').textContent=T.name+(T.bat==null?' 电源':' 电池 '+T.bat+' EN')+'中，总伤害果蝇一方为 '+o.f.total+'分，算盘宝一方为 '+o.r.total+'分。 '+(o.r.noFit?'Transformer每次攻击耗EN 100，因此一次也没能发射。':'攻击次数为 '+o.f.turns+'次 对 '+o.r.turns+'次'+(o.r.late?'（机器人因反应迟缓，少了1次）':'')+'。');
-  var who={F:'果蝇胜。',R:'算盘宝 胜。',D:'这一局平分。'}[res];$('#dVerdict').textContent=LESSON[res]+'. '+who;
+  var who={F:'果蝇胜。',R:'算盘宝胜。',D:'这一局平分。'}[res];$('#dVerdict').textContent=LESSON[res]+'. '+who;
   root.classList.add('open');DU.shown=true;$('#dReveal').textContent='重新关闭';
   if(DU.guess)$('#guessNote').textContent='我的预测： '+(DU.guess==='F'?'果蝇':'机器人')+' → '+(DU.guess===res?'猜中了。':'猜错了。');}
 function duelReset(){$('#duel').classList.remove('open');DU.shown=false;Cast.set($('#duelBox .side.fly img'),'fly','point');Cast.set($('#duelBox .side.robo img'),'robo','coin');$('#dReveal').textContent='看结果';$('#guessNote').textContent='';}
