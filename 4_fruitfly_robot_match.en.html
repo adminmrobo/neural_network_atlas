@@ -482,7 +482,7 @@ dl.gb dd{margin:0;font-size:13.5px}
   </div>
   <div class="goals"><b>Goals for this page</b><ol><li>Explains why a model's ranking changes with its power class even when it is the same model.</li><li>Explains why common-boss rankings should not be read as performance rankings.</li><li>Lists what to check first when choosing a model for field devices.</li></ol><span>About 25 min · Prerequisite: page 3</span></div>
   <section class="kpis" aria-label="Summary numbers"><div class="kpi m"><b class="num">42</b><span>neural networks to install</span></div><div class="kpi g"><b class="num">13</b><span>core picks (●)</span></div><div class="kpi a"><b class="num">4</b><span>power classes</span></div><div class="kpi r"><b class="num">Laptop</b><span>power class where duel results flip</span></div></section>
-  <div class="dialog"><div class="say" data-who="doc"><img class="who" data-who="doc" data-mood="think" data-img="doc_think" alt="" aria-hidden="true"><div><b class="name">Doctor</b><p>Now we open the hangar. Pick them one by one and install them in the fruit fly robot.</p></div></div><div class="say" data-who="asst"><img class="who" data-who="asst" data-mood="smile" data-img="asst_smile" alt="" aria-hidden="true"><div><b class="name">Assistant Haru</b><p>Power sources come in four classes: fruit fly body 60, drone 200, laptop 600, and server.</p></div></div><div class="say" data-who="fly"><img class="who" data-who="fly" data-mood="point" data-img="fly_point" alt="" aria-hidden="true"><div><b class="name">Fruit Fly Researcher</b><p>How many times can a big brain fire from a tiny body?</p></div></div><div class="say" data-who="robo"><img class="who" data-who="robo" data-mood="coin" data-img="robo_coin" alt="" aria-hidden="true"><div><b class="name">Money-Robo</b><p>I'll bet on the most expensive Transformer. Big hits mean big profits, I'm telling you.</p></div></div></div>
+  <div class="dialog"><div class="say" data-who="doc"><img class="who" data-who="doc" data-mood="think" data-img="doc_think" alt="" aria-hidden="true"><div><b class="name">Doctor</b><p>Now we open the hangar. Pick them one by one and install them in the fruit fly robot.</p></div></div><div class="say" data-who="asst"><img class="who" data-who="asst" data-mood="smile" data-img="asst_smile" alt="" aria-hidden="true"><div><b class="name">Assistant Haru</b><p>Power sources come in four classes: fruit fly body 60, drone 200, laptop 600, and server.</p></div></div><div class="say" data-who="fly"><img class="who" data-who="fly" data-mood="point" data-img="fly_point" alt="" aria-hidden="true"><div><b class="name">Fruit Fly Researcher</b><p>How many times can a big brain fire from a tiny body?</p></div></div><div class="say" data-who="robo"><img class="who" data-who="robo" data-mood="coin" data-img="robo_coin" alt="" aria-hidden="true"><div><b class="name">AbaBot</b><p>I'll bet on the most expensive Transformer. Big hits mean big profits, I'm telling you.</p></div></div></div>
 </div></header>
 <section class="level" id="cast"><div class="wrap">
   <h2>Characters and how to use this page</h2>
@@ -490,7 +490,7 @@ dl.gb dd{margin:0;font-size:13.5px}
     <div><img data-who="doc" data-mood="front" data-img="doc_front" alt="" aria-hidden="true"><div><b style="color:var(--c-doc)">Doctor</b><p>Explains and judges. Verdicts follow the numbers.</p></div></div>
     <div><img data-who="asst" data-mood="smile" data-img="asst_smile" alt="" aria-hidden="true"><div><b style="color:var(--c-asst)">Assistant Haru</b><p>Runs the experiments and announces the numbers.</p></div></div>
     <div><img data-who="fly" data-mood="clip" data-img="fly_clip" alt="" aria-hidden="true"><div><b style="color:var(--c-fly)">Fruit Fly Researcher</b><p>The skeptic. In battles, the robot pilot.</p></div></div>
-    <div><img data-who="robo" data-mood="smile" data-img="robo_smile" alt="" aria-hidden="true"><div><b style="color:var(--c-robo)">Money-Robo</b><p>The believer. Bets on the big, expensive models.</p></div></div>
+    <div><img data-who="robo" data-mood="smile" data-img="robo_smile" alt="" aria-hidden="true"><div><b style="color:var(--c-robo)">AbaBot</b><p>The believer. Bets on the big, expensive models.</p></div></div>
   </div>
   <p class="sec-sub" style="margin-top:16px">In the hangar, choosing a model shows its spec sheet and battle scene. You can open a specific model directly with #m-modelname at the end of the address.</p>
 </div></section>
@@ -536,7 +536,7 @@ dl.gb dd{margin:0;font-size:13.5px}
   <div class="duel-head">
     <div class="side fly"><img data-who="fly" data-mood="point" data-img="fly_point" alt="" aria-hidden="true"><div><b style="color:var(--c-fly)">Fruit Fly Researcher</b><small>fruit fly connectome brain model (Fly-CNS)</small><p style="font-size:14px;margin-top:4px">"I've never learned anything, but let's see whether the wiring has a way to dodge. The one that saves battery lasts longer."</p></div></div>
     <div class="vs">VS</div>
-    <div class="side r robo"><img data-who="robo" data-mood="coin" data-img="robo_coin" alt="" aria-hidden="true"><div><b style="color:var(--c-robo)">Money-Robo</b><small>Transformer</small><p style="font-size:14px;margin-top:4px">"One blow of 60 and it's over. All in on the strongest one."</p></div></div>
+    <div class="side r robo"><img data-who="robo" data-mood="coin" data-img="robo_coin" alt="" aria-hidden="true"><div><b style="color:var(--c-robo)">AbaBot</b><small>Transformer</small><p style="font-size:14px;margin-top:4px">"One blow of 60 and it's over. All in on the strongest one."</p></div></div>
   </div>
   <div class="ctrl">
     <div class="group" id="dTiers"><span class="glabel">Power class</span></div>
@@ -709,10 +709,10 @@ var MB={}; MODELS.forEach(function(m,i){m.no=i+1;MB[m.id]=m;});
 var SB={}; SEC.forEach(function(s){SB[s.id]=s;});
 
 /* ---------- 픽셀 지도 (그림 파일이 없을 때) ---------- */
-var PAL={K:'#1d1a22',W:'#eceaf3',R:'#e04a3a',r:'#a8281c',U:'#3a6fd8',Y:'#f1c84a',L:'#5a4636',S:'rgba(0,0,0,.35)',B:'#4aa3ff',F:'#f2c9a0',G:'#9fb4d0',P:'#ff86b8',N:'#2b3a7a',V:'#b9a6e8',O:'#d4a54a'};
+var PAL={K:'#1d1a22',W:'#eceaf3',R:'#e04a3a',r:'#a8281c',U:'#3a6fd8',Y:'#f1c84a',L:'#5a4636',S:'rgba(0,0,0,.35)',B:'#4aa3ff',F:'#f2c9a0',G:'#9fb4d0',P:'#ff86b8',N:'#2b3a7a',V:'#b9a6e8',O:'#d4a54a',E:'#eadfc6',D:'#17352c',M:'#5befa5',A:'#8b5a2b',Q:'#d2603c',H:'#9c978c'};
 var MAPS={
 fly:['....K......K....','.....K....K.....','....UUUUUUUU....','...UUYUUUUYUU...','..RRRUUUUUURRR..','.RRrRRKKKKRRrRR.','.RRRRKKKKKKRRRR.','..RRKKKKKKKKRR..','WW..WKKKKKKW..WW','WWW.WWKKKKWW.WWW','.WWWWWKKKKWWWWW.','..L.WWKKKKWW.L..','.L...WKKKKW...L.','L.....KKKK.....L','.......KK.......','................'],
-robo:['.......Y........','.......S........','....WWWWWWWW....','...WWWWWWWWWW...','..WWKKKKKKKKWW..','..WWKYKKKKYKWW..','..WWKYKKKKYKWW..','..WWKKKYYKKKWW..','..WWKKKKKKKKWW..','...WWWWWWWWWW...','....WWWBBWWW....','...WWWWBBWWWW...','..W.WWWWWWWW.W..','....WWWWWWWW....','.....WWWWWW.....','....SSSSSSSS....'],
+robo:['.......Q........','.......K........','..KKKKKKKKKKKK..','..KEEEEEEEEEEK..','..KEDDDDDDDDEK..','..KEDMDDDDMDEK..','..KEDDDDDDDDEK..','..KEDMDDDDMDEK..','..KEDDMMMMDDEK..','.HKEEEEEEEEEEKH.','HHAAAAAAAAAAAAHH','HHAEQEQEEQEQEAHH','..AAAAAAAAAAAA..','..AEQEQEEQEQEA..','..AAAAAAAAAAAA..','.KKKK......KKKK.'],
 doc:['....KKKKKKK.....','...KKKWKKKKK....','..KKKWWKKKKKK...','..KFFFFFFFFFK...','..FGGFFFFGGFF...','..FGKFFFFGKFF...','..FFFFFFFFFFF...','...FFFRRRFFF....','....FFFFFFF.....','...WWWKKKWWW....','..WWWWKRKWWWW...','..WWWWKRKWWWW...','..WFWWKKKWWFW...','..WWWWKKKWWWW...','...LL.....LL....','...KK.....KK....'],
 asst:['.PP..........PP.','.PP..PPPPPP..PP.','PPPPPPPPPPNPPPPP','.PPPPFFFFFFPPPP.','..PPFFFFFFFFPP..','..PFFBFFFFBFFP..','..PFFBFFFFBFFP..','..PFFFFFFFFFFP..','...FFFFRRFFFF...','....FFFFFFFF....','...WWVVVVVVWW...','..WWWVVVVVVWWW..','..WWWVVVVVVWWW..','..WFWVVVVVVWFW..','...NN......NN...','...NN......NN...']
 };
@@ -955,10 +955,10 @@ function duelReveal(){var root=$('#duel'),o=duelRun(),fv=o.fv,rv=o.rv,res=duelRe
   var M={F:['arms','sigh'],R:[big?'cry':'coffee','happy'],D:['coffee','meh']}[res];
   Cast.set($('#duelBox .side.fly img'),'fly',M[0]);Cast.set($('#duelBox .side.robo img'),'robo',M[1]);
   var mx=Math.max(fv,rv,1);function bar(n,v,c,t){return '<div class="dbar"><span>'+n+'</span><div class="t"><i style="width:'+(v/mx*100)+'%;background:'+c+'"></i></div><em>'+t+'</em></div>'}
-  $('#dBars').innerHTML=bar('Fruit fly (Fly-CNS)',fv,'var(--c-fly)',o.f.total)+bar('Money-Robo (Transformer)',rv,'var(--c-robo)',o.r.noFit?'Won\'t fit':o.r.total)+'<p class="todo">The two bars use the same scale. The boss HP is 200.</p>';
+  $('#dBars').innerHTML=bar('Fruit fly (Fly-CNS)',fv,'var(--c-fly)',o.f.total)+bar('AbaBot (Transformer)',rv,'var(--c-robo)',o.r.noFit?'Won\'t fit':o.r.total)+'<p class="todo">The two bars use the same scale. The boss HP is 200.</p>';
   var T=TB[DU.tier];
-  $('#dAsst').textContent=T.name+(T.bat==null?' power':' battery '+T.bat+' EN')+', total damage on the fruit fly side '+o.f.total+'pts, Money-Robo side '+o.r.total+'pts. '+(o.r.noFit?'The Transformer needs EN 100 per 1 attack, so it never fired even once.':'Number of attacks '+o.f.turns+'x vs '+o.r.turns+'x'+(o.r.late?'(the robot reacts late, so 1 fewer)':'')+'.');
-  var who={F:'Fruit Fly wins.',R:'Money-Robo wins.',D:'This round is a split.'}[res];$('#dVerdict').textContent=LESSON[res]+'. '+who;
+  $('#dAsst').textContent=T.name+(T.bat==null?' power':' battery '+T.bat+' EN')+', total damage on the fruit fly side '+o.f.total+'pts, AbaBot side '+o.r.total+'pts. '+(o.r.noFit?'The Transformer needs EN 100 per 1 attack, so it never fired even once.':'Number of attacks '+o.f.turns+'x vs '+o.r.turns+'x'+(o.r.late?'(the robot reacts late, so 1 fewer)':'')+'.');
+  var who={F:'Fruit Fly wins.',R:'AbaBot wins.',D:'This round is a split.'}[res];$('#dVerdict').textContent=LESSON[res]+'. '+who;
   root.classList.add('open');DU.shown=true;$('#dReveal').textContent='Close again';
   if(DU.guess)$('#guessNote').textContent='My prediction: '+(DU.guess==='F'?'Fruit Fly':'Robot')+' → '+(DU.guess===res?'Got it right.':'Missed.');}
 function duelReset(){$('#duel').classList.remove('open');DU.shown=false;Cast.set($('#duelBox .side.fly img'),'fly','point');Cast.set($('#duelBox .side.robo img'),'robo','coin');$('#dReveal').textContent='See result';$('#guessNote').textContent='';}
@@ -966,7 +966,7 @@ function duelLadder(){$('#duelLadder').innerHTML='<b>One-line result by power cl
 function outro(){var o=duelRun('fly'),res=duelRes(o);
   var L={doc:['doc','magic','Doctor','Here are the three core points for today. ① The original chart drew only the wiring, and the comparison assumed that activation functions and learning methods are the same. ② Even the same model changes rank when the power class changes. ③ ATK and HIT are judged values, so use the lab sliders to change them and check for yourself how much the conclusions shift.'],
     fly:['fly','arms','Fruit Fly Researcher','I won with the fly body. From the laptop on... I admit it.'],
-    robo:['robo','sigh','Money-Robo','I cut my losses on the fly body. From the laptop class on, I broke even.'],
+    robo:['robo','sigh','AbaBot','I cut my losses on the fly body. From the laptop class on, I broke even.'],
     asst:['asst','spark','Assistant Haru','The calculation formula is fixed as one. Raise the power class and the win or loss flips for the first time at the laptop.']};
   var order=res==='F'?['doc','fly','robo','asst']:['doc','robo','fly','asst'];
   $('#outroDialog').innerHTML=order.map(function(k){var v=L[k];return '<div class="say" data-who="'+v[0]+'"><img class="who" data-who="'+v[0]+'" data-mood="'+v[1]+'" data-img="'+v[0]+'_'+v[1]+'" alt="" aria-hidden="true"><div><b class="name">'+v[2]+'</b><p>'+esc(v[3])+'</p></div></div>'}).join('');}

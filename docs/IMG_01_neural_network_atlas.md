@@ -98,14 +98,14 @@
 | 항목 | 내용 |
 |---|---|
 | 판 · 크기 | E · 1200×800 |
-| 구도 | 앞·크게: 초파리 연구원(팔짱)과 작은 초록 모듈을 넣은 초파리 로봇. 뒤에 Money-Robo가 큰 보라 모듈을 안고 머리를 긁으며 인정하는 몸짓, 박사는 가운데 뒤, 조수는 오른쪽에서 점검표 |
+| 구도 | 앞·크게: 초파리 연구원(팔짱)과 작은 초록 모듈을 넣은 초파리 로봇. 뒤에 주판봇이 큰 보라 모듈을 안고 머리를 긁으며 인정하는 몸짓, 박사는 가운데 뒤, 조수는 오른쪽에서 점검표 |
 | 피할 것 | 조롱, 패자를 작게 짓밟는 구도, 글자 |
-| 대체 글 (alt) | 초파리 연구원이 작은 뇌 모듈을 넣은 로봇 옆에서 팔짱을 끼고, Money-Robo가 큰 모듈을 안고 머쓱해하는 연구실 장면 |
+| 대체 글 (alt) | 초파리 연구원이 작은 뇌 모듈을 넣은 로봇 옆에서 팔짱을 끼고, 주판봇이 큰 모듈을 안고 머쓱해하는 연구실 장면 |
 | 대신 쓰는 그림 | 없음 (말풍선만) |
 
 **프롬프트 (복사해서 사용)**
 ```
-16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights, consistent with the reference images, cozy night laboratory mood, purple light, soft magenta and green fluorescent accents, 3:2 landscape scene, medium brightness, small robot hangar inside a night laboratory, in front and larger: anthropomorphic fruit fly researcher with big red compound eyes and a blue helmet with a gold stripe, arms crossed proudly, next to a small original fly-shaped robot with a softly glowing green module in its open head hatch; behind on the right: round white floating robot with yellow pixel eyes and a blue chest light hugging a large purple module and scratching its head with a sheepish smile; chibi scientist with round glasses and black hair with one white streak at the back center giving a small nod; girl researcher with pink hair in two round buns and a navy streak at the right holding a blank striped checklist, friendly mood, no text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands
+16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights, consistent with the reference images, cozy night laboratory mood, purple light, soft magenta and green fluorescent accents, 3:2 landscape scene, medium brightness, small robot hangar inside a night laboratory, in front and larger: anthropomorphic fruit fly researcher with big red compound eyes and a blue helmet with a gold stripe, arms crossed proudly, next to a small original fly-shaped robot with a softly glowing green module in its open head hatch; behind on the right: JUPANBOT (AbaBot), a boxy beige retro CRT-monitor robot with rounded corners and thick dark brown outlines, a large dark green screen on the front where the face is drawn only with simple mint-green pixel blocks, a short thin antenna on a small square base topped with one tiny red-brown abacus bead, gray segmented arms with rounded gray mitten hands, two small dark gray tank treads instead of legs hugging a large purple module and scratching its head with a sheepish smile; chibi scientist with round glasses and black hair with one white streak at the back center giving a small nod; girl researcher with pink hair in two round buns and a navy streak at the right holding a blank striped checklist, friendly mood, no text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands, no white round robot head, no yellow or golden eyes, no floating robot, no gold coins
 ```
 
 ### 3-5. `bg_01` · `thumb_01` · `og_01`
@@ -145,7 +145,7 @@
     {"key":"mech_fly","plate":"E","size":[1200,800],"status":"new","priority":"P1","slot":"arena-left","fallback":"pixel-MECH","alt":""},
     {"key":"cut_01_cutin","plate":"G","size":[960,540],"status":"new","priority":"P1","slot":"arena-cutin","fallback":"fly_cutin","alt":""},
     {"key":"boss_set_01","plate":"G","size":[960,540],"status":"new","priority":"P2","slot":"arena-right","fallback":"code-boss","alt":""},
-    {"key":"sc_01_outro","plate":"E","size":[1200,800],"status":"new","priority":"P2","slot":"outro","fallback":"none","alt":"초파리 연구원이 작은 뇌 모듈을 넣은 로봇 옆에서 팔짱을 끼고, Money-Robo가 큰 모듈을 안고 머쓱해하는 연구실 장면"},
+    {"key":"sc_01_outro","plate":"E","size":[1200,800],"status":"new","priority":"P2","slot":"outro","fallback":"none","alt":"초파리 연구원이 작은 뇌 모듈을 넣은 로봇 옆에서 팔짱을 끼고, 주판봇이 큰 모듈을 안고 머쓱해하는 연구실 장면"},
     {"key":"thumb_01","plate":"I","size":[600,400],"status":"new","priority":"P2","slot":"index-card","fallback":"cover_01-crop","alt":"신경망 구조 도감 · 초파리 로봇 대전 썸네일"},
     {"key":"bg_01","plate":"F","size":[1920,720],"status":"new","priority":"P3","slot":"hero-bg","fallback":"pixel-MECH","alt":"로봇 격납고가 있는 밤의 연구실"},
     {"key":"og_01","plate":"K","size":[1200,630],"status":"new","priority":"P3","slot":"og","fallback":"none","alt":"신경망 구조 도감 · 초파리 로봇 대전 공유 이미지"},

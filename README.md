@@ -7,7 +7,7 @@
 # 신경망 구조 도감 · 초파리 로봇 대전
 
 신경망 구조 42가지를 도감으로 정리하고, 초파리만 한 로봇의 뇌에 하나씩 넣었을 때의 사양과 성능을 RPG 대전으로 비교하는 4쪽짜리 해설입니다.
-박사·조수·초파리 연구원·Money-Robo 네 캐릭터가 진행합니다.
+박사·조수·초파리 연구원·주판봇 네 캐릭터가 진행합니다.
 
 - 글: 안상선 ((주)M-Robo 대표)
 - 온라인으로 보기: `https://adminmrobo.github.io/neural-network-atlas/` (저장소 이름에 맞게 고칠 것)
@@ -127,7 +127,7 @@ docs/KG_00_registry.json           지식 그래프 ID 등록부
 # Neural Network Atlas · Fruit Fly Robot Battle
 
 A four-page explainer that organizes 42 neural network structures in an atlas, then compares their specs and performance in an RPG battle as each one is placed into a robot brain the size of a fruit fly.
-Led by four characters: the Doctor, the Assistant, the Fruit Fly Researcher, and Money-Robo.
+Led by four characters: the Doctor, the Assistant, the Fruit Fly Researcher, and AbaBot.
 
 - Written by: Ahn Sangsun (CEO, M-Robo Inc.)
 - View online: `https://adminmrobo.github.io/neural-network-atlas/` (adjust to match the repository name)
@@ -247,7 +247,7 @@ This repository is not affiliated with the cited studies or their authors, HHMI 
 # 神经网络结构图鉴 · 果蝇机器人对战
 
 这是一份四页的解说，将 42 种神经网络整理为图鉴，并把它们逐一放进果蝇大小的机器人脑中，用 RPG 对战比较规格与性能。
-由博士、助手、果蝇研究员、Money-Robo 四个角色主持。
+由博士、助手、果蝇研究员、算盘宝 四个角色主持。
 
 - 作者: Ahn Sangsun（M-Robo 公司 CEO）
 - 在线查看: `https://adminmrobo.github.io/neural-network-atlas/` （请按仓库名修改）
@@ -367,7 +367,7 @@ docs/KG_00_registry.json           지식 그래프 ID 등록부
 # ニューラルネットワーク構造図鑑 · ショウジョウバエロボット対戦
 
 ニューラルネットワーク構造42種を図鑑にまとめ、ショウジョウバエほどの大きさのロボットの脳に一つずつ入れたときの仕様と性能を、RPG形式の対戦で比べる4ページの解説です。
-博士・助手・ショウジョウバエ研究員・Money-Robo の四人のキャラクターが進行します。
+博士・助手・ショウジョウバエ研究員・アバボット の四人のキャラクターが進行します。
 
 - 文: Ahn Sangsun (株式会社M-Robo 代表)
 - オンラインで見る: `https://adminmrobo.github.io/neural-network-atlas/`（リポジトリ名に合わせて変更してください）
@@ -487,7 +487,7 @@ docs/KG_00_registry.json           지식 그래프 ID 등록부
 # Neyron tarmoqlar atlasi · Meva pashshasi robotlari jangi
 
 Neyron tarmoq tuzilmalarining 42 turini atlas qilib jamlab, meva pashshasidek robotning miyasiga birin-ketin joylaganda xususiyatlari va unumdorligini RPG jangi bilan solishtiradigan 4 sahifalik izohli material.
-Doktor, Yordamchi, Meva pashshasi tadqiqotchisi va Money-Robo — toʻrt qahramon olib boradi.
+Doktor, Yordamchi, Meva pashshasi tadqiqotchisi va AbaBot — toʻrt qahramon olib boradi.
 
 - Matn: Ahn Sangsun (M-Robo kompaniyasi rahbari)
 - Onlayn koʻrish: `https://adminmrobo.github.io/neural-network-atlas/` (repozitoriy nomiga qarab tuzating)
@@ -607,7 +607,7 @@ Ushbu repozitoriy keltirilgan tadqiqotlar va ularning mualliflari, HHMI Janelia,
 # Атлас нейросетей · Битва роботов-дрозофил
 
 Пояснение на 4 страницах: 42 архитектуры нейросетей собраны в атлас, а их характеристики и производительность при установке по одной в мозг робота размером с дрозофилу сравниваются в RPG-битве.
-Ведущие — четыре персонажа: Доктор, ассистент, Исследователь-дрозофила и Money-Robo.
+Ведущие — четыре персонажа: Доктор, ассистент, Исследователь-дрозофила и АбаБот.
 
 - Автор: Ан Сансон (Ahn Sangsun) (генеральный директор M-Robo)
 - Смотреть онлайн: `https://adminmrobo.github.io/neural-network-atlas/` (исправьте в соответствии с названием репозитория)
@@ -727,7 +727,7 @@ docs/KG_00_registry.json           지식 그래프 ID 등록부
 # Bách khoa cấu trúc mạng nơ-ron · Đại chiến robot ruồi giấm
 
 Đây là bài giải thích bốn trang: sắp xếp 42 cấu trúc mạng nơ-ron thành bách khoa, rồi so sánh thông số và hiệu năng của từng cấu trúc khi lần lượt lắp vào bộ não của robot nhỏ cỡ con ruồi giấm bằng trận đối đầu kiểu RPG.
-Bốn nhân vật Tiến sĩ, Trợ lý, Nhà nghiên cứu Ruồi giấm và Money-Robo dẫn dắt.
+Bốn nhân vật Tiến sĩ, Trợ lý, Nhà nghiên cứu Ruồi giấm và AbaBot dẫn dắt.
 
 - Tác giả: Ahn Sangsun (Giám đốc điều hành M-Robo)
 - Xem trực tuyến: `https://adminmrobo.github.io/neural-network-atlas/` (hãy sửa cho khớp với tên kho)
