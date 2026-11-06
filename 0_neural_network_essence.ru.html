@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><!-- i18n:switcher --><style data-i18n-sw>.i18n-pick{display:inline-flex;align-items:center;gap:4px;margin:0 8px;font:inherit;font-size:13px;white-space:nowrap}.i18n-pick select{font:inherit;font-size:13px;padding:3px 6px;border-radius:8px;border:1px solid var(--rule,rgba(128,128,128,.5));background:var(--panel,Canvas);color:var(--text,CanvasText)}.i18n-pick.float{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));right:max(8px,env(safe-area-inset-right,0px));z-index:9998}#i18nBanner{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;font:14px/1.3 var(--font,system-ui,sans-serif)}#i18nBanner>button{border-radius:999px;padding:9px 14px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);color:var(--text,#eceaf3);box-shadow:0 4px 14px rgba(0,0,0,.35);cursor:pointer;font:inherit}#i18nBanner ul{position:absolute;right:0;bottom:calc(100% + 8px);margin:0;padding:6px;list-style:none;min-width:150px;border-radius:12px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);box-shadow:0 8px 24px rgba(0,0,0,.4)}#i18nBanner ul[hidden]{display:none}#i18nBanner a{display:block;padding:7px 10px;border-radius:8px;color:var(--text,#eceaf3);text-decoration:none}#i18nBanner a:hover,#i18nBanner a:focus-visible{background:var(--panel2,#25283a)}#i18nBanner a[aria-current]{color:var(--amber,#f1b646);font-weight:700}@media print{#i18nBanner,.i18n-pick{display:none!important}}</style><script data-i18n-skip>(function(){var C={"langs": [["ko", "한국어"], ["en", "English"], ["zh", "中文"], ["ja", "日本語"], ["uz", "Oʻzbekcha"], ["ru", "Русский"], ["vi", "Tiếng Việt"]], "urls": {"ko": "0_neural_network_essence.html", "en": "0_neural_network_essence.en.html", "zh": "0_neural_network_essence.zh.html", "ja": "0_neural_network_essence.ja.html", "uz": "0_neural_network_essence.uz.html", "ru": "0_neural_network_essence.ru.html", "vi": "0_neural_network_essence.vi.html"}, "cur": "ru", "auto": true, "key": "nn_atlas_lang", "hosts": [["nav.top .logo", "after"], ["nav.top .wrap", "append"], ["nav", "append"]], "banner": true, "select": true},cur=C.cur,ok={},de=document.documentElement;C.langs.forEach(function(l){ok[l[0]]=1});
+function U(l){return C.urls[l]}
+function save(l){try{localStorage.setItem(C.key,l)}catch(e){}}
+function saved(){try{return localStorage.getItem(C.key)}catch(e){return null}}
+function go(l){location.replace(U(l)+'?lang='+l+location.hash)}
+var shown=function(){de.style.visibility=''};
+function tryGo(l){if(location.protocol==='file:'){go(l);return}
+ de.style.visibility='hidden';var t=setTimeout(shown,2500);
+ try{fetch(U(l),{method:'HEAD',cache:'no-store'}).then(function(r){if(r.ok)go(l);else{clearTimeout(t);shown()}},function(){clearTimeout(t);shown()})}catch(e){clearTimeout(t);shown()}}
+var q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q&&ok[q]){save(q);if(q!==cur){tryGo(q);}}
+else if(cur==='ko'&&C.auto){var s=saved(),to=null;
+ if(s&&ok[s]){if(s!=='ko')to=s;}
+ else if(location.protocol!=='file:'){var same=false;try{same=!!document.referrer&&new URL(document.referrer).origin===location.origin}catch(e){}
+  if(!same){var nav=(navigator.languages||[navigator.language||'']).map(function(x){return String(x).slice(0,2).toLowerCase()});
+   for(var i=0;i<nav.length;i++){if(nav[i]==='ko')break;if(ok[nav[i]]){to=nav[i];break;}}}}
+ if(to)tryGo(to);}
+function pick(l){save(l);location.href=U(l)+'?lang='+l+location.hash;}
+function name(l){for(var i=0;i<C.langs.length;i++)if(C.langs[i][0]===l)return C.langs[i][1];return l}
+function mount(){if(document.getElementById('i18nSel'))return;
+ if(C.select){var w=document.createElement('span');w.className='i18n-pick';w.innerHTML='<span aria-hidden="true">🌐</span>';
+  var s=document.createElement('select');s.id='i18nSel';s.setAttribute('aria-label','Language');
+  C.langs.forEach(function(l){var o=document.createElement('option');o.value=l[0];o.textContent=l[1];if(l[0]===cur)o.selected=true;s.appendChild(o);});
+  s.addEventListener('change',function(){pick(s.value)});w.appendChild(s);var put=false;
+  for(var i=0;i<C.hosts.length&&!put;i++){var h=document.querySelector(C.hosts[i][0]);if(!h)continue;var m=C.hosts[i][1];
+   if(m==='after')h.insertAdjacentElement('afterend',w);else if(m==='before')h.insertAdjacentElement('beforebegin',w);else h.appendChild(w);put=true;}
+  if(!put){w.classList.add('float');document.body.appendChild(w);}}
+ if(C.banner&&!document.getElementById('i18nBanner')){var b=document.createElement('div');b.id='i18nBanner';
+  var bt=document.createElement('button');bt.type='button';bt.setAttribute('aria-haspopup','true');bt.setAttribute('aria-expanded','false');bt.textContent='🌐 '+name(cur);
+  var ul=document.createElement('ul');ul.hidden=true;ul.setAttribute('role','menu');
+  C.langs.forEach(function(l){var li=document.createElement('li'),a=document.createElement('a');a.href=U(l[0])+'?lang='+l[0];a.textContent=l[1];a.lang=l[0];a.setAttribute('role','menuitem');
+   if(l[0]===cur)a.setAttribute('aria-current','true');a.addEventListener('click',function(e){e.preventDefault();pick(l[0])});li.appendChild(a);ul.appendChild(li);});
+  function close(){ul.hidden=true;bt.setAttribute('aria-expanded','false')}
+  bt.addEventListener('click',function(e){e.stopPropagation();ul.hidden=!ul.hidden;bt.setAttribute('aria-expanded',String(!ul.hidden))});
+  document.addEventListener('click',function(e){if(!b.contains(e.target))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();bt.focus&&!ul.hidden&&bt.focus()}});
+  b.appendChild(ul);b.appendChild(bt);document.body.appendChild(b);}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();})();</script><!-- /i18n:switcher -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Атлас нейросетей · Суть</title>
+<meta name="description" content="Одностраничная суть: все 27 структур с исходной схемы нейронных сетей перерисованы по одной и объяснены простыми словами. Отправная точка серии «Атлас нейросетей · Битва роботов-дрозофил».">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: 실험 노트 — 모눈 바탕 위에 네트워크 카드를 그룹별로 나열, 카드마다 구조도 + 설명 + 상대평가 막대 */
+:root{
+  --bg:#F3F6F8; --paper:#FFFFFF; --ink:#16212B; --muted:#5B6874; --line:#C9D2DA; --edge:#9AA7B3;
+  --accent:#1E55C8; --accent-soft:#E3EBFA; --warn:#B4630C; --warn-soft:#FBEEDD; --grid:rgba(30,85,200,.05);
+  --f-body:"IBM Plex Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --stroke-mark:#1a1a1a;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1419; --paper:#171E25; --ink:#E4EAF0; --muted:#94A2AF; --line:#2B3640; --edge:#4E5C69;
+  --accent:#7FA8FF; --accent-soft:#1C2A44; --warn:#F0A75A; --warn-soft:#33260F; --grid:rgba(127,168,255,.05); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1419; --paper:#171E25; --ink:#E4EAF0; --muted:#94A2AF; --line:#2B3640; --edge:#4E5C69;
+  --accent:#7FA8FF; --accent-soft:#1C2A44; --warn:#F0A75A; --warn-soft:#33260F; --grid:rgba(127,168,255,.05); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:1180px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.25}
+h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.02em}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lede{max-width:66ch;color:var(--muted);margin:12px 0 0}
+.byline{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-top:10px}
+header{display:grid;gap:4px;margin-bottom:32px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.intro{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-bottom:40px}
+.intro>*{min-width:0}
+.intro h2{font-size:18px;margin-bottom:8px}
+.intro p{margin:0 0 10px;max-width:66ch}
+.callout{background:var(--warn-soft);border-color:transparent}
+.callout h2{color:var(--warn)}
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 12px;font-size:13px}
+.legend div{display:flex;align-items:center;gap:8px}
+.legend svg{flex:none}
+.metrics{display:grid;gap:6px;font-size:13.5px;margin:8px 0 0;padding:0;list-style:none}
+.metrics b{font-family:var(--f-mono);font-weight:600;font-size:12px;color:var(--accent)}
+section.group{margin-top:44px}
+.group-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.group-head h2{font-size:22px}
+.group-head p{margin:0;color:var(--muted);font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.card h3{font-size:17px}
+.abbr{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.fig{background:var(--bg);border-radius:8px;padding:10px;overflow-x:auto;display:flex;justify-content:center}
+.fig svg{display:block;max-width:100%;height:auto}
+.card p{margin:0;font-size:14px}
+.analogy{color:var(--muted)}
+.analogy::before{content:"Аналогия  ";font-family:var(--f-mono);font-size:11px;color:var(--accent);letter-spacing:.06em}
+.uses{font-size:13.5px}
+.uses span{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-right:6px}
+.hidden-diff{font-size:13px;background:var(--warn-soft);color:var(--ink);border-radius:6px;padding:6px 10px}
+.hidden-diff b{color:var(--warn);font-weight:700}
+.bars{display:grid;gap:5px;margin-top:auto;padding-top:6px;border-top:1px dashed var(--line)}
+.bar{display:grid;grid-template-columns:76px 1fr 18px;align-items:center;gap:8px;font-size:12px}
+.bar label{color:var(--muted)}
+.track{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.track i{height:7px;border-radius:2px;background:var(--line)}
+.track i.on{background:var(--accent)}
+.bar em{font-family:var(--f-mono);font-style:normal;font-size:11px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.summary{margin-top:48px}
+.summary h2{font-size:22px;margin-bottom:12px}
+.tbl{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:640px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+footer{margin-top:40px;font-size:12.5px;color:var(--muted);max-width:80ch}
+@media (max-width:760px){.intro{grid-template-columns:1fr}.cards{grid-template-columns:1fr}}
+
+body{margin:0}
+.bar{grid-template-columns:104px 1fr 22px}.bar label{overflow-wrap:anywhere;line-height:1.25}
+.card-top{flex-wrap:wrap}.card-top h3{min-width:0;overflow-wrap:anywhere}
+nav.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:14px;height:52px;padding-block:0}
+nav.top .logo{font-weight:700;white-space:nowrap;font-size:14px;color:var(--ink);text-decoration:none}
+@media(max-width:560px){nav.top .logo{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}nav.top .wrap{gap:8px}.i18n-pick{margin:0 2px;flex:none}}nav.top .logo b{color:var(--accent)}
+nav.top .links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+nav.top .links::-webkit-scrollbar{display:none}
+nav.top .links a{flex:none;font-size:13px;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px}
+nav.top .links a:hover{background:var(--accent-soft);color:var(--ink)}
+.essence-note{background:var(--accent-soft);border-radius:10px;padding:12px 16px;font-size:14px;margin:14px 0 0;max-width:80ch}
+.next{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.next a{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 16px;text-decoration:none;color:var(--accent);font-weight:600;font-size:14px}
+@media(max-width:560px){nav.top .logo{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}}
+</style>
+<link rel="alternate" hreflang="ko" href="0_neural_network_essence.html"><link rel="alternate" hreflang="en" href="0_neural_network_essence.en.html"><link rel="alternate" hreflang="zh-CN" href="0_neural_network_essence.zh.html"><link rel="alternate" hreflang="ja" href="0_neural_network_essence.ja.html"><link rel="alternate" hreflang="uz" href="0_neural_network_essence.uz.html"><link rel="alternate" hreflang="ru" href="0_neural_network_essence.ru.html"><link rel="alternate" hreflang="vi" href="0_neural_network_essence.vi.html"><link rel="alternate" hreflang="x-default" href="0_neural_network_essence.html"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap"><style data-i18n-font>body,button,input,select,textarea{font-family:"IBM Plex Sans",system-ui,sans-serif}</style>
+</head>
+<body>
+<nav class="top" aria-label="Быстрый переход по серии"><div class="wrap"><a class="logo" href="index.html">Атлас нейросетей · Битва роботов <b>0</b></a><div class="links"><a href="index.html">Содержание</a><a href="1_neural_network_atlas_chart.html">1 Атлас ①</a><a href="2_neural_network_atlas_after.html">2 Атлас ②</a><a href="3_fruitfly_robot_rules.html">3 Битва ①</a><a href="4_fruitfly_robot_match.html">4 Битва ②</a></div></div></nav>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Страница 0 · Суть · Объяснение для новичков</div>
+  <h1>27 нейронных сетей, нарисованных по одной</h1>
+  <p class="lede">Мы заново нарисовали все 27 структур с исходной схемы нейронных сетей и простыми словами объяснили, что делает каждая, в чём она сильна и в чём слаба.</p>
+  <div class="byline">Текст · Ан Сансон (Ahn Sangsun) (генеральный директор M-Robo) · 2026-11-07</div>
+  <p class="essence-note">Эта страница — суть первого разбора, с которого началась серия, почти без изменений. За одну страницу вы пробежитесь по 27 структурам; подробности — в атласе на страницах 1·2, а игра в сравнение производительности — в битве роботов на страницах 3·4.</p>
+</header>
+
+<div class="intro">
+  <div class="panel callout">
+    <h2>Сначала важное: на этой схеме нарисована только «проводка»</h2>
+    <p>На исходной схеме показаны только <b>типы клеток (узлов) и соединительные линии</b>. Функция активации (как «ломать» сигнал), функция потерь (что считать ошибкой), способ обучения (как исправлять веса) и объём данных — всё это опущено, <b>как будто зафиксировано</b>.</p>
+    <p>Поэтому оценки на этой странице исходят из того же допущения: сравнивается, «что выгоднее для какой задачи <b>только по структуре связей</b>, при прочих равных условиях».</p>
+    <p>Правда, некоторые сети отличаются не <b>структурой, а именно этим опущенным элементом</b>. Например, у RBF картинка такая же, как у FF, различается лишь функция активации. В таких случаях на карточке есть отдельная пометка: <b>отличие, которого не видно на схеме</b>.</p>
+  </div>
+  <div class="panel">
+    <h2>Легенда клеток</h2>
+    <div class="legend" id="legend"></div>
+    <ul class="metrics">
+      <li><b>Выразительность</b> Насколько сложные закономерности сеть способна вместить (верхний предел точности)</li>
+      <li><b>Стабильность обучения</b> Хорошо ли сеть сходится, даже если её запускает новичок</li>
+      <li><b>Текущее применение</b> Насколько широко используется в 2026 году в практике и исследованиях</li>
+    </ul>
+    <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0">Звёзды — относительная оценка при одинаковых условиях. Реальная точность сильно зависит от данных и задачи.</p>
+  </div>
+</div>
+
+<div id="groups"></div>
+
+<section class="summary">
+  <h2>Выбор с первого взгляда</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Что нужно сделать</th><th>Какую структуру смотреть первой</th><th>Причина</th></tr></thead>
+    <tbody>
+      <tr><td>Табличные числовые данные: классификация и прогноз</td><td>DFF (MLP), SVM</td><td>Структура простая и стабильная. При малом объёме данных SVM тоже силён.</td></tr>
+      <tr><td>Распознавание изображений</td><td>DCN + DRN (остаточные связи)</td><td>Свёртка закладывает в структуру априорное знание: «смотреть на соседние пиксели вместе».</td></tr>
+      <tr><td>Временные ряды, датчики, текст</td><td>LSTM, GRU</td><td>Ячейки памяти долго хранят прошлую информацию. Сейчас часто используют и трансформеры.</td></tr>
+      <tr><td>Генерация новых данных</td><td>VAE, GAN</td><td>VAE стабилен, GAN даёт чёткие результаты, но его трудно обучать.</td></tr>
+      <tr><td>Удаление шума, поиск аномалий</td><td>DAE, AE</td><td>Сеть учится восстанавливать нормальные данные; если восстановить не удаётся, это считается аномалией.</td></tr>
+      <tr><td>Очень глубокие модели</td><td>DRN</td><td>Благодаря обходным путям модель обучается, даже если слоёв больше 100.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="next"><a href="index.html">← Содержание</a><a href="1_neural_network_atlas_chart.html">Страница 1 · Атлас нейросетей ① →</a><a href="2_neural_network_atlas_after.html">Страница 2 · 15 структур вне схемы →</a></div>
+<footer>
+  Исходная схема: Stefan Leijnen &amp; Fjodor van Veen, «The Neural Network Zoo», Proceedings 47(1):9 (2020), doi:10.3390/proceedings2020047009, лицензия CC BY. На этой схеме нет трансформера, ставшего позже основным (о нём — на странице 2). Внутри трансформера тоже без изменений присутствуют DFF и остаточные связи (DRN) с этой схемы. Диаграммы заново нарисованы в упрощённом виде по мотивам оригинала.
+</footer>
+</div>
+
+<script>
+const COL={I:"#F5C518",B:"#F5C518",N:"#F5C518",H:"#5DC21E",P:"#5DC21E",S:"#5DC21E",O:"#F26A12",M:"#F26A12",R:"#1AA3F0",C:"#1AA3F0",D:"#1AA3F0",K:"#F59CF0",V:"#F59CF0"};
+const MARK={B:"o",P:"o",M:"o",C:"o",V:"o",N:"t",S:"t",D:"t"};
+const NAMES={B:"Обратная входная клетка",I:"Входная клетка",N:"Шумовая входная клетка",H:"Скрытая клетка",P:"Вероятностная скрытая клетка",S:"Импульсная скрытая клетка",O:"Выходная клетка",M:"Клетка соответствия входа и выхода",R:"Рекуррентная клетка",C:"Клетка памяти",D:"Другая клетка памяти",K:"Ядро",V:"Свёртка/пулинг"};
+const NS="http://www.w3.org/2000/svg";
+const R=9;
+
+function nodeSVG(t,x,y){
+  let s=`<circle cx="${x}" cy="${y}" r="${R}" fill="${COL[t]}"/>`;
+  if(MARK[t]==="o")s+=`<circle cx="${x}" cy="${y}" r="${R-4}" fill="none" stroke="var(--stroke-mark)" stroke-width="1.2"/>`;
+  if(MARK[t]==="t")s+=`<path d="M${x} ${y-4.5}L${x+4.5} ${y+3.5}L${x-4.5} ${y+3.5}Z" fill="none" stroke="var(--stroke-mark)" stroke-width="1.2"/>`;
+  return s;
+}
+function parse(spec){return spec.split("|").map(l=>{const out=[];l.replace(/([A-Z])(\d+)/g,(_,t,n)=>{for(let i=0;i<+n;i++)out.push(t)});return out})}
+function hash(a,b,c){return ((a*73856093)^(b*19349663)^(c*83492791))>>>0}
+
+function draw(n){
+  if(n.circle)return drawCircle(n.circle);
+  const L=parse(n.spec),gx=38,gy=26,pad=16;
+  const maxN=Math.max(...L.map(l=>l.length));
+  const top=n.loop||n.skip?18:0, extraB=n.ntm?40:0;
+  const W=pad*2+(L.length-1)*gx, H=pad*2+(maxN-1)*gy+top+extraB;
+  const pos=L.map((l,i)=>l.map((t,j)=>({t,x:pad+i*gx,y:top+pad+((maxN-l.length)/2+j)*gy})));
+  let e="",nd="";
+  const mode=i=>Array.isArray(n.edges)?n.edges[i]:(n.edges||"full");
+  for(let i=0;i<L.length-1;i++){
+    if(n.kohonen&&i>0)continue;
+    const targets=n.kohonen?pos.slice(1).flat():pos[i+1];
+    pos[i].forEach((a,ai)=>targets.forEach((b,bi)=>{
+      const m=mode(i);
+      if(m==="local"&&Math.abs(a.y-b.y)>gy*1.05)return;
+      if(m==="sparse"&&hash(i,ai,bi)%3!==0&&!(bi===ai%targets.length))return;
+      if(m==="pair"&&ai!==bi)return;
+      e+=`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/>`;
+    }));
+  }
+  if(n.skip){for(let i=1;i+2<L.length-1;i+=2){const a=pos[i][0],b=pos[i+2][0];e+=`<path d="M${a.x} ${a.y-R}Q${(a.x+b.x)/2} ${a.y-R-28} ${b.x} ${b.y-R}" fill="none"/>`}}
+  if(n.ntm){const src=pos[L.length-2];const my=H-pad;const k=3;const mem=[];
+    for(let j=0;j<k;j++){mem.push({t:"C",x:src[0].x+(j-1)*gx*.9,y:my})}
+    mem.forEach(m=>src.forEach(s=>{e+=`<line x1="${s.x}" y1="${s.y}" x2="${m.x}" y2="${m.y}"/>`}));
+    mem.forEach(m=>nd+=nodeSVG(m.t,m.x,m.y));}
+  pos.flat().forEach(p=>{
+    if(n.loop&&"RCD".includes(p.t))e+=`<path d="M${p.x-5} ${p.y-R+1}C${p.x-9} ${p.y-R-14} ${p.x+9} ${p.y-R-14} ${p.x+5} ${p.y-R+1}" fill="none"/>`;
+    nd+=nodeSVG(p.t,p.x,p.y);
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" width="${W*1.25}" xmlns="${NS}" role="img" aria-label="${n.name} схема"><g stroke="var(--edge)" stroke-width="1.1">${e}</g>${nd}</svg>`;
+}
+function drawCircle(types){
+  const k=types.length,r=58,c=78,S=c*2;
+  const p=types.map((t,i)=>{const a=-Math.PI/2+i*2*Math.PI/k;return{t,x:c+r*Math.cos(a),y:c+r*Math.sin(a)}});
+  let e="";for(let i=0;i<k;i++)for(let j=i+1;j<k;j++)e+=`<line x1="${p[i].x.toFixed(1)}" y1="${p[i].y.toFixed(1)}" x2="${p[j].x.toFixed(1)}" y2="${p[j].y.toFixed(1)}"/>`;
+  return `<svg viewBox="0 0 ${S} ${S}" width="${S*1.1}" xmlns="${NS}" role="img"><g stroke="var(--edge)" stroke-width="1">${e}</g>${p.map(q=>nodeSVG(q.t,q.x.toFixed(1),q.y.toFixed(1))).join("")}</svg>`;
+}
+
+const GROUPS=[
+ {t:"Базовые сети прямого распространения",d:"Сигнал течёт только в одном направлении: от входа к выходу.",items:[
+  {name:"Перцептрон",abbr:"P",spec:"I2|O1",what:"Самая маленькая нейронная сеть: умножает входы на веса, суммирует, и если порог превышен, выдаёт 1, иначе 0.",an:"Один член жюри, который делит на «прошёл/не прошёл» по таблице баллов.",good:"Простая классификация, где хватает одной прямой",bad:"Задачи вроде XOR, которые нельзя разделить прямой, в принципе не решает",r:[1,5,1]},
+  {name:"Сеть прямого распространения",abbr:"FF",spec:"I2|H2|O1",what:"Между входом и выходом добавлен один скрытый слой. Благодаря ему можно проводить и криволинейные границы.",an:"Несколько членов жюри высказывают каждый своё мнение, а председатель подводит итог.",good:"Нелинейная классификация и регрессия небольшого масштаба",bad:"Слоёв мало, поэтому сложные паттерны ему не по силам",r:[2,5,2]},
+  {name:"Сеть радиальных базисных функций",abbr:"RBF",spec:"I2|H2|O1",what:"Проводка та же, что у FF. Скрытая клетка вычисляет колоколообразной (гауссовой) функцией, «насколько близко вход к опорной точке».",an:"Каждая скрытая клетка — один типичный клиент; измеряется, на кого из них похож новый клиент.",good:"Аппроксимация функций малой размерности, интерполяция, быстрое обучение",bad:"С ростом размерности входа число опорных точек взрывается",hidden:"Отличается только функция активации (гауссова). Это исключение: эта схема не фиксирует функцию активации.",r:[2,4,1]},
+  {name:"Глубокая сеть прямого распространения",abbr:"DFF",spec:"I3|H4|H4|O2",what:"FF, в которой друг на друга уложено несколько скрытых слоёв. Её обычно называют MLP, и с неё начинается «глубокое обучение».",an:"Субподряд субподрядчика: признаки, созданные предыдущим слоем, следующий слой комбинирует заново.",good:"Прогноз по табличным данным, деталь внутри других моделей (FFN в трансформере)",bad:"Сама не умеет использовать структуру изображений и последовательностей",r:[4,4,4]},
+ ]},
+ {t:"Рекуррентные сети и память",d:"Выход возвращается обратно к самой сети (петля сверху). Работает с порядком и временем.",items:[
+  {name:"рекуррентная нейронная сеть",abbr:"RNN",spec:"I3|R3|R3|O3",loop:1,what:"Состояние предыдущего момента снова подаётся на следующий момент. Обрабатывает упорядоченные данные, например предложения.",an:"Человек, который читает следующее предложение, помня предыдущее. Правда, память у него короткая.",good:"Короткие временные ряды, простое предсказание последовательностей",bad:"Когда последовательность длинная, забывает начало (затухание градиента)",r:[3,2,2]},
+  {name:"Долгая краткосрочная память",abbr:"LSTM",spec:"I3|C3|C3|O3",loop:1,what:"К ячейке памяти добавлены три «двери» (гейта) — «входа, забывания, выхода»; они решают, что помнить долго, а что отбросить.",an:"Человек, который носит с собой блокнот, записывает только важное, а ненужное стирает.",good:"Длинные временные ряды, данные датчиков и процессов, речь",bad:"Вычисления тяжёлые, а распараллеливание затруднено",r:[4,4,3]},
+  {name:"Управляемый рекуррентный блок",abbr:"GRU",spec:"I3|D3|D3|O3",loop:1,what:"Упрощённая версия LSTM с двумя дверями вместо трёх. Качество похожее, а весит меньше.",an:"Вместо блокнота стикеры. Просто, и в большинстве случаев хватает.",good:"Временные ряды, где данных мало или нужно быстрое обучение",bad:"На очень длинных зависимостях LSTM иногда немного лучше",r:[4,4,3]},
+ ]},
+ {t:"Семейство автокодировщиков",d:"Вход сжимается в узкий проход, затем снова разворачивается; сеть учится восстанавливать исходный вход.",items:[
+  {name:"Автокодировщик",abbr:"AE",spec:"I4|H2|M4",what:"Середина сужена, чтобы осталась только суть данных. Обучается так, чтобы выход совпадал со входом.",an:"Упражнение: пересказать длинный текст одной строкой, а потом восстановить оригинал.",good:"Снижение размерности, обнаружение аномалий, извлечение признаков",bad:"Не умеет правдоподобно создавать новые данные",r:[3,4,3]},
+  {name:"Вариационный автокодировщик",abbr:"VAE",spec:"I4|P3|M4",what:"Результат сжатия — не одна точка, а распределение вероятностей. Если брать выборку из этого распределения, можно генерировать новые данные.",an:"Сеть изучает диапазон «лиц в таком духе» и рисует новые лица в его пределах.",good:"Генеративные модели, исследование латентного пространства (сжиматель для моделей генерации изображений)",bad:"Результат довольно легко получается размытым",hidden:"Ключевое отличие — функция потерь (восстановление + регуляризация распределения).",r:[4,3,4]},
+  {name:"Шумоподавляющий автокодировщик",abbr:"DAE",spec:"N4|H5|M4",what:"К входу намеренно подмешивают шум и заставляют восстанавливать чистый оригинал.",an:"Упражнение: по испачканным нотам угадывать исходные ноты.",good:"Удаление шума, обучение устойчивых признаков (похоже на принцип диффузионных моделей)",bad:"Если неверно выбрать тип шума, эффект невелик",r:[3,4,3]},
+  {name:"Разреженный автокодировщик",abbr:"SAE",spec:"I2|H4|M2",what:"Середину, наоборот, расширяют, но принуждают включаться за раз лишь нескольким клеткам.",an:"Всё равно что в словаре много слов, а в одном предложении используются лишь несколько.",good:"Поиск интерпретируемых признаков (активно применяется в исследованиях интерпретации больших языковых моделей)",bad:"Трудно настроить степень разреженности",hidden:"Главное здесь — регуляризация разреженности (член функции потерь), поэтому по картинке отличить от AE трудно.",r:[3,3,4]},
+ ]},
+ {t:"Энергетические и вероятностные модели",d:"Используются клетки, которые соединены друг с другом без деления на слои или вероятностно включаются и выключаются. Главные герои ранних лет глубокого обучения.",items:[
+  {name:"Цепь Маркова",abbr:"MC",circle:"PPPPPPPP".split(""),what:"Вероятность перехода в следующее состояние определяется только текущим состоянием. Строго говоря, это не нейросеть, а вероятностная модель.",an:"Способ гадать о завтрашней погоде, глядя только на сегодняшнюю.",good:"Моделирование переходов состояний, простая генерация текста",bad:"Не помнит прошлого, способность к обучению слабая",r:[1,5,2]},
+  {name:"Сеть Хопфилда",abbr:"HN",circle:"BBBBBBBB".split(""),what:"Все клетки соединены друг с другом, и сеть сама скатывается к сохранённому паттерну. Это устройство ассоциативной памяти.",an:"Как услышать первый куплет песни и вспомнить остальное.",good:"Восстановление неполных паттернов, ассоциативная память",bad:"Ёмкость хранения мала, и она бывает попадает в посторонние паттерны",r:[2,3,1]},
+  {name:"Машина Больцмана",abbr:"BM",circle:"BBBBPPPP".split(""),what:"К сети Хопфилда добавлены вероятностные скрытые клетки. Она пытается выучить само вероятностное распределение данных.",an:"Детектив, который бросает кубик и ищет самое правдоподобное объяснение.",good:"Теоретически мощная генеративная модель",bad:"Все клетки соединены, поэтому обучение очень медленное",r:[3,1,1]},
+  {name:"Ограниченная машина Больцмана",abbr:"RBM",spec:"B4|P5",what:"В BM убраны связи между клетками одного слоя. Благодаря этому обучение стало идти с практичной скоростью.",an:"Собрание, где все говорили со всеми, упорядочили: общаются только «команда входа ↔ команда скрытого слоя».",good:"Рекомендательные системы, предобучение",bad:"Сейчас заменена более совершенными методами",r:[3,2,1]},
+  {name:"Глубокая сеть доверия",abbr:"DBN",spec:"B4|P3|H4|P3|M4",what:"Несколько RBM укладываются друг на друга, каждый слой предобучается по очереди, затем вся сеть дообучается.",an:"Способ строить, закрепляя кирпичи по одному.",good:"Повод для возрождения глубокого обучения в 2006 году",bad:"Сейчас почти не используется",hidden:"Суть — процедура послойного предобучения.",r:[4,2,1]},
+ ]},
+ {t:"Свёрточные нейронные сети",d:"Розовое ядро скользит по небольшому окну и смотрит на локальные закономерности. Особенность в том, что связи есть только между соседями.",items:[
+  {name:"Глубокая свёрточная нейронная сеть",abbr:"DCN",spec:"I5|K5|V4|V3|V2|H4|H4|O3",edges:["local","local","local","local","full","full","full"],what:"Малым окном (ядром) просматривает изображение, накапливает признаки в порядке линия → форма → объект, затем классифицирует.",an:"Как собирать пазл, разглядывая его по кусочкам через лупу.",good:"Классификация изображений, контроль дефектов, медицинские снимки",bad:"Общий контекст (связи между далёкими пикселями) видит поздно",r:[5,4,4]},
+  {name:"Развёртывающая нейронная сеть",abbr:"DN",spec:"I3|V3|V4|K5|O5",edges:["local","local","local","local"],what:"DCN, запущенная в обратную сторону. Из небольшой информации разворачивает большое изображение.",an:"Как заново рисовать чертёж по краткому описанию проекта.",good:"Генерация изображений, апскейлинг, восстанавливающая часть сегментации изображений",bad:"Сам по себе малопригоден, обычно работает в паре с другой моделью",r:[4,3,3]},
+  {name:"Свёрточная обратная графическая сеть",abbr:"DCIGN",spec:"I5|K5|V4|V3|P3|V3|V4|K5|O5",edges:["local","local","local","full","full","local","local","local"],what:"DCN (кодировщик) + вероятностный латентный слой + DN (декодировщик). По сути, VAE для изображений.",an:"Фото раскладывается на «ручки» вроде «угла, освещения, формы», затем ручки поворачивают, и картинка рисуется заново.",good:"Генерация изображений с изменённым освещением и позой",bad:"Обучение капризное, а сейчас преобладают другие генеративные модели",r:[4,2,1]},
+ ]},
+ {t:"Генеративные и особые структуры",d:"Сети с необычным способом обучения или соединения.",items:[
+  {name:"Генеративно-состязательная сеть",abbr:"GAN",spec:"B3|H3|H3|M3|H3|H3|M2",what:"Генератор создаёт подделки, а дискриминатор отличает настоящее от поддельного. Соревнуясь, они вместе становятся лучше.",an:"Бесконечный поединок фальсификатора и эксперта.",good:"Генерация чётких изображений, аугментация данных",bad:"Обучение нестабильно, и разнообразие легко рушится (коллапс мод)",hidden:"Суть — способ обучения, при котором две сети тренируются по очереди.",r:[5,1,3]},
+  {name:"Машина жидких состояний",abbr:"LSM",spec:"I4|S4|S4|S4|O2",edges:"sparse",what:"Клетки, выдающие электрические импульсы, как в мозге, соединяют случайно и небрежно, а обучают только выходной слой.",an:"По форме ряби от камня, брошенного в пруд, угадывают, что за камень.",good:"Нейроморфные чипы, обработка сигналов в реальном времени",bad:"Точность на общих задачах невысокая",hidden:"Активация спайками + обучается только выходной слой. Оба отличия лежат вне картинки.",r:[3,2,1]},
+  {name:"Машина экстремального обучения",abbr:"ELM",spec:"I3|H5|H5|O2",edges:"sparse",what:"Веса скрытого слоя задаются случайно и фиксируются. Выходной слой вычисляется за один раз, и на этом всё.",an:"Блюдо, где ингредиенты смешаны как попало, а точно подбирается только последняя приправа.",good:"Очень быстрое обучение, небольшие задачи реального времени",bad:"Низкий потолок точности",hidden:"Вся разница в способе обучения без обратного распространения ошибки.",r:[2,5,1]},
+  {name:"Эхо-сеть",abbr:"ESN",spec:"I3|R5|R5|R5|O3",edges:"sparse",what:"RNN, в которой клубок случайно соединённых рекуррентных клеток (резервуар) зафиксирован, а обучается только выходной слой.",an:"Подаёшь звук в пещеру с эхом и считываешь только узор эха.",good:"Предсказание хаотических временных рядов, быстрое обучение на временных рядах",bad:"Чувствительна к настройкам резервуара",hidden:"От RNN отличается тем, что рекуррентная часть не обучается.",r:[3,4,2]},
+  {name:"Глубокая остаточная нейронная сеть",abbr:"DRN",spec:"I2|H2|H2|H2|H2|H2|H2|O2",skip:1,what:"Через каждые несколько слоёв добавлен обходной путь, прибавляющий пропущенный вход. Поэтому обучаются даже сотни слоёв.",an:"Как поставить лифт в здании, где были только лестницы: информация хорошо доходит до верхних этажей.",good:"Очень глубокие модели в целом (ResNet, внутри трансформера тоже такая структура)",bad:"Один обходной путь не даёт структурных априорных знаний, поэтому его используют в сочетании с другими структурами",r:[5,5,5]},
+  {name:"Сеть Кохонена",abbr:"KN",spec:"I2|H3|H3|H3",kohonen:1,what:"Без правильных ответов упорядочивает входы так, чтобы похожие собирались в близких ячейках карты (самоорганизующаяся карта).",an:"Как библиотекарь, который ставит похожие книги на одну полку.",good:"Кластеризация, визуализация многомерных данных",bad:"Сама по себе точность предсказания и классификации невысока",hidden:"Суть — конкурентное обучение (обновляются только победившая клетка и её соседи).",r:[2,4,2]},
+  {name:"Метод опорных векторов",abbr:"SVM",spec:"I3|H3|H3|O1",what:"Граница между двумя группами проводится так, чтобы получилась «самая широкая дорога». Скорее классическое машинное обучение, чем нейронная сеть.",an:"Как проложить между двумя деревнями дорогу как можно шире.",good:"Классификация при малом объёме данных, табличные данные, базовые модели",bad:"Неэффективен при очень большом объёме данных или на необработанных изображениях",hidden:"Определяется способом обучения — оптимизацией максимального зазора.",r:[3,5,3]},
+  {name:"Нейронная машина Тьюринга",abbr:"NTM",spec:"I3|H2|H2|H3|O1",ntm:1,what:"К нейронной сети подключена внешняя память (синие клетки внизу), которую можно читать и записывать. Попытка научить сеть алгоритмам.",an:"Студент, которому к голове (нейросети) дали тетрадь (память).",good:"Исследования обучения алгоритмам, таким как копирование и сортировка",bad:"Обучение очень нестабильно, поэтому практическое применение редкость",r:[4,1,1]},
+ ]},
+];
+
+const LBL=["выразительность","стабильность обучения","текущее применение"];
+function bars(r){return `<div class="bars">${r.map((v,i)=>`<div class="bar"><label>${LBL[i]}</label><div class="track">${[1,2,3,4,5].map(k=>`<i class="${k<=v?"on":""}"></i>`).join("")}</div><em>${v}/5</em></div>`).join("")}</div>`}
+
+document.getElementById("groups").innerHTML=GROUPS.map(g=>`
+<section class="group"><div class="group-head"><h2>${g.t}</h2><p>${g.d}</p></div>
+<div class="cards">${g.items.map(n=>`
+<article class="card">
+  <div class="card-top"><h3>${n.name}</h3><span class="abbr">${n.abbr}</span></div>
+  <div class="fig">${draw(n)}</div>
+  <p>${n.what}</p>
+  <p class="analogy">${n.an}</p>
+  <p class="uses"><span>Сильные стороны</span>${n.good}</p>
+  <p class="uses"><span>Слабые стороны</span>${n.bad}</p>
+  ${n.hidden?`<div class="hidden-diff"><b>отличие, которого не видно на схеме</b> · ${n.hidden}</div>`:""}
+  ${bars(n.r)}
+</article>`).join("")}</div></section>`).join("");
+
+document.getElementById("legend").innerHTML=Object.keys(NAMES).map(t=>`<div><svg width="22" height="22" viewBox="0 0 22 22">${nodeSVG(t,11,11)}</svg>${NAMES[t]}</div>`).join("");
+</script>
+</body>
+</html>

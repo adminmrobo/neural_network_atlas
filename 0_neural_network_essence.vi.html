@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8"><!-- i18n:switcher --><style data-i18n-sw>.i18n-pick{display:inline-flex;align-items:center;gap:4px;margin:0 8px;font:inherit;font-size:13px;white-space:nowrap}.i18n-pick select{font:inherit;font-size:13px;padding:3px 6px;border-radius:8px;border:1px solid var(--rule,rgba(128,128,128,.5));background:var(--panel,Canvas);color:var(--text,CanvasText)}.i18n-pick.float{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));right:max(8px,env(safe-area-inset-right,0px));z-index:9998}#i18nBanner{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;font:14px/1.3 var(--font,system-ui,sans-serif)}#i18nBanner>button{border-radius:999px;padding:9px 14px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);color:var(--text,#eceaf3);box-shadow:0 4px 14px rgba(0,0,0,.35);cursor:pointer;font:inherit}#i18nBanner ul{position:absolute;right:0;bottom:calc(100% + 8px);margin:0;padding:6px;list-style:none;min-width:150px;border-radius:12px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);box-shadow:0 8px 24px rgba(0,0,0,.4)}#i18nBanner ul[hidden]{display:none}#i18nBanner a{display:block;padding:7px 10px;border-radius:8px;color:var(--text,#eceaf3);text-decoration:none}#i18nBanner a:hover,#i18nBanner a:focus-visible{background:var(--panel2,#25283a)}#i18nBanner a[aria-current]{color:var(--amber,#f1b646);font-weight:700}@media print{#i18nBanner,.i18n-pick{display:none!important}}</style><script data-i18n-skip>(function(){var C={"langs": [["ko", "한국어"], ["en", "English"], ["zh", "中文"], ["ja", "日本語"], ["uz", "Oʻzbekcha"], ["ru", "Русский"], ["vi", "Tiếng Việt"]], "urls": {"ko": "0_neural_network_essence.html", "en": "0_neural_network_essence.en.html", "zh": "0_neural_network_essence.zh.html", "ja": "0_neural_network_essence.ja.html", "uz": "0_neural_network_essence.uz.html", "ru": "0_neural_network_essence.ru.html", "vi": "0_neural_network_essence.vi.html"}, "cur": "vi", "auto": true, "key": "nn_atlas_lang", "hosts": [["nav.top .logo", "after"], ["nav.top .wrap", "append"], ["nav", "append"]], "banner": true, "select": true},cur=C.cur,ok={},de=document.documentElement;C.langs.forEach(function(l){ok[l[0]]=1});
+function U(l){return C.urls[l]}
+function save(l){try{localStorage.setItem(C.key,l)}catch(e){}}
+function saved(){try{return localStorage.getItem(C.key)}catch(e){return null}}
+function go(l){location.replace(U(l)+'?lang='+l+location.hash)}
+var shown=function(){de.style.visibility=''};
+function tryGo(l){if(location.protocol==='file:'){go(l);return}
+ de.style.visibility='hidden';var t=setTimeout(shown,2500);
+ try{fetch(U(l),{method:'HEAD',cache:'no-store'}).then(function(r){if(r.ok)go(l);else{clearTimeout(t);shown()}},function(){clearTimeout(t);shown()})}catch(e){clearTimeout(t);shown()}}
+var q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q&&ok[q]){save(q);if(q!==cur){tryGo(q);}}
+else if(cur==='ko'&&C.auto){var s=saved(),to=null;
+ if(s&&ok[s]){if(s!=='ko')to=s;}
+ else if(location.protocol!=='file:'){var same=false;try{same=!!document.referrer&&new URL(document.referrer).origin===location.origin}catch(e){}
+  if(!same){var nav=(navigator.languages||[navigator.language||'']).map(function(x){return String(x).slice(0,2).toLowerCase()});
+   for(var i=0;i<nav.length;i++){if(nav[i]==='ko')break;if(ok[nav[i]]){to=nav[i];break;}}}}
+ if(to)tryGo(to);}
+function pick(l){save(l);location.href=U(l)+'?lang='+l+location.hash;}
+function name(l){for(var i=0;i<C.langs.length;i++)if(C.langs[i][0]===l)return C.langs[i][1];return l}
+function mount(){if(document.getElementById('i18nSel'))return;
+ if(C.select){var w=document.createElement('span');w.className='i18n-pick';w.innerHTML='<span aria-hidden="true">🌐</span>';
+  var s=document.createElement('select');s.id='i18nSel';s.setAttribute('aria-label','Language');
+  C.langs.forEach(function(l){var o=document.createElement('option');o.value=l[0];o.textContent=l[1];if(l[0]===cur)o.selected=true;s.appendChild(o);});
+  s.addEventListener('change',function(){pick(s.value)});w.appendChild(s);var put=false;
+  for(var i=0;i<C.hosts.length&&!put;i++){var h=document.querySelector(C.hosts[i][0]);if(!h)continue;var m=C.hosts[i][1];
+   if(m==='after')h.insertAdjacentElement('afterend',w);else if(m==='before')h.insertAdjacentElement('beforebegin',w);else h.appendChild(w);put=true;}
+  if(!put){w.classList.add('float');document.body.appendChild(w);}}
+ if(C.banner&&!document.getElementById('i18nBanner')){var b=document.createElement('div');b.id='i18nBanner';
+  var bt=document.createElement('button');bt.type='button';bt.setAttribute('aria-haspopup','true');bt.setAttribute('aria-expanded','false');bt.textContent='🌐 '+name(cur);
+  var ul=document.createElement('ul');ul.hidden=true;ul.setAttribute('role','menu');
+  C.langs.forEach(function(l){var li=document.createElement('li'),a=document.createElement('a');a.href=U(l[0])+'?lang='+l[0];a.textContent=l[1];a.lang=l[0];a.setAttribute('role','menuitem');
+   if(l[0]===cur)a.setAttribute('aria-current','true');a.addEventListener('click',function(e){e.preventDefault();pick(l[0])});li.appendChild(a);ul.appendChild(li);});
+  function close(){ul.hidden=true;bt.setAttribute('aria-expanded','false')}
+  bt.addEventListener('click',function(e){e.stopPropagation();ul.hidden=!ul.hidden;bt.setAttribute('aria-expanded',String(!ul.hidden))});
+  document.addEventListener('click',function(e){if(!b.contains(e.target))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();bt.focus&&!ul.hidden&&bt.focus()}});
+  b.appendChild(ul);b.appendChild(bt);document.body.appendChild(b);}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();})();</script><!-- /i18n:switcher -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bách khoa cấu trúc mạng nơ-ron · Bản tinh gọn</title>
+<meta name="description" content="Bản tinh gọn một trang: vẽ lại từng cấu trúc trong 27 cấu trúc của biểu đồ gốc về mạng nơ-ron và giải thích bằng lời dễ hiểu. Điểm khởi đầu của loạt bài Bách khoa cấu trúc mạng nơ-ron · Đại chiến robot ruồi giấm.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: 실험 노트 — 모눈 바탕 위에 네트워크 카드를 그룹별로 나열, 카드마다 구조도 + 설명 + 상대평가 막대 */
+:root{
+  --bg:#F3F6F8; --paper:#FFFFFF; --ink:#16212B; --muted:#5B6874; --line:#C9D2DA; --edge:#9AA7B3;
+  --accent:#1E55C8; --accent-soft:#E3EBFA; --warn:#B4630C; --warn-soft:#FBEEDD; --grid:rgba(30,85,200,.05);
+  --f-body:"IBM Plex Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --stroke-mark:#1a1a1a;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1419; --paper:#171E25; --ink:#E4EAF0; --muted:#94A2AF; --line:#2B3640; --edge:#4E5C69;
+  --accent:#7FA8FF; --accent-soft:#1C2A44; --warn:#F0A75A; --warn-soft:#33260F; --grid:rgba(127,168,255,.05); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1419; --paper:#171E25; --ink:#E4EAF0; --muted:#94A2AF; --line:#2B3640; --edge:#4E5C69;
+  --accent:#7FA8FF; --accent-soft:#1C2A44; --warn:#F0A75A; --warn-soft:#33260F; --grid:rgba(127,168,255,.05); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:1180px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.25}
+h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.02em}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lede{max-width:66ch;color:var(--muted);margin:12px 0 0}
+.byline{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-top:10px}
+header{display:grid;gap:4px;margin-bottom:32px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.intro{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-bottom:40px}
+.intro>*{min-width:0}
+.intro h2{font-size:18px;margin-bottom:8px}
+.intro p{margin:0 0 10px;max-width:66ch}
+.callout{background:var(--warn-soft);border-color:transparent}
+.callout h2{color:var(--warn)}
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 12px;font-size:13px}
+.legend div{display:flex;align-items:center;gap:8px}
+.legend svg{flex:none}
+.metrics{display:grid;gap:6px;font-size:13.5px;margin:8px 0 0;padding:0;list-style:none}
+.metrics b{font-family:var(--f-mono);font-weight:600;font-size:12px;color:var(--accent)}
+section.group{margin-top:44px}
+.group-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.group-head h2{font-size:22px}
+.group-head p{margin:0;color:var(--muted);font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.card h3{font-size:17px}
+.abbr{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.fig{background:var(--bg);border-radius:8px;padding:10px;overflow-x:auto;display:flex;justify-content:center}
+.fig svg{display:block;max-width:100%;height:auto}
+.card p{margin:0;font-size:14px}
+.analogy{color:var(--muted)}
+.analogy::before{content:"Ví dụ so sánh  ";font-family:var(--f-mono);font-size:11px;color:var(--accent);letter-spacing:.06em}
+.uses{font-size:13.5px}
+.uses span{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-right:6px}
+.hidden-diff{font-size:13px;background:var(--warn-soft);color:var(--ink);border-radius:6px;padding:6px 10px}
+.hidden-diff b{color:var(--warn);font-weight:700}
+.bars{display:grid;gap:5px;margin-top:auto;padding-top:6px;border-top:1px dashed var(--line)}
+.bar{display:grid;grid-template-columns:76px 1fr 18px;align-items:center;gap:8px;font-size:12px}
+.bar label{color:var(--muted)}
+.track{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.track i{height:7px;border-radius:2px;background:var(--line)}
+.track i.on{background:var(--accent)}
+.bar em{font-family:var(--f-mono);font-style:normal;font-size:11px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.summary{margin-top:48px}
+.summary h2{font-size:22px;margin-bottom:12px}
+.tbl{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:640px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+footer{margin-top:40px;font-size:12.5px;color:var(--muted);max-width:80ch}
+@media (max-width:760px){.intro{grid-template-columns:1fr}.cards{grid-template-columns:1fr}}
+
+body{margin:0}
+.bar{grid-template-columns:104px 1fr 22px}.bar label{overflow-wrap:anywhere;line-height:1.25}
+.card-top{flex-wrap:wrap}.card-top h3{min-width:0;overflow-wrap:anywhere}
+nav.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:14px;height:52px;padding-block:0}
+nav.top .logo{font-weight:700;white-space:nowrap;font-size:14px;color:var(--ink);text-decoration:none}
+@media(max-width:560px){nav.top .logo{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}nav.top .wrap{gap:8px}.i18n-pick{margin:0 2px;flex:none}}nav.top .logo b{color:var(--accent)}
+nav.top .links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+nav.top .links::-webkit-scrollbar{display:none}
+nav.top .links a{flex:none;font-size:13px;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px}
+nav.top .links a:hover{background:var(--accent-soft);color:var(--ink)}
+.essence-note{background:var(--accent-soft);border-radius:10px;padding:12px 16px;font-size:14px;margin:14px 0 0;max-width:80ch}
+.next{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.next a{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 16px;text-decoration:none;color:var(--accent);font-weight:600;font-size:14px}
+@media(max-width:560px){nav.top .logo{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}}
+</style>
+<link rel="alternate" hreflang="ko" href="0_neural_network_essence.html"><link rel="alternate" hreflang="en" href="0_neural_network_essence.en.html"><link rel="alternate" hreflang="zh-CN" href="0_neural_network_essence.zh.html"><link rel="alternate" hreflang="ja" href="0_neural_network_essence.ja.html"><link rel="alternate" hreflang="uz" href="0_neural_network_essence.uz.html"><link rel="alternate" hreflang="ru" href="0_neural_network_essence.ru.html"><link rel="alternate" hreflang="vi" href="0_neural_network_essence.vi.html"><link rel="alternate" hreflang="x-default" href="0_neural_network_essence.html"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap"><style data-i18n-font>body,button,input,select,textarea{font-family:"IBM Plex Sans",system-ui,sans-serif}</style>
+</head>
+<body>
+<nav class="top" aria-label="Đi nhanh tới loạt bài"><div class="wrap"><a class="logo" href="index.html">Bách khoa nơ-ron · Đại chiến robot <b>0</b></a><div class="links"><a href="index.html">Mục lục</a><a href="1_neural_network_atlas_chart.html">1 Bách khoa ①</a><a href="2_neural_network_atlas_after.html">2 Bách khoa ②</a><a href="3_fruitfly_robot_rules.html">3 Đại chiến ①</a><a href="4_fruitfly_robot_match.html">4 Đại chiến ②</a></div></div></nav>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Trang 0 · Bản tinh gọn · Giải thích cho người mới</div>
+  <h1>27 loại mạng nơ-ron, vẽ từng cái một</h1>
+  <p class="lede">Chúng tôi vẽ lại toàn bộ 27 cấu trúc xuất hiện trong biểu đồ gốc về cấu trúc mạng nơ-ron, rồi giải thích bằng lời dễ hiểu mỗi cấu trúc làm gì, mạnh và yếu ở việc gì.</p>
+  <div class="byline">Tác giả · Ahn Sangsun (Giám đốc điều hành M-Robo) · 2026-11-07</div>
+  <p class="essence-note">Trang này là bản tinh gọn gần như giữ nguyên phần giải thích đầu tiên, vốn là điểm khởi đầu của loạt bài. Bạn lướt qua 27 cấu trúc chỉ trong một trang; phần giải thích chi tiết hơn nằm ở bách khoa trang 1·2, còn trò so sánh hiệu năng tiếp tục ở đại chiến robot trang 3·4.</p>
+</header>
+
+<div class="intro">
+  <div class="panel callout">
+    <h2>Điều cần biết trước: biểu đồ này chỉ vẽ “sơ đồ đấu dây”</h2>
+    <p>Biểu đồ gốc chỉ cho thấy <b>loại tế bào (nút) và các đường kết nối</b>. Hàm kích hoạt (bẻ cong tín hiệu thế nào), hàm mất mát (coi điều gì là sai), cách huấn luyện (sửa trọng số ra sao) và lượng dữ liệu đều bị lược đi, như thể <b>đã được cố định</b>.</p>
+    <p>Vì vậy, phần đánh giá trên trang này cũng theo cùng giả định: so sánh xem “nếu các điều kiện khác như nhau, <b>chỉ xét cấu trúc kết nối</b> thì thuận lợi cho việc gì”.</p>
+    <p>Tuy nhiên, một số mạng được phân biệt bằng <b>chính yếu tố bị lược đi đó chứ không phải cấu trúc</b>. Ví dụ, RBF có hình vẽ giống hệt FF, chỉ khác hàm kích hoạt. Trường hợp như vậy, thẻ được đánh dấu riêng là <b>khác biệt không thấy trên hình</b>.</p>
+  </div>
+  <div class="panel">
+    <h2>Chú giải các tế bào</h2>
+    <div class="legend" id="legend"></div>
+    <ul class="metrics">
+      <li><b>Khả năng biểu diễn</b> Chứa được các mẫu phức tạp đến đâu (giới hạn trên của độ chính xác)</li>
+      <li><b>Độ ổn định khi huấn luyện</b> Người mới chạy có hội tụ tốt không</li>
+      <li><b>Mức sử dụng hiện nay</b> Được dùng nhiều đến đâu trong thực tế và nghiên cứu năm 2026</li>
+    </ul>
+    <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0">Số sao là đánh giá tương đối với giả định cùng điều kiện. Độ chính xác thực tế khác nhau nhiều tùy dữ liệu và bài toán.</p>
+  </div>
+</div>
+
+<div id="groups"></div>
+
+<section class="summary">
+  <h2>Chọn nhanh trong một cái nhìn</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Việc muốn làm</th><th>Cấu trúc nên xem trước</th><th>Lý do</th></tr></thead>
+    <tbody>
+      <tr><td>Phân loại và dự đoán dữ liệu số dạng bảng</td><td>DFF (MLP), SVM</td><td>Cấu trúc đơn giản và ổn định. Khi dữ liệu ít, SVM cũng mạnh.</td></tr>
+      <tr><td>Nhận dạng hình ảnh</td><td>DCN + DRN (kết nối phần dư)</td><td>Tích chập đưa vào cấu trúc kiến thức có sẵn rằng “các điểm ảnh gần nhau thì nhìn cùng nhau”.</td></tr>
+      <tr><td>Chuỗi thời gian, cảm biến, câu văn</td><td>LSTM, GRU</td><td>Tế bào nhớ giữ thông tin quá khứ được lâu. Gần đây Transformer cũng được dùng nhiều.</td></tr>
+      <tr><td>Tạo dữ liệu mới</td><td>VAE, GAN</td><td>VAE ổn định, GAN cho ảnh sắc nét nhưng khó huấn luyện.</td></tr>
+      <tr><td>Khử nhiễu, phát hiện bất thường</td><td>DAE, AE</td><td>Học cách khôi phục dữ liệu bình thường; nếu không khôi phục được thì coi là bất thường.</td></tr>
+      <tr><td>Mô hình rất sâu</td><td>DRN</td><td>Nhờ kết nối đường tắt, mạng vẫn học được dù có hơn 100 lớp.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="next"><a href="index.html">← Mục lục</a><a href="1_neural_network_atlas_chart.html">Trang 1 · Bách khoa cấu trúc mạng nơ-ron ① →</a><a href="2_neural_network_atlas_after.html">Trang 2 · 15 loại ngoài biểu đồ →</a></div>
+<footer>
+  Biểu đồ gốc: Stefan Leijnen &amp; Fjodor van Veen, “The Neural Network Zoo”, Proceedings 47(1):9 (2020), doi:10.3390/proceedings2020047009, giấy phép CC BY. Biểu đồ này thiếu Transformer, thứ về sau trở thành xu hướng chủ đạo (được bàn ở trang 2). Bên trong Transformer cũng có nguyên DFF và kết nối phần dư (DRN) của biểu đồ này. Các sơ đồ được vẽ lại và đơn giản hóa dựa trên bản gốc.
+</footer>
+</div>
+
+<script>
+const COL={I:"#F5C518",B:"#F5C518",N:"#F5C518",H:"#5DC21E",P:"#5DC21E",S:"#5DC21E",O:"#F26A12",M:"#F26A12",R:"#1AA3F0",C:"#1AA3F0",D:"#1AA3F0",K:"#F59CF0",V:"#F59CF0"};
+const MARK={B:"o",P:"o",M:"o",C:"o",V:"o",N:"t",S:"t",D:"t"};
+const NAMES={B:"Ô đầu vào ngược chiều",I:"Ô đầu vào",N:"Ô đầu vào nhiễu",H:"Ô ẩn",P:"Ô ẩn xác suất",S:"Ô ẩn xung",O:"Ô đầu ra",M:"Ô khớp đầu vào-đầu ra",R:"Ô hồi quy",C:"Ô nhớ",D:"Ô nhớ khác",K:"Kernel",V:"Tích chập/gộp"};
+const NS="http://www.w3.org/2000/svg";
+const R=9;
+
+function nodeSVG(t,x,y){
+  let s=`<circle cx="${x}" cy="${y}" r="${R}" fill="${COL[t]}"/>`;
+  if(MARK[t]==="o")s+=`<circle cx="${x}" cy="${y}" r="${R-4}" fill="none" stroke="var(--stroke-mark)" stroke-width="1.2"/>`;
+  if(MARK[t]==="t")s+=`<path d="M${x} ${y-4.5}L${x+4.5} ${y+3.5}L${x-4.5} ${y+3.5}Z" fill="none" stroke="var(--stroke-mark)" stroke-width="1.2"/>`;
+  return s;
+}
+function parse(spec){return spec.split("|").map(l=>{const out=[];l.replace(/([A-Z])(\d+)/g,(_,t,n)=>{for(let i=0;i<+n;i++)out.push(t)});return out})}
+function hash(a,b,c){return ((a*73856093)^(b*19349663)^(c*83492791))>>>0}
+
+function draw(n){
+  if(n.circle)return drawCircle(n.circle);
+  const L=parse(n.spec),gx=38,gy=26,pad=16;
+  const maxN=Math.max(...L.map(l=>l.length));
+  const top=n.loop||n.skip?18:0, extraB=n.ntm?40:0;
+  const W=pad*2+(L.length-1)*gx, H=pad*2+(maxN-1)*gy+top+extraB;
+  const pos=L.map((l,i)=>l.map((t,j)=>({t,x:pad+i*gx,y:top+pad+((maxN-l.length)/2+j)*gy})));
+  let e="",nd="";
+  const mode=i=>Array.isArray(n.edges)?n.edges[i]:(n.edges||"full");
+  for(let i=0;i<L.length-1;i++){
+    if(n.kohonen&&i>0)continue;
+    const targets=n.kohonen?pos.slice(1).flat():pos[i+1];
+    pos[i].forEach((a,ai)=>targets.forEach((b,bi)=>{
+      const m=mode(i);
+      if(m==="local"&&Math.abs(a.y-b.y)>gy*1.05)return;
+      if(m==="sparse"&&hash(i,ai,bi)%3!==0&&!(bi===ai%targets.length))return;
+      if(m==="pair"&&ai!==bi)return;
+      e+=`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/>`;
+    }));
+  }
+  if(n.skip){for(let i=1;i+2<L.length-1;i+=2){const a=pos[i][0],b=pos[i+2][0];e+=`<path d="M${a.x} ${a.y-R}Q${(a.x+b.x)/2} ${a.y-R-28} ${b.x} ${b.y-R}" fill="none"/>`}}
+  if(n.ntm){const src=pos[L.length-2];const my=H-pad;const k=3;const mem=[];
+    for(let j=0;j<k;j++){mem.push({t:"C",x:src[0].x+(j-1)*gx*.9,y:my})}
+    mem.forEach(m=>src.forEach(s=>{e+=`<line x1="${s.x}" y1="${s.y}" x2="${m.x}" y2="${m.y}"/>`}));
+    mem.forEach(m=>nd+=nodeSVG(m.t,m.x,m.y));}
+  pos.flat().forEach(p=>{
+    if(n.loop&&"RCD".includes(p.t))e+=`<path d="M${p.x-5} ${p.y-R+1}C${p.x-9} ${p.y-R-14} ${p.x+9} ${p.y-R-14} ${p.x+5} ${p.y-R+1}" fill="none"/>`;
+    nd+=nodeSVG(p.t,p.x,p.y);
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" width="${W*1.25}" xmlns="${NS}" role="img" aria-label="${n.name} sơ đồ"><g stroke="var(--edge)" stroke-width="1.1">${e}</g>${nd}</svg>`;
+}
+function drawCircle(types){
+  const k=types.length,r=58,c=78,S=c*2;
+  const p=types.map((t,i)=>{const a=-Math.PI/2+i*2*Math.PI/k;return{t,x:c+r*Math.cos(a),y:c+r*Math.sin(a)}});
+  let e="";for(let i=0;i<k;i++)for(let j=i+1;j<k;j++)e+=`<line x1="${p[i].x.toFixed(1)}" y1="${p[i].y.toFixed(1)}" x2="${p[j].x.toFixed(1)}" y2="${p[j].y.toFixed(1)}"/>`;
+  return `<svg viewBox="0 0 ${S} ${S}" width="${S*1.1}" xmlns="${NS}" role="img"><g stroke="var(--edge)" stroke-width="1">${e}</g>${p.map(q=>nodeSVG(q.t,q.x.toFixed(1),q.y.toFixed(1))).join("")}</svg>`;
+}
+
+const GROUPS=[
+ {t:"Mạng nơ-ron truyền thẳng cơ bản",d:"Tín hiệu chỉ chảy theo một hướng, từ đầu vào đến đầu ra.",items:[
+  {name:"Perceptron",abbr:"P",spec:"I2|O1",what:"Mạng nơ-ron nhỏ nhất: nhân đầu vào với trọng số rồi cộng lại, vượt ngưỡng thì cho ra 1, không thì cho ra 0.",an:"Một giám khảo duy nhất, dùng bảng điểm để phân loại đỗ/trượt.",good:"Phân loại đơn giản chỉ cần một đường thẳng",bad:"Bài toán không chia được bằng đường thẳng như XOR thì về nguyên lý không giải được",r:[1,5,1]},
+  {name:"Mạng nơ-ron truyền thẳng",abbr:"FF",spec:"I2|H2|O1",what:"Giữa đầu vào và đầu ra có thêm một lớp ẩn. Nhờ lớp ẩn, mạng có thể vẽ cả ranh giới cong.",an:"Nhiều giám khảo, mỗi người đưa ra ý kiến riêng, rồi chủ tịch hội đồng tổng hợp lại.",good:"Phân loại·hồi quy phi tuyến quy mô nhỏ",bad:"Lớp nông nên có giới hạn với mẫu phức tạp",r:[2,5,2]},
+  {name:"Mạng hàm cơ sở bán kính",abbr:"RBF",spec:"I2|H2|O1",what:"Đấu dây giống FF. Ô ẩn tính 'gần điểm chuẩn đến mức nào' theo hình chuông (Gaussian).",an:"Mỗi tế bào ẩn là một khách hàng tiêu biểu, và mạng đo xem khách mới giống ai nhất.",good:"Xấp xỉ hàm chiều thấp, nội suy, học nhanh",bad:"Khi chiều đầu vào lớn thì số điểm chuẩn bùng nổ",hidden:"Chỉ khác hàm kích hoạt (Gauss). Đây là ngoại lệ: biểu đồ này không cố định hàm kích hoạt.",r:[2,4,1]},
+  {name:"Mạng nơ-ron truyền thẳng sâu",abbr:"DFF",spec:"I3|H4|H4|O2",what:"FF xếp chồng nhiều lớp ẩn. Thường gọi là MLP và là điểm khởi đầu của “học sâu”.",an:"Thầu phụ của thầu phụ: các đặc trưng do lớp trước tạo ra được lớp sau kết hợp lại.",good:"Dự đoán dữ liệu bảng, bộ phận bên trong các mô hình khác (FFN trong Transformer)",bad:"Tự nó không tận dụng được cấu trúc của dữ liệu ảnh hay chuỗi",r:[4,4,4]},
+ ]},
+ {t:"Mạng nơ-ron hồi quy và trí nhớ",d:"Đầu ra quay trở lại chính nó (vòng lặp phía trên). Xử lý thứ tự và thời gian.",items:[
+  {name:"mạng nơ-ron hồi quy",abbr:"RNN",spec:"I3|R3|R3|O3",loop:1,what:"Đưa lại trạng thái của thời điểm trước vào thời điểm kế tiếp. Xử lý dữ liệu có thứ tự như câu văn.",an:"Người vừa nhớ câu trước vừa đọc câu sau. Có điều trí nhớ ngắn.",good:"Chuỗi thời gian ngắn, dự đoán thứ tự đơn giản",bad:"Dài ra thì quên thông tin phía trước (tiêu biến gradient)",r:[3,2,2]},
+  {name:"Bộ nhớ dài-ngắn hạn",abbr:"LSTM",spec:"I3|C3|C3|O3",loop:1,what:"Gắn vào tế bào nhớ ba cánh cổng (gate) “nhập, quên, xuất” để chọn cái gì cần nhớ lâu và cái gì cần bỏ.",an:"Người mang theo sổ tay, chỉ ghi điều quan trọng và xóa đi những gì không cần.",good:"Chuỗi thời gian dài, dữ liệu cảm biến·công đoạn, giọng nói",bad:"Tính toán nặng và khó song song hóa",r:[4,4,3]},
+  {name:"Đơn vị hồi quy có cổng",abbr:"GRU",spec:"I3|D3|D3|O3",loop:1,what:"Bản giản lược giảm số cổng của LSTM xuống hai. Hiệu năng gần tương đương và nhẹ hơn.",an:"Giấy ghi chú thay cho sổ tay. Gọn nhẹ mà phần lớn là đủ.",good:"Chuỗi thời gian có ít dữ liệu hoặc cần học nhanh",bad:"Với phụ thuộc rất dài, đôi khi LSTM nhỉnh hơn một chút",r:[4,4,3]},
+ ]},
+ {t:"Họ autoencoder",d:"Nén đầu vào qua một lối hẹp rồi mở ra lại, học cách khôi phục đầu vào ban đầu.",items:[
+  {name:"Autoencoder",abbr:"AE",spec:"I4|H2|M4",what:"Thu hẹp phần giữa để chỉ giữ lại cốt lõi của dữ liệu. Học sao cho đầu ra giống đầu vào.",an:"Luyện tập tóm một bài dài thành một dòng rồi thử khôi phục lại nguyên văn.",good:"Giảm chiều, phát hiện bất thường, trích xuất đặc trưng",bad:"Không tạo ra được dữ liệu mới một cách hợp lý",r:[3,4,3]},
+  {name:"Autoencoder biến phân",abbr:"VAE",spec:"I4|P3|M4",what:"Biến kết quả nén thành một phân phối xác suất thay vì một điểm. Lấy mẫu từ phân phối đó thì có thể tạo ra dữ liệu mới.",an:"Học phạm vi của những “khuôn mặt kiểu này” rồi vẽ khuôn mặt mới trong phạm vi đó.",good:"Mô hình sinh tạo, khám phá không gian tiềm ẩn (bộ nén của mô hình tạo ảnh)",bad:"Kết quả dễ hơi mờ",hidden:"Hàm mất mát (khôi phục + điều chỉnh phân phối) là khác biệt cốt lõi.",r:[4,3,4]},
+  {name:"Autoencoder khử nhiễu",abbr:"DAE",spec:"N4|H5|M4",what:"Cố ý trộn nhiễu vào đầu vào và bắt khôi phục bản gốc sạch.",an:"Luyện tập nhìn bản nhạc bị lem để đoán ra bản nhạc gốc.",good:"Khử nhiễu, học đặc trưng bền vững (giống nguyên lý của mô hình khuếch tán)",bad:"Chọn sai loại nhiễu thì hiệu quả nhỏ",r:[3,4,3]},
+  {name:"Autoencoder thưa",abbr:"SAE",spec:"I2|H4|M2",what:"Ngược lại, mở rộng phần giữa nhưng buộc mỗi lần chỉ vài ô được bật.",an:"Giống như từ điển có rất nhiều từ nhưng một câu chỉ dùng vài từ.",good:"Tìm các đặc trưng có thể diễn giải (được dùng tích cực trong nghiên cứu diễn giải mô hình ngôn ngữ lớn)",bad:"Điều chỉnh cường độ thưa khá khó",hidden:"Điểm mấu chốt là điều chuẩn độ thưa (một số hạng của hàm mất mát), nên nhìn hình khó phân biệt với AE.",r:[3,3,4]},
+ ]},
+ {t:"Mô hình dựa trên năng lượng·xác suất",d:"Dùng các tế bào nối với nhau không chia lớp, hoặc bật tắt theo xác suất. Là nhân vật chính của thời kỳ đầu học sâu.",items:[
+  {name:"Chuỗi Markov",abbr:"MC",circle:"PPPPPPPP".split(""),what:"Xác suất chuyển sang trạng thái kế tiếp chỉ do trạng thái hiện tại quyết định. Nói chặt chẽ thì đây là mô hình xác suất chứ không phải mạng nơ-ron.",an:"Cách đoán thời tiết ngày mai chỉ nhìn thời tiết hôm nay.",good:"Mô hình hóa chuyển trạng thái, sinh văn bản đơn giản",bad:"Không nhớ quá khứ và khả năng học yếu",r:[1,5,2]},
+  {name:"Mạng Hopfield",abbr:"HN",circle:"BBBBBBBB".split(""),what:"Mọi ô nối với nhau và tự lăn về phía mẫu đã lưu. Là thiết bị nhớ liên tưởng.",an:"Như chỉ nghe câu đầu bài hát là nhớ ra phần còn lại.",good:"Khôi phục mẫu không đầy đủ, nhớ liên tưởng",bad:"Dung lượng lưu nhỏ và đôi khi sa vào mẫu lạc đề",r:[2,3,1]},
+  {name:"Máy Boltzmann",abbr:"BM",circle:"BBBBPPPP".split(""),what:"Thêm các ô ẩn xác suất vào Hopfield. Cố gắng học chính phân phối xác suất của dữ liệu.",an:"Thám tử gieo xúc xắc để tìm lời giải thích hợp lý nhất.",good:"Mô hình sinh tạo mạnh về mặt lý thuyết",bad:"Vì nối với nhau hết nên học rất chậm",r:[3,1,1]},
+  {name:"Máy Boltzmann hạn chế",abbr:"RBM",spec:"B4|P5",what:"Ở BM, các kết nối giữa những tế bào cùng lớp đã bị cắt. Nhờ vậy việc huấn luyện đạt tốc độ thực dụng.",an:"Cuộc họp mà ai cũng nói chuyện với ai, nay được sắp xếp lại để chỉ “nhóm đầu vào ↔ nhóm ẩn” nói chuyện với nhau.",good:"Hệ thống gợi ý, huấn luyện trước",bad:"Hiện nay đã được thay bằng các phương pháp tốt hơn",r:[3,2,1]},
+  {name:"Mạng niềm tin sâu",abbr:"DBN",spec:"B4|P3|H4|P3|M4",what:"Xếp chồng nhiều RBM, huấn luyện trước từng lớp một rồi tinh chỉnh toàn bộ.",an:"Phương pháp xây từng viên gạch một cho cứng dần.",good:"Cú hích cho sự hồi sinh của học sâu năm 2006",bad:"Hiện nay gần như không còn được dùng",hidden:"Bản sắc là quy trình học huấn luyện trước từng lớp.",r:[4,2,1]},
+ ]},
+ {t:"Mạng nơ-ron tích chập",d:"Hạt nhân màu hồng trượt qua một cửa sổ nhỏ để nhìn các mẫu cục bộ. Đặc điểm là kết nối chỉ có giữa các láng giềng.",items:[
+  {name:"Mạng nơ-ron tích chập sâu",abbr:"DCN",spec:"I5|K5|V4|V3|V2|H4|H4|O3",edges:["local","local","local","local","full","full","full"],what:"Quét ảnh bằng cửa sổ nhỏ (hạt nhân), tích lũy đặc trưng theo thứ tự đường nét → hình dạng → vật thể rồi mới phân loại.",an:"Giống như vừa nhìn từng chút bằng kính lúp vừa ghép các mảnh xếp hình.",good:"Phân loại ảnh, kiểm tra lỗi, ảnh y khoa",bad:"Nhìn thấy bối cảnh toàn cục (quan hệ giữa các điểm ảnh ở xa) khá muộn",r:[5,4,4]},
+  {name:"Mạng nơ-ron giải tích chập",abbr:"DN",spec:"I3|V3|V4|K5|O5",edges:["local","local","local","local"],what:"Chạy DCN ngược lại. Mở ra ảnh lớn từ thông tin nhỏ.",an:"Giống việc xem bản tóm tắt thiết kế rồi vẽ lại bản vẽ.",good:"Tạo ảnh, phóng to ảnh, phần khôi phục của phân vùng ảnh",bad:"Khó dùng một mình, thường đi cặp với mô hình khác",r:[4,3,3]},
+  {name:"Mạng đồ họa nghịch tích chập",abbr:"DCIGN",spec:"I5|K5|V4|V3|P3|V3|V4|K5|O5",edges:["local","local","local","full","full","local","local","local"],what:"DCN (bộ mã hóa) + lớp tiềm ẩn xác suất + DN (bộ giải mã). Thực chất là VAE dành cho ảnh.",an:"Tách bức ảnh thành các “núm chỉnh” như “góc nhìn, ánh sáng, hình dạng”, rồi xoay núm chỉnh để vẽ lại.",good:"Tạo ảnh với ánh sáng·tư thế đã đổi",bad:"Khó học và hiện nay các mô hình sinh tạo khác chiếm ưu thế",r:[4,2,1]},
+ ]},
+ {t:"Cấu trúc sinh tạo·đặc biệt",d:"Những mạng có cách học hoặc cách kết nối độc đáo.",items:[
+  {name:"Mạng đối nghịch sinh tạo",abbr:"GAN",spec:"B3|H3|H3|M3|H3|H3|M2",what:"Bộ sinh tạo làm đồ giả còn bộ phân biệt phân biệt thật giả. Hai bên cạnh tranh và cùng giỏi lên.",an:"Cuộc đối đầu không hồi kết giữa kẻ làm giả và người giám định.",good:"Tạo ảnh sắc nét, tăng cường dữ liệu",bad:"Học không ổn định và đa dạng dễ sụp đổ (sụp đổ chế độ)",hidden:"Cốt lõi là cách học luân phiên huấn luyện hai mạng.",r:[5,1,3]},
+  {name:"Máy trạng thái lỏng",abbr:"LSM",spec:"I4|S4|S4|S4|O2",edges:"sparse",what:"Nối lỏng lẻo ngẫu nhiên các tế bào phát xung điện như trong não, và chỉ huấn luyện lớp đầu ra.",an:"Nhìn hình sóng tạo ra khi ném đá xuống ao để đoán đó là hòn đá nào.",good:"Chip neuromorphic, xử lý tín hiệu thời gian thực",bad:"Độ chính xác ở bài toán tổng quát khá thấp",hidden:"Kích hoạt xung + chỉ học lớp đầu ra. Cả hai đều là khác biệt ngoài hình vẽ.",r:[3,2,1]},
+  {name:"Máy học cực đoan",abbr:"ELM",spec:"I3|H5|H5|O2",edges:"sparse",what:"Đặt trọng số của lớp ẩn một cách ngẫu nhiên rồi cố định. Chỉ tính lớp đầu ra một lần là xong.",an:"Món ăn mà nguyên liệu trộn bừa, chỉ nêm gia vị cuối cùng cho thật chuẩn.",good:"Học rất nhanh, bài toán thời gian thực quy mô nhỏ",bad:"Giới hạn độ chính xác thấp",hidden:"Cách học không dùng lan truyền ngược là toàn bộ sự khác biệt.",r:[2,5,1]},
+  {name:"Mạng trạng thái vang",abbr:"ESN",spec:"I3|R5|R5|R5|O3",edges:"sparse",what:"RNN cố định một khối ô hồi quy nối ngẫu nhiên (hồ chứa) và chỉ học lớp đầu ra.",an:"Đưa âm thanh vào hang vang tiếng vọng rồi chỉ đọc mẫu tiếng vọng.",good:"Dự đoán chuỗi thời gian hỗn loạn, học chuỗi thời gian nhanh",bad:"Nhạy với giá trị thiết lập của hồ chứa",hidden:"Khác RNN ở chỗ không học phần hồi quy.",r:[3,4,2]},
+  {name:"Mạng nơ-ron phần dư sâu",abbr:"DRN",spec:"I2|H2|H2|H2|H2|H2|H2|O2",skip:1,what:"Gắn đường tắt cộng đầu vào bỏ qua mỗi vài lớp. Nhờ vậy học được cả hàng trăm lớp.",an:"Đặt thang máy vào tòa nhà chỉ có cầu thang để thông tin truyền tốt lên tận tầng trên.",good:"Nhìn chung là các mô hình rất sâu (ResNet, bên trong Transformer cũng có cấu trúc này)",bad:"Chỉ riêng đường tắt không cho tri thức tiên nghiệm về cấu trúc nên dùng kết hợp với cấu trúc khác",r:[5,5,5]},
+  {name:"Mạng Kohonen",abbr:"KN",spec:"I2|H3|H3|H3",kohonen:1,what:"Không cần đáp án, sắp xếp sao cho các đầu vào giống nhau tụ về những ô gần nhau trên bản đồ (bản đồ tự tổ chức).",an:"Thủ thư xếp những cuốn sách giống nhau lên cùng một giá.",good:"Phân cụm, trực quan hóa dữ liệu nhiều chiều",bad:"Bản thân độ chính xác dự đoán·phân loại không mạnh",hidden:"Cốt lõi là học cạnh tranh (chỉ cập nhật ô thắng và các ô lân cận).",r:[2,4,2]},
+  {name:"Máy vector hỗ trợ",abbr:"SVM",spec:"I3|H3|H3|O1",what:"Vẽ đường ranh giới giữa hai nhóm sao cho ra “con đường rộng nhất”. Thiên về học máy cổ điển hơn là mạng nơ-ron.",an:"Mở con đường rộng nhất có thể giữa hai ngôi làng.",good:"Phân loại với ít dữ liệu, dữ liệu bảng, mô hình đường cơ sở",bad:"Kém hiệu quả khi dữ liệu rất nhiều hoặc với ảnh thô",hidden:"Được định nghĩa bằng cách học là tối ưu hóa lề cực đại.",r:[3,5,3]},
+  {name:"Máy Turing nơ-ron",abbr:"NTM",spec:"I3|H2|H2|H3|O1",ntm:1,what:"Gắn bộ nhớ ngoài (các tế bào xanh phía dưới) vào mạng nơ-ron để đọc và ghi. Là nỗ lực dạy mạng học thuật toán.",an:"Học sinh được đưa cuốn vở (bộ nhớ) cho cái đầu (mạng nơ-ron).",good:"Nghiên cứu học thuật toán như sao chép·sắp xếp",bad:"Học rất không ổn định nên hiếm khi được đưa vào thực tế",r:[4,1,1]},
+ ]},
+];
+
+const LBL=["Khả năng biểu diễn","Độ ổn định khi huấn luyện","Mức sử dụng hiện nay"];
+function bars(r){return `<div class="bars">${r.map((v,i)=>`<div class="bar"><label>${LBL[i]}</label><div class="track">${[1,2,3,4,5].map(k=>`<i class="${k<=v?"on":""}"></i>`).join("")}</div><em>${v}/5</em></div>`).join("")}</div>`}
+
+document.getElementById("groups").innerHTML=GROUPS.map(g=>`
+<section class="group"><div class="group-head"><h2>${g.t}</h2><p>${g.d}</p></div>
+<div class="cards">${g.items.map(n=>`
+<article class="card">
+  <div class="card-top"><h3>${n.name}</h3><span class="abbr">${n.abbr}</span></div>
+  <div class="fig">${draw(n)}</div>
+  <p>${n.what}</p>
+  <p class="analogy">${n.an}</p>
+  <p class="uses"><span>Điểm mạnh</span>${n.good}</p>
+  <p class="uses"><span>Điểm yếu</span>${n.bad}</p>
+  ${n.hidden?`<div class="hidden-diff"><b>khác biệt không thấy trên sơ đồ</b> · ${n.hidden}</div>`:""}
+  ${bars(n.r)}
+</article>`).join("")}</div></section>`).join("");
+
+document.getElementById("legend").innerHTML=Object.keys(NAMES).map(t=>`<div><svg width="22" height="22" viewBox="0 0 22 22">${nodeSVG(t,11,11)}</svg>${NAMES[t]}</div>`).join("");
+</script>
+</body>
+</html>

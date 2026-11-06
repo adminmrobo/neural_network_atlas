@@ -1,7 +1,44 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
+<meta charset="utf-8"><!-- i18n:switcher --><style data-i18n-sw>.i18n-pick{display:inline-flex;align-items:center;gap:4px;margin:0 8px;font:inherit;font-size:13px;white-space:nowrap}.i18n-pick select{font:inherit;font-size:13px;padding:3px 6px;border-radius:8px;border:1px solid var(--rule,rgba(128,128,128,.5));background:var(--panel,Canvas);color:var(--text,CanvasText)}.i18n-pick.float{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));right:max(8px,env(safe-area-inset-right,0px));z-index:9998}#i18nBanner{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;font:14px/1.3 var(--font,system-ui,sans-serif)}#i18nBanner>button{border-radius:999px;padding:9px 14px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);color:var(--text,#eceaf3);box-shadow:0 4px 14px rgba(0,0,0,.35);cursor:pointer;font:inherit}#i18nBanner ul{position:absolute;right:0;bottom:calc(100% + 8px);margin:0;padding:6px;list-style:none;min-width:150px;border-radius:12px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);box-shadow:0 8px 24px rgba(0,0,0,.4)}#i18nBanner ul[hidden]{display:none}#i18nBanner a{display:block;padding:7px 10px;border-radius:8px;color:var(--text,#eceaf3);text-decoration:none}#i18nBanner a:hover,#i18nBanner a:focus-visible{background:var(--panel2,#25283a)}#i18nBanner a[aria-current]{color:var(--amber,#f1b646);font-weight:700}@media print{#i18nBanner,.i18n-pick{display:none!important}}</style><script data-i18n-skip>(function(){var C={"langs": [["ko", "한국어"], ["en", "English"], ["zh", "中文"], ["ja", "日本語"], ["uz", "Oʻzbekcha"], ["ru", "Русский"], ["vi", "Tiếng Việt"]], "urls": {"ko": "0_neural_network_essence.html", "en": "0_neural_network_essence.en.html", "zh": "0_neural_network_essence.zh.html", "ja": "0_neural_network_essence.ja.html", "uz": "0_neural_network_essence.uz.html", "ru": "0_neural_network_essence.ru.html", "vi": "0_neural_network_essence.vi.html"}, "cur": "ko", "auto": true, "key": "nn_atlas_lang", "hosts": [["nav.top .logo", "after"], ["nav.top .wrap", "append"], ["nav", "append"]], "banner": true, "select": true},cur=C.cur,ok={},de=document.documentElement;C.langs.forEach(function(l){ok[l[0]]=1});
+function U(l){return C.urls[l]}
+function save(l){try{localStorage.setItem(C.key,l)}catch(e){}}
+function saved(){try{return localStorage.getItem(C.key)}catch(e){return null}}
+function go(l){location.replace(U(l)+'?lang='+l+location.hash)}
+var shown=function(){de.style.visibility=''};
+function tryGo(l){if(location.protocol==='file:'){go(l);return}
+ de.style.visibility='hidden';var t=setTimeout(shown,2500);
+ try{fetch(U(l),{method:'HEAD',cache:'no-store'}).then(function(r){if(r.ok)go(l);else{clearTimeout(t);shown()}},function(){clearTimeout(t);shown()})}catch(e){clearTimeout(t);shown()}}
+var q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q&&ok[q]){save(q);if(q!==cur){tryGo(q);}}
+else if(cur==='ko'&&C.auto){var s=saved(),to=null;
+ if(s&&ok[s]){if(s!=='ko')to=s;}
+ else if(location.protocol!=='file:'){var same=false;try{same=!!document.referrer&&new URL(document.referrer).origin===location.origin}catch(e){}
+  if(!same){var nav=(navigator.languages||[navigator.language||'']).map(function(x){return String(x).slice(0,2).toLowerCase()});
+   for(var i=0;i<nav.length;i++){if(nav[i]==='ko')break;if(ok[nav[i]]){to=nav[i];break;}}}}
+ if(to)tryGo(to);}
+function pick(l){save(l);location.href=U(l)+'?lang='+l+location.hash;}
+function name(l){for(var i=0;i<C.langs.length;i++)if(C.langs[i][0]===l)return C.langs[i][1];return l}
+function mount(){if(document.getElementById('i18nSel'))return;
+ if(C.select){var w=document.createElement('span');w.className='i18n-pick';w.innerHTML='<span aria-hidden="true">🌐</span>';
+  var s=document.createElement('select');s.id='i18nSel';s.setAttribute('aria-label','Language');
+  C.langs.forEach(function(l){var o=document.createElement('option');o.value=l[0];o.textContent=l[1];if(l[0]===cur)o.selected=true;s.appendChild(o);});
+  s.addEventListener('change',function(){pick(s.value)});w.appendChild(s);var put=false;
+  for(var i=0;i<C.hosts.length&&!put;i++){var h=document.querySelector(C.hosts[i][0]);if(!h)continue;var m=C.hosts[i][1];
+   if(m==='after')h.insertAdjacentElement('afterend',w);else if(m==='before')h.insertAdjacentElement('beforebegin',w);else h.appendChild(w);put=true;}
+  if(!put){w.classList.add('float');document.body.appendChild(w);}}
+ if(C.banner&&!document.getElementById('i18nBanner')){var b=document.createElement('div');b.id='i18nBanner';
+  var bt=document.createElement('button');bt.type='button';bt.setAttribute('aria-haspopup','true');bt.setAttribute('aria-expanded','false');bt.textContent='🌐 '+name(cur);
+  var ul=document.createElement('ul');ul.hidden=true;ul.setAttribute('role','menu');
+  C.langs.forEach(function(l){var li=document.createElement('li'),a=document.createElement('a');a.href=U(l[0])+'?lang='+l[0];a.textContent=l[1];a.lang=l[0];a.setAttribute('role','menuitem');
+   if(l[0]===cur)a.setAttribute('aria-current','true');a.addEventListener('click',function(e){e.preventDefault();pick(l[0])});li.appendChild(a);ul.appendChild(li);});
+  function close(){ul.hidden=true;bt.setAttribute('aria-expanded','false')}
+  bt.addEventListener('click',function(e){e.stopPropagation();ul.hidden=!ul.hidden;bt.setAttribute('aria-expanded',String(!ul.hidden))});
+  document.addEventListener('click',function(e){if(!b.contains(e.target))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();bt.focus&&!ul.hidden&&bt.focus()}});
+  b.appendChild(ul);b.appendChild(bt);document.body.appendChild(b);}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();})();</script><!-- /i18n:switcher -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>신경망 구조 도감 · 엣센스</title>
 <meta name="description" content="원본 신경망 구조 차트의 27가지를 하나씩 다시 그리고 쉬운 말로 푼 한 장짜리 엣센스. 신경망 구조 도감 · 초파리 로봇 대전의 출발점.">
@@ -79,6 +116,8 @@ footer{margin-top:40px;font-size:12.5px;color:var(--muted);max-width:80ch}
 @media (max-width:760px){.intro{grid-template-columns:1fr}.cards{grid-template-columns:1fr}}
 
 body{margin:0}
+.bar{grid-template-columns:104px 1fr 22px}.bar label{overflow-wrap:anywhere;line-height:1.25}
+.card-top{flex-wrap:wrap}.card-top h3{min-width:0;overflow-wrap:anywhere}
 nav.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 nav.top .wrap{display:flex;align-items:center;gap:14px;height:52px;padding-block:0}
 nav.top .logo{font-weight:700;white-space:nowrap;font-size:14px;color:var(--ink);text-decoration:none}
@@ -92,6 +131,7 @@ nav.top .links a:hover{background:var(--accent-soft);color:var(--ink)}
 .next a{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 16px;text-decoration:none;color:var(--accent);font-weight:600;font-size:14px}
 @media(max-width:560px){nav.top .logo{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}}
 </style>
+<link rel="alternate" hreflang="ko" href="0_neural_network_essence.html"><link rel="alternate" hreflang="en" href="0_neural_network_essence.en.html"><link rel="alternate" hreflang="zh-CN" href="0_neural_network_essence.zh.html"><link rel="alternate" hreflang="ja" href="0_neural_network_essence.ja.html"><link rel="alternate" hreflang="uz" href="0_neural_network_essence.uz.html"><link rel="alternate" hreflang="ru" href="0_neural_network_essence.ru.html"><link rel="alternate" hreflang="vi" href="0_neural_network_essence.vi.html"><link rel="alternate" hreflang="x-default" href="0_neural_network_essence.html">
 </head>
 <body>
 <nav class="top" aria-label="시리즈 바로가기"><div class="wrap"><a class="logo" href="index.html">신경망 도감 · 로봇 대전 <b>0</b></a><div class="links"><a href="index.html">목차</a><a href="1_neural_network_atlas_chart.html">1 도감 ①</a><a href="2_neural_network_atlas_after.html">2 도감 ②</a><a href="3_fruitfly_robot_rules.html">3 대전 ①</a><a href="4_fruitfly_robot_match.html">4 대전 ②</a></div></div></nav>

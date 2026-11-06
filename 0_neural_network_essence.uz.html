@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8"><!-- i18n:switcher --><style data-i18n-sw>.i18n-pick{display:inline-flex;align-items:center;gap:4px;margin:0 8px;font:inherit;font-size:13px;white-space:nowrap}.i18n-pick select{font:inherit;font-size:13px;padding:3px 6px;border-radius:8px;border:1px solid var(--rule,rgba(128,128,128,.5));background:var(--panel,Canvas);color:var(--text,CanvasText)}.i18n-pick.float{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));right:max(8px,env(safe-area-inset-right,0px));z-index:9998}#i18nBanner{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;font:14px/1.3 var(--font,system-ui,sans-serif)}#i18nBanner>button{border-radius:999px;padding:9px 14px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);color:var(--text,#eceaf3);box-shadow:0 4px 14px rgba(0,0,0,.35);cursor:pointer;font:inherit}#i18nBanner ul{position:absolute;right:0;bottom:calc(100% + 8px);margin:0;padding:6px;list-style:none;min-width:150px;border-radius:12px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);box-shadow:0 8px 24px rgba(0,0,0,.4)}#i18nBanner ul[hidden]{display:none}#i18nBanner a{display:block;padding:7px 10px;border-radius:8px;color:var(--text,#eceaf3);text-decoration:none}#i18nBanner a:hover,#i18nBanner a:focus-visible{background:var(--panel2,#25283a)}#i18nBanner a[aria-current]{color:var(--amber,#f1b646);font-weight:700}@media print{#i18nBanner,.i18n-pick{display:none!important}}</style><script data-i18n-skip>(function(){var C={"langs": [["ko", "한국어"], ["en", "English"], ["zh", "中文"], ["ja", "日本語"], ["uz", "Oʻzbekcha"], ["ru", "Русский"], ["vi", "Tiếng Việt"]], "urls": {"ko": "0_neural_network_essence.html", "en": "0_neural_network_essence.en.html", "zh": "0_neural_network_essence.zh.html", "ja": "0_neural_network_essence.ja.html", "uz": "0_neural_network_essence.uz.html", "ru": "0_neural_network_essence.ru.html", "vi": "0_neural_network_essence.vi.html"}, "cur": "uz", "auto": true, "key": "nn_atlas_lang", "hosts": [["nav.top .logo", "after"], ["nav.top .wrap", "append"], ["nav", "append"]], "banner": true, "select": true},cur=C.cur,ok={},de=document.documentElement;C.langs.forEach(function(l){ok[l[0]]=1});
+function U(l){return C.urls[l]}
+function save(l){try{localStorage.setItem(C.key,l)}catch(e){}}
+function saved(){try{return localStorage.getItem(C.key)}catch(e){return null}}
+function go(l){location.replace(U(l)+'?lang='+l+location.hash)}
+var shown=function(){de.style.visibility=''};
+function tryGo(l){if(location.protocol==='file:'){go(l);return}
+ de.style.visibility='hidden';var t=setTimeout(shown,2500);
+ try{fetch(U(l),{method:'HEAD',cache:'no-store'}).then(function(r){if(r.ok)go(l);else{clearTimeout(t);shown()}},function(){clearTimeout(t);shown()})}catch(e){clearTimeout(t);shown()}}
+var q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q&&ok[q]){save(q);if(q!==cur){tryGo(q);}}
+else if(cur==='ko'&&C.auto){var s=saved(),to=null;
+ if(s&&ok[s]){if(s!=='ko')to=s;}
+ else if(location.protocol!=='file:'){var same=false;try{same=!!document.referrer&&new URL(document.referrer).origin===location.origin}catch(e){}
+  if(!same){var nav=(navigator.languages||[navigator.language||'']).map(function(x){return String(x).slice(0,2).toLowerCase()});
+   for(var i=0;i<nav.length;i++){if(nav[i]==='ko')break;if(ok[nav[i]]){to=nav[i];break;}}}}
+ if(to)tryGo(to);}
+function pick(l){save(l);location.href=U(l)+'?lang='+l+location.hash;}
+function name(l){for(var i=0;i<C.langs.length;i++)if(C.langs[i][0]===l)return C.langs[i][1];return l}
+function mount(){if(document.getElementById('i18nSel'))return;
+ if(C.select){var w=document.createElement('span');w.className='i18n-pick';w.innerHTML='<span aria-hidden="true">🌐</span>';
+  var s=document.createElement('select');s.id='i18nSel';s.setAttribute('aria-label','Language');
+  C.langs.forEach(function(l){var o=document.createElement('option');o.value=l[0];o.textContent=l[1];if(l[0]===cur)o.selected=true;s.appendChild(o);});
+  s.addEventListener('change',function(){pick(s.value)});w.appendChild(s);var put=false;
+  for(var i=0;i<C.hosts.length&&!put;i++){var h=document.querySelector(C.hosts[i][0]);if(!h)continue;var m=C.hosts[i][1];
+   if(m==='after')h.insertAdjacentElement('afterend',w);else if(m==='before')h.insertAdjacentElement('beforebegin',w);else h.appendChild(w);put=true;}
+  if(!put){w.classList.add('float');document.body.appendChild(w);}}
+ if(C.banner&&!document.getElementById('i18nBanner')){var b=document.createElement('div');b.id='i18nBanner';
+  var bt=document.createElement('button');bt.type='button';bt.setAttribute('aria-haspopup','true');bt.setAttribute('aria-expanded','false');bt.textContent='🌐 '+name(cur);
+  var ul=document.createElement('ul');ul.hidden=true;ul.setAttribute('role','menu');
+  C.langs.forEach(function(l){var li=document.createElement('li'),a=document.createElement('a');a.href=U(l[0])+'?lang='+l[0];a.textContent=l[1];a.lang=l[0];a.setAttribute('role','menuitem');
+   if(l[0]===cur)a.setAttribute('aria-current','true');a.addEventListener('click',function(e){e.preventDefault();pick(l[0])});li.appendChild(a);ul.appendChild(li);});
+  function close(){ul.hidden=true;bt.setAttribute('aria-expanded','false')}
+  bt.addEventListener('click',function(e){e.stopPropagation();ul.hidden=!ul.hidden;bt.setAttribute('aria-expanded',String(!ul.hidden))});
+  document.addEventListener('click',function(e){if(!b.contains(e.target))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();bt.focus&&!ul.hidden&&bt.focus()}});
+  b.appendChild(ul);b.appendChild(bt);document.body.appendChild(b);}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();})();</script><!-- /i18n:switcher -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neyron tarmoqlar atlasi · Mohiyat</title>
+<meta name="description" content="Asl jadvaldagi neyron tarmoq tuzilmalarining 27 turini birma-bir qayta chizib, oddiy tilda tushuntirgan bir sahifalik mohiyat. Neyron tarmoqlar atlasi · Meva pashshasi robotlari jangi turkumining boshlanish nuqtasi.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: 실험 노트 — 모눈 바탕 위에 네트워크 카드를 그룹별로 나열, 카드마다 구조도 + 설명 + 상대평가 막대 */
+:root{
+  --bg:#F3F6F8; --paper:#FFFFFF; --ink:#16212B; --muted:#5B6874; --line:#C9D2DA; --edge:#9AA7B3;
+  --accent:#1E55C8; --accent-soft:#E3EBFA; --warn:#B4630C; --warn-soft:#FBEEDD; --grid:rgba(30,85,200,.05);
+  --f-body:"IBM Plex Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --stroke-mark:#1a1a1a;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1419; --paper:#171E25; --ink:#E4EAF0; --muted:#94A2AF; --line:#2B3640; --edge:#4E5C69;
+  --accent:#7FA8FF; --accent-soft:#1C2A44; --warn:#F0A75A; --warn-soft:#33260F; --grid:rgba(127,168,255,.05); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1419; --paper:#171E25; --ink:#E4EAF0; --muted:#94A2AF; --line:#2B3640; --edge:#4E5C69;
+  --accent:#7FA8FF; --accent-soft:#1C2A44; --warn:#F0A75A; --warn-soft:#33260F; --grid:rgba(127,168,255,.05); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:1180px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.25}
+h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.02em}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lede{max-width:66ch;color:var(--muted);margin:12px 0 0}
+.byline{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-top:10px}
+header{display:grid;gap:4px;margin-bottom:32px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.intro{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-bottom:40px}
+.intro>*{min-width:0}
+.intro h2{font-size:18px;margin-bottom:8px}
+.intro p{margin:0 0 10px;max-width:66ch}
+.callout{background:var(--warn-soft);border-color:transparent}
+.callout h2{color:var(--warn)}
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 12px;font-size:13px}
+.legend div{display:flex;align-items:center;gap:8px}
+.legend svg{flex:none}
+.metrics{display:grid;gap:6px;font-size:13.5px;margin:8px 0 0;padding:0;list-style:none}
+.metrics b{font-family:var(--f-mono);font-weight:600;font-size:12px;color:var(--accent)}
+section.group{margin-top:44px}
+.group-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.group-head h2{font-size:22px}
+.group-head p{margin:0;color:var(--muted);font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.card h3{font-size:17px}
+.abbr{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.fig{background:var(--bg);border-radius:8px;padding:10px;overflow-x:auto;display:flex;justify-content:center}
+.fig svg{display:block;max-width:100%;height:auto}
+.card p{margin:0;font-size:14px}
+.analogy{color:var(--muted)}
+.analogy::before{content:"Oʻxshatish  ";font-family:var(--f-mono);font-size:11px;color:var(--accent);letter-spacing:.06em}
+.uses{font-size:13.5px}
+.uses span{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-right:6px}
+.hidden-diff{font-size:13px;background:var(--warn-soft);color:var(--ink);border-radius:6px;padding:6px 10px}
+.hidden-diff b{color:var(--warn);font-weight:700}
+.bars{display:grid;gap:5px;margin-top:auto;padding-top:6px;border-top:1px dashed var(--line)}
+.bar{display:grid;grid-template-columns:76px 1fr 18px;align-items:center;gap:8px;font-size:12px}
+.bar label{color:var(--muted)}
+.track{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.track i{height:7px;border-radius:2px;background:var(--line)}
+.track i.on{background:var(--accent)}
+.bar em{font-family:var(--f-mono);font-style:normal;font-size:11px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.summary{margin-top:48px}
+.summary h2{font-size:22px;margin-bottom:12px}
+.tbl{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:640px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+footer{margin-top:40px;font-size:12.5px;color:var(--muted);max-width:80ch}
+@media (max-width:760px){.intro{grid-template-columns:1fr}.cards{grid-template-columns:1fr}}
+
+body{margin:0}
+.bar{grid-template-columns:104px 1fr 22px}.bar label{overflow-wrap:anywhere;line-height:1.25}
+.card-top{flex-wrap:wrap}.card-top h3{min-width:0;overflow-wrap:anywhere}
+nav.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:14px;height:52px;padding-block:0}
+nav.top .logo{font-weight:700;white-space:nowrap;font-size:14px;color:var(--ink);text-decoration:none}
+@media(max-width:560px){nav.top .logo{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}nav.top .wrap{gap:8px}.i18n-pick{margin:0 2px;flex:none}}nav.top .logo b{color:var(--accent)}
+nav.top .links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+nav.top .links::-webkit-scrollbar{display:none}
+nav.top .links a{flex:none;font-size:13px;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px}
+nav.top .links a:hover{background:var(--accent-soft);color:var(--ink)}
+.essence-note{background:var(--accent-soft);border-radius:10px;padding:12px 16px;font-size:14px;margin:14px 0 0;max-width:80ch}
+.next{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.next a{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 16px;text-decoration:none;color:var(--accent);font-weight:600;font-size:14px}
+@media(max-width:560px){nav.top .logo{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}}
+</style>
+<link rel="alternate" hreflang="ko" href="0_neural_network_essence.html"><link rel="alternate" hreflang="en" href="0_neural_network_essence.en.html"><link rel="alternate" hreflang="zh-CN" href="0_neural_network_essence.zh.html"><link rel="alternate" hreflang="ja" href="0_neural_network_essence.ja.html"><link rel="alternate" hreflang="uz" href="0_neural_network_essence.uz.html"><link rel="alternate" hreflang="ru" href="0_neural_network_essence.ru.html"><link rel="alternate" hreflang="vi" href="0_neural_network_essence.vi.html"><link rel="alternate" hreflang="x-default" href="0_neural_network_essence.html"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap"><style data-i18n-font>body,button,input,select,textarea{font-family:"IBM Plex Sans",system-ui,sans-serif}</style>
+</head>
+<body>
+<nav class="top" aria-label="Turkumga tez oʻtish"><div class="wrap"><a class="logo" href="index.html">Neyron atlas · Robotlar jangi <b>0</b></a><div class="links"><a href="index.html">Mundarija</a><a href="1_neural_network_atlas_chart.html">1 Atlas ①</a><a href="2_neural_network_atlas_after.html">2 Atlas ②</a><a href="3_fruitfly_robot_rules.html">3 Jang ①</a><a href="4_fruitfly_robot_match.html">4 Jang ②</a></div></div></nav>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">0-sahifa · Mohiyat · Yangi boshlovchilar uchun tushuntirish</div>
+  <h1>27 ta neyron tarmoq, birma-bir chizib koʻramiz</h1>
+  <p class="lede">Asl jadvaldagi 27 ta tuzilmaning barchasini qayta chizdik va har biri nima qilishini, qaysi ishda kuchli, qaysisida zaif ekanini oddiy tilda tushuntirdik.</p>
+  <div class="byline">Muallif · Ahn Sangsun (M-Robo kompaniyasi rahbari) · 2026-11-07</div>
+  <p class="essence-note">Bu sahifa turkumning boshlanishi boʻlgan birinchi tushuntirishning deyarli oʻzgarishsiz koʻchirilgan mohiyatidir. Bir sahifada 27 ta tuzilmani koʻrib chiqasiz; batafsil tushuntirish 1·2-sahifalardagi atlasda, unumdorlikni solishtirish oʻyini esa 3·4-sahifalardagi robotlar jangida davom etadi.</p>
+</header>
+
+<div class="intro">
+  <div class="panel callout">
+    <h2>Avval bilib qoʻying: bu jadvalda faqat «ulanish sxemasi» chizilgan</h2>
+    <p>Asl jadval faqat <b>hujayralar (tugunlar) turi va ulanish chiziqlarini</b> koʻrsatadi. Aktivatsiya funksiyasi (signalni qanday egish), yoʻqotish funksiyasi (nimani xato deb hisoblash), oʻrganish usuli (vaznlarni qanday tuzatish) va maʼlumotlar hajmi — bularning hammasi <b>qotirib qoʻyilgandek</b> tushirib qoldirilgan.</p>
+    <p>Shuning uchun bu sahifadagi baholar ham xuddi shu farazga tayanadi: «boshqa shartlar bir xil boʻlsa, <b>faqat ulanish tuzilmasi</b> qaysi ishga qulay?» degan savol solishtiriladi.</p>
+    <p>Biroq ayrim tarmoqlar <b>tuzilmasi bilan emas, aynan shu tushirib qoldirilgan element</b> bilan ajralib turadi. Masalan, RBF rasmda FF bilan bir xil, faqat aktivatsiya funksiyasi boshqacha. Bunday hollarda kartada <b>rasmda koʻrinmaydigan farq</b> deb alohida belgilandi.</p>
+  </div>
+  <div class="panel">
+    <h2>Hujayralar izohi</h2>
+    <div class="legend" id="legend"></div>
+    <ul class="metrics">
+      <li><b>Ifoda kuchi</b> Murakkab qonuniyatlarni qanchalik yaxshi sigʻdira oladi (aniqlik chegarasi)</li>
+      <li><b>Oʻrganish barqarorligi</b> Yangi boshlovchi ishga tushirsa ham yaxshi yaqinlashadimi</li>
+      <li><b>Hozirgi qoʻllanilishi</b> 2026-yilda amaliyot va tadqiqotda qanchalik ishlatiladi</li>
+    </ul>
+    <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0">Yulduzchalar bir xil shartlar faraz qilingan nisbiy baho. Haqiqiy aniqlik maʼlumot va masalaga qarab ancha farq qiladi.</p>
+  </div>
+</div>
+
+<div id="groups"></div>
+
+<section class="summary">
+  <h2>Bir qarashda tanlash</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Qilmoqchi boʻlgan ish</th><th>Avval koʻriladigan tuzilma</th><th>Sababi</th></tr></thead>
+    <tbody>
+      <tr><td>Jadval shaklidagi raqamli maʼlumotlarni tasniflash va bashorat qilish</td><td>DFF (MLP), SVM</td><td>Tuzilmasi sodda va barqaror. Maʼlumot kam boʻlsa, SVM ham kuchli.</td></tr>
+      <tr><td>Tasvirni aniqlash</td><td>DCN + DRN (qoldiq ulanish)</td><td>Konvolyutsiya «yaqin piksellarni birga koʻrish» degan oldindan bilimni tuzilmaga joylaydi.</td></tr>
+      <tr><td>Vaqt qatorlari, sensorlar, gaplar</td><td>LSTM, GRU</td><td>Xotira hujayrasi oʻtmish maʼlumotni uzoq olib yuradi. Hozir Transformer ham koʻp ishlatiladi.</td></tr>
+      <tr><td>Yangi maʼlumot yaratish</td><td>VAE, GAN</td><td>VAE barqaror, GAN esa aniq, lekin uni oʻrgatish qiyin.</td></tr>
+      <tr><td>Shovqinni olib tashlash, anomaliyani topish</td><td>DAE, AE</td><td>Normal maʼlumotni tiklashni oʻrganadi; tiklab boʻlmasa, anomaliya deb qaraydi.</td></tr>
+      <tr><td>Juda chuqur modellar</td><td>DRN</td><td>Qisqa yoʻl ulanishlari tufayli 100 dan ortiq qatlam boʻlsa ham oʻrganadi.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="next"><a href="index.html">← Mundarija</a><a href="1_neural_network_atlas_chart.html">1-sahifa · Neyron tarmoqlar atlasi ① →</a><a href="2_neural_network_atlas_after.html">2-sahifa · Jadvaldan keyingi 15 tur →</a></div>
+<footer>
+  Asl jadval: Stefan Leijnen &amp; Fjodor van Veen, «The Neural Network Zoo», Proceedings 47(1):9 (2020), doi:10.3390/proceedings2020047009, CC BY litsenziyasi. Bu jadvalda keyinchalik asosiy oqimga aylangan Transformer yoʻq (2-sahifada koʻriladi). Transformer ichida ham shu jadvaldagi DFF va qoldiq ulanish (DRN) oʻzgarishsiz mavjud. Diagrammalar asl nusxaga tayanib, soddalashtirib, qaytadan chizildi.
+</footer>
+</div>
+
+<script>
+const COL={I:"#F5C518",B:"#F5C518",N:"#F5C518",H:"#5DC21E",P:"#5DC21E",S:"#5DC21E",O:"#F26A12",M:"#F26A12",R:"#1AA3F0",C:"#1AA3F0",D:"#1AA3F0",K:"#F59CF0",V:"#F59CF0"};
+const MARK={B:"o",P:"o",M:"o",C:"o",V:"o",N:"t",S:"t",D:"t"};
+const NAMES={B:"Teskari kirish hujayrasi",I:"Kirish hujayrasi",N:"Shovqin kirish hujayrasi",H:"Yashirin hujayra",P:"Ehtimolli yashirin hujayra",S:"Spayking yashirin hujayra",O:"Chiqish hujayrasi",M:"Kirish-chiqish moslashtiruvchi hujayra",R:"Rekurrent hujayra",C:"Xotira hujayrasi",D:"Boshqa xotira hujayrasi",K:"Yadro",V:"Konvolyutsiya / pooling"};
+const NS="http://www.w3.org/2000/svg";
+const R=9;
+
+function nodeSVG(t,x,y){
+  let s=`<circle cx="${x}" cy="${y}" r="${R}" fill="${COL[t]}"/>`;
+  if(MARK[t]==="o")s+=`<circle cx="${x}" cy="${y}" r="${R-4}" fill="none" stroke="var(--stroke-mark)" stroke-width="1.2"/>`;
+  if(MARK[t]==="t")s+=`<path d="M${x} ${y-4.5}L${x+4.5} ${y+3.5}L${x-4.5} ${y+3.5}Z" fill="none" stroke="var(--stroke-mark)" stroke-width="1.2"/>`;
+  return s;
+}
+function parse(spec){return spec.split("|").map(l=>{const out=[];l.replace(/([A-Z])(\d+)/g,(_,t,n)=>{for(let i=0;i<+n;i++)out.push(t)});return out})}
+function hash(a,b,c){return ((a*73856093)^(b*19349663)^(c*83492791))>>>0}
+
+function draw(n){
+  if(n.circle)return drawCircle(n.circle);
+  const L=parse(n.spec),gx=38,gy=26,pad=16;
+  const maxN=Math.max(...L.map(l=>l.length));
+  const top=n.loop||n.skip?18:0, extraB=n.ntm?40:0;
+  const W=pad*2+(L.length-1)*gx, H=pad*2+(maxN-1)*gy+top+extraB;
+  const pos=L.map((l,i)=>l.map((t,j)=>({t,x:pad+i*gx,y:top+pad+((maxN-l.length)/2+j)*gy})));
+  let e="",nd="";
+  const mode=i=>Array.isArray(n.edges)?n.edges[i]:(n.edges||"full");
+  for(let i=0;i<L.length-1;i++){
+    if(n.kohonen&&i>0)continue;
+    const targets=n.kohonen?pos.slice(1).flat():pos[i+1];
+    pos[i].forEach((a,ai)=>targets.forEach((b,bi)=>{
+      const m=mode(i);
+      if(m==="local"&&Math.abs(a.y-b.y)>gy*1.05)return;
+      if(m==="sparse"&&hash(i,ai,bi)%3!==0&&!(bi===ai%targets.length))return;
+      if(m==="pair"&&ai!==bi)return;
+      e+=`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/>`;
+    }));
+  }
+  if(n.skip){for(let i=1;i+2<L.length-1;i+=2){const a=pos[i][0],b=pos[i+2][0];e+=`<path d="M${a.x} ${a.y-R}Q${(a.x+b.x)/2} ${a.y-R-28} ${b.x} ${b.y-R}" fill="none"/>`}}
+  if(n.ntm){const src=pos[L.length-2];const my=H-pad;const k=3;const mem=[];
+    for(let j=0;j<k;j++){mem.push({t:"C",x:src[0].x+(j-1)*gx*.9,y:my})}
+    mem.forEach(m=>src.forEach(s=>{e+=`<line x1="${s.x}" y1="${s.y}" x2="${m.x}" y2="${m.y}"/>`}));
+    mem.forEach(m=>nd+=nodeSVG(m.t,m.x,m.y));}
+  pos.flat().forEach(p=>{
+    if(n.loop&&"RCD".includes(p.t))e+=`<path d="M${p.x-5} ${p.y-R+1}C${p.x-9} ${p.y-R-14} ${p.x+9} ${p.y-R-14} ${p.x+5} ${p.y-R+1}" fill="none"/>`;
+    nd+=nodeSVG(p.t,p.x,p.y);
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" width="${W*1.25}" xmlns="${NS}" role="img" aria-label="${n.name} sxemasi"><g stroke="var(--edge)" stroke-width="1.1">${e}</g>${nd}</svg>`;
+}
+function drawCircle(types){
+  const k=types.length,r=58,c=78,S=c*2;
+  const p=types.map((t,i)=>{const a=-Math.PI/2+i*2*Math.PI/k;return{t,x:c+r*Math.cos(a),y:c+r*Math.sin(a)}});
+  let e="";for(let i=0;i<k;i++)for(let j=i+1;j<k;j++)e+=`<line x1="${p[i].x.toFixed(1)}" y1="${p[i].y.toFixed(1)}" x2="${p[j].x.toFixed(1)}" y2="${p[j].y.toFixed(1)}"/>`;
+  return `<svg viewBox="0 0 ${S} ${S}" width="${S*1.1}" xmlns="${NS}" role="img"><g stroke="var(--edge)" stroke-width="1">${e}</g>${p.map(q=>nodeSVG(q.t,q.x.toFixed(1),q.y.toFixed(1))).join("")}</svg>`;
+}
+
+const GROUPS=[
+ {t:"Oddiy toʻgʻri yoʻnalishli neyron tarmoqlar",d:"Signal faqat bir yoʻnalishda — kirishdan chiqishga oqadi.",items:[
+  {name:"Perseptron",abbr:"P",spec:"I2|O1",what:"Kirishlarni vaznga koʻpaytirib qoʻshadi, chegaradan oshsa 1, aks holda 0 chiqaradigan eng kichik neyron tarmoq.",an:"Ball jadvali bilan oʻtdi/oʻtmadi deb ajratadigan bitta hakam.",good:"Bitta toʻgʻri chiziq bilan ajratish mumkin boʻlgan oddiy tasniflash",bad:"XOR kabi toʻgʻri chiziq bilan ajratib boʻlmaydigan masalani prinsipial yecha olmaydi",r:[1,5,1]},
+  {name:"Toʻgʻri yoʻnalishli neyron tarmoq",abbr:"FF",spec:"I2|H2|O1",what:"Kirish va chiqish orasiga bitta yashirin qatlam qoʻyildi. Yashirin qatlam tufayli egri chegaralarni ham chizish mumkin.",an:"Bir necha hakam har biri oʻz fikrini aytadi, rais esa umumlashtiradi.",good:"Kichik hajmdagi nochiziqli tasnif va regressiya",bad:"Qatlami sayoz, murakkab shablonlarda chegarasi bor",r:[2,5,2]},
+  {name:"Radial bazis funksiya tarmogʻi",abbr:"RBF",spec:"I2|H2|O1",what:"FF bilan simlari bir xil. Yashirin hujayra «tayanch nuqtaga qanchalik yaqin»ligini qoʻngʻiroq shaklida (Gauss) hisoblaydi.",an:"Har bir yashirin hujayra bitta tipik mijoz boʻlib, yangi mijoz kimga oʻxshashini oʻlchaydi.",good:"Past oʻlchamli funksiya yaqinlashtirish, interpolyatsiya, tez oʻrganish",bad:"Kirish oʻlchami oshsa, tayanch nuqtalar portlab ketadi",hidden:"Faqat aktivatsiya funksiyasi (Gauss) boshqacha. Bu jadval aktivatsiya funksiyasini qotirib qoʻymaydigan istisno.",r:[2,4,1]},
+  {name:"Chuqur toʻgʻri yoʻnalishli neyron tarmoq",abbr:"DFF",spec:"I3|H4|H4|O2",what:"Yashirin qatlamlar bir necha qavat yigʻilgan FF. Odatda MLP deyiladi va «chuqur oʻrganish»ning boshlanishi hisoblanadi.",an:"Pudratchining pudratchisi: oldingi qatlam yaratgan belgilarni keyingi qatlam qaytadan birlashtiradi.",good:"Jadval maʼlumotlarini bashorat qilish, boshqa modellar ichidagi qism (Transformerdagi FFN)",bad:"Tasvir va ketma-ketlik maʼlumotlarining tuzilmasidan oʻzi foydalana olmaydi",r:[4,4,4]},
+ ]},
+ {t:"Rekurrent neyron tarmoq va xotira",d:"Chiqish yana oʻziga qaytadi (yuqoridagi halqa). Tartib va vaqt bilan ishlaydi.",items:[
+  {name:"rekurrent neyron tarmoq",abbr:"RNN",spec:"I3|R3|R3|O3",loop:1,what:"Oldingi vaqtdagi holatni keyingi vaqtga qaytadan kiritadi. Gap kabi ketma-ketligi bor maʼlumotlarni qayta ishlaydi.",an:"Oldingi gapni eslab, keyingi gapni oʻqiydigan odam. Faqat xotirasi qisqa.",good:"Qisqa vaqt qatorlari, oddiy ketma-ketlik bashorati",bad:"Uzunlashsa, oldingi maʼlumotni unutadi (gradiyent yoʻqolishi)",r:[3,2,2]},
+  {name:"Uzoq-qisqa muddatli xotira",abbr:"LSTM",spec:"I3|C3|C3|O3",loop:1,what:"Xotira hujayrasiga «kirish, unutish, chiqish» degan uchta eshik (gate) oʻrnatib, nimani uzoq eslab qolish va nimani tashlashni tanlaydi.",an:"Daftarchani olib yurib, faqat muhimini yozadigan, keraksiz boʻlsa oʻchiradigan odam.",good:"Uzun vaqt qatorlari, sensor va jarayon maʼlumotlari, ovoz",bad:"Hisobi ogʻir va parallellashtirish qiyin",r:[4,4,3]},
+  {name:"Gate li rekurrent birlik",abbr:"GRU",spec:"I3|D3|D3|O3",loop:1,what:"LSTM eshigini ikkitaga qisqartirgan soddalashtirilgan variant. Samaradorligi oʻxshash, yengilroq.",an:"Daftarcha oʻrniga stiker qogʻoz. Qulay, aksariyat holatlarda yetarli.",good:"Maʼlumoti kam yoki tez oʻrganish kerak boʻlgan vaqt qatorlari",bad:"Juda uzun bogʻliqliklarda LSTM baʼzan sal yaxshiroq",r:[4,4,3]},
+ ]},
+ {t:"Avtoenkoder oilasi",d:"Kirishni tor yoʻlakka siqib, keyin yana yoyib, asl kirishni tiklashni oʻrganadi.",items:[
+  {name:"Avtoenkoder",abbr:"AE",spec:"I4|H2|M4",what:"Oʻrtasini toraytirib, maʼlumotning faqat asosiy mohiyatini qoldiradi. Chiqish kirishga teng boʻlishi uchun oʻrganadi.",an:"Uzun matnni bir qatorga qisqartirib, yana asl matnni tiklab koʻrish mashqi.",good:"Oʻlchamni kamaytirish, anomaliyani aniqlash, belgi ajratib olish",bad:"Yangi maʼlumotni ishonarli qilib yarata olmaydi",r:[3,4,3]},
+  {name:"Variatsion avtoenkoder",abbr:"VAE",spec:"I4|P3|M4",what:"Siqish natijasini bitta nuqta emas, ehtimollik taqsimoti qiladi. Shu taqsimotdan tanlansa, yangi maʼlumot yaratish mumkin.",an:"«Mana bunday tusdagi yuzlar» doirasini oʻrganib, shu doira ichida yangi yuz chizadi.",good:"Generativ model, latent fazoni tadqiq qilish (tasvir yaratish modellarining siqgichi)",bad:"Natija birmuncha xira boʻlib qolishi oson",hidden:"Yoʻqotish funksiyasi (tiklash + taqsimot regulyarizatsiyasi) asosiy farq.",r:[4,3,4]},
+  {name:"Shovqinni tozalovchi avtoenkoder",abbr:"DAE",spec:"N4|H5|M4",what:"Kirishga ataylab shovqin aralashtirib, toza asliyatni tiklashga majbur qiladi.",an:"Dogʻ tushgan notani koʻrib, asl notani topish mashqi.",good:"Shovqinni olib tashlash, chidamli belgilarni oʻrganish (diffuziya modellari tamoyiliga oʻxshaydi)",bad:"Shovqin turini notoʻgʻri tanlasangiz, taʼsiri kichik",r:[3,4,3]},
+  {name:"Siyrak avtoenkoder",abbr:"SAE",spec:"I2|H4|M2",what:"Oʻrtani, aksincha, kengaytiradi, lekin bir vaqtda faqat bir nechta hujayra yonishiga majbur qiladi.",an:"Lugʻati katta, lekin bitta gapda bir necha soʻzgina ishlatiladigan holatga oʻxshaydi.",good:"Izohlanadigan belgilarni topish (katta til modellarini izohlash tadqiqotida faol qoʻllanadi)",bad:"Siyraklik kuchini sozlash qiyin",hidden:"Siyraklik regulyarizatsiyasi (yoʻqotish hadi) asosiy boʻlgani uchun rasmda AEdan ajratish qiyin.",r:[3,3,4]},
+ ]},
+ {t:"Energiya va ehtimolga asoslangan modellar",d:"Qatlamlarga boʻlinmay bir-biriga ulangan yoki ehtimollik bilan yonib-oʻchadigan hujayralardan foydalanadi. Chuqur oʻrganishning dastlabki davridagi bosh qahramon.",items:[
+  {name:"Markov zanjiri",abbr:"MC",circle:"PPPPPPPP".split(""),what:"Faqat hozirgi holatga qarab keyingi holatga oʻtish ehtimoli belgilanadi. Qatʼiy aytganda, neyron tarmoq emas, ehtimollik modeli.",an:"Faqat bugungi ob-havoga qarab ertangisini topish usuli.",good:"Holat oʻtishlarini modellashtirish, oddiy matn yaratish",bad:"Oʻtmishni eslay olmaydi va oʻrganish qobiliyati zaif",r:[1,5,2]},
+  {name:"Hopfield tarmogʻi",abbr:"HN",circle:"BBBBBBBB".split(""),what:"Barcha hujayralar bir-biriga ulangan va saqlangan shablon tomon oʻzi dumalaydi. Assotsiativ xotira qurilmasi.",an:"Qoʻshiqning birinchi misrasini eshitgan zahoti qolgani esga tushishi.",good:"Chala shablonni tiklash, assotsiativ xotira",bad:"Saqlash sigʻimi kichik va baʼzan alohida shablonga tushib qoladi",r:[2,3,1]},
+  {name:"Boltzmann mashinasi",abbr:"BM",circle:"BBBBPPPP".split(""),what:"Hopfieldga ehtimolli yashirin hujayralar qoʻshilgan. Maʼlumotning ehtimollik taqsimotini oʻzini oʻrganishga harakat qiladi.",an:"Zar tashlab, eng ishonarli izohni qidiradigan tergovchi.",good:"Nazariy jihatdan kuchli generativ model",bad:"Hammasi ulangani uchun oʻrganish juda sekin",r:[3,1,1]},
+  {name:"Cheklangan Boltzmann mashinasi",abbr:"RBM",spec:"B4|P5",what:"BMda bir qatlamdagi hujayralar orasidagi ulanishlar uzildi. Shu tufayli oʻrganish amaliy tezlikka chiqdi.",an:"Hamma hamma bilan gaplashadigan majlisni faqat «kirish jamoasi ↔ yashirin jamoa» gaplashadigan qilib tartibga solish.",good:"Tavsiya tizimlari, oldindan oʻqitish",bad:"Hozir yaxshiroq usullar bilan almashtirilgan",r:[3,2,1]},
+  {name:"Chuqur ishonch tarmogʻi",abbr:"DBN",spec:"B4|P3|H4|P3|M4",what:"RBM larni bir necha qavat qoʻyib, har qatlamni oldindan oʻrgatgach, butunini nozik sozlaydi.",an:"Gʻishtni bittalab qotirib terib borish usuli.",good:"2006-yilda chuqur oʻrganishning qayta tiklanishiga turtki",bad:"Hozir deyarli ishlatilmaydi",hidden:"Qatlamma-qatlam oldindan oʻqitish degan oʻrganish tartibi uning kimligini belgilaydi.",r:[4,2,1]},
+ ]},
+ {t:"Konvolyutsion neyron tarmoq",d:"Pushti yadro kichik oynani surib, mahalliy qonuniyatlarni koʻradi. Ulanishlar faqat qoʻshnilar orasida boʻlishi uning xususiyati.",items:[
+  {name:"Chuqur konvolyutsion neyron tarmoq",abbr:"DCN",spec:"I5|K5|V4|V3|V2|H4|H4|O3",edges:["local","local","local","local","full","full","full"],what:"Kichik oyna (yadro) bilan tasvirni koʻzdan kechirib, chiziq → shakl → jism tartibida belgilarni toʻplaydi, soʻng tasniflaydi.",an:"Lupa bilan asta-sekin qarab, jumboq boʻlaklarini terish kabi.",good:"Tasvir tasnifi, nuqson tekshiruvi, tibbiy tasvir",bad:"Umumiy kontekstni (uzoq piksellar orasidagi bogʻliqlikni) kech koʻradi",r:[5,4,4]},
+  {name:"Dekonvolyutsion neyron tarmoq",abbr:"DN",spec:"I3|V3|V4|K5|O5",edges:["local","local","local","local"],what:"DCN ni teskari aylantiradi. Kichik maʼlumotdan katta tasvirni yoyib chiqaradi.",an:"Loyiha xulosasiga qarab chizmani qaytadan chizish.",good:"Tasvir yaratish, apskeyling, tasvirni segmentatsiyalashning tiklash qismi",bad:"Yakka oʻzi ishlatish qiyin, odatda boshqa model bilan juft boʻladi",r:[4,3,3]},
+  {name:"Konvolyutsion teskari grafika tarmogʻi",abbr:"DCIGN",spec:"I5|K5|V4|V3|P3|V3|V4|K5|O5",edges:["local","local","local","full","full","local","local","local"],what:"DCN (kodlovchi) + ehtimollik yashirin qatlami + DN (dekodlovchi). Aslida tasvir uchun VAE.",an:"Suratni «burchak, yorugʻlik, shakl» kabi dastalarga ajratib, dastalarni burib qaytadan chizadi.",good:"Yorugʻlik va pozani oʻzgartirgan tasvir yaratish",bad:"Oʻrganish qiyin va hozir boshqa generativ modellar ustun",r:[4,2,1]},
+ ]},
+ {t:"Generativ va maxsus tuzilmalar",d:"Oʻrganish usuli yoki ulanish usuli betakror tarmoqlar.",items:[
+  {name:"Generativ raqobatchi neyron tarmoq",abbr:"GAN",spec:"B3|H3|H3|M3|H3|H3|M2",what:"Generator soxta yaratadi, diskriminator haqiqiy va soxtani ajratadi. Ikkovi raqobatlashib birga yaxshilanadi.",an:"Soxtakor va ekspertning tugamas bellashuvi.",good:"Aniq tasvir yaratish, maʼlumotni kengaytirish",bad:"Oʻrganish beqaror va xilma-xillik yoʻqolib ketishi oson (mod qulashi)",hidden:"Ikki tarmoqni navbatma-navbat oʻqitadigan oʻrganish usuli asosiy narsa.",r:[5,1,3]},
+  {name:"Suyuq holat mashinasi",abbr:"LSM",spec:"I4|S4|S4|S4|O2",edges:"sparse",what:"Miyadagi kabi elektr impulslar chiqaradigan hujayralarni tasodifiy, puch ulab qoʻyib, faqat chiqish qatlamini oʻrgatadi.",an:"Koʻlmakka tosh otilganda hosil boʻlgan toʻlqin shakliga qarab, qanday tosh ekanini topadi.",good:"Neyromorf chiplar, real vaqt signalini qayta ishlash",bad:"Umumiy vazifalarda aniqligi past",hidden:"Spayk aktivatsiyasi + faqat chiqish qatlamini oʻrganish. Ikkovi ham rasmdan tashqari farq.",r:[3,2,1]},
+  {name:"Ekstremal oʻrganish mashinasi",abbr:"ELM",spec:"I3|H5|H5|O2",edges:"sparse",what:"Yashirin qatlam vaznlarini tasodifiy belgilab, qotirib qoʻyadi. Faqat chiqish qatlamini bir yoʻla hisoblab, tamom qiladi.",an:"Masalliqlarni qanday boʻlsa shunday aralashtirib, faqat oxirgi tuzini aniq tutadigan taom.",good:"Oʻrganish juda tez, kichik hajmli real vaqt masalalari",bad:"Aniqlik yuqori chegarasi past",hidden:"Teskari tarqalishni ishlatmaydigan oʻrganish usuli — farqning butun mohiyati.",r:[2,5,1]},
+  {name:"Aks-sado holati tarmogʻi",abbr:"ESN",spec:"I3|R5|R5|R5|O3",edges:"sparse",what:"Tasodifiy ulangan rekurrent hujayralar toʻplamini (suv ombori) qotirib qoʻyib, faqat chiqish qatlamini oʻrgatadigan RNN.",an:"Aks-sado beruvchi gʻorga ovoz yuborib, faqat aks-sado shablonini oʻqiydi.",good:"Tartibsiz (xaotik) vaqt qatori bashorati, tez vaqt qatori oʻrganish",bad:"Suv ombori sozlama qiymatlariga sezgir",hidden:"Rekurrent qismni oʻrgatmasligi RNN dan farqi.",r:[3,4,2]},
+  {name:"Chuqur qoldiq neyron tarmoq",abbr:"DRN",spec:"I2|H2|H2|H2|H2|H2|H2|O2",skip:1,what:"Har bir necha qatlamda kirishni sakrab oʻtib qoʻshadigan qisqa yoʻl qoʻyilgan. Shu sababli yuzlab qatlam ham oʻrganiladi.",an:"Faqat zinapoyasi bor binoga lift qoʻyilgandek, yuqori qavatgacha maʼlumot yaxshi yetib boradi.",good:"Juda chuqur modellarning umumiy turi (ResNet, Transformer ichida ham shu tuzilma bor)",bad:"Qisqa yoʻlning oʻzi tuzilmaviy oldingi bilimni bermaydi, shuning uchun boshqa tuzilmalar bilan birlashtirib ishlatiladi",r:[5,5,5]},
+  {name:"Kohonen tarmogʻi",abbr:"KN",spec:"I2|H3|H3|H3",kohonen:1,what:"Javobsiz, oʻxshash kirishlarni xarita ustidagi yaqin kataklarga toʻplab joylashtiradi (oʻz-oʻzini tashkil etuvchi xarita).",an:"Kutubxonachi oʻxshash kitoblarni bir javonga qoʻyishi.",good:"Klasterlash, yuqori oʻlchamli maʼlumotni vizuallashtirish",bad:"Bashorat va tasnif aniqligining oʻzi kuchli emas",hidden:"Raqobatli oʻrganish (gʻolib hujayra va qoʻshnilarigina yangilanadi) asosiy narsa.",r:[2,4,2]},
+  {name:"Tayanch vektor mashinasi",abbr:"SVM",spec:"I3|H3|H3|O1",what:"Ikki guruh orasidagi chegara chizigʻini «eng keng yoʻl» chiqadigan qilib chizadi. Neyron tarmoqdan koʻra klassik mashinaviy oʻrganish.",an:"Ikki qishloq orasiga imkon qadar keng yoʻl ochish.",good:"Maʼlumoti kam tasnif, jadval maʼlumotlari, asos (baseline) model",bad:"Maʼlumot juda koʻp yoki xom tasvir uchun samarasiz",hidden:"Maksimal marja optimallashtirish degan oʻrganish usuli bilan taʼriflanadi.",r:[3,5,3]},
+  {name:"Neyron Turing mashinasi",abbr:"NTM",spec:"I3|H2|H2|H3|O1",ntm:1,what:"Neyron tarmoqqa tashqi xotira (pastdagi koʻk hujayralar) ulab, oʻqish va yozish imkonini berdi. Algoritmlarni oʻrganishga urinish.",an:"Boshiga (neyron tarmoq) daftar (xotira) tutqazilgan talaba.",good:"Nusxalash va saralash kabi algoritmlarni oʻrganish tadqiqoti",bad:"Oʻrganishi juda beqaror, amaliyotda kam qoʻllaniladi",r:[4,1,1]},
+ ]},
+];
+
+const LBL=["ifoda kuchi","oʻrganish barqarorligi","hozirgi qoʻllanilishi"];
+function bars(r){return `<div class="bars">${r.map((v,i)=>`<div class="bar"><label>${LBL[i]}</label><div class="track">${[1,2,3,4,5].map(k=>`<i class="${k<=v?"on":""}"></i>`).join("")}</div><em>${v}/5</em></div>`).join("")}</div>`}
+
+document.getElementById("groups").innerHTML=GROUPS.map(g=>`
+<section class="group"><div class="group-head"><h2>${g.t}</h2><p>${g.d}</p></div>
+<div class="cards">${g.items.map(n=>`
+<article class="card">
+  <div class="card-top"><h3>${n.name}</h3><span class="abbr">${n.abbr}</span></div>
+  <div class="fig">${draw(n)}</div>
+  <p>${n.what}</p>
+  <p class="analogy">${n.an}</p>
+  <p class="uses"><span>Kuchli tomoni</span>${n.good}</p>
+  <p class="uses"><span>Zaif tomoni</span>${n.bad}</p>
+  ${n.hidden?`<div class="hidden-diff"><b>sxemada koʻrinmaydigan farq</b> · ${n.hidden}</div>`:""}
+  ${bars(n.r)}
+</article>`).join("")}</div></section>`).join("");
+
+document.getElementById("legend").innerHTML=Object.keys(NAMES).map(t=>`<div><svg width="22" height="22" viewBox="0 0 22 22">${nodeSVG(t,11,11)}</svg>${NAMES[t]}</div>`).join("");
+</script>
+</body>
+</html>

@@ -39,6 +39,7 @@
 | 쪽 | 파일 | 제목 | 내용 |
 |---|---|---|---|
 | 목차 | [`index.html`](index.html) | 신경망 구조 도감 · 초파리 로봇 대전 | 네 쪽 안내, 읽는 순서, 주요 출처 |
+| 0 | [`0_neural_network_essence.html`](0_neural_network_essence.html) | 신경망 27가지, 하나씩 그려 보기 | 시리즈의 출발점이 된 첫 해설입니다. 원본 차트의 27가지 구조를 한 장에 모두 다시 그리고, 무엇을 하는지와 강점·약점, 상대 평가를 쉬운 말로 정리했습니다. |
 | 1 | [`1_neural_network_atlas_chart.html`](1_neural_network_atlas_chart.html) | 신경망 구조 도감 ① 원본 차트의 27가지 | 원본 신경망 구조 차트의 27가지를 여섯 묶음으로 다시 그리고, 무엇을 하는지와 강점·약점을 담담하게 정리합니다. |
 | 2 | [`2_neural_network_atlas_after.html`](2_neural_network_atlas_after.html) | 신경망 구조 도감 ② 그 뒤에 나온 15가지 | 차트 뒤에 나온 트랜스포머, 확산 모델, 맘바, 그래프 신경망 등 15가지와 초파리 뇌 배선도로 만든 모형을 소개합니다. |
 | 3 | [`3_fruitfly_robot_rules.html`](3_fruitfly_robot_rules.html) | 초파리 로봇 대전 ① 이식 규칙과 사양표 | 42가지를 같은 저울에 올리는 규칙을 공개합니다. 사양표, 규칙표, 계산 따라 하기, 전원 체급, 능력치 실험실. |
@@ -56,6 +57,7 @@
 
 ```
 index.html                         목차
+0_neural_network_essence.html      0쪽 · 엣센스
 1_neural_network_atlas_chart.html  1쪽 · 신경망 구조 도감 ①
 2_neural_network_atlas_after.html  2쪽 · 신경망 구조 도감 ②
 3_fruitfly_robot_rules.html        3쪽 · 초파리 로봇 대전 ①
@@ -159,6 +161,7 @@ This series is available in the Korean original and six translated versions.
 | Pages | Files | Title | Content |
 |---|---|---|---|
 | Contents | [`index.html`](index.en.html) | Neural Network Atlas · Fruit Fly Robot Battle | Guide to the four pages, reading order, main sources |
+| 0 | [`0_neural_network_essence.html`](0_neural_network_essence.en.html) | 27 neural networks, drawn one by one | The first explainer that started this series. All 27 structures from the original chart are redrawn on a single page, with what each does, its strengths and weaknesses, and a relative rating in plain words. |
 | 1 | [`1_neural_network_atlas_chart.html`](1_neural_network_atlas_chart.en.html) | Neural Network Atlas ① 27 from the original chart | Redraws the 27 structures in the original neural network chart in six groups, and calmly summarizes what each does and its strengths and weaknesses. |
 | 2 | [`2_neural_network_atlas_after.html`](2_neural_network_atlas_after.en.html) | Neural Network Atlas ② 15 that came after | Introduces 15 structures after the chart, including Transformer, diffusion models, Mamba, and graph neural networks, plus a model built from the fruit fly brain wiring diagram. |
 | 3 | [`3_fruitfly_robot_rules.html`](3_fruitfly_robot_rules.en.html) | Fruit Fly Robot Battle ① install rules and spec sheet | Makes public the rules for putting 42 structures on the same scale: spec sheet, rule table, step-by-step calculation, power classes, and stat lab. |
@@ -176,6 +179,7 @@ On page 4, adding `#m-modelID` to the end of the address opens that model direct
 
 ```
 index.html                         목차
+0_neural_network_essence.html      0쪽 · 엣센스
 1_neural_network_atlas_chart.html  1쪽 · 신경망 구조 도감 ①
 2_neural_network_atlas_after.html  2쪽 · 신경망 구조 도감 ②
 3_fruitfly_robot_rules.html        3쪽 · 초파리 로봇 대전 ①
@@ -279,6 +283,7 @@ This repository is not affiliated with the cited studies or their authors, HHMI 
 | 页 | 文件 | 标题 | 内容 |
 |---|---|---|---|
 | 目录 | [`index.html`](index.zh.html) | 神经网络结构图鉴 · 果蝇机器人对战 | 四页导览、阅读顺序、主要出处 |
+| 0 | [`0_neural_network_essence.html`](0_neural_network_essence.zh.html) | 27种神经网络，逐一画出 | 本系列的起点——最初的那篇讲解。在一页中重新绘制原始图表中的全部27种结构，用通俗的话说明各自的作用、优缺点和相对评价。 |
 | 1 | [`1_neural_network_atlas_chart.html`](1_neural_network_atlas_chart.zh.html) | 神经网络结构图鉴 ① 原始图表的27种 | 将原始神经网络结构图表中的27种分为六组重新绘制，平实地整理各自的用途以及优缺点。 |
 | 2 | [`2_neural_network_atlas_after.html`](2_neural_network_atlas_after.zh.html) | 神经网络结构图鉴 ② 其后出现的 15 种 | 介绍图表之后出现的Transformer、扩散模型、Mamba、图神经网络等15种，以及用果蝇大脑布线图制作的模型。 |
 | 3 | [`3_fruitfly_robot_rules.html`](3_fruitfly_robot_rules.zh.html) | 果蝇机器人对战 ① 植入规则与规格表 | 公开把42种放上同一天平的规则。规格表、规则表、跟着计算、电源级别、能力值实验室。 |
@@ -296,6 +301,7 @@ This repository is not affiliated with the cited studies or their authors, HHMI 
 
 ```
 index.html                         목차
+0_neural_network_essence.html      0쪽 · 엣센스
 1_neural_network_atlas_chart.html  1쪽 · 신경망 구조 도감 ①
 2_neural_network_atlas_after.html  2쪽 · 신경망 구조 도감 ②
 3_fruitfly_robot_rules.html        3쪽 · 초파리 로봇 대전 ①
@@ -399,6 +405,7 @@ docs/KG_00_registry.json           지식 그래프 ID 등록부
 | ページ | ファイル | タイトル | 内容 |
 |---|---|---|---|
 | 目次 | [`index.html`](index.ja.html) | ニューラルネットワーク構造図鑑 · ショウジョウバエロボット対戦 | 4ページの案内、読む順序、主な出典 |
+| 0 | [`0_neural_network_essence.html`](0_neural_network_essence.ja.html) | ニューラルネットワーク27種を一つずつ描く | シリーズの出発点になった最初の解説です。元のチャートの27構造を1ページにすべて描き直し、何をするのか、強み・弱み、相対評価をやさしい言葉でまとめました。 |
 | 1 | [`1_neural_network_atlas_chart.html`](1_neural_network_atlas_chart.ja.html) | ニューラルネットワーク構造図鑑 ① 元のチャートの27種 | 元のニューラルネットワーク構造チャートの27種を六つのまとまりに描き直し、何をするのか、強みと弱みを淡々と整理します。 |
 | 2 | [`2_neural_network_atlas_after.html`](2_neural_network_atlas_after.ja.html) | ニューラルネットワーク構造図鑑 ② その後に登場した15種 | チャートの後に登場した Transformer、拡散モデル、Mamba、グラフニューラルネットワークなど15種と、ショウジョウバエの脳配線図から作ったモデルを紹介します。 |
 | 3 | [`3_fruitfly_robot_rules.html`](3_fruitfly_robot_rules.ja.html) | ショウジョウバエロボット対戦 ① 移植ルールと仕様表 | 42種を同じ天秤に載せるルールを公開します。仕様表、規則表、計算をたどる、電源クラス、能力値実験室。 |
@@ -416,6 +423,7 @@ docs/KG_00_registry.json           지식 그래프 ID 등록부
 
 ```
 index.html                         목차
+0_neural_network_essence.html      0쪽 · 엣센스
 1_neural_network_atlas_chart.html  1쪽 · 신경망 구조 도감 ①
 2_neural_network_atlas_after.html  2쪽 · 신경망 구조 도감 ②
 3_fruitfly_robot_rules.html        3쪽 · 초파리 로봇 대전 ①
@@ -519,6 +527,7 @@ Bu turkumni koreyscha asl nusxada va 6 ta xorijiy tildagi nashrda koʻrish mumki
 | Sahifa | Fayllar | Sarlavha | Mazmun |
 |---|---|---|---|
 | Mundarija | [`index.html`](index.uz.html) | Neyron tarmoqlar atlasi · Meva pashshasi robotlari jangi | Toʻrt sahifa qoʻllanmasi, oʻqish tartibi, asosiy manbalar |
+| 0 | [`0_neural_network_essence.html`](0_neural_network_essence.uz.html) | 27 ta neyron tarmoq, birma-bir chizilgan | Ushbu turkumning boshlanishi bo‘lgan birinchi izoh. Asl jadvaldagi 27 ta tuzilma bitta sahifada qayta chizilgan: har biri nima qiladi, kuchli va zaif tomonlari hamda nisbiy baho oddiy so‘zlar bilan. |
 | 1 | [`1_neural_network_atlas_chart.html`](1_neural_network_atlas_chart.uz.html) | Neyron tarmoqlar atlasi ① Asl jadvaldagi 27 tur | Asl neyron tarmoq tuzilmalari jadvalidagi 27 turni oltita guruhga qayta chizib, nima qilishini hamda kuchli va zaif tomonlarini xotirjam jamlaydi. |
 | 2 | [`2_neural_network_atlas_after.html`](2_neural_network_atlas_after.uz.html) | Neyron tarmoqlar atlasi ② Undan keyin paydo boʻlgan 15 tur | Jadvaldan keyin paydo boʻlgan Transformer, diffuziya modeli, Mamba, graf neyron tarmoq kabi 15 tur va meva pashshasi miyasining sim sxemasidan yasalgan modelni tanishtiradi. |
 | 3 | [`3_fruitfly_robot_rules.html`](3_fruitfly_robot_rules.uz.html) | Meva pashshasi robotlari jangi ① Oʻrnatish qoidalari va xususiyatlar jadvali | 42 turni bir tarozida tortish qoidalarini ochib beradi. Xususiyatlar jadvali, qoidalar jadvali, hisobni bosqichma-bosqich, quvvat toifasi, koʻrsatkichlar laboratoriyasi. |
@@ -536,6 +545,7 @@ Bu turkumni koreyscha asl nusxada va 6 ta xorijiy tildagi nashrda koʻrish mumki
 
 ```
 index.html                         목차
+0_neural_network_essence.html      0쪽 · 엣센스
 1_neural_network_atlas_chart.html  1쪽 · 신경망 구조 도감 ①
 2_neural_network_atlas_after.html  2쪽 · 신경망 구조 도감 ②
 3_fruitfly_robot_rules.html        3쪽 · 초파리 로봇 대전 ①
@@ -639,6 +649,7 @@ Ushbu repozitoriy keltirilgan tadqiqotlar va ularning mualliflari, HHMI Janelia,
 | Страница | Файлы | Название | Содержание |
 |---|---|---|---|
 | Оглавление | [`index.html`](index.ru.html) | Атлас нейросетей · Битва роботов-дрозофил | Путеводитель по четырём страницам, порядок чтения, основные источники |
+| 0 | [`0_neural_network_essence.html`](0_neural_network_essence.ru.html) | 27 нейросетей, нарисованных по одной | Первый разбор, с которого началась эта серия. Все 27 структур исходной схемы перерисованы на одной странице: что делает каждая, сильные и слабые стороны и относительная оценка простыми словами. |
 | 1 | [`1_neural_network_atlas_chart.html`](1_neural_network_atlas_chart.ru.html) | Атлас нейросетей ① 27 архитектур исходной схемы | Перерисовывает 27 архитектур исходной схемы нейросетей в шести группах и спокойно описывает, что они делают, их сильные и слабые стороны. |
 | 2 | [`2_neural_network_atlas_after.html`](2_neural_network_atlas_after.ru.html) | Атлас нейросетей ② 15 архитектур, появившихся позже | Знакомит с 15 архитектурами, появившимися после схемы, — трансформером, диффузионной моделью, Mamba, графовой нейронной сетью и др. — и с моделью, построенной по схеме проводки мозга дрозофилы. |
 | 3 | [`3_fruitfly_robot_rules.html`](3_fruitfly_robot_rules.ru.html) | Битва роботов-дрозофил ① Правила установки и таблица характеристик | Раскрывает правила, по которым 42 архитектуры ставятся на одни весы: таблица характеристик, таблица правил, расчёт по шагам, классы питания, лаборатория характеристик. |
@@ -656,6 +667,7 @@ Ushbu repozitoriy keltirilgan tadqiqotlar va ularning mualliflari, HHMI Janelia,
 
 ```
 index.html                         목차
+0_neural_network_essence.html      0쪽 · 엣센스
 1_neural_network_atlas_chart.html  1쪽 · 신경망 구조 도감 ①
 2_neural_network_atlas_after.html  2쪽 · 신경망 구조 도감 ②
 3_fruitfly_robot_rules.html        3쪽 · 초파리 로봇 대전 ①
@@ -759,6 +771,7 @@ Loạt bài này có thể xem bằng bản gốc tiếng Hàn và 6 bản ngo�
 | Trang | Tệp | Tiêu đề | Nội dung |
 |---|---|---|---|
 | Mục lục | [`index.html`](index.vi.html) | Bách khoa cấu trúc mạng nơ-ron · Đại chiến robot ruồi giấm | Hướng dẫn bốn trang, thứ tự đọc, các nguồn chính |
+| 0 | [`0_neural_network_essence.html`](0_neural_network_essence.vi.html) | 27 mạng nơ-ron, vẽ từng cái một | Bài giải thích đầu tiên đã khởi đầu loạt bài này. Toàn bộ 27 cấu trúc trong biểu đồ gốc được vẽ lại trên một trang, kèm chức năng, điểm mạnh, điểm yếu và đánh giá tương đối bằng lời dễ hiểu. |
 | 1 | [`1_neural_network_atlas_chart.html`](1_neural_network_atlas_chart.vi.html) | Bách khoa cấu trúc mạng nơ-ron ① 27 cấu trúc của biểu đồ gốc | Vẽ lại 27 cấu trúc của biểu đồ cấu trúc mạng nơ-ron gốc thành sáu nhóm, và sắp xếp một cách điềm đạm xem chúng làm gì cùng điểm mạnh·điểm yếu. |
 | 2 | [`2_neural_network_atlas_after.html`](2_neural_network_atlas_after.vi.html) | Bách khoa cấu trúc mạng nơ-ron ② 15 cấu trúc ra đời sau đó | Giới thiệu 15 cấu trúc ra đời sau biểu đồ như Transformer, mô hình khuếch tán, Mamba, mạng nơ-ron đồ thị cùng mô hình làm từ sơ đồ đi dây não ruồi giấm. |
 | 3 | [`3_fruitfly_robot_rules.html`](3_fruitfly_robot_rules.vi.html) | Đại chiến robot ruồi giấm ① Quy tắc cấy ghép và bảng thông số | Công bố quy tắc đặt 42 cấu trúc lên cùng một cái cân. Bảng thông số, bảng quy tắc, tính từng bước, hạng nguồn điện, phòng thí nghiệm chỉ số. |
@@ -776,6 +789,7 @@ Trang 1·2 là giải thích cấu trúc (không có điểm số·chiến đấ
 
 ```
 index.html                         목차
+0_neural_network_essence.html      0쪽 · 엣센스
 1_neural_network_atlas_chart.html  1쪽 · 신경망 구조 도감 ①
 2_neural_network_atlas_after.html  2쪽 · 신경망 구조 도감 ②
 3_fruitfly_robot_rules.html        3쪽 · 초파리 로봇 대전 ①

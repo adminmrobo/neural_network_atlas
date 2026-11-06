@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8"><!-- i18n:switcher --><style data-i18n-sw>.i18n-pick{display:inline-flex;align-items:center;gap:4px;margin:0 8px;font:inherit;font-size:13px;white-space:nowrap}.i18n-pick select{font:inherit;font-size:13px;padding:3px 6px;border-radius:8px;border:1px solid var(--rule,rgba(128,128,128,.5));background:var(--panel,Canvas);color:var(--text,CanvasText)}.i18n-pick.float{position:fixed;top:calc(8px + env(safe-area-inset-top,0px));right:max(8px,env(safe-area-inset-right,0px));z-index:9998}#i18nBanner{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:9999;font:14px/1.3 var(--font,system-ui,sans-serif)}#i18nBanner>button{border-radius:999px;padding:9px 14px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);color:var(--text,#eceaf3);box-shadow:0 4px 14px rgba(0,0,0,.35);cursor:pointer;font:inherit}#i18nBanner ul{position:absolute;right:0;bottom:calc(100% + 8px);margin:0;padding:6px;list-style:none;min-width:150px;border-radius:12px;border:1px solid var(--rule,#363a52);background:var(--panel,#1c1e2d);box-shadow:0 8px 24px rgba(0,0,0,.4)}#i18nBanner ul[hidden]{display:none}#i18nBanner a{display:block;padding:7px 10px;border-radius:8px;color:var(--text,#eceaf3);text-decoration:none}#i18nBanner a:hover,#i18nBanner a:focus-visible{background:var(--panel2,#25283a)}#i18nBanner a[aria-current]{color:var(--amber,#f1b646);font-weight:700}@media print{#i18nBanner,.i18n-pick{display:none!important}}</style><script data-i18n-skip>(function(){var C={"langs": [["ko", "한국어"], ["en", "English"], ["zh", "中文"], ["ja", "日本語"], ["uz", "Oʻzbekcha"], ["ru", "Русский"], ["vi", "Tiếng Việt"]], "urls": {"ko": "0_neural_network_essence.html", "en": "0_neural_network_essence.en.html", "zh": "0_neural_network_essence.zh.html", "ja": "0_neural_network_essence.ja.html", "uz": "0_neural_network_essence.uz.html", "ru": "0_neural_network_essence.ru.html", "vi": "0_neural_network_essence.vi.html"}, "cur": "ja", "auto": true, "key": "nn_atlas_lang", "hosts": [["nav.top .logo", "after"], ["nav.top .wrap", "append"], ["nav", "append"]], "banner": true, "select": true},cur=C.cur,ok={},de=document.documentElement;C.langs.forEach(function(l){ok[l[0]]=1});
+function U(l){return C.urls[l]}
+function save(l){try{localStorage.setItem(C.key,l)}catch(e){}}
+function saved(){try{return localStorage.getItem(C.key)}catch(e){return null}}
+function go(l){location.replace(U(l)+'?lang='+l+location.hash)}
+var shown=function(){de.style.visibility=''};
+function tryGo(l){if(location.protocol==='file:'){go(l);return}
+ de.style.visibility='hidden';var t=setTimeout(shown,2500);
+ try{fetch(U(l),{method:'HEAD',cache:'no-store'}).then(function(r){if(r.ok)go(l);else{clearTimeout(t);shown()}},function(){clearTimeout(t);shown()})}catch(e){clearTimeout(t);shown()}}
+var q=null;try{q=new URLSearchParams(location.search).get('lang')}catch(e){}
+if(q&&ok[q]){save(q);if(q!==cur){tryGo(q);}}
+else if(cur==='ko'&&C.auto){var s=saved(),to=null;
+ if(s&&ok[s]){if(s!=='ko')to=s;}
+ else if(location.protocol!=='file:'){var same=false;try{same=!!document.referrer&&new URL(document.referrer).origin===location.origin}catch(e){}
+  if(!same){var nav=(navigator.languages||[navigator.language||'']).map(function(x){return String(x).slice(0,2).toLowerCase()});
+   for(var i=0;i<nav.length;i++){if(nav[i]==='ko')break;if(ok[nav[i]]){to=nav[i];break;}}}}
+ if(to)tryGo(to);}
+function pick(l){save(l);location.href=U(l)+'?lang='+l+location.hash;}
+function name(l){for(var i=0;i<C.langs.length;i++)if(C.langs[i][0]===l)return C.langs[i][1];return l}
+function mount(){if(document.getElementById('i18nSel'))return;
+ if(C.select){var w=document.createElement('span');w.className='i18n-pick';w.innerHTML='<span aria-hidden="true">🌐</span>';
+  var s=document.createElement('select');s.id='i18nSel';s.setAttribute('aria-label','Language');
+  C.langs.forEach(function(l){var o=document.createElement('option');o.value=l[0];o.textContent=l[1];if(l[0]===cur)o.selected=true;s.appendChild(o);});
+  s.addEventListener('change',function(){pick(s.value)});w.appendChild(s);var put=false;
+  for(var i=0;i<C.hosts.length&&!put;i++){var h=document.querySelector(C.hosts[i][0]);if(!h)continue;var m=C.hosts[i][1];
+   if(m==='after')h.insertAdjacentElement('afterend',w);else if(m==='before')h.insertAdjacentElement('beforebegin',w);else h.appendChild(w);put=true;}
+  if(!put){w.classList.add('float');document.body.appendChild(w);}}
+ if(C.banner&&!document.getElementById('i18nBanner')){var b=document.createElement('div');b.id='i18nBanner';
+  var bt=document.createElement('button');bt.type='button';bt.setAttribute('aria-haspopup','true');bt.setAttribute('aria-expanded','false');bt.textContent='🌐 '+name(cur);
+  var ul=document.createElement('ul');ul.hidden=true;ul.setAttribute('role','menu');
+  C.langs.forEach(function(l){var li=document.createElement('li'),a=document.createElement('a');a.href=U(l[0])+'?lang='+l[0];a.textContent=l[1];a.lang=l[0];a.setAttribute('role','menuitem');
+   if(l[0]===cur)a.setAttribute('aria-current','true');a.addEventListener('click',function(e){e.preventDefault();pick(l[0])});li.appendChild(a);ul.appendChild(li);});
+  function close(){ul.hidden=true;bt.setAttribute('aria-expanded','false')}
+  bt.addEventListener('click',function(e){e.stopPropagation();ul.hidden=!ul.hidden;bt.setAttribute('aria-expanded',String(!ul.hidden))});
+  document.addEventListener('click',function(e){if(!b.contains(e.target))close()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){close();bt.focus&&!ul.hidden&&bt.focus()}});
+  b.appendChild(ul);b.appendChild(bt);document.body.appendChild(b);}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();})();</script><!-- /i18n:switcher -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ニューラルネットワーク構造図鑑・エッセンス</title>
+<meta name="description" content="元のニューラルネットワーク構造チャートにある27種類を一つずつ描き直し、やさしい言葉で解説した1枚のエッセンス。ニューラルネットワーク構造図鑑・ショウジョウバエロボット対戦の出発点です。">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: 실험 노트 — 모눈 바탕 위에 네트워크 카드를 그룹별로 나열, 카드마다 구조도 + 설명 + 상대평가 막대 */
+:root{
+  --bg:#F3F6F8; --paper:#FFFFFF; --ink:#16212B; --muted:#5B6874; --line:#C9D2DA; --edge:#9AA7B3;
+  --accent:#1E55C8; --accent-soft:#E3EBFA; --warn:#B4630C; --warn-soft:#FBEEDD; --grid:rgba(30,85,200,.05);
+  --f-body:"IBM Plex Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --stroke-mark:#1a1a1a;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0F1419; --paper:#171E25; --ink:#E4EAF0; --muted:#94A2AF; --line:#2B3640; --edge:#4E5C69;
+  --accent:#7FA8FF; --accent-soft:#1C2A44; --warn:#F0A75A; --warn-soft:#33260F; --grid:rgba(127,168,255,.05); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1419; --paper:#171E25; --ink:#E4EAF0; --muted:#94A2AF; --line:#2B3640; --edge:#4E5C69;
+  --accent:#7FA8FF; --accent-soft:#1C2A44; --warn:#F0A75A; --warn-soft:#33260F; --grid:rgba(127,168,255,.05); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.65;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:1180px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.25}
+h1{font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.02em}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.lede{max-width:66ch;color:var(--muted);margin:12px 0 0}
+.byline{font-family:var(--f-mono);font-size:12px;color:var(--muted);margin-top:10px}
+header{display:grid;gap:4px;margin-bottom:32px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:20px 22px}
+.intro{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-bottom:40px}
+.intro>*{min-width:0}
+.intro h2{font-size:18px;margin-bottom:8px}
+.intro p{margin:0 0 10px;max-width:66ch}
+.callout{background:var(--warn-soft);border-color:transparent}
+.callout h2{color:var(--warn)}
+.legend{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 12px;font-size:13px}
+.legend div{display:flex;align-items:center;gap:8px}
+.legend svg{flex:none}
+.metrics{display:grid;gap:6px;font-size:13.5px;margin:8px 0 0;padding:0;list-style:none}
+.metrics b{font-family:var(--f-mono);font-weight:600;font-size:12px;color:var(--accent)}
+section.group{margin-top:44px}
+.group-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.group-head h2{font-size:22px}
+.group-head p{margin:0;color:var(--muted);font-size:14px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card-top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.card h3{font-size:17px}
+.abbr{font-family:var(--f-mono);font-size:12px;color:var(--muted);white-space:nowrap}
+.fig{background:var(--bg);border-radius:8px;padding:10px;overflow-x:auto;display:flex;justify-content:center}
+.fig svg{display:block;max-width:100%;height:auto}
+.card p{margin:0;font-size:14px}
+.analogy{color:var(--muted)}
+.analogy::before{content:"たとえ  ";font-family:var(--f-mono);font-size:11px;color:var(--accent);letter-spacing:.06em}
+.uses{font-size:13.5px}
+.uses span{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--muted);margin-right:6px}
+.hidden-diff{font-size:13px;background:var(--warn-soft);color:var(--ink);border-radius:6px;padding:6px 10px}
+.hidden-diff b{color:var(--warn);font-weight:700}
+.bars{display:grid;gap:5px;margin-top:auto;padding-top:6px;border-top:1px dashed var(--line)}
+.bar{display:grid;grid-template-columns:76px 1fr 18px;align-items:center;gap:8px;font-size:12px}
+.bar label{color:var(--muted)}
+.track{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.track i{height:7px;border-radius:2px;background:var(--line)}
+.track i.on{background:var(--accent)}
+.bar em{font-family:var(--f-mono);font-style:normal;font-size:11px;color:var(--muted);text-align:right;font-variant-numeric:tabular-nums}
+.summary{margin-top:48px}
+.summary h2{font-size:22px;margin-bottom:12px}
+.tbl{overflow-x:auto;background:var(--paper);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:640px}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+tr:last-child td{border-bottom:0}
+footer{margin-top:40px;font-size:12.5px;color:var(--muted);max-width:80ch}
+@media (max-width:760px){.intro{grid-template-columns:1fr}.cards{grid-template-columns:1fr}}
+
+body{margin:0}
+.bar{grid-template-columns:104px 1fr 22px}.bar label{overflow-wrap:anywhere;line-height:1.25}
+.card-top{flex-wrap:wrap}.card-top h3{min-width:0;overflow-wrap:anywhere}
+nav.top{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;gap:14px;height:52px;padding-block:0}
+nav.top .logo{font-weight:700;white-space:nowrap;font-size:14px;color:var(--ink);text-decoration:none}
+@media(max-width:560px){nav.top .logo{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}nav.top .wrap{gap:8px}.i18n-pick{margin:0 2px;flex:none}}nav.top .logo b{color:var(--accent)}
+nav.top .links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+nav.top .links::-webkit-scrollbar{display:none}
+nav.top .links a{flex:none;font-size:13px;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:999px}
+nav.top .links a:hover{background:var(--accent-soft);color:var(--ink)}
+.essence-note{background:var(--accent-soft);border-radius:10px;padding:12px 16px;font-size:14px;margin:14px 0 0;max-width:80ch}
+.next{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.next a{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px 16px;text-decoration:none;color:var(--accent);font-weight:600;font-size:14px}
+@media(max-width:560px){nav.top .logo{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}}
+</style>
+<link rel="alternate" hreflang="ko" href="0_neural_network_essence.html"><link rel="alternate" hreflang="en" href="0_neural_network_essence.en.html"><link rel="alternate" hreflang="zh-CN" href="0_neural_network_essence.zh.html"><link rel="alternate" hreflang="ja" href="0_neural_network_essence.ja.html"><link rel="alternate" hreflang="uz" href="0_neural_network_essence.uz.html"><link rel="alternate" hreflang="ru" href="0_neural_network_essence.ru.html"><link rel="alternate" hreflang="vi" href="0_neural_network_essence.vi.html"><link rel="alternate" hreflang="x-default" href="0_neural_network_essence.html"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap"><style data-i18n-font>body,button,input,select,textarea{font-family:"Noto Sans JP",system-ui,sans-serif}</style><style data-i18n-cjk>*{word-break:normal!important;line-break:strict}h1,h2,h3{word-break:auto-phrase!important}</style>
+</head>
+<body>
+<nav class="top" aria-label="シリーズ早見リンク"><div class="wrap"><a class="logo" href="index.html">NN図鑑・ロボット対戦 <b>0</b></a><div class="links"><a href="index.html">目次</a><a href="1_neural_network_atlas_chart.html">1 図鑑①</a><a href="2_neural_network_atlas_after.html">2 図鑑②</a><a href="3_fruitfly_robot_rules.html">3 対戦①</a><a href="4_fruitfly_robot_match.html">4 対戦②</a></div></div></nav>
+
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">0ページ・エッセンス・初心者向け解説</div>
+  <h1>ニューラルネットワーク27種を、一つずつ描いてみる</h1>
+  <p class="lede">元のニューラルネットワーク構造チャートにある27個の構造をすべて描き直し、それぞれが何をするのか、どんな仕事に強くて弱いのかを、やさしい言葉で解説しました。</p>
+  <div class="byline">文・Ahn Sangsun（株式会社M-Robo 代表）・2026-11-07</div>
+  <p class="essence-note">このページは、シリーズの出発点になった最初の解説をほぼそのまま移したエッセンスです。1枚で27種類の構造をざっと見渡し、くわしい説明は1・2ページの図鑑で、性能比べの遊びは3・4ページのロボット対戦で続きます。</p>
+</header>
+
+<div class="intro">
+  <div class="panel callout">
+    <h2>最初に知っておくこと：このチャートは「配線図」だけを描いている</h2>
+    <p>元のチャートが見せているのは、<b>セル（ノード）の種類と接続線</b>だけです。活性化関数（信号をどう折り曲げるか）、損失関数（何を間違いとみなすか）、学習法（重みをどう直すか）、データ量は、すべて<b>固定されているかのように</b>省かれています。</p>
+    <p>そのため、このページの評価も同じ前提に従います。「ほかの条件が同じなら、<b>接続構造だけで</b>どんな仕事に有利か」を比べます。</p>
+    <p>ただし、いくつかは<b>構造ではなく、まさにその省かれた要素</b>で区別されるネットワークです。たとえばRBFは、FFと図がまったく同じで、活性化関数だけが違います。こうした場合、カードに<b>図に見えない違い</b>として別に示しました。</p>
+  </div>
+  <div class="panel">
+    <h2>セルの凡例</h2>
+    <div class="legend" id="legend"></div>
+    <ul class="metrics">
+      <li><b>表現力</b> 複雑なパターンをどれだけうまく収められるか（正解率の上限）</li>
+      <li><b>学習の安定性</b> 初心者が回してもちゃんと収束するか</li>
+      <li><b>現在の活用度</b> 2026年の現場・研究でどれだけ使われているか</li>
+    </ul>
+    <p style="font-size:12.5px;color:var(--muted);margin:8px 0 0">星の数は、同じ条件を仮定した相対評価です。実際の正解率は、データや問題によって大きく変わります。</p>
+  </div>
+</div>
+
+<div id="groups"></div>
+
+<section class="summary">
+  <h2>ひと目で選ぶ</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>やりたいこと</th><th>まず見る構造</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td>表形式の数値データの分類・予測</td><td>DFF (MLP), SVM</td><td>構造がシンプルで安定しています。データが少ないときはSVMも強いです。</td></tr>
+      <tr><td>画像認識</td><td>DCN + DRN（残差接続）</td><td>畳み込みが「近くのピクセル同士を見る」という事前知識を構造に組み込みます。</td></tr>
+      <tr><td>時系列・センサー・文章</td><td>LSTM, GRU</td><td>記憶セルが過去の情報を長く持ち運びます。最近はTransformerもよく使われます。</td></tr>
+      <tr><td>新しいデータの生成</td><td>VAE, GAN</td><td>VAEは安定していて、GANは鮮明ですが学習が難しいです。</td></tr>
+      <tr><td>ノイズ除去・異常検知</td><td>DAE, AE</td><td>正常なデータを復元するやり方を学び、復元できなければ異常とみなします。</td></tr>
+      <tr><td>とても深いモデル</td><td>DRN</td><td>近道の接続のおかげで、100層を超えても学習できます。</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="next"><a href="index.html">← 目次</a><a href="1_neural_network_atlas_chart.html">1ページ・ニューラルネットワーク構造図鑑① →</a><a href="2_neural_network_atlas_after.html">2ページ・チャートの先の15種類 →</a></div>
+<footer>
+  元のチャート：Stefan Leijnen &amp; Fjodor van Veen, "The Neural Network Zoo", Proceedings 47(1):9 (2020), doi:10.3390/proceedings2020047009, CC BYライセンス。このチャートには、その後主流になったTransformerが入っていません（2ページで扱います）。Transformerの内部にも、このチャートのDFFと残差接続（DRN）がそのまま入っています。図は元のチャートを参考に、単純化して新しく描きました。
+</footer>
+</div>
+
+<script>
+const COL={I:"#F5C518",B:"#F5C518",N:"#F5C518",H:"#5DC21E",P:"#5DC21E",S:"#5DC21E",O:"#F26A12",M:"#F26A12",R:"#1AA3F0",C:"#1AA3F0",D:"#1AA3F0",K:"#F59CF0",V:"#F59CF0"};
+const MARK={B:"o",P:"o",M:"o",C:"o",V:"o",N:"t",S:"t",D:"t"};
+const NAMES={B:"逆方向入力セル",I:"入力セル",N:"ノイズ入力セル",H:"隠れセル",P:"確率的隠れセル",S:"スパイキング隠れセル",O:"出力セル",M:"入出力マッチングセル",R:"再帰セル",C:"メモリセル",D:"別のメモリセル",K:"カーネル",V:"畳み込み/プーリング"};
+const NS="http://www.w3.org/2000/svg";
+const R=9;
+
+function nodeSVG(t,x,y){
+  let s=`<circle cx="${x}" cy="${y}" r="${R}" fill="${COL[t]}"/>`;
+  if(MARK[t]==="o")s+=`<circle cx="${x}" cy="${y}" r="${R-4}" fill="none" stroke="var(--stroke-mark)" stroke-width="1.2"/>`;
+  if(MARK[t]==="t")s+=`<path d="M${x} ${y-4.5}L${x+4.5} ${y+3.5}L${x-4.5} ${y+3.5}Z" fill="none" stroke="var(--stroke-mark)" stroke-width="1.2"/>`;
+  return s;
+}
+function parse(spec){return spec.split("|").map(l=>{const out=[];l.replace(/([A-Z])(\d+)/g,(_,t,n)=>{for(let i=0;i<+n;i++)out.push(t)});return out})}
+function hash(a,b,c){return ((a*73856093)^(b*19349663)^(c*83492791))>>>0}
+
+function draw(n){
+  if(n.circle)return drawCircle(n.circle);
+  const L=parse(n.spec),gx=38,gy=26,pad=16;
+  const maxN=Math.max(...L.map(l=>l.length));
+  const top=n.loop||n.skip?18:0, extraB=n.ntm?40:0;
+  const W=pad*2+(L.length-1)*gx, H=pad*2+(maxN-1)*gy+top+extraB;
+  const pos=L.map((l,i)=>l.map((t,j)=>({t,x:pad+i*gx,y:top+pad+((maxN-l.length)/2+j)*gy})));
+  let e="",nd="";
+  const mode=i=>Array.isArray(n.edges)?n.edges[i]:(n.edges||"full");
+  for(let i=0;i<L.length-1;i++){
+    if(n.kohonen&&i>0)continue;
+    const targets=n.kohonen?pos.slice(1).flat():pos[i+1];
+    pos[i].forEach((a,ai)=>targets.forEach((b,bi)=>{
+      const m=mode(i);
+      if(m==="local"&&Math.abs(a.y-b.y)>gy*1.05)return;
+      if(m==="sparse"&&hash(i,ai,bi)%3!==0&&!(bi===ai%targets.length))return;
+      if(m==="pair"&&ai!==bi)return;
+      e+=`<line x1="${a.x}" y1="${a.y}" x2="${b.x}" y2="${b.y}"/>`;
+    }));
+  }
+  if(n.skip){for(let i=1;i+2<L.length-1;i+=2){const a=pos[i][0],b=pos[i+2][0];e+=`<path d="M${a.x} ${a.y-R}Q${(a.x+b.x)/2} ${a.y-R-28} ${b.x} ${b.y-R}" fill="none"/>`}}
+  if(n.ntm){const src=pos[L.length-2];const my=H-pad;const k=3;const mem=[];
+    for(let j=0;j<k;j++){mem.push({t:"C",x:src[0].x+(j-1)*gx*.9,y:my})}
+    mem.forEach(m=>src.forEach(s=>{e+=`<line x1="${s.x}" y1="${s.y}" x2="${m.x}" y2="${m.y}"/>`}));
+    mem.forEach(m=>nd+=nodeSVG(m.t,m.x,m.y));}
+  pos.flat().forEach(p=>{
+    if(n.loop&&"RCD".includes(p.t))e+=`<path d="M${p.x-5} ${p.y-R+1}C${p.x-9} ${p.y-R-14} ${p.x+9} ${p.y-R-14} ${p.x+5} ${p.y-R+1}" fill="none"/>`;
+    nd+=nodeSVG(p.t,p.x,p.y);
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" width="${W*1.25}" xmlns="${NS}" role="img" aria-label="${n.name} 構造図"><g stroke="var(--edge)" stroke-width="1.1">${e}</g>${nd}</svg>`;
+}
+function drawCircle(types){
+  const k=types.length,r=58,c=78,S=c*2;
+  const p=types.map((t,i)=>{const a=-Math.PI/2+i*2*Math.PI/k;return{t,x:c+r*Math.cos(a),y:c+r*Math.sin(a)}});
+  let e="";for(let i=0;i<k;i++)for(let j=i+1;j<k;j++)e+=`<line x1="${p[i].x.toFixed(1)}" y1="${p[i].y.toFixed(1)}" x2="${p[j].x.toFixed(1)}" y2="${p[j].y.toFixed(1)}"/>`;
+  return `<svg viewBox="0 0 ${S} ${S}" width="${S*1.1}" xmlns="${NS}" role="img"><g stroke="var(--edge)" stroke-width="1">${e}</g>${p.map(q=>nodeSVG(q.t,q.x.toFixed(1),q.y.toFixed(1))).join("")}</svg>`;
+}
+
+const GROUPS=[
+ {t:"基本の順方向ニューラルネットワーク",d:"信号は入力から出力へ、一方向にだけ流れます。",items:[
+  {name:"パーセプトロン",abbr:"P",spec:"I2|O1",what:"入力に重みを掛けて足し、基準を超えたら1、そうでなければ0を出す、いちばん小さなニューラルネットワーク。",an:"点数表で合格か不合格かを分ける、審査員が一人。",good:"直線1本で分けられる単純な分類",bad:"XORのように直線では分けられない問題は原理的に解けない",r:[1,5,1]},
+  {name:"順方向ニューラルネットワーク",abbr:"FF",spec:"I2|H2|O1",what:"入力と出力のあいだに隠れ層を1層入れました。隠れ層のおかげで、曲線の境界も描けます。",an:"審査員が何人もいて、それぞれ意見を出し、委員長がまとめます。",good:"小規模な非線形の分類・回帰",bad:"層が浅く、複雑なパターンには限界",r:[2,5,2]},
+  {name:"動径基底関数ネットワーク",abbr:"RBF",spec:"I2|H2|O1",what:"FFと結線は同じ。隠れセルが「基準点からどれくらい近いか」を釣鐘型（ガウス）で計算する。",an:"隠れセルの一つ一つが代表のお客さんで、新しいお客さんが誰に似ているかを測ります。",good:"低次元の関数近似、補間、速い学習",bad:"入力の次元が大きくなると基準点が爆発的に増える",hidden:"違うのは活性化関数（ガウス）だけです。このチャートが活性化関数を固定していない例外です。",r:[2,4,1]},
+  {name:"深い順方向ニューラルネットワーク",abbr:"DFF",spec:"I3|H4|H4|O2",what:"隠れ層を何層も重ねたFF。ふつうMLPと呼ばれ、「ディープラーニング」の出発点です。",an:"下請けの下請け：前の層が作った特徴を、後ろの層がもう一度組み合わせます。",good:"表データの予測、ほかのモデルの内部の部品（Transformerの FFN）",bad:"画像や順序データの構造を自分では活かせません",r:[4,4,4]},
+ ]},
+ {t:"再帰型ニューラルネットワークと記憶",d:"出力がもう一度自分に戻ってきます（上側のループ）。順序と時間を扱います。",items:[
+  {name:"再帰型ニューラルネットワーク",abbr:"RNN",spec:"I3|R3|R3|O3",loop:1,what:"前の時点の状態を次の時点に戻して入れます。文章のように順序のあるデータを扱います。",an:"前の文を覚えながら次の文を読む人。ただし記憶力は短い。",good:"短い時系列、簡単な順序の予測",bad:"長くなると前の情報を忘れる（勾配消失）",r:[3,2,2]},
+  {name:"長短期記憶",abbr:"LSTM",spec:"I3|C3|C3|O3",loop:1,what:"記憶セルに「入力・忘却・出力」の3つの扉（ゲート）を付けて、長く覚えておくものと捨てるものを選びます。",an:"メモ帳を持ち歩き、大事なことだけ書いて、いらなくなったら消す人。",good:"長い時系列、センサー・工程データ、音声",bad:"計算が重く、並列化が難しい",r:[4,4,3]},
+  {name:"ゲート付き再帰ユニット",abbr:"GRU",spec:"I3|D3|D3|O3",loop:1,what:"LSTMのゲートを二つに減らした簡略版。性能はほぼ同じで、より軽いです。",an:"メモ帳の代わりに付箋。手軽だが、たいていは十分。",good:"データが少ないか、速い学習が必要な時系列",bad:"非常に長い依存関係では、LSTMの方がまさる場合もある",r:[4,4,3]},
+ ]},
+ {t:"オートエンコーダ系",d:"入力を狭い通路で圧縮してからまた広げ、元の入力を復元するように学びます。",items:[
+  {name:"オートエンコーダ",abbr:"AE",spec:"I4|H2|M4",what:"真ん中を狭くして、データの核心だけを残させます。出力が入力と同じになるように学習します。",an:"長い文章を一行に要約し、元の文章に書き戻す練習。",good:"次元削減、異常検知、特徴抽出",bad:"新しいデータをもっともらしく作り出すことはできない",r:[3,4,3]},
+  {name:"変分オートエンコーダ",abbr:"VAE",spec:"I4|P3|M4",what:"圧縮した結果を、1点ではなく確率分布にします。その分布から取り出すと、新しいデータを生成できます。",an:"「こんな感じの顔」の範囲を学び、その範囲の中で新しい顔を描きます。",good:"生成モデル、潜在空間の探索（画像生成モデルの圧縮器）",bad:"結果がやや不鮮明になりやすい",hidden:"損失関数（復元 + 分布の正則化）が核心の違いです。",r:[4,3,4]},
+  {name:"ノイズ除去オートエンコーダ",abbr:"DAE",spec:"N4|H5|M4",what:"入力にわざとノイズを混ぜ、きれいな原本を復元させる。",an:"汚れた楽譜を見て、元の楽譜を当てる練習。",good:"ノイズ除去、頑健な特徴の学習（拡散モデルの原理に似ています）",bad:"ノイズの種類を誤ると効果が小さい",r:[3,4,3]},
+  {name:"スパースオートエンコーダ",abbr:"SAE",spec:"I2|H4|M2",what:"真ん中をむしろ広げつつ、一度に少数のセルだけが光るように強制する。",an:"単語辞書は大きいのに、1つの文で使う単語は数個だけ、というのと同じです。",good:"解釈できる特徴の発見（大規模言語モデルの解釈研究で盛んに使われています）",bad:"スパース性の強さの調整が難しい",hidden:"スパース性の正則化（損失項）が肝心なので、図ではAEと見分けにくいです。",r:[3,3,4]},
+ ]},
+ {t:"エネルギー・確率ベースのモデル",d:"層の区別なく互いにつながったり、確率的にオン・オフするセルを使います。ディープラーニング黎明期の主役です。",items:[
+  {name:"マルコフ連鎖",abbr:"MC",circle:"PPPPPPPP".split(""),what:"現在の状態だけを見て、次の状態へ移る確率が決まる。厳密にはニューラルネットワークではなく確率モデルです。",an:"今日の天気だけ見て明日の天気を占う方式。",good:"状態遷移モデリング、簡単なテキスト生成",bad:"過去を覚えておらず、学習能力が弱い",r:[1,5,2]},
+  {name:"ホップフィールドネットワーク",abbr:"HN",circle:"BBBBBBBB".split(""),what:"すべてのセルが互いにつながり、保存されたパターンの方へ自分から転がっていく。連想記憶装置です。",an:"歌の最初の一節を聞くだけで、残りが浮かんでくること。",good:"不完全なパターンの復元、連想記憶",bad:"記憶容量が小さく、見当違いのパターンに陥ることもある",r:[2,3,1]},
+  {name:"ボルツマンマシン",abbr:"BM",circle:"BBBBPPPP".split(""),what:"ホップフィールドに確率的な隠れセルを加えた。データの確率分布そのものを学ぼうとする。",an:"サイコロを振りながら、最もそれらしい説明を探す探偵。",good:"理論的に強力な生成モデル",bad:"すべて結ばれているので学習が非常に遅い",r:[3,1,1]},
+  {name:"制限ボルツマンマシン",abbr:"RBM",spec:"B4|P5",what:"BMから、同じ層どうしの接続を切りました。そのおかげで、学習が実用的な速さになりました。",an:"全員が全員と話していた会議を、「入力チーム↔隠れチーム」だけが話すように整理。",good:"推薦システム、事前学習",bad:"今はより良い方法に置き換えられた",r:[3,2,1]},
+  {name:"深い信念ネットワーク",abbr:"DBN",spec:"B4|P3|H4|P3|M4",what:"RBMを何枚も重ね、一層ずつ先に学習してから全体を微調整する。",an:"レンガを一枚ずつ固めながら積む工法。",good:"2006年のディープラーニング復活のきっかけ",bad:"現在はほとんど使われない",hidden:"層ごとの事前学習という学習手順がアイデンティティです。",r:[4,2,1]},
+ ]},
+ {t:"畳み込みニューラルネットワーク",d:"ピンクのカーネルが小さな窓をずらしながら、局所的なパターンを見ます。接続が隣どうしにしかない点が特徴です。",items:[
+  {name:"深い畳み込みニューラルネットワーク",abbr:"DCN",spec:"I5|K5|V4|V3|V2|H4|H4|O3",edges:["local","local","local","local","full","full","full"],what:"小さな窓（カーネル）で画像をなぞり、線→形→物体の順に特徴を積み上げてから分類します。",an:"虫眼鏡で少しずつ見ながら、パズルのピースをはめていくこと。",good:"画像分類、欠陥検査、医療画像",bad:"全体の文脈（遠くのピクセル同士の関係）は遅れて見る",r:[5,4,4]},
+  {name:"逆畳み込みニューラルネットワーク",abbr:"DN",spec:"I3|V3|V4|K5|O5",edges:["local","local","local","local"],what:"DCNを逆向きに回す。小さな情報から大きな画像を広げていく。",an:"設計の要約書を見て図面を描き直すこと。",good:"画像生成、アップスケーリング、画像セグメンテーションの復元部",bad:"単独では使いにくく、ふつうはほかのモデルと組になる",r:[4,3,3]},
+  {name:"畳み込み逆グラフィックスネットワーク",abbr:"DCIGN",spec:"I5|K5|V4|V3|P3|V3|V4|K5|O5",edges:["local","local","local","full","full","local","local","local"],what:"DCN（エンコーダ）+ 確率的な潜在層 + DN（デコーダ）。事実上、画像用のVAEです。",an:"写真を「角度・照明・形」のようなつまみに分解し、つまみを回してもう一度描きます。",good:"照明や姿勢を変えた画像の生成",bad:"学習が難しく、今では他の生成モデルが優勢",r:[4,2,1]},
+ ]},
+ {t:"生成・特殊構造",d:"学習のしかたや接続のしかたが独特なネットワークたち。",items:[
+  {name:"敵対的生成ネットワーク",abbr:"GAN",spec:"B3|H3|H3|M3|H3|H3|M2",what:"生成器が偽物を作り、判別器が本物と偽物を見分ける。二つが競いながら一緒に良くなる。",an:"偽造犯と鑑定士の終わりなき対決。",good:"鮮明な画像生成、データ拡張",bad:"学習が不安定で、多様性が崩れやすい（モード崩壊）",hidden:"二つのネットワークを交互に訓練する学習方式が核心です。",r:[5,1,3]},
+  {name:"液体状態機械",abbr:"LSM",spec:"I4|S4|S4|S4|O2",edges:"sparse",what:"脳のように電気スパイクを出すセルを、ランダムにゆるくつないでおき、出力層だけを学習します。",an:"池に石を投げたときにできる波の形を見て、どんな石かを当てます。",good:"ニューロモーフィックチップ、リアルタイム信号処理",bad:"一般的な課題の正解率は低めです。",hidden:"スパイク活性 + 出力層だけ学習。どちらも絵の外の違いです。",r:[3,2,1]},
+  {name:"極限学習機",abbr:"ELM",spec:"I3|H5|H5|O2",edges:"sparse",what:"隠れ層の重みをランダムに決めて固定します。出力層だけを一度に計算して終わりです。",an:"材料は適当に混ぜて、最後の味つけだけをきっちり合わせる料理。",good:"学習がとても速い、小規模のリアルタイム問題",bad:"精度の上限が低い",hidden:"誤差逆伝播を使わない学習法の違いがすべてです。",r:[2,5,1]},
+  {name:"エコー状態ネットワーク",abbr:"ESN",spec:"I3|R5|R5|R5|O3",edges:"sparse",what:"ランダムにつながった再帰セルのかたまり（リザーバー）を固定し、出力層だけを学習させるRNN。",an:"こだまする洞窟に音を入れて、こだまのパターンだけを読み取る。",good:"カオス的な時系列の予測、速い時系列学習",bad:"リザーバーの設定値に敏感",hidden:"再帰部分を学習しないという点がRNNとの違いです。",r:[3,4,2]},
+  {name:"深い残差ニューラルネットワーク",abbr:"DRN",spec:"I2|H2|H2|H2|H2|H2|H2|O2",skip:1,what:"数層ごとに入力を飛び越えて足す近道を付けた。そのおかげで数百層でも学習できます。",an:"階段だけだった建物にエレベーターを置き、上の階まで情報がよく届くようにした。",good:"とても深いモデル全般（ResNetや、Transformerの内部もこの構造）",bad:"近道だけでは構造についての事前知識は与えられないので、他の構造と組み合わせて使う",r:[5,5,5]},
+  {name:"コホネンネットワーク",abbr:"KN",spec:"I2|H3|H3|H3",kohonen:1,what:"正解なしに、似た入力どうしを地図上の近いマスに集めて整理する（自己組織化マップ）。",an:"図書館の司書が似た本を同じ棚に並べること。",good:"クラスタリング、高次元データの可視化",bad:"予測・分類の正解率そのものは強くない",hidden:"競争学習（勝ったセルと隣だけ更新）が核心です。",r:[2,4,2]},
+  {name:"サポートベクターマシン",abbr:"SVM",spec:"I3|H3|H3|O1",what:"2つの集団のあいだの境界線を、「いちばん広い道」ができるように引きます。ニューラルネットワークというより古典的な機械学習です。",an:"二つの町の間に、できるだけ広い道を通すこと。",good:"データの少ない分類、表データ、基準線モデル",bad:"データが非常に多い場合や、画像の生データには非効率",hidden:"最大マージン最適化という学習法で定義される。",r:[3,5,3]},
+  {name:"ニューラルチューリングマシン",abbr:"NTM",spec:"I3|H2|H2|H3|O1",ntm:1,what:"ニューラルネットワークに外部メモリ（下の青いセル）をつないで、読み書きできるようにしました。アルゴリズムを学ぼうとする試みです。",an:"頭（ニューラルネットワーク）にノート（メモリ）を持たせた生徒。",good:"コピーや並べ替えのようなアルゴリズム学習の研究",bad:"学習が非常に不安定で、実用化は少ない",r:[4,1,1]},
+ ]},
+];
+
+const LBL=["表現力","学習の安定性","最近の活用度"];
+function bars(r){return `<div class="bars">${r.map((v,i)=>`<div class="bar"><label>${LBL[i]}</label><div class="track">${[1,2,3,4,5].map(k=>`<i class="${k<=v?"on":""}"></i>`).join("")}</div><em>${v}/5</em></div>`).join("")}</div>`}
+
+document.getElementById("groups").innerHTML=GROUPS.map(g=>`
+<section class="group"><div class="group-head"><h2>${g.t}</h2><p>${g.d}</p></div>
+<div class="cards">${g.items.map(n=>`
+<article class="card">
+  <div class="card-top"><h3>${n.name}</h3><span class="abbr">${n.abbr}</span></div>
+  <div class="fig">${draw(n)}</div>
+  <p>${n.what}</p>
+  <p class="analogy">${n.an}</p>
+  <p class="uses"><span>強み</span>${n.good}</p>
+  <p class="uses"><span>弱み</span>${n.bad}</p>
+  ${n.hidden?`<div class="hidden-diff"><b>図に見えない違い</b> · ${n.hidden}</div>`:""}
+  ${bars(n.r)}
+</article>`).join("")}</div></section>`).join("");
+
+document.getElementById("legend").innerHTML=Object.keys(NAMES).map(t=>`<div><svg width="22" height="22" viewBox="0 0 22 22">${nodeSVG(t,11,11)}</svg>${NAMES[t]}</div>`).join("");
+</script>
+</body>
+</html>
