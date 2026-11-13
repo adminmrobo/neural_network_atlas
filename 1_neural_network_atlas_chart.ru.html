@@ -459,7 +459,7 @@ dl.gb dd{margin:0;font-size:13.5px}
 <body>
 <div id="prog" aria-hidden="true"></div>
 <nav class="top" aria-label="Быстрый переход по разделам"><div class="wrap"><a class="logo" href="#hero">Атлас нейросетей · Битва роботов <b>1</b></a><div class="links"><a href="#guide">Перед чтением</a><a href="#a1">1 Прямое распространение</a><a href="#a2">2 Рекуррентные</a><a href="#a3">3 Автокодировщики</a><a href="#a4">4 Энергетические</a><a href="#a5">5 Свёрточные</a><a href="#a6">6 Особые</a><a href="#kg">Указатель знаний</a><a href="#export">Пакет</a></div></div></nav>
-<div class="series" aria-label="Переход по страницам"><div class="wrap"><a href="index.html"><b>≡</b>Оглавление</a><a href="0_neural_network_essence.html"><b>0</b>Суть</a><a href="1_neural_network_atlas_chart.html" aria-current="page"><b>1</b>Атлас ① 27 сетей схемы</a><a href="2_neural_network_atlas_after.html"><b>2</b>Атлас ② 15 сетей после неё</a><span class="sep" aria-hidden="true">|</span><a href="3_fruitfly_robot_rules.html"><b>3</b>Битва ① Правила установки</a><a href="4_fruitfly_robot_match.html"><b>4</b>Битва ② Матчи нейросетей</a></div></div>
+<div class="series" aria-label="Переход по страницам"><div class="wrap"><a href="index.html"><b>≡</b>Оглавление</a><a href="0_neural_network_essence.html"><b>0</b>Суть</a><a href="1_neural_network_atlas_chart.html" aria-current="page"><b>1</b>Атлас ① 27 сетей схемы</a><a href="2_neural_network_atlas_after.html"><b>2</b>Атлас ② 15 сетей после неё</a><span class="sep" aria-hidden="true">|</span><a href="3_fruitfly_robot_rules.html"><b>3</b>Битва ① Правила установки</a><a href="4_fruitfly_robot_match.html"><b>4</b>Битва ② Матчи нейросетей</a><span class="sep" aria-hidden="true">|</span><a href="https://adminmrobo.github.io/ai_in_3d/" target="_blank" rel="noopener"><b>3D</b>Институт нейросетей (на корейском) ↗</a></div></div>
 <!-- lab-cover -->
 <header class="cover sq" id="cover" data-img="cover_01" role="img" aria-label="Четыре персонажа перед большой схемой структур нейросетей из кружков и линий по одной рассматривают всплывающие, словно карточки, схемы. Обложка">
   <div class="cover-in"><div class="fallback"><div class="honey"></div>
@@ -753,6 +753,7 @@ function grade(u){return ['','C','B','A','S','SS'][u]}
 var STL=['ATK','HIT','SPD','EN','MEM'],STK=['оценка','оценка','правило','правило','правило'];
 function statsOf(m){return [m.r[0],m.acc,m.s[0],m.s[1],m.s[2]]}
 function cell(b){return '<td class="'+(b.win?'w':b.noFit?'x':'')+'">'+(b.noFit?'не помещается':pc(b.frac)+'%')+'</td>';}
+var FL3D={"P":1,"FF":2,"DFF":3,"RBF":4,"ELM":5,"MC":6,"SVM":7,"KN":8,"AE":9,"DAE":10,"SAE":11,"DCN":12,"RNN":13,"ESN":14,"GRU":15,"LSTM":16,"LSM":17,"HN":18,"BM":19,"RBM":20,"DBN":21,"DN":22,"DRN":23,"VAE":24,"DCIGN":25,"GAN":26,"NTM":27},L3D="Смотреть в 3D · этаж N (на корейском) ↗";
 function cardHTML(m){
   var E=ENEMY[m.enemy],st=statsOf(m),b=battle(m,'fly');
   var anT=m.an_t==='fly'?'<b>У дрозофилы</b>':'<b class="life">В быту</b>';
@@ -1100,7 +1101,7 @@ function atlasCard(m){
    (m.note?'<div class="hidden-diff"><b>На что обратить внимание при чтении</b> · '+esc(m.note)+'</div>':'')+
    '<div class="mini3" aria-label="Относительная оценка">'+m.r.map(function(v,i){return '<div class="srow"><label>'+BL[i]+'</label><div class="track">'+[1,2,3,4,5].map(function(k){return '<i class="'+(k<=v?'on':'')+'"></i>'}).join('')+'</div><em>'+v+'</em></div>'}).join('')+
    '<p class="basis">Экспертная оценка при одинаковых условиях · максимум 5 баллов</p></div>'+
-   '<a class="tolink" href="'+PAGE.match+'#m-'+m.id+'">Установить эту модель в робота-дрозофилу →</a></article>';}
+   (FL3D[m.abbr]?'<a class="tolink" style="margin-right:14px" href="https://adminmrobo.github.io/ai_in_3d/floors/?f='+FL3D[m.abbr]+'" target="_blank" rel="noopener">'+L3D.replace('N',FL3D[m.abbr])+'</a>':'')+'<a class="tolink" href="'+PAGE.match+'#m-'+m.id+'">Установить эту модель в робота-дрозофилу →</a></article>';}
 
 /* ---------- 격납고 (4-4) ---------- */
 var HG={id:null};

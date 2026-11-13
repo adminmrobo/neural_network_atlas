@@ -459,7 +459,7 @@ dl.gb dd{margin:0;font-size:13.5px}
 <body>
 <div id="prog" aria-hidden="true"></div>
 <nav class="top" aria-label="Jump to section"><div class="wrap"><a class="logo" href="#hero">Neural Network Atlas · Robot Battle <b>1</b></a><div class="links"><a href="#guide">Before reading</a><a href="#a1">1 Feedforward</a><a href="#a2">2 Recurrent</a><a href="#a3">3 Autoencoder</a><a href="#a4">4 Energy</a><a href="#a5">5 Convolutional</a><a href="#a6">6 Special</a><a href="#kg">Knowledge index</a><a href="#export">Package</a></div></div></nav>
-<div class="series" aria-label="Go to page"><div class="wrap"><a href="index.html"><b>≡</b>Contents</a><a href="0_neural_network_essence.html"><b>0</b>Essence</a><a href="1_neural_network_atlas_chart.html" aria-current="page"><b>1</b>Atlas ① 27 from the chart</a><a href="2_neural_network_atlas_after.html"><b>2</b>Atlas ② 15 after the chart</a><span class="sep" aria-hidden="true">|</span><a href="3_fruitfly_robot_rules.html"><b>3</b>Battle ① Install rules</a><a href="4_fruitfly_robot_match.html"><b>4</b>Battle ② Neural network match</a></div></div>
+<div class="series" aria-label="Go to page"><div class="wrap"><a href="index.html"><b>≡</b>Contents</a><a href="0_neural_network_essence.html"><b>0</b>Essence</a><a href="1_neural_network_atlas_chart.html" aria-current="page"><b>1</b>Atlas ① 27 from the chart</a><a href="2_neural_network_atlas_after.html"><b>2</b>Atlas ② 15 after the chart</a><span class="sep" aria-hidden="true">|</span><a href="3_fruitfly_robot_rules.html"><b>3</b>Battle ① Install rules</a><a href="4_fruitfly_robot_match.html"><b>4</b>Battle ② Neural network match</a><span class="sep" aria-hidden="true">|</span><a href="https://adminmrobo.github.io/ai_in_3d/" target="_blank" rel="noopener"><b>3D</b>Neural Network Institute (Korean) ↗</a></div></div>
 <!-- lab-cover -->
 <header class="cover sq" id="cover" data-img="cover_01" role="img" aria-label="Four characters stand before a large neural network structure chart made of circles and lines, looking over structure diagrams that rise up like cards.">
   <div class="cover-in"><div class="fallback"><div class="honey"></div>
@@ -753,6 +753,7 @@ function grade(u){return ['','C','B','A','S','SS'][u]}
 var STL=['ATK','HIT','SPD','EN','MEM'],STK=['Judged','Judged','Rule-based','Rule-based','Rule-based'];
 function statsOf(m){return [m.r[0],m.acc,m.s[0],m.s[1],m.s[2]]}
 function cell(b){return '<td class="'+(b.win?'w':b.noFit?'x':'')+'">'+(b.noFit?'Won\'t fit':pc(b.frac)+'%')+'</td>';}
+var FL3D={"P":1,"FF":2,"DFF":3,"RBF":4,"ELM":5,"MC":6,"SVM":7,"KN":8,"AE":9,"DAE":10,"SAE":11,"DCN":12,"RNN":13,"ESN":14,"GRU":15,"LSTM":16,"LSM":17,"HN":18,"BM":19,"RBM":20,"DBN":21,"DN":22,"DRN":23,"VAE":24,"DCIGN":25,"GAN":26,"NTM":27},L3D="See it in 3D · Floor N (Korean) ↗";
 function cardHTML(m){
   var E=ENEMY[m.enemy],st=statsOf(m),b=battle(m,'fly');
   var anT=m.an_t==='fly'?'<b>In the fruit fly</b>':'<b class="life">In everyday terms</b>';
@@ -1100,7 +1101,7 @@ function atlasCard(m){
    (m.note?'<div class="hidden-diff"><b>Caution when reading</b> · '+esc(m.note)+'</div>':'')+
    '<div class="mini3" aria-label="Relative rating">'+m.r.map(function(v,i){return '<div class="srow"><label>'+BL[i]+'</label><div class="track">'+[1,2,3,4,5].map(function(k){return '<i class="'+(k<=v?'on':'')+'"></i>'}).join('')+'</div><em>'+v+'</em></div>'}).join('')+
    '<p class="basis">Judged values under the same assumed conditions · out of 5</p></div>'+
-   '<a class="tolink" href="'+PAGE.match+'#m-'+m.id+'">Install this model in the fruit fly robot →</a></article>';}
+   (FL3D[m.abbr]?'<a class="tolink" style="margin-right:14px" href="https://adminmrobo.github.io/ai_in_3d/floors/?f='+FL3D[m.abbr]+'" target="_blank" rel="noopener">'+L3D.replace('N',FL3D[m.abbr])+'</a>':'')+'<a class="tolink" href="'+PAGE.match+'#m-'+m.id+'">Install this model in the fruit fly robot →</a></article>';}
 
 /* ---------- 격납고 (4-4) ---------- */
 var HG={id:null};
